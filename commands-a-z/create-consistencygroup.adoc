@@ -1,0 +1,979 @@
+---
+permalink: commands-a-z/create-consistencygroup.html 
+sidebar: sidebar 
+keywords: create, consistency, group 
+summary: El comando create consistencyGroup crea un nuevo grupo de coherencia, vacío, que puede contener grupos Snapshot. Los grupos Snapshot se añaden con el comando set consistencyGroup addCGMember. 
+---
+= Cree un grupo de consistencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create consistencyGroup` el comando crea un nuevo grupo de coherencia vacío que puede contener grupos snapshot. Debe añadir los grupos Snapshot con el `set consistencyGroup addCGMember` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create consistencyGroup userLabel=pass:quotes[_"consistencyGroupName"_]
+[repositoryFullPolicy=(failBaseWrites | purgeSnapImages)]
+[repositoryFullLimit=pass:quotes[_percentValue_]]
+[autoDeleteLimit=pass:quotes[_numberOfSnapImages_]]
+[enableSchedule=(TRUE | FALSE)]
+[schedule (immediate | pass:quotes[_snapSchedule_])]
+[rollbackPriority=(lowest | low | medium | high | highest)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre del nuevo grupo de coherencia que se desea crear. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`repositoryFullPolicy`
+ a| 
+La forma en que se desea que el procesamiento de la Snapshot prosiga si los volúmenes de repositorios Snapshot están llenos. Es posible optar por conmutar escrituras en el volumen base (`failBaseWrites`) o eliminar (purgar) las imágenes snapshot  `purgeSnapImages`). La acción predeterminada es `purgeSnapImages`.
+
+
+
+ a| 
+`repositoryFullLimit`
+ a| 
+El porcentaje de la capacidad del repositorio que debe alcanzarse para que se envíe una advertencia de que el volumen de repositorio Snapshot está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. El valor predeterminado es 75.
+
+
+
+ a| 
+`autoDeleteLimit`
+ a| 
+Es posible configurar cada grupo Snapshot para eliminar automáticamente sus imágenes Snapshot con el fin de mantener el número total de imágenes Snapshot en el grupo Snapshot en o debajo de un nivel determinado. Cuando se habilita esta opción, cada vez que se crea una nueva imagen Snapshot en el grupo Snapshot, el sistema elimina automáticamente la imagen Snapshot más antigua del grupo a fin de cumplir el límite. Esta acción libera capacidad en el repositorio que se puede utilizar para satisfacer los requisitos continuos de copia en escritura para las imágenes Snapshot restantes.
+
+
+
+ a| 
+`enableSchedule`
+ a| 
+Permite activar o desactivar la posibilidad de programar una operación Snapshot. Para activar la programación Snapshot, este parámetro debe configurarse en `TRUE`. Para desactivar la programación Snapshot, este parámetro debe configurarse en `FALSE`.
+
+
+
+ a| 
+`rollBackPriority`
+ a| 
+Determina si se deben asignar recursos del sistema a la operación de reversión aunque se reduzca el rendimiento del sistema. Valor de `high` Indica que la operación de reversión tiene prioridad sobre todas las demás operaciones de I/o del host Valor de `low` Indica que la operación de reversión debe ejecutarse con el menor impacto posible en la actividad de I/o del host
+
+|===
+
+
+== Notas
+
+Un grupo de coherencia es una entidad lógica que permite gestionar en lotes todas las imágenes Snapshot que se añaden a la recogida. El grupo de coherencia es una recogida de grupos Snapshot que tienen requisitos de coherencia mutuos o dependencias para sus imágenes Snapshot. Cualquier imagen Snapshot que se cree y se use para esta recogida debe gestionarse según las dependencias de coherencia.
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Las imágenes Snapshot de un grupo de coherencia pueden deducirse a partir de la existencia de una imagen Snapshot dentro de un grupo de coherencia. Todas las imágenes Snapshot que residen dentro de un grupo de coherencia comparten una Marca de tiempo común y un número de secuencia.
+
+Una operación en un grupo de coherencia de imágenes Snapshot se trata como una solicitud única, y hace que todas las operaciones de I/o en el volumen inicial asociado de cada miembro se depuren y se suspendan antes de crear las imágenes Snapshot. Si no es posible finalizar la creación de las imágenes Snapshot para todos los miembros del grupo de coherencia, la operación falla y no tiene efecto (es decir, no se crean las nuevas imágenes Snapshot).
+
+De acuerdo con este comportamiento, todos los miembros de un grupo de coherencia suelen tener la misma cantidad de imágenes Snapshot. Sin embargo, cuando a un grupo de coherencia se añade un nuevo miembro, este no tiene las imágenes Snapshot que se habían creado previamente en los miembros establecidos del grupo de coherencia. La ausencia de imágenes Snapshot no se considera un error. Las solicitudes posteriores de eliminación o reversión de imágenes Snapshot que solo existen en un subconjunto de los miembros del grupo de coherencia afectan únicamente a los miembros para los que existe la imagen Snapshot especificada.
+
+
+
+== Eliminación automática
+
+Es posible configurar cada grupo Snapshot para eliminar automáticamente las imágenes Snapshot a fin de que la cantidad total de imágenes del grupo sea igual o menor que la cantidad máxima de imágenes. Cuando se alcanza el límite máximo de imágenes Snapshot en el grupo Snapshot, el `autoDeleteLimit` el parámetro elimina automáticamente las imágenes snapshot cada vez que se crea una nueva imagen snapshot en el grupo snapshot. La `autoDeleteLimit` el parámetro elimina las imágenes snapshot más antiguas del grupo snapshot hasta que se cumple la cantidad máxima de imágenes definidas con el parámetro. Esto tiene el efecto de liberar capacidad del repositorio y poder utilizarla para satisfacer los requisitos continuos de copia en escritura de las imágenes Snapshot restantes.
+
+
+
+== Programar imágenes Snapshot en un grupo de coherencia
+
+La `enableSchedule` y la `schedule` los parámetros permiten programar snapshot. Con estos parámetros, puede programar Snapshot diariamente, semanalmente o mensualmente (por día o por fecha). La `enableSchedule` el parámetro activa o desactiva la capacidad para programar snapshot. Cuando se habilita la programación, se debe usar el `schedule` parámetro para definir cuándo deben producirse las snapshot.
+
+En esta tabla se explica cómo utilizar las opciones de `schedule` parámetro:
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`schedule`
+ a| 
+Se requiere para especificar parámetros de programación.
+
+
+
+ a| 
+`immediate`
+ a| 
+Se inicia la operación de inmediato. Este elemento es mutuamente exclusivo con los demás parámetros de programación.
+
+
+
+ a| 
+`enableSchedule`
+ a| 
+Cuando se establece en `true`, la programación está activada. Cuando se establece en `false`, la programación está desactivada.
+
+[NOTE]
+====
+El valor predeterminado es `false`.
+
+====
+
+
+ a| 
+`startDate`
+ a| 
+Fecha específica en la que se inicia la operación. El formato para introducir la fecha es MM:DD:AA. El valor predeterminado es la fecha actual. Un ejemplo de esta opción es `startDate=06:27:11`.
+
+
+
+ a| 
+`scheduleDay`
+ a| 
+Día de la semana en el que se inicia la operación. Puede ser uno o varios de los siguientes valores, o incluso todos:
+
+* `monday`
+* `tuesday`
+* `wednesday`
+* `thursday`
+* `friday`
+* `saturday`
+* `sunday`
+
+
+[NOTE]
+====
+El valor debe escribirse entre paréntesis. Por ejemplo: `scheduleDay=(wednesday)`.
+
+====
+Para especificar varios días, se deben escribir los valores separados por un espacio dentro de un solo conjunto de paréntesis. Por ejemplo: `scheduleDay=(monday wednesday friday)`.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación mensual.
+
+====
+
+
+ a| 
+`startTime`
+ a| 
+Hora del día en la que se inicia la operación. El formato para introducir la hora es HH:MM, donde HH es la hora y MM son los minutos. Se usa un reloj de 24 horas. Por ejemplo, 2:00 de la tarde es 14:00. Un ejemplo de esta opción es `startTime=14:27`.
+
+
+
+ a| 
+`scheduleInterval`
+ a| 
+La cantidad mínima de tiempo, en minutos, que debe transcurrir entre las operaciones.el intervalo de programación no debe ser superior a 1440 (24 horas) y debe ser múltiplo de 30.
+
+Un ejemplo de esta opción es``scheduleInterval=180``.
+
+
+
+ a| 
+`endDate`
+ a| 
+Fecha específica en la que se detiene la operación. El formato para introducir la fecha es MM:DD:AA. Si no se desea ninguna fecha de finalización, puede especificar `noEndDate`. Un ejemplo de esta opción es `endDate=11:26:11`.
+
+
+
+ a| 
+`timesPerDay`
+ a| 
+La cantidad de veces por día que debe ejecutarse la operación. Un ejemplo de esta opción es `timesPerDay=4`.
+
+
+
+ a| 
+`timezone`
+ a| 
+La zona horaria que se usará para la programación. Puede indicarse de dos formas:
+
+* *GMT±HH:MM*
++
+El ajuste de zona horaria con respecto a la hora GMT. Ejemplo: `timezone=GMT-06:00`.
+
+* *Cadena de texto*
++
+Una cadena de texto con la zona horaria estándar, escrita entre comillas. Ejemplo:``timezone="America/Chicago"``
+
+
+
+
+
+ a| 
+`scheduleDate`
+ a| 
+Día del mes en el que se ejecuta la operación. Para indicar los días se usan valores numéricos de 1 a 31.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación semanal.
+
+====
+Un ejemplo de `scheduleDate` la opción es `scheduleDate=("15")`.
+
+
+
+ a| 
+`month`
+ a| 
+Mes específico en el que se ejecuta la operación. Los valores de los meses son:
+
+* `jan` - Enero
+* `feb` - Febrero
+* `mar` - Marzo
+* `apr` - Abril
+* `may` - Mayo
+* `jun` - Junio
+* `jul` - Julio
+* `aug` - Agosto
+* `sep` - Septiembre
+* `oct` - Octubre
+* `nov` - Noviembre
+* `dec` - Diciembre
+
+
+[NOTE]
+====
+El valor debe escribirse entre paréntesis. Por ejemplo: `month=(jan)`.
+
+====
+Para especificar varios meses, se deben escribir los valores separados por un espacio dentro de un solo conjunto de paréntesis. Por ejemplo: `month=(jan jul dec)`.
+
+Use este parámetro con el `scheduleDate` parámetro para realizar la operación en un día específico del mes.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación semanal.
+
+====
+|===
+En esta tabla se explica cómo utilizar la `timeZone` parámetro:
+
+|===
+| Nombre de zona horaria | Diferencia con respecto a GMT 
+
+
+ a| 
+`Etc/GMT+12`
+ a| 
+`GMT-12:00`
+
+
+
+ a| 
+`Etc/GMT+11`
+ a| 
+`GMT-11:00`
+
+
+
+ a| 
+`Pacific/Honolulu`
+ a| 
+`GMT-10:00`
+
+
+
+ a| 
+`America/Anchorage`
+ a| 
+`GMT-09:00`
+
+
+
+ a| 
+`America/Santa_Isabel`
+ a| 
+`GMT-08:00`
+
+
+
+ a| 
+`America/Los_Angeles`
+ a| 
+`GMT-08:00`
+
+
+
+ a| 
+`America/Phoenix`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Chihuahua`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Denver`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Guatemala`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Chicago`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Mexico_City`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Regina`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Bogota`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`America/New_York`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`Etc/GMT+5`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`America/Caracas`
+ a| 
+`GMT-04:30`
+
+
+
+ a| 
+`America/Asuncion`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Halifax`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Cuiaba`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/La_Paz`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Santiago`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/St_Johns`
+ a| 
+`GMT-03:30`
+
+
+
+ a| 
+`America/Sao_Paulo`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Buenos_Aires`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Cayenne`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Godthab`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Montevideo`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`Etc/GMT+2`
+ a| 
+`GMT-02:00`
+
+
+
+ a| 
+`Atlantic/Azores`
+ a| 
+`GMT-01:00`
+
+
+
+ a| 
+`Atlantic/Cape_Verde`
+ a| 
+`GMT-01:00`
+
+
+
+ a| 
+`Africa/Casablanca`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Etc/GMT`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Europe/London`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Atlantic/Reykjavik`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Europe/Berlin`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Budapest`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Paris`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Warsaw`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Africa/Lagos`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Africa/Windhoek`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Asia/Anman`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Beirut`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Africa/Cairo`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Damascus`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Africa/Johannesburg`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Europe/Kiev`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Jerusalem`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Europe/Istanbul`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Europe/Minsk`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Baghdad`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Asia/Riyadh`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Africa/Nairobi`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Asia/Tehran`
+ a| 
+`GMT+03:30`
+
+
+
+ a| 
+`Europe/Moscow`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Dubai`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Baku`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Indian/Mauritius`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Tbilisi`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Yerevan`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Kabul`
+ a| 
+`GMT+04:30`
+
+
+
+ a| 
+`Asia/Karachi`
+ a| 
+`GMT+05:00`
+
+
+
+ a| 
+`Asia//Tashkent`
+ a| 
+`GMT+05:00`
+
+
+
+ a| 
+`Asia/Calcutta`
+ a| 
+`GMT+05:30`
+
+
+
+ a| 
+`Asia/Colombo`
+ a| 
+`GMT+05:30`
+
+
+
+ a| 
+`Asia/Katmandu`
+ a| 
+`GMT+05:45`
+
+
+
+ a| 
+`Asia/Yekaterinburg`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Almaty`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Dhaka`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Rangoon`
+ a| 
+`GMT+06:30`
+
+
+
+ a| 
+`Asia/Novosibirsk`
+ a| 
+`GMT+07:00`
+
+
+
+ a| 
+`Asia/Bangkok`
+ a| 
+`GMT+07:00`
+
+
+
+ a| 
+`Asia/Krasnoyarsk`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Shanghai`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Singapore`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Australia/Perth`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Taipei`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Ulaanbaatar`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Irkutsk`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Asia/Tokyo`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Asia/Seoul`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Australia/Adelaide`
+ a| 
+`GMT+09:30`
+
+
+
+ a| 
+`Australia/Darwin`
+ a| 
+`GMT+09:30`
+
+
+
+ a| 
+`Asia/Yakutsk`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Brisbane`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Sydney`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Pacific/Port Moresby`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Hobart`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Asia/Vladivostok`
+ a| 
+`GMT+11:00`
+
+
+
+ a| 
+`Pacific/Guadalcanal`
+ a| 
+`GMT+11:00`
+
+
+
+ a| 
+`Pacific/Auckland`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Etc/GMT-12`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Pacific/Fiji`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Asia/Kamchatka`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Pacific/Tongatapu`
+ a| 
+`GMT+13:00`
+
+|===
+La cadena de código para definir una programación es similar a estos ejemplos:
+
+[listing]
+----
+enableSchedule=true schedule startTime=14:27
+----
+[listing]
+----
+enableSchedule=true schedule scheduleInterval=180
+----
+[listing]
+----
+enableSchedule=true schedule timeZone=GMT-06:00
+----
+[listing]
+----
+enableSchedule=true schedule timeZone="America/Chicago"
+----
+Si también utiliza la `scheduleInterval` el firmware elige entre `timesPerDay` y la `scheduleInterval` seleccionando el valor más bajo de las dos opciones. El firmware calcula un valor de número entero para `scheduleInterval` opción dividiendo 1440 por un `scheduleInterval` valor de opción definido. Por ejemplo, 1440/180 = 8. A continuación, el firmware compara la `timesPerDay` valor entero con el calculado `scheduleInterval` valor entero y usa el valor más pequeño.
+
+Para eliminar una programación, utilice `delete volume` con el `schedule` parámetro. La `delete volume` con el `schedule` el parámetro solo elimina la programación, no el volumen snapshot.
+
+Al ejecutar una reversión en un grupo de coherencia, la operación predeterminada es revertir todos los miembros del grupo de coherencia. Si no es posible iniciar la reversión correctamente para todos los miembros del grupo de coherencia, la reversión falla y no tiene efecto. No se revierte la imagen Snapshot.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+7.86 añade el `scheduleDate` y la `month` opción.

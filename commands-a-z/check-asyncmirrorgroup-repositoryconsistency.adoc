@@ -1,0 +1,85 @@
+---
+permalink: commands-a-z/check-asyncmirrorgroup-repositoryconsistency.html 
+sidebar: sidebar 
+keywords: check, asynchronous mirror group, consistency 
+summary: El comando check asyncMirrorGroup repositoryConsistency produce un informe basado en el análisis de los datos que se encuentran en el volumen de repositorios subyacente del grupo de reflejos asíncronos especificado. 
+---
+= Compruebe la coherencia de un grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `check asyncMirrorGroup repositoryConsistency` el comando genera un informe basado en el análisis de los datos del volumen del repositorio subyacente del grupo de reflejos asíncronos especificado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+check asyncMirrorGrouppass:quotes[[_asyncMirrorGroupName_]]
+repositoryConsistency localVolume=pass:quotes[[_localVolumeName"_]]
+file=pass:quotes[_"filePath"_]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos en el que se realizará una comprobación de coherencia. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene caracteres especiales o está compuesto solo por números, también se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`repositoryConsistency`
+ a| 
+Especifica que se debe comprobar la coherencia del grupo de reflejos asíncronos.
+
+
+
+ a| 
+`localVolume`
+ a| 
+Especifica el nombre de un volumen local que participa en la relación de reflejo. Se puede especificar un volumen local que sea el origen o el destino de una relación de reflejo. Si el nombre del volumen local contiene caracteres especiales o está compuesto solo por números, también se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardará el informe que se origina como resultado de la comprobación de coherencia. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\repoConsistency.txt"` Este parámetro debe aparecer en último lugar, después de los parámetros opcionales.
+
+|===
+
+
+== Notas
+
+El soporte técnico utiliza el informe generado por este comando para analizar problemas.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/save-controller-arraymanagementsignedcertificate.html 
+sidebar: sidebar 
+keywords: retrieve, installed, server, certificate 
+summary: El comando save Controller arrayManagementSignedCertificate recupera el certificado de servidor instalado para la controladora a fin de que se puedan ver sus detalles. 
+---
+= Recuperar el certificado de servidor instalado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save controller arrayManagementSignedCertificate` el comando recupera el certificado de servidor instalado de la controladora para poder ver los detalles del certificado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+save controller [(a|b)] arrayManagementSignedCertificate
+     file=pass:quotes["_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora en la cual se desea descargar el formulario del certificado firmado. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar el archivo para el cual se desea guardar el archivo de certificado firmado de la controladora.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "save controller [a] arrayManagementSignedCertificate
+   file="C:\controllerAcertificate.cer";"
+
+SMcli -n Array1 -c "save controller [b] arrayManagementSignedCertificate
+   file="C:\controllerBcertificate.cer";"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

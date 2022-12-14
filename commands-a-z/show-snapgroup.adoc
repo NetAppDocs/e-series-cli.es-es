@@ -1,0 +1,151 @@
+---
+permalink: commands-a-z/show-snapgroup.html 
+sidebar: sidebar 
+keywords: show, snapshot, group 
+summary: El comando show snapGroup muestra información acerca de uno o más grupos de imágenes Snapshot. 
+---
+= Mostrar grupo Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show snapGroup` el comando muestra información acerca de uno o más grupos de imágenes snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allSnapGroups | snapGroup pass:quotes[[_snapGroupName_]] |
+snapGroups pass:quotes[["_snapGroupName1_" ... "_snapGroupNamen_"]])
+[summary | schedule]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allSnapGroups`
+ a| 
+El parámetro que muestra información acerca de todos los grupos Snapshot de la cabina de almacenamiento.
+
+
+
+ a| 
+`snapGroup`
+ a| 
+El nombre del grupo Snapshot del que se desea recuperar información. El nombre del grupo Snapshot debe escribirse entre corchetes ([ ]). Si el nombre del grupo Snapshot tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`snapGroups`
+ a| 
+Los nombres de varios grupos Snapshot de los que se desea recuperar información. Para introducir los nombres de los grupos Snapshot, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los grupos Snapshot contienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`summary`
+ a| 
+El parámetro muestra una lista concisa de información acerca de los grupos Snapshot.
+
+
+
+ a| 
+`schedule`
+ a| 
+El parámetro muestra una lista concisa de información acerca de las programaciones de las operaciones de copia del grupo Snapshot.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Este comando muestra información acerca del grupo Snapshot, como se observa en el siguiente ejemplo:
+
+[listing]
+----
+SNAPSHOT GROUP DETAILS
+
+SNAPSHOT GROUPS-----------------------------
+
+SUMMARY
+----
+[listing]
+----
+  Total Snapshot Groups: 1
+  Total Snapshot Images: 0
+  Enabled Snapshot Image Schedules: 0
+  Status: 1 Optimal, 0 Non Optimal
+
+  Name      Type       Status    Associated Base Volume
+  2_SG_01   Standard   Optimal   2
+  Total Repository Capacity  Available Repository Capacity  Snapshot Image Limit
+  10.318 GB                  10.318 GB (100%)               0
+
+  Snapshot Images   Scheduled
+  0                 No
+DETAILS
+
+  Snapshot Group "2_SG_01"
+
+   Status:  Optimal
+   Type:    Standard
+   Associated base volume: 2
+   Cluster size: 65,536 bytes
+
+   Repository
+
+    Total repository volumes: 3
+    Aggregate repository status: Optimal
+    Total repository capacity:   10.318 GB
+    Used capacity:           0.000 MB (0%)
+    Available repository capacity: 10.318 GB (100%)
+    Repository full policy:    Auto-purge Snapshot Images
+    Utilization alert threshold: 75%
+
+   Snapshot images
+
+    Total Snapshot images: 0
+    Auto-delete Snapshot images: Disabled
+    Snapshot image schedule:   Not Applicable
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

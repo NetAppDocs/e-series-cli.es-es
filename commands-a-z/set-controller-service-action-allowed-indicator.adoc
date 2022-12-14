@@ -1,0 +1,68 @@
+---
+permalink: commands-a-z/set-controller-service-action-allowed-indicator.html 
+sidebar: sidebar 
+keywords: set, controller, service, action, allowed, indicator 
+summary: El comando set Controller activa o desactiva la luz indicadora de permiso de acción de servicio en un soporte de controladoras o un soporte de controladora-unidad 
+---
+= Configurar indicador de permiso de acción de servicio de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set controller` El comando enciende o apaga la luz indicadora de permiso de acción de servicio en un soporte de controladoras o un soporte de controladora-unidad
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700 y E5600.
+
+
+
+== Contexto
+
+Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error. (Para encender o apagar la luz indicadora en el contenedor de alimentación-ventilador o el contenedor de interconexión-batería, utilice `set tray serviceAllowedIndicator` ).
+
+[NOTE]
+====
+Este comando es válido solo para E2700, E5600 o EF560 (y otras generaciones anteriores de controladoras E-Series o EF-Series). El soporte de controladoras E2800 tiene un único indicador de atención que se encenderá solo cuando 1) exista un fallo y 2) el componente que falló pueda quitarse de manera segura.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+set controller [(a| b)]
+serviceAllowedIndicator=(on | off)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora que tiene la luz indicadora de permiso de acción de servicio que se desea encender o apagar. Los identificadores válidos de la controladora son los siguientes `a` o. `b` , donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, su firmware devuelve un error de sintaxis.
+
+
+
+ a| 
+`serviceAllowedIndicator`
+ a| 
+La opción para encender o apagar la luz indicadora de permiso de acción de servicio. Para encenderla, configure este parámetro como `on`. Para apagarla, configure este parámetro como `off`.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.14

@@ -1,0 +1,62 @@
+---
+permalink: commands-a-z/create-hostgroup.html 
+sidebar: sidebar 
+keywords: create, host group 
+summary: El comando create hostGroup crea un nuevo grupo de hosts. 
+---
+= Crear grupo de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create hostGroup` el comando crea un nuevo grupo de hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create hostGroup userLabel=pass:quotes[_"hostGroupName"_]
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se desea asignar al grupo de hosts que se va a crear. El nombre del grupo de hosts debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

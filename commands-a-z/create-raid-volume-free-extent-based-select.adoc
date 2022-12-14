@@ -1,0 +1,253 @@
+---
+permalink: commands-a-z/create-raid-volume-free-extent-based-select.html 
+sidebar: sidebar 
+keywords: create, raid, volume, free, extent, based, select 
+summary: El comando create volume crea un volumen en el espacio libre de un grupo de volúmenes. 
+---
+= Crear volumen RAID (selección según extensiones libres)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create volume` el comando crea un volumen en el espacio libre de un grupo de volúmenes.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create volume volumeGroup=pass:quotes[_"volumeGroupName"_
+userLabel="_volumeName"_]
+[freeCapacityArea=pass:quotes[_freeCapacityIndexNumber_]]
+[capacity=pass:quotes[_volumeCapacity_]]
+[owner=(a|b)]
+[mapping=(none | default)]
+[cacheReadPrefetch=(TRUE | FALSE)]
+[segmentSize=pass:quotes[_segmentSizeValue_]]
+[usageHint=(fileSystem | dataBase | multiMedia)]
+[dssPreAllocate=(TRUE | FALSE)]
+[securityType=(none | capable | enabled)]
+[dataAssurance=(none | enabled)]
+[blockSize=blockSizeValue]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre de un grupo de volúmenes específico de la cabina de almacenamiento. El nombre del grupo de volúmenes debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se desea otorgar al nuevo volumen. El nombre del nuevo volumen debe escribirse entre comillas dobles (" ").
+
+[NOTE]
+====
+Este parámetro es obligatorio.
+
+====
+
+
+ a| 
+`freeCapacityArea`
+ a| 
+El número de índice del espacio libre en el grupo de volúmenes existentes que se desea usar para crear el nuevo volumen. La capacidad libre es la capacidad libre en los volúmenes existentes de un grupo de volúmenes. Por ejemplo, un grupo de volúmenes puede incluir las siguientes áreas: Volumen 1, capacidad libre, volumen 2, capacidad libre, volumen 3, capacidad libre. Para usar la capacidad libre después del volumen 2, se debe introducir el siguiente número de índice:
+
+`freeCapacityArea=2`
+
+[NOTE]
+====
+Ejecute el `show volumeGroup` comando para determinar si existe el área de capacidad libre.
+
+====
+[NOTE]
+====
+Si no se especifica este parámetro, el volumen se crea en el área de capacidad libre con el número más bajo y suficiente capacidad para el volumen.
+
+====
+
+
+ a| 
+`capacity`
+ a| 
+El tamaño del volumen que se añadirá a la cabina de almacenamiento. El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora propietaria del volumen. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Si no se especifica un propietario, el firmware de la controladora lo determina.
+
+
+
+ a| 
+`cacheReadPrefetch`
+ a| 
+El ajuste para activar o desactivar la captura previa de lectura de caché. Para activar la captura previa de lectura de caché, este parámetro debe configurarse en `TRUE`. Para desactivar la captura previa de lectura de caché, este parámetro debe configurarse en `FALSE`.
+
+
+
+ a| 
+`segmentSize`
+ a| 
+La cantidad de datos (en KB) que la controladora escribe en una sola unidad de un volumen antes de escribir datos en la siguiente unidad. Los valores válidos son `8`, `16`, `32`, `64`, `128`, `256`, o. `512`.
+
+
+
+ a| 
+`usageHint`
+ a| 
+La configuración de ambos `cacheReadPrefetch` y la `segmentSize` parámetro para que sea valores predeterminados. Los valores predeterminados se basan en el patrón de uso de I/o típico de la aplicación que utiliza el volumen. Los valores válidos son `fileSystem`, `dataBase`, o. `multiMedia`.
+
+
+
+ a| 
+`dssPreAllocate`
+ a| 
+El ajuste para garantizar que se asigne capacidad de reserva para futuros aumentos de tamaño de los segmentos. El valor predeterminado es `TRUE`.
+
+
+
+ a| 
+`securityType`
+ a| 
+El ajuste para especificar el nivel de seguridad cuando se crean los grupos de volúmenes y todos los volúmenes asociados. Los ajustes válidos son los siguientes:
+
+`none` -- el grupo de volúmenes y los volúmenes no están protegidos.
+
+`capable` -- el grupo de volúmenes y los volúmenes pueden tener la configuración de seguridad, pero la seguridad no está habilitada.
+
+`enabled` -- el grupo de volúmenes y los volúmenes tienen la seguridad habilitada.
+
+
+
+ a| 
+`mapping`
+ a| 
+Este parámetro permite asignar el volumen a un host. Si se prefiere realizar la asignación más tarde, el parámetro debe configurarse en `none`. Si se prefiere realizar la asignación en el momento, el parámetro debe configurarse en `default`. El volumen se asignará a todos los hosts que tengan acceso al pool de almacenamiento. El valor predeterminado es `none`.
+
+
+
+ a| 
+`blockSize`
+ a| 
+Este parámetro configura el tamaño de bloque del volumen que se está creando. Un valor de 0 o el parámetro no configurado utiliza el tamaño de bloque predeterminado.
+
+|===
+
+
+== Notas
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+La `owner` el parámetro define qué controladora es propietaria del volumen. La propiedad de controladora preferida de un volumen es la controladora a la que actualmente pertenece el grupo de volúmenes.
+
+Si no se especifica una capacidad con el `capacity` parámetro, se utiliza toda la capacidad disponible en el área de capacidad libre del grupo de volúmenes. Si no se especifican unidades de capacidad, `bytes` se utiliza como valor predeterminado.
+
+
+
+== Tamaño de los segmentos
+
+El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
+
+Cuando se introduce un valor para el tamaño de segmento, se controla si corresponde a los valores admitidos que indica la controladora en el tiempo de ejecución. Si el valor especificado no es válido, la controladora muestra una lista de valores válidos. Cuando se utiliza una sola unidad para una solicitud única, las demás unidades disponibles pueden atender simultáneamente otras solicitudes. Si el volumen se encuentra en un entorno en el que un único usuario transfiere grandes unidades de datos (como multimedia), el rendimiento se maximiza cuando se atiende una única solicitud de transferencia de datos con una única franja de datos. (Una franja de datos es el tamaño de segmento multiplicado por la cantidad de unidades en el grupo de volúmenes que se usan para la transferencia de datos.) En este caso, se usan varias unidades para la misma solicitud, pero se accede una sola vez a cada unidad.
+
+Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de datos multiusuario o sistema de archivos, se debe configurar un tamaño de segmento que minimice la cantidad de unidades necesarias para satisfacer una solicitud de transferencia de datos.
+
+
+
+== Consejo de uso
+
+[NOTE]
+====
+No es necesario introducir un valor para `cacheReadPrefetch` o el `segmentSize` parámetro. Si no se introduce un valor, el firmware de la controladora utiliza `usageHint` parámetro con `fileSystem` como valor predeterminado. Introducir un valor para `usageHint` parámetro y un valor para `cacheReadPrefetch` o un valor para `segmentSize` el parámetro no provoca un error. El valor que se introduce para `cacheReadPrefetch` o el `segmentSize` el parámetro tiene prioridad sobre el valor de `usageHint` parámetro. En la siguiente tabla, se muestran el tamaño del segmento y la configuración de captura previa de lectura de caché para varios consejos de uso:
+
+====
+|===
+| Consejo de uso | Configuración de tamaño de segmento | Configuración de captura previa de lectura de caché dinámica 
+
+
+ a| 
+Sistema de archivos
+ a| 
+128 KB
+ a| 
+Activado
+
+
+
+ a| 
+Base de datos
+ a| 
+128 KB
+ a| 
+Activado
+
+
+
+ a| 
+Multimedia
+ a| 
+256 KB
+ a| 
+Activado
+
+|===
+
+
+== Captura previa de lectura de caché
+
+La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
+
+
+
+== Tipo de seguridad
+
+Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
+
+Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una clave de seguridad de la cabina de almacenamiento. Utilice la `create storageArray securityKey` comando para crear una clave de seguridad de la cabina de almacenamiento. Los siguientes comandos se relacionan con la clave de seguridad:
+
+* `create storageArray securityKey`
+* `export storageArray securityKey`
+* `import storageArray securityKey`
+* `set storageArray securityKey`
+* `enable volumeGroup [volumeGroupName] security`
+* `enable diskPool [diskPoolName] security`
+
+
+
+
+== Nivel de firmware mínimo
+
+7.10 añade el `dssPreAllocate` parámetro.
+
+7.50 añade el `securityType` parámetro.
+
+7.75 añade el `dataAssurance` parámetro.
+
+11.70 añade el `blockSize` parámetro.

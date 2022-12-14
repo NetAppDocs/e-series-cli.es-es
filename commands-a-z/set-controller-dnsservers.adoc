@@ -1,0 +1,102 @@
+---
+permalink: commands-a-z/set-controller-dnsservers.html 
+sidebar: sidebar 
+keywords: set, controller, dns 
+summary: 'El comando set Controller dnsservers actualiza la configuración del sistema de nombres de dominio (DNS) en una controladora. Se utiliza DNS para resolver nombres de dominio completos para las controladoras y un servidor de protocolo de tiempo de redes (NTP).' 
+---
+= Configure los ajustes de DNS de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set controller DNSServers` El comando actualiza la configuración del sistema de nombres de dominio (DNS) de una controladora. Se utiliza DNS para resolver nombres de dominio completos para las controladoras y un servidor de protocolo de tiempo de redes (NTP).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Antes de comenzar, asegúrese de que:
+
+* Existe un servidor DNS configurado.
+* Conoce las direcciones de un servidor DNS primario y un servidor DNS de respaldo, en caso de que se produzca un error en el servidor DNS primario. Las direcciones pueden ser IPv4 o IPv6.
+
+
+[NOTE]
+====
+Debe enviar este comando a las dos controladoras. Este comando es específico de cada controladora.
+
+====
+[NOTE]
+====
+Si ya configuró los puertos de gestión de la cabina con DHCP (protocolo de configuración dinámica de hosts) y tiene uno o varios servidores DNS o NTP asociados con la configuración DHCP, no necesita configurar manualmente DNS/NTP. En este caso, la cabina ya debería haber obtenido automáticamente las direcciones de los servidores DNS/NTP.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+
+set controller[a] DNSServers=(auto|(Address1 [Address2]))
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`DNSServers`
+ a| 
+Este parámetro configura los servidores DNS para la controladora. Especifique `auto` Para usar los servidores DNS que proporciona DHCP. De lo contrario, use una lista de uno o dos servidores DNS separados por espacios en blanco.
+
+[NOTE]
+====
+Los puertos Ethernet de gestión en la cabina pueden admitir los protocolos IPv4 o IPv6 simultáneamente. Las direcciones pueden ser IPv4 o IPv6. Si se especifica más de una dirección, no es necesario que los tipos de direcciones coincidan.
+
+====
+Si se especifica más de una dirección, se utilizarán en el orden especificado (la primera es la primaria, la segunda es la de respaldo).
+
+
+
+ a| 
+`AddressX`
+ a| 
+DirecciónIPv4|DirecciónIPv6
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+set controller[a] DNSServers=auto;
+set controller[a] DNSServers=(192.168.1.1);
+set controller[b] DNSServers=(192.168.1.1 192.168.1.105);
+set controller[b] DNSServers=(2001:0db8:85a3:0000:0000:8a2e:0370:7334 192.168.1.1)
+----
+
+
+== Nivel de firmware mínimo
+
+8.25

@@ -1,0 +1,55 @@
+---
+permalink: commands-a-z/enable-controller-datatransfer.html 
+sidebar: sidebar 
+keywords: enable, controller, datatransfer, command, revive, quiesced, running, diagnostics, role, syntax, parameter, firmware level 
+summary: El comando enable Controller dataTransfer reactiva una controladora que se colocó en modo inactivo durante la ejecución de diagnósticos. 
+---
+= Habilite la transferencia de datos de controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `enable controller dataTransfer` el comando reactiva una controladora que se colocó en modo inactivo durante la ejecución de diagnósticos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+enable controller [(a|b)] dataTransfer
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora que se desea reactivar. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

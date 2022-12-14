@@ -1,0 +1,122 @@
+---
+permalink: commands-a-z/set-snapvolume-increase-decreaserepositorycapacity.html 
+sidebar: sidebar 
+keywords: set, snapshot, volume, repository, capacity 
+summary: El comando set snapVolume increase/decreaseRepositoryCapacity aumenta o reduce la capacidad de un volumen de repositorios de un volumen Snapshot. 
+---
+= Configurar capacidad para volumen de repositorios de un volumen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set snapVolume increase/decreaseRepositoryCapacity` el comando aumenta o reduce la capacidad de un volumen de repositorios de un volumen snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis para aumentar la capacidad
+
+[listing, subs="+macros"]
+----
+set snapVolume[“snapVolumeName”] increaseRepositoryCapacity
+(repositoryVolumes="repos_xxxx" |
+repositoryVolumes=pass:quotes[(_volumeGroupName_] [capacity=pass:quotes[_capacityValue_]] |
+repositoryVolumes=pass:quotes[(_diskPoolName_] [capacity=pass:quotes[_capacityValue_]])
+----
+
+
+== Sintaxis para reducir la capacidad
+
+[listing, subs="+macros"]
+----
+set snapVolume pass:quotes[["_snapVolumeName_"]] decreaseRepositoryCapacity
+count=pass:quotes[_numberOfVolumes_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapVolume`
+ a| 
+El nombre del volumen Snapshot para el cual se configuran las propiedades. El identificador del volumen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`repositoryVolume`
+ a| 
+El nombre del volumen de repositorios en el que se desea aumentar la capacidad. Se agrega un volumen estándar disponible al volumen de repositorios para aumentar la capacidad del volumen de repositorios.
+
+Existen dos opciones para definir el nombre de un volumen de repositorios:
+
+* Usar un volumen de repositorios existente: Name
+* Crear un nuevo volumen de repositorios cuando se ejecuta este comando
+
+
+El nombre de un volumen de repositorios existente se compone de dos partes:
+
+* El término "repos"
+* Identificador numérico de cuatro dígitos que se asigna al nombre del volumen de repositorios
+
+
+El nombre del volumen de repositorios existente debe escribirse entre comillas dobles (" ").
+
+Para crear un nuevo volumen de repositorios cuando se ejecuta este comando, es necesario introducir el nombre de un grupo de volúmenes o un pool de discos donde se ubicará el volumen de repositorios. Opcionalmente, también se puede definir la capacidad del volumen de repositorios. Para definir la capacidad, es posible usar los siguientes valores:
+
+* Un valor entero que representa un porcentaje de la capacidad del volumen base
+* Un valor de fracción decimal que representa un porcentaje de la capacidad del volumen base
+* Un tamaño específico para el volumen de repositorios El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+Si no se usa la opción de capacidad, el software de administración del almacenamiento establece la capacidad en 20 % de la capacidad del volumen base.
+
+El nombre del nuevo repositorio debe escribirse entre paréntesis.
+
+
+
+ a| 
+`count`
+ a| 
+El número de volúmenes que desea quitar. Deben usarse valores enteros.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Un volumen de repositorios Snapshot es un volumen expandible que está estructurado como recogida concatenada de hasta 16 entidades de volúmenes estándar. Inicialmente, un volumen de repositorios expandible tiene un solo elemento. La capacidad del volumen de repositorios expandible es exactamente igual a la de ese único elemento. Para aumentar la capacidad de un volumen de repositorios expandible, se deben añadir volúmenes estándar. La capacidad compuesta del volumen de repositorios expandible pasa a ser la suma de las capacidades de todos los volúmenes estándar concatenados.
+
+Un volumen de repositorios de grupo Snapshot debe satisfacer un requisito de capacidad mínima que equivale a la suma de lo siguiente:
+
+* 32 MB para admitir la sobrecarga fija para el grupo Snapshot y el procesamiento de copia en escritura.
+* Capacidad para el procesamiento de reversiones, que es equivalente a 1/5000 de la capacidad del volumen base.
+
+
+La capacidad mínima es una imposición del firmware de la controladora y del software de administración del almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

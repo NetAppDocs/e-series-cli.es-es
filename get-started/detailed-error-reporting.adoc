@@ -1,0 +1,32 @@
+---
+permalink: get-started/detailed-error-reporting.html 
+sidebar: sidebar 
+keywords: detailed, error, report 
+summary: Los datos recogidos sobre un error que la interfaz de línea de comandos ha detectado se escriben en un archivo. 
+---
+= Informes de error detallados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Los datos recogidos sobre un error que la interfaz de línea de comandos ha detectado se escriben en un archivo. La generación de informes de error detallados en la interfaz de línea de comandos se realiza de la siguiente manera:
+
+* Si la interfaz de línea de comandos debe interrumpir la ejecución de comandos de la CLI y comandos de script de forma anormal, se recogen los datos del error y se guardan antes del cierre de la CLI.
+* La interfaz de línea de comandos guarda los datos del error en un nombre de archivo estándar.
+* La interfaz de línea de comandos guarda los datos en un archivo automáticamente. No se requieren opciones de línea de comandos especiales para guardar los datos del error.
+* No es necesario ejecutar ninguna acción para guardar los datos del error en un archivo.
+* La interfaz de línea de comandos no tiene ninguna norma que impida la sobrescritura de una versión anterior del archivo que contiene los datos del error.
+
+
+Para el procesamiento de errores, los errores se clasifican en dos tipos:
+
+* Errores terminales o errores de sintaxis que se pueden introducir.
+* Excepciones derivadas de un error operativo.
+
+
+Cuando la interfaz de línea de comandos detecta alguno de estos tipos de errores, escribe la información que describe el error directamente en la línea de comandos y establece un código de devolución. Dependiendo del código de retorno, la CLI también podría escribir información adicional sobre qué terminal causó el error. La interfaz de línea de comandos también escribe información sobre la respuesta esperada en la sintaxis del comando, lo que ayuda a identificar errores de sintaxis que puedan haberse introducido.
+
+Cuando se produce una excepción mientras se ejecuta un comando, la interfaz de línea de comandos captura el error. Cuando se termina de procesar el comando (después de escribir la información sobre el procesamiento del comando en la línea de comandos), la interfaz de línea de comandos guarda el error automáticamente en un archivo.
+
+El nombre del archivo en el cual se guarda la información del error `excprpt.txt`. La CLI intenta colocar el `excprpt.txt` archivo en el directorio especificado por la propiedad system `devmgr.datadir`. Si por algún motivo la CLI no puede colocar el archivo en el directorio especificado por `devmgr.datadir`, La CLI guarda el `excprpt.txt` Archivo en el mismo directorio desde el que se ejecuta la CLI. No se puede cambiar el nombre ni la ubicación del archivo. La `excprpt.txt` el archivo se sobrescribe cada vez que se produce una excepción. Si desea guardar la información en el `excprpt.txt` archivo, debe copiar la información a un nuevo archivo o a un nuevo directorio.

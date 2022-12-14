@@ -1,0 +1,66 @@
+---
+permalink: commands-a-z/save-controller-nvsram-file.html 
+sidebar: sidebar 
+keywords: save, controller, nvsram 
+summary: El comando save Controller NVSRAM file guarda en un archivo un conjunto seleccionado de regiones de NVSRAM de controladora. 
+---
+= Guarde NVSRAM de controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save controller NVSRAM file` El comando guarda en un archivo un conjunto seleccionado de regiones de NVSRAM de controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save controller [(a|b)] NVSRAM file=pass:quotes["_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora con los valores de NVSRAM que se desean guardar. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardarán los valores de NVSRAM. El nombre del archivo de NVSRAM debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\nvsramb.txt"`
+
+El nombre predeterminado del archivo que contiene los valores de NVSRAM es `nvsram-data.txt`. Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

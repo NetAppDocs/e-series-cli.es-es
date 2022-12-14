@@ -1,0 +1,136 @@
+---
+permalink: commands-a-z/save-storagearray-hostportstatistics.html 
+sidebar: sidebar 
+keywords: save, storage, array, host, port, statistics 
+summary: El comando save storageArray hostPortStatistics guarda las estadísticas de puertos de host de la cabina de almacenamiento. 
+---
+= Guarde estadísticas de puertos de host de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray hostPortStatistics` el comando guarda las estadísticas de puertos de host de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando reemplaza a la obsoleto xref:save-storagearray-iscsistatistics.adoc[Guarde estadísticas de iSCSI de la cabina de almacenamiento], xref:save-storagearray-iserstatistics.adoc[Guarde estadísticas de Iser de la cabina de almacenamiento], y. xref:save-storagearray-ibstats.adoc[Guarde las estadísticas InfiniBand de la cabina de almacenamiento] comandos.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+save storageArray hostPortStatistics [(raw | baseline)] type=(ISCSI| ISER | SRP | NVMEOF) file="filename"
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`raw`
+ a| 
+Permite recuperar las estadísticas recogidas desde el inicio del día. El parámetro debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`baseline`
+ a| 
+Permite recuperar las estadísticas recogidas desde la hora en que se restablecieron a cero las líneas de base de los controladores. El parámetro debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`type`
+ a| 
+Permite indicar el tipo de estadísticas que se recogerán. Las opciones válidas son: `ISCSI`, `ISER`, `SRP`, y. `NVMEOF`.
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar la ruta y el nombre del archivo donde se deben guardar las estadísticas. El nombre del archivo debe escribirse entre comillas dobles (" "). Utilice cualquier nombre de archivo con `.csv` extensión.
+
+|===
+[cols="6*"]
+|===
+| Tipo | Mac Ethernet, TCP/IP Ethernet, iniciador local (protocolo), estado operativo de DCBX, TLV LLDP, TLV DE DCBX | Objetivo (protocolo) | Interfaz InfiniBand | Subsistema NVMe | Nombre de archivo de ASUP 
+
+
+ a| 
+`iscsi`
+ a| 
+X
+ a| 
+X
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`iser`
+ a| 
+ a| 
+X
+ a| 
+X
+ a| 
+ a| 
+
+
+
+ a| 
+`srp`
+ a| 
+ a| 
+ a| 
+X
+ a| 
+ a| 
+
+
+
+ a| 
+`nvmeof`
+ a| 
+ a| 
+ a| 
+X
+ a| 
+X
+ a| 
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.41

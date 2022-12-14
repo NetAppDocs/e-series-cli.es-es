@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/resume-syncmirror.html 
+sidebar: sidebar 
+keywords: resume, synchronous, mirroring 
+summary: El comando resume SyncMirror reanuda una operación de mirroring síncrono suspendida. 
+---
+= Reanude el mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `resume syncMirror` el comando reanuda una operación de mirroring síncrono suspendida.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+resume syncMirror (primary pass:quotes[[_volumeName_]] |
+primaries pass:quotes[[_volumeName1 ... volumeNameN_]])
+[writeConsistency=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre del volumen primario en el que se desea reanudar una operación de mirroring síncrono. El nombre del volumen primario debe escribirse entre corchetes ([ ]). Si el nombre del volumen primario contiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`primaries`
+ a| 
+Los nombres de varios volúmenes primarios en los que se desea reanudar una operación de mirroring síncrono. Para introducir los nombres de los volúmenes primarios, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes primarios tienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`writeConsistency`
+ a| 
+La configuración para identificar los volúmenes en este comando que están en un grupo de coherencia de escritura o separados. Para que los volúmenes estén en el mismo grupo de coherencia de escritura, configure este parámetro en `TRUE`. Para que los volúmenes estén separados, configure este parámetro en `FALSE`.
+
+|===
+
+
+== Notas
+
+Si establece la `writeConsistency` parámetro a. `TRUE`, los volúmenes deben estar en un grupo de coherencia de escritura (o grupos). Este comando reanuda todos los grupos de coherencia de escritura que contienen los volúmenes. Por ejemplo, si los volúmenes A, B y C se encuentran en un grupo de coherencia de escritura y tienen contrapartes remotas A''', B'' y C'', el `resume syncMirror volume ["A"] writeConsistency=TRUE` El mandato reanuda A-A'', B-B'' y C-C''.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

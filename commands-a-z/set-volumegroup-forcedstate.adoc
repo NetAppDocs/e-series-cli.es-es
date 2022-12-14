@@ -1,0 +1,69 @@
+---
+permalink: commands-a-z/set-volumegroup-forcedstate.html 
+sidebar: sidebar 
+keywords: set, volume, group, forced, state 
+summary: El comando set volumeGroup forcedState cambia el estado de un grupo de volúmenes a Forced. 
+---
+= Configure el estado forzado del grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set volumeGroup forcedState` El comando mueve un grupo de volúmenes al estado forzado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Utilice este comando si la `start volumeGroup import` El comando no mueve el grupo de volúmenes a un estado importado o si la operación de importación no funciona debido a errores de hardware. En un estado forzado, se puede importar el grupo de volúmenes, y luego se pueden identificar los errores de hardware.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set volumeGroup pass:quotes[[_volumeGroupName_]] forcedState
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea poner en el estado forzado. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Es posible mover las unidades que comprenden un grupo de volúmenes de una cabina de almacenamiento a otra. La CLI proporciona tres comandos para mover las unidades. Los comandos son `start volumeGroup export`, `start volumeGroup import`, y. `set volumeGroup forcedState`.
+
+En el estado forzado, se puede realizar una operación de importación en el grupo de volúmenes.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

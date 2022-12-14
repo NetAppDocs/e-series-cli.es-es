@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/set-snmpsystemvariables.html 
+sidebar: sidebar 
+keywords: update, snmp, mib, system, group, variables 
+summary: 'El comando set snmpSystemVariables modifica las variables del sistema del protocolo simple de gestión de redes (SNMP).' 
+---
+= Actualice las variables de grupo de sistemas MIB II de SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set snmpSystemVariables` Command cambia las variables del sistema para el protocolo simple de gestión de redes (SNMP).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+Las siguientes variables del sistema se mantienen en una base de datos de información de gestión II (MIB-II):
+
+* Nombre del sistema
+* Nombre del contacto del sistema
+* Ubicación del sistema
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set snmpSystemVariables
+[sysName=pass:quotes[_newSystemName_]]
+[sysContact=pass:quotes[_contactName_]]
+[sysLocation=pass:quotes[_systemLocation_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`sysName`
+ a| 
+El nombre nuevo que se desea asignar al sistema SNMP. Utilice convenciones estándar de SNMP y MIB para el nombre del sistema. El nombre del sistema SNMP debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`sysContact`
+ a| 
+El nombre de la persona de contacto del sistema gestionado con información sobre cómo contactarse con dicha persona. El nombre del contacto SNMP debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`sysLocation`
+ a| 
+La ubicación física del sistema, como "3er piso". Encierre la ubicación del sistema SNMP entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.30

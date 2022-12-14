@@ -1,0 +1,89 @@
+---
+permalink: commands-a-z/show-drivechannel-stats.html 
+sidebar: sidebar 
+keywords: show, drive channel, statistics 
+summary: El comando show driveChannel stats muestra la transferencia de datos acumulativa para el canal de la unidad e información de errores. 
+---
+= Mostrar estadísticas de canal de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show driveChannel stats` el comando muestra la transferencia de datos acumulativa para el canal de la unidad e información de errores.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Si la controladora degradó automáticamente un canal de la unidad, este comando también muestra las estadísticas de intervalos. Cuando se usa este comando, se puede ver información acerca de un canal de la unidad específico, de varios canales de la unidad o todos los canales de la unidad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show (driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)] |
+   driveChannels [1 2 3 4 5 6 7 8] |
+   allDriveChannels) stats
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`driveChannel`
+ a| 
+El número identificador del canal de la unidad acerca del cual se desea ver información. Los valores de canal de unidad válidos son los siguientes `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`. El canal de la unidad debe escribirse entre corchetes ([ ]).
+
+Este parámetro se usa para ver las estadísticas de un solo canal de unidad.
+
+
+
+ a| 
+`driveChannels`
+ a| 
+Los números identificadores de varios canales de la unidad acerca de los cuales se desea ver información. Los valores de canal de unidad válidos son los siguientes `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`. Los canales de la unidad se deben escribir entre corchetes ([ ]) con el valor del canal de la unidad separado por un espacio.
+
+Este parámetro se usa para ver las estadísticas de más de un solo canal de unidad.
+
+
+
+ a| 
+`allDriveChannels`
+ a| 
+El identificador que selecciona todos los canales de la unidad.
+
+|===
+
+
+== Notas
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+7.15 añade una actualización al identificador del canal de la unidad.

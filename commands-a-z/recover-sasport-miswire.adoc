@@ -1,0 +1,87 @@
+---
+permalink: commands-a-z/recover-sasport-miswire.html 
+sidebar: sidebar 
+keywords: recover, sas, port, mis-wire 
+summary: El comando recover sasPort miswire indica a la controladora que se llevaron a cabo acciones correctivas para recuperar el sistema de una condición de conexión incorrecta. 
+---
+= Recupere una conexión incorrecta de puerto SAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `recover sasPort miswire` el comando indica a la controladora que se ha tomado esa acción correctiva para recuperar el sistema de una condición de conexión incorrecta.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+Luego, la controladora puede volver a habilitar los puertos SAS que se deshabilitaron al detectar una conexión incorrecta. Este comando se debe ejecutar después de corregir las condiciones de conexión incorrecta en el puerto SAS.
+
+Las condiciones de conexión incorrecta en el puerto SAS pueden ser las siguientes:
+
+* Topologías SAS no válidas
+* Conexión entre el puerto de host de la controladora y el soporte de ampliación
+* Conexión entre el iniciador y la topología de la unidad
+* Conexión incorrecta de ESM
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+recover sasPort miswire
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Cuando se detecta una condición de conexión incorrecta, el firmware de la controladora informa de lo siguiente:
+
+* Un evento de MEL crucial que indica la presencia de una condición de conexión incorrecta
+* Una condición de «"necesidad de atención»»
+* Una acción de recuperación que indica una conexión incorrecta
+
+
+Además, la controladora indica información de ""pérdida de redundancia"" en las unidades, ESM y los soportes para los que solo tiene una ruta de acceso debido a la conexión incorrecta (por ejemplo, los dos soportes inferiores de una cabina de almacenamiento). La información de pérdida de redundancia no es exclusiva de las topologías SAS.
+
+A continuación, se muestran las notificaciones de eventos relacionadas con conexiones incorrectas en el puerto SAS:
+
+* Se detectó una conexión incorrecta en SAS
+* El adaptador de bus de host está conectado al canal de unidad
+* Conexión cruzada en canales de unidad
+
+
+En el caso de condiciones de conexión incorrecta donde la controladora deshabilita uno o varios puertos SAS para proteger la integridad del dominio SAS, se deben seguir estos pasos para recuperar el sistema de la condición:
+
+. Determine cuál es el cable mal colocado y quitarlo. Si la última acción realizada consistía en instalar un cable nuevo, este es el candidato más probable. De lo contrario, se deben revisar los cables conectados a dispositivos que no forman parte de la cabina de almacenamiento o los cables conectados entre canales. El evento de recuperación debe informar el canal en el que se detectó la conexión incorrecta y, si es posible, el soporte
+. Después de quitar un cable o de moverlo a la ubicación correcta, ejecute el `recover sasPort miswire` comando. La controladora intentará volver a habilitar los puertos SAS que se deshabilitaron al detectar la conexión incorrecta.
+. Si el cable que se quitó o se cambió de lugar para corregir la conexión incorrecta proporcionaba el único acceso de la controladora al puerto deshabilitado, la controladora no podrá volver a habilitar el puerto SAS deshabilitado. Para completar la recuperación, se deben apagar y encender los soportes de la cabina de almacenamiento.
+
+
+
+
+== Nivel de firmware mínimo
+
+8.10

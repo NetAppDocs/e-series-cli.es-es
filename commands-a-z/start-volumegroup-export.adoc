@@ -1,0 +1,81 @@
+---
+permalink: commands-a-z/start-volumegroup-export.html 
+sidebar: sidebar 
+keywords: start, volume, group, export 
+summary: El comando start volumeGroup export transfiere un grupo de volúmenes al estado Exported. 
+---
+= Inicie la exportación de grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volumeGroup export` El comando mueve un grupo de volúmenes al estado exportado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Entonces, se podrán quitar las unidades que componen el grupo de volúmenes y se podrá volver a instalarlas en una cabina de almacenamiento diferente.
+
+[CAUTION]
+====
+No realice estos pasos sin realizar primero los pasos enumerados en xref:../get-started/learn-about-volume-group-migration.html[Información sobre la migración de grupos de volúmenes.]
+
+====
+[NOTE]
+====
+Dentro del grupo de volúmenes, no es posible transferir volúmenes asociados con las funciones de una cabina de almacenamiento a otra.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volumeGroup [_volumeGroupName_]] export
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea exportar. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Cuando este comando se ejecuta correctamente, puede ejecutar el `start volumeGroup import` El comando para finalizar de mover el grupo de volúmenes al estado Complete, que hace que el grupo de volúmenes esté disponible para la nueva cabina de almacenamiento.
+
+Si este comando no se realiza correctamente debido a que ciertos problemas de hardware impidieron la finalización de la exportación, utilice el `set volumeGroup forceState` comando. La `set volumeGroup forceState` permite utilizar el `start volumeGroup import` comando para importar un grupo de volúmenes.
+
+Una vez que el grupo de volúmenes se encuentra en estado exportado o forzado, es posible quitar las unidades que componen el grupo de volúmenes de la cabina de almacenamiento. Es posible volver a instalar las unidades en una cabina de almacenamiento diferente.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

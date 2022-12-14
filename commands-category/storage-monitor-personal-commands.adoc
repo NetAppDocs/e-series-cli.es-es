@@ -1,0 +1,121 @@
+---
+permalink: commands-category/storage-monitor-personal-commands.html 
+sidebar: sidebar 
+keywords: storage, monitor, personnel, commands, asynchronous, autosupport, cache, array, synchronous 
+summary: Comandos para personal de supervisión de almacenamiento 
+---
+= Comandos para personal de supervisión de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+link:../commands-a-z/show-storagearray-usersession.html["Mostrar sesión de usuario de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-loginbanner.html["Guarde el banner de inicio de sesión de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-session-erroraction.html["Configurar la sesión"]
+
+link:../commands-a-z/set-storagearray-localusername.html["Configure la contraseña de usuario local o la contraseña Symbol de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-asyncmirrorgroup-synchronizationprogress.html["Muestra el progreso de sincronización del grupo de reflejos asíncronos"]
+
+link:../commands-a-z/show-asyncmirrorgroup-summary.html["Muestra grupos de reflejos asíncronos"]
+
+link:../commands-a-z/show-storagearray-autosupport.html["Mostrar la configuración de AutoSupport (para cabinas de almacenamiento E2800 o E5700)"]
+
+link:../commands-a-z/show-consistencygroup.html["Mostrar grupo de coherencia"]
+
+link:../commands-a-z/show-cgsnapimage.html["Mostrar imagen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/show-controller.html["Mostrar controladora"]
+
+link:../commands-a-z/show-controller-nvsram.html["Mostrar NVSRAM de controladora"]
+
+link:../commands-a-z/show-iscsisessions.html["Muestra las sesiones iSCSI actuales"]
+
+link:../commands-a-z/show-diskpool.html["Mostrar pool de discos"]
+
+link:../commands-a-z/show-alldrives.html["Mostrar unidad"]
+
+link:../commands-a-z/show-drivechannel-stats.html["Mostrar estadísticas de canal de unidad"]
+
+link:../commands-a-z/show-alldrives-downloadprogress.html["Muestra progreso de descarga de la unidad"]
+
+link:../commands-a-z/show-alldrives-performancestats.html["Mostrar estadísticas de rendimiento de la unidad"]
+
+link:../commands-a-z/show-emailalert-summary.html["Muestra la configuración de alertas de correo electrónico"]
+
+link:../commands-a-z/show-allhostports.html["Muestra puertos de host"]
+
+link:../commands-a-z/show-replaceabledrives.html["Muestra las unidades reemplazables"]
+
+link:../commands-a-z/show-snapgroup.html["Mostrar grupo Snapshot"]
+
+link:../commands-a-z/show-snapimage.html["Mostrar imagen Snapshot"]
+
+link:../commands-a-z/show-snapvolume.html["Mostrar volúmenes Snapshot"]
+
+link:../commands-a-z/show-allsnmpcommunities.html["Mostrar comunidades SNMP"]
+
+link:../commands-a-z/show-snmpsystemvariables.html["Muestra variables de grupo de sistemas MIB II de SNMP"]
+
+link:../commands-a-z/show-ssd-cache.html["Mostrar caché SSD"]
+
+link:../commands-a-z/show-ssd-cache-statistics.html["Mostrar estadísticas de la caché SSD"]
+
+link:../commands-a-z/show-storagearray.html["Mostrar cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-autoconfiguration.html["Mostrar configuración automática de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-controllerhealthimage.html["Mostrar imagen de estado de controladora de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-dbmdatabase.html["Mostrar base de datos DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-hostconnectivityreporting.html["Mostrar informes de conectividad de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-hosttopology.html["Mostrar topología de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-lunmappings.html["Mostrar mapa de LUN de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-iscsinegotiationdefaults.html["Mostrar valores predeterminados de negociación de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-odxsetting.html["Mostrar configuración ODX de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-powerinfo.html["Muestra información de alimentación de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-unconfigurediscsiinitiators.html["Muestra iniciadores de iSCSI sin configurar de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-unreadablesectors.html["Mostrar sectores ilegibles de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-textstring.html["Mostrar cadena"]
+
+link:../commands-a-z/show-syncmirror-candidates.html["Mostrar candidatos de volumen para mirroring síncrono"]
+
+link:../commands-a-z/show-syncmirror-synchronizationprogress.html["Mostrar progreso de sincronización de volumen de mirroring síncrono"]
+
+link:../commands-a-z/show-syslog-summary.html["Mostrar configuración de syslog"]
+
+link:../commands-a-z/show-volume.html["Mostrar volumen fino"]
+
+link:../commands-a-z/show-storagearray-unconfiguredinitiators.html["Muestra iniciadores sin configurar"]
+
+link:../commands-a-z/show-volume-summary.html["Mostrar volumen"]
+
+link:../commands-a-z/show-volume-actionprogress.html["Mostrar progreso de acción de volumen"]
+
+link:../commands-a-z/show-volumecopy.html["Mostrar copia de volumen"]
+
+link:../commands-a-z/show-volumecopy-sourcecandidates.html["Mostrar candidatos de origen de copia de volumen"]
+
+link:../commands-a-z/show-volumecopy-source-targetcandidates.html["Mostrar candidatos objetivo de copia de volumen"]
+
+link:../commands-a-z/show-volumegroup.html["Mostrar grupo de volúmenes"]
+
+link:../commands-a-z/show-volumegroup-exportdependencies.html["Mostrar dependencias de exportación de grupo de volúmenes"]
+
+link:../commands-a-z/show-volumegroup-importdependencies.html["Mostrar dependencias de importación de grupo de volúmenes"]
+
+link:../commands-a-z/show-volume-performancestats.html["Mostrar estadísticas de rendimiento de volumen"]
+
+link:../commands-a-z/show-volume-reservations.html["Mostrar reservas de volumen"]

@@ -1,0 +1,294 @@
+---
+permalink: get-started/synopsis-of-the-script-commands.html 
+sidebar: sidebar 
+keywords: synopsis, script commands 
+summary: 'Como es posible utilizar comandos de script para definir y gestionar los diferentes aspectos de una cabina de almacenamiento (como la topología de host, la configuración de unidades, la configuración de controladoras, las definiciones de los volúmenes y las definiciones de los grupos de volúmenes), la cantidad real de comandos es bastante amplia.' 
+---
+= Sinopsis de los comandos de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Como es posible utilizar comandos de script para definir y gestionar los diferentes aspectos de una cabina de almacenamiento (como la topología de host, la configuración de unidades, la configuración de controladoras, las definiciones de los volúmenes y las definiciones de los grupos de volúmenes), la cantidad real de comandos es bastante amplia. Sin embargo, los comandos se dividen en categorías generales que se reutilizan cuando se aplican los comandos para configurar o realizar el mantenimiento de una cabina de almacenamiento. En la siguiente tabla, se detalla el formato general de los comandos de script y se proporciona una definición de cada uno.
+
+[cols="2*"]
+|===
+| Sintaxis | Descripción 
+
+
+ a| 
+[listing]
+----
+accept object
+{statement-data}
+---- a| 
+Ejecuta la operación pendiente.
+
+
+
+ a| 
+[listing]
+----
+activate object
+{statement-data}
+---- a| 
+Configura el entorno de modo que una operación pueda llevarse a cabo o realiza la operación si el entorno ya está configurado correctamente.
+
+
+
+ a| 
+[listing]
+----
+autoConfigure storageArray
+{statement-data}
+---- a| 
+Crea automáticamente una configuración que se basa en los parámetros especificados en el comando.
+
+
+
+ a| 
+[listing]
+----
+check object
+{statement-data}
+---- a| 
+Inicia una operación para informar los errores en el objeto, lo que se considera una operación síncrona.
+
+
+
+ a| 
+[listing]
+----
+clear object
+{statement-data}
+---- a| 
+Descarta el contenido de algunos atributos de un objeto. Esta operación es destructiva y no se puede revertir.
+
+
+
+ a| 
+[listing]
+----
+create object
+{statement-data}
+---- a| 
+Crea un objeto del tipo especificado.
+
+
+
+ a| 
+[listing]
+----
+deactivate object
+{statement-data}
+---- a| 
+Quita el entorno de una operación.
+
+
+
+ a| 
+[listing]
+----
+delete object
+---- a| 
+Elimina un objeto creado previamente.
+
+
+
+ a| 
+[listing]
+----
+diagnose object
+{statement-data}
+---- a| 
+Ejecuta una prueba y muestra los resultados.
+
+
+
+ a| 
+[listing]
+----
+disable object {statement-data}
+---- a| 
+Impide que se ejecute una función.
+
+
+
+ a| 
+[listing]
+----
+download object
+{statement-data}
+---- a| 
+Transfiere datos a la cabina de almacenamiento o al hardware asociado con la cabina de almacenamiento.
+
+
+
+ a| 
+[listing]
+----
+enable object
+{statement-data}
+---- a| 
+Establece que se ejecute una función.
+
+
+
+ a| 
+[listing]
+----
+load object
+{statement-data}
+---- a| 
+Transfiere datos a la cabina de almacenamiento o al hardware asociado con la cabina de almacenamiento. Este comando es similar en términos de funcionalidad al `download` comando.
+
+
+
+ a| 
+[listing]
+----
+recopy object
+{statement-data}
+---- a| 
+Reinicia una operación de copia de volumen mediante una pareja de copias de volumen existente. Es posible cambiar los parámetros antes de reiniciar la operación.
+
+
+
+ a| 
+[listing]
+----
+recover object
+{statement-data}
+---- a| 
+Vuelve a crear un objeto a partir de los datos de configuración guardados y los parámetros de declaración. (Este comando es similar al `create` ).
+
+
+
+ a| 
+[listing]
+----
+remove object
+{statement-data}
+---- a| 
+Quita una relación entre objetos.
+
+
+
+ a| 
+[listing]
+----
+repair object
+{statement-data}
+---- a| 
+Repara los errores que encontró el `check` comando.
+
+
+
+ a| 
+[listing]
+----
+replace object
+{statement-data}
+---- a| 
+El objeto especificado reemplaza a un objeto existente en la cabina de almacenamiento.
+
+
+
+ a| 
+[listing]
+----
+reset object
+{statement-data}
+---- a| 
+Devuelve el hardware o un objeto al estado inicial.
+
+
+
+ a| 
+[listing]
+----
+resume object
+---- a| 
+Inicia una operación suspendida. La operación se inicia en el punto en el que se la dejó al momento de la suspensión.
+
+
+
+ a| 
+[listing]
+----
+revive object
+---- a| 
+Fuerza al objeto del estado con errores al estado óptima. Utilice este comando solo como parte de un procedimiento de recuperación ante errores.
+
+
+
+ a| 
+[listing]
+----
+save object
+{statement-data}
+---- a| 
+Escribe información acerca del objeto en un archivo.
+
+
+
+ a| 
+[listing]
+----
+set object
+{statement-data}
+---- a| 
+Cambia los atributos del objeto. Todos los cambios se completan cuando se devuelve el comando.
+
+
+
+ a| 
+[listing]
+----
+show object
+{statement-data}
+---- a| 
+Muestra información acerca del objeto.
+
+
+
+ a| 
+[listing]
+----
+start object
+{statement-data}
+---- a| 
+Inicia una operación asíncrona. Es posible detener algunas operaciones una vez iniciadas. Se puede consultar el progreso de algunas operaciones.
+
+
+
+ a| 
+[listing]
+----
+stop object
+{statement-data}
+---- a| 
+Detiene una operación asíncrona.
+
+
+
+ a| 
+[listing]
+----
+suspend object
+{statement-data}
+---- a| 
+Detiene una operación. A continuación, puede reiniciar la operación suspendida y continúa desde el punto en el que se suspendió.
+
+
+
+ a| 
+[listing]
+----
+validate object
+{statement-data}
+---- a| 
+Valida una clave de seguridad.
+
+|===

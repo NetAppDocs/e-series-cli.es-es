@@ -1,0 +1,103 @@
+---
+permalink: commands-a-z/start-snapimage-rollback.html 
+sidebar: sidebar 
+keywords: start, snapshot, image, rollback 
+summary: El comando start snapImage rollback inicia una operación de reversión para un conjunto de imágenes Snapshot. 
+---
+= Iniciar reversión de imagen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start snapImage rollback` comando inicia una operación de reversión para un conjunto de imágenes snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+El contenido del volumen base cambia de inmediato para coincidir con el contenido del momento específico del volumen de imagen Snapshot seleccionado. El volumen base queda inmediatamente disponible para solicitudes de lectura/escritura una vez que finaliza correctamente la operación de reversión. Para detener una operación de reversión de imagen Snapshot, use la `stop rollback snapImage` comando.
+
+El volumen de repositorios asociado con la imagen Snapshot continúa realizando un seguimiento de cualquier cambio nuevo entre el volumen base y el volumen de imagen Snapshot que ocurra una vez completada la operación de reversión.
+
+[NOTE]
+====
+No se puede usar este comando para las imágenes Snapshot incluidas en una copia de volumen en línea.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start snapImage ["_snapImageName_"]] rollback
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapImage`
+ a| 
+El nombre de la imagen Snapshot. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` -- esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` -- esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desea iniciar una operación de reversión para una imagen Snapshot 12345 que se encuentra en un grupo Snapshot denominado snapGroup1, se debe usar este comando:
+
+[listing]
+----
+start snapImage ["snapGroup1:12345"] rollback;
+----
+Para iniciar una operación de reversión de la imagen Snapshot más reciente en un grupo Snapshot con el nombre snapGroup1, se debería usar el siguiente comando:
+
+[listing]
+----
+start snapImage ["snapGroup1:newest"]rollback;
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

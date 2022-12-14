@@ -1,0 +1,84 @@
+---
+permalink: commands-a-z/start-ioclog.html 
+sidebar: sidebar 
+keywords: start, input, output, controller, ioc, dump 
+summary: El comando start IOCLog provoca el volcado del registro IOC de las transmisiones de datos entre un host y una controladora. 
+---
+= Inicie el volcado de controladora de entrada/salida (IOC)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start IOCLog` El comando produce un volcado del registro IOC de las transmisiones de datos entre un host y una controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Las controladora se identifican como "a " o "b". Cada controladora puede tener hasta cuatro canales host; y cada canal tiene un identificador único que es un número del 1 al 4.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start IOCLog [(a1 | a2 | a3 | a4 | b1 | b2 | b3 | b4)]
+[overwrite=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller-channel identifiers`
+ a| 
+Este parámetro especifica la controladora y el canal host desde los cuales se generará el volcado de IOC. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Los canales host tienen identificadores numéricos. Los identificadores de la controladora y del canal host deben escribirse entre corchetes ([ ]).
+
+Los siguientes son valores válidos para el identificador de la controladora y del canal host `a1`, `a2`, `a3`, `a4`, `b1`, `b2`, `b3`, `b4`.
+
+Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+
+
+ a| 
+`overwrite`
+ a| 
+Este parámetro provoca que el volcado de registro IOC nuevo sobrescriba el existente. Para sobrescribir el volcado existente, configure este parámetro como `TRUE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+Este comando genera un registro de depuración del IOC de la controladora seleccionada y almacena los datos en formato comprimido dentro de un búfer de memoria persistente en la controladora. Puede recuperar los datos del registro de depuración mediante el `save IOCLog` comando. La controladora devuelve un error si se dan estas condiciones:
+
+* La plataforma de la controladora y HIC no admiten un volcado de IOC.
+* La controladora especificada tiene un volcado de IOC pendiente y el parámetro de sobrescritura está configurado como "false".
+* Los identificadores especificados de la controladora o del canal están fuera del rango válido.
+
+
+
+
+== Nivel de firmware mínimo
+
+8.20

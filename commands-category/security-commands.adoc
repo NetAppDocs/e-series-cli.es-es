@@ -1,0 +1,169 @@
+---
+permalink: commands-category/security-commands.html 
+sidebar: sidebar 
+keywords: security, commands, audit, log management, authentication, certificate, management, embedded, external, key 
+summary: Comandos de seguridad 
+---
+= Comandos de seguridad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+
+
+== Comandos de gestión del registro de auditoría
+
+link:../commands-a-z/delete-auditlog.html["Eliminar registros de auditoría"]
+
+link:../commands-a-z/save-auditlog.html["Guardar registros de auditoría"]
+
+link:../commands-a-z/set-auditlog.html["Configurar ajustes del registro de auditoría"]
+
+link:../commands-a-z/show-auditlog-configuration.html["Muestra la configuración del registro de auditoría"]
+
+link:../commands-a-z/show-auditlog-summary.html["Muestra un resumen del registro de auditoría"]
+
+
+
+== Comandos de autenticación
+
+link:../commands-a-z/getting-started-with-authentication.html["Introducción a la autenticación"]
+
+link:../commands-a-z/create-storagearray-directoryserver.html["Crear servidor de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/delete-storagearray-directoryservers.html["Eliminar servidor de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/delete-storagearray-loginbanner.html["Elimine el banner de inicio de sesión de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-usersession.html["Mostrar sesión de usuario de la cabina de almacenamiento"]
+
+link:../commands-a-z/remove-storagearray-directoryserver.html["Quitar asignación de roles de servidor de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-loginbanner.html["Guarde el banner de inicio de sesión de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-directoryserver.html["Configure el servidor de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-directoryserver-roles.html["Configure la asignación de roles de servidor de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-localusername.html["Configure la contraseña de usuario local o la contraseña Symbol de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-loginbanner.html["Configure el banner de inicio de sesión de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-managementinterface.html["Configure la interfaz de gestión de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-passwordlength.html["Configure la longitud de contraseña de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-usersession.html["Configure la sesión de usuario de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-directoryservices-summary.html["Mostrar resumen de servicios de directorio de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-directoryservices-test.html["Probar servidor de directorio de la cabina de almacenamiento"]
+
+
+
+== Comandos de gestión de certificados para las controladoras E2800 y E5700
+
+link:../commands-a-z/save-controller-arraymanagementcsr.html["Generar solicitud de firma de certificación (CSR) para servidor web"]
+
+link:../commands-a-z/download-controller-arraymanagementservercertificate.html["Instale el certificado firmado de servidor"]
+
+link:../commands-a-z/download-controller-cacertificate.html["Instalar certificados de CA raíz/intermedios"]
+
+link:../commands-a-z/download-controller-trustedcertificate.html["Instale certificados de CA de confianza"]
+
+link:../commands-a-z/delete-storagearray-trustedcertificate.html["Quite los certificados de CA de confianza instalados"]
+
+link:../commands-a-z/delete-controller-cacertificate.html["Quite el certificado firmado instalado"]
+
+link:../commands-a-z/reset-controller-arraymanagementsignedcertificate.html["Restablecer el certificado firmado instalado"]
+
+link:../commands-a-z/save-controller-cacertificate.html["Recupere los certificados de CA instalados"]
+
+link:../commands-a-z/save-controller-arraymanagementsignedcertificate.html["Recuperar el certificado de servidor instalado"]
+
+link:../commands-a-z/save-storagearray-trustedcertificate.html["Recuperar certificados de CA de confianza instalados"]
+
+link:../commands-a-z/set-storagearray-revocationchecksettings.html["Configure los ajustes de control de revocación de certificados"]
+
+link:../commands-a-z/show-storagearray-revocationchecksettings.html["Mostrar ajustes de control de revocación de certificados"]
+
+link:../commands-a-z/show-controller-cacertificate.html["Mostrar resumen de certificados de CA raíz/intermedios instalados"]
+
+link:../commands-a-z/show-storagearray-trustedcertificate-summary.html["Mostrar resumen de certificados de CA de confianza instalados"]
+
+link:../commands-a-z/show-controller-arraymanagementsignedcertificate-summary.html["Mostrar certificado firmado"]
+
+link:../commands-a-z/start-storagearray-ocspresponderurl-test.html["Inicie la prueba del servidor de OCSP para revocación de certificados"]
+
+
+
+== Comandos de gestión de certificados para EF600
+
+link:../commands-a-z/add-array-label.html["Añadir etiqueta de cabina"]
+
+link:../commands-a-z/remove-array-label.html["Quite la etiqueta de cabina"]
+
+link:../commands-a-z/show-array-label.html["Mostrar etiqueta de cabina"]
+
+
+
+== Comandos de base de datos
+
+link:../commands-a-z/clear-storagearray-configuration.html["Borrar la configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/clear-storagearray-recoverymode.html["Borrar el modo de recuperación de la cabina de almacenamiento"]
+
+link:../commands-a-z/load-storagearray-dbmdatabase.html["Cargar base de datos DBM de cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-dbmdatabase.html["Guarde base de datos DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-dbmvalidatorinfo.html["Guarde el archivo de información de validador de DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-dbmdatabase.html["Mostrar base de datos DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-configdbdiagnostic.html["Iniciar diagnóstico de base de datos de configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/stop-storagearray-configdbdiagnostic.html["Detener diagnóstico de configuración de la cabina de almacenamiento"]
+
+
+
+== Comandos de gestión de claves externas integradas
+
+link:../commands-a-z/set-storagearray-externalkeymanagement.html["Introducción a la gestión de claves externas"]
+
+link:../commands-a-z/getting-started-with-internal-key-management.html["Introducción a la gestión de claves internas"]
+
+link:../commands-a-z/create-storagearray-securitykey.html["Cree una clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/disable-storagearray-externalkeymanagement-file.html["Deshabilite la gestión de claves de seguridad externas"]
+
+link:../commands-a-z/enable-storagearray-externalkeymanagement-file.html["Habilite la gestión de claves de seguridad externas"]
+
+link:../commands-a-z/export-storagearray-securitykey.html["Exporte clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/import-storagearray-securitykey-file.html["Importe la clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-externalkeymanagement.html["Configure el identificador de seguridad de la unidad FIPS"]
+
+link:../commands-a-z/set-storagearray-externalkeymanagement.html["Configure ajustes de gestión de claves externas"]
+
+link:../commands-a-z/set-storagearray-externalkeymanagement.html["Configure la clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-secureerase-drive.html["Inicie un borrado seguro de unidad FDE"]
+
+link:../commands-a-z/start-storagearray-externalkeymanagement-test.html["Probar comunicación de gestión de claves externas"]
+
+link:../commands-a-z/validate-storagearray-securitykey.html["Validar clave de seguridad de la cabina de almacenamiento"]
+
+
+
+== Comandos de gestión de claves externas relacionados con los certificados
+
+link:../commands-a-z/save-storagearray-keymanagementclientcsr.html["Recuperar solicitud de CSR de gestión de claves instalada"]
+
+link:../commands-a-z/download-storagearray-keymanagementcertificate.html["Instale el certificado de gestión de claves externas de la cabina de almacenamiento"]
+
+link:../commands-a-z/delete-storagearray-keymanagementcertificate.html["Quite el certificado de gestión de claves externas instalado"]
+
+link:../commands-a-z/save-storagearray-keymanagementcertificate.html["Recupere el certificado de gestión de claves externas instalado"]

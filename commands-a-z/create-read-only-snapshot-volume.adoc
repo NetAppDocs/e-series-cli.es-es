@@ -1,0 +1,115 @@
+---
+permalink: commands-a-z/create-read-only-snapshot-volume.html 
+sidebar: sidebar 
+keywords: create, read only, snapshot, volume 
+summary: El comando create snapVolume crea un volumen Snapshot de solo lectura para las imágenes Snapshot de un volumen base. Para transformar un volumen Snapshot de solo lectura en un volumen de lectura/escritura, se debe usar el comando set snapVolume convertToReadWrite. 
+---
+= Crear volumen Snapshot de solo lectura
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create snapVolume` el comando crea un volumen snapshot de solo lectura para las imágenes snapshot de un volumen base. Para cambiar un volumen Snapshot de solo lectura a un volumen de lectura/escritura, use la `set snapVolume convertToReadWrite` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+No es posible usar este comando para una imagen Snapshot que se utilice en una copia de volumen en línea.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create snapVolume userLabel=pass:quotes[_"snapVolumeName"_
+snapImageID="_snapCGID:imageID"_]
+readOnly
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se asignará a un volumen Snapshot. El nombre del volumen Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`snapImageID`
+ a| 
+El nombre de la imagen Snapshot que se añadirá al nuevo volumen Snapshot de solo lectura. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` - Esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` - Esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`readOnly`
+ a| 
+Este parámetro configura el volumen Snapshot como de solo lectura. En realidad, el parámetro es un valor booleano, pero en el contexto de este comando, el valor booleano siempre es `TRUE`.
+
+[NOTE]
+====
+Con la `readOnly` parámetro, no se crean volúmenes snapshot.
+
+====
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+El identificador de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El nombre del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se deseara crear un volumen de solo lectura denominado engData1 con la imagen Snapshot más reciente en un grupo Snapshot denominado snapGroup1, se usaría este comando:
+
+[listing]
+----
+create snapVolume userLabel="engData1" snapImageID="snapGroup1:newest" readOnly;
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

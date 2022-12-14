@@ -1,0 +1,74 @@
+---
+permalink: commands-a-z/reset-controller.html 
+sidebar: sidebar 
+keywords: reset, controller 
+summary: El comando reset Controller restablece una controladora y provoca interrupciones en las operaciones de I/O. 
+---
+= Restablezca la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset controller` Comando restablece una controladora y provoca interrupciones en las operaciones de I/O.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Cuando se restablece una controladora, se quita de la ruta de datos y no queda disponible para las operaciones de I/o hasta que la operación de restablecimiento se completa. Si un host utiliza volúmenes que son propiedad de la controladora que se está restableciendo, la actividad de I/o dirigida a la controladora es rechazada. Antes de restablecer la controladora, se debe comprobar que los volúmenes que son propiedad de la controladora no estén en uso o que exista un controlador de rutas múltiples instalado en todos los hosts que usan estos volúmenes.
+
+====
+[CAUTION]
+====
+Si se utiliza la gestión en banda, no se puede controlar a qué controladora se envían los comandos y se pueden obtener resultados inesperados en este comando.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+reset controller [(a|b)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora que se desea restablecer. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+|===
+
+
+== Notas
+
+La controladora que recibe el comando de restablecimiento de controladora restablece la controladora especificada. Por ejemplo, si el comando de restablecimiento de controladora se envía a la controladora A para solicitar un restablecimiento de la controladora A, la controladora A se reinicia mediante un reinicio en caliente. Si el comando de restablecimiento de controladora se envía a la controladora A para solicitar un restablecimiento de la controladora B, la controladora A mantiene a la controladora B en restablecimiento y, a continuación, libera la controladora B del restablecimiento, que es un reinicio en frío. En algunos productos, el reinicio en caliente solo restablece el chip IOC. El reinicio en frío restablece tanto el IOC como los chips de expansión en la controladora.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

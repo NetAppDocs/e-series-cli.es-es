@@ -1,0 +1,94 @@
+---
+permalink: commands-a-z/save-storagearray-autoloadbalancestatistics-file.html 
+sidebar: sidebar 
+keywords: save, auto-load, balance, statistics 
+summary: El comando save storageArray autoLoadBalanceStatistics file proporciona equilibrio de cargas de trabajo de I/o automatizado y garantiza que el tráfico de I/o entrante desde los hosts se administre y se equilibre dinámicamente en ambas controladoras. 
+---
+= Guarde las estadísticas de equilibrio de carga automático
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray autoLoadBalanceStatistics file` El comando proporciona equilibrio de cargas de trabajo de I/o automatizado y garantiza que el tráfico de I/o entrante desde los hosts se gestione de manera dinámica y se equilibre entre ambas controladoras.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando guarda en un archivo las estadísticas de equilibrio de carga automático de la cabina de almacenamiento. Estas estadísticas muestran el historial de cambio de propiedad de cada volumen en la cabina.
+
+[NOTE]
+====
+Envíe este archivo al soporte técnico para su interpretación.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+ save storageArray autoLoadBalanceStatistics file=pass:quotes["_filename_"]
+(numberOfDays=pass:quotes[_numberOfDays_]);
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`storageArray`
+ a| 
+Especifica que este comando funciona en una cabina de almacenamiento.
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardarán las estadísticas de equilibrio de carga automático. El nombre del archivo debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`numberOfDays`
+ a| 
+La cantidad de días de estadísticas que se deben guardar. Este parámetro es opcional y el valor predeterminado es 0, que indica todos los datos disponibles.
+
+|===
+
+
+== Ejemplo
+
+[listing]
+----
+SMcli -n Array1 -c "save storageArray autoLoadBalanceStatistics file="filename" numberOfDays=30;"
+----
+[NOTE]
+====
+Si la condición "la unidad perdió la ruta primaria" está activa, provocará que el equilibrio de carga automático no pueda equilibrar las cargas de trabajo. Esta condición debe estar inactiva para garantizar que las cargas de trabajo se equilibren mediante la función de equilibrio de carga automático.
+
+====
+
+
+== Nivel de firmware mínimo
+
+8.30

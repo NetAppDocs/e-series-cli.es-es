@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/delete-emailalert.html 
+sidebar: sidebar 
+keywords: delete, email, alert, recipient 
+summary: El comando delete emailAlert elimina direcciones de destinatarios de la configuración de alertas de correo electrónico. 
+---
+= Eliminar destinatario de alertas de correo electrónico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete emailAlert` El comando elimina las direcciones de correo electrónico de destinatarios de la configuración de alertas de correo electrónico.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+delete emailAlert
+       (allEmailRecipients |
+        emailRecipients pass:quotes[[_emailAddress1 ... emailAddressN_]])
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allEmailRecipients`
+ a| 
+Permite eliminar todos los destinatarios de correo electrónico.
+
+
+
+ a| 
+`emailRecipients`
+ a| 
+Permite eliminar direcciones de destinatarios específicas. Las direcciones de correo electrónico deben escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "delete emailAlert allEmailRecipients;"
+
+SMcli -n Array1 -c "delete emailAlert emailRecipients ["person1@email.domain.com" "person3@email.domain.com"];"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

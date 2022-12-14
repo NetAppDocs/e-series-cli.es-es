@@ -1,0 +1,105 @@
+---
+permalink: commands-a-z/clear-asyncmirrorfault.html 
+sidebar: sidebar 
+keywords: clear, asynchronous mirroring, fault 
+summary: 'El comando clear asyncMirrorFault borra un error "tiky" de mirroring asíncrono de uno o varios grupos de reflejos asíncronos y de uno o varios volúmenes miembro de grupos de reflejos asíncronos.' 
+---
+= Borre el error de mirroring asíncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear asyncMirrorFault` el comando borra un error "problemático" de mirroring asíncrono de uno o más grupos de reflejos asíncronos y de uno o más volúmenes miembro de grupos de reflejos asíncronos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Un grupo de reflejos asíncronos y sus volúmenes miembro pueden encontrar errores "problemáticos" de mirroring asíncrono. Estos errores ocurren en un momento específico, pero no afectan la funcionalidad de los reflejos. Este tipo de errores debe revisarse, pero posiblemente no se requiera ningún cambio en la configuración.
+
+Un grupo de reflejos asíncronos y sus volúmenes miembro pueden tener más de un error problemático asociado. Este comando borra todos los errores asociados con el grupo de reflejos asíncronos y su volumen miembro. Sin embargo, si un grupo de reflejos asíncronos tiene un error y uno de sus volúmenes miembro también, borrar el error en el grupo de reflejos asíncronos no borrará el error de su volumen miembro.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+clear asyncMirrorFault(all |
+asyncMirrorGroup pass:quotes[[_asyncMirrorGroupName_]] |
+asyncMirrorGroups pass:quotes[[_"asyncMirrorGroupName1"
+... "asyncMirrorGroupNameN"_]] |
+volume pass:quotes[[_volumeName_]] |
+volumes pass:quotes[[_"volumeName1" ... "volumeNameN"_]])
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`all`
+ a| 
+Use este parámetro si desea borrar todos los errores de mirroring asíncrono de todos los grupos de reflejos asíncronos y de todos los volúmenes miembro del grupo de reflejos asíncronos.
+
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos del cual se desea borrar el error de mirroring asíncrono. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`asyncMirrorGroups`
+ a| 
+Los nombres de varios grupos de reflejos asíncronos de los cuales se desea borrar el error de mirroring asíncrono. Para introducir los nombres de los grupos de reflejos asíncronos, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen miembro específico (en un grupo de reflejos asíncronos) del cual se desea borrar el error de mirroring asíncrono. El nombre del volumen miembro debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes miembro (en un grupo de reflejos asíncronos) de los cuales se desea borrar el error de mirroring asíncrono. Para introducir los nombres de los volúmenes miembro, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

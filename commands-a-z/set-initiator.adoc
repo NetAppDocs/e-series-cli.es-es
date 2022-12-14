@@ -1,0 +1,92 @@
+---
+permalink: commands-a-z/set-initiator.html 
+sidebar: sidebar 
+keywords: set, initiator 
+summary: El comando set initiator actualiza el objeto iniciador. 
+---
+= Configure el iniciador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set initiator` comando actualiza el objeto iniciador.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando reemplaza a la obsoleto xref:set-iscsiinitiator.adoc[Configure el iniciador de iSCSI] comando.
+
+====
+[NOTE]
+====
+Este comando se aplica únicamente a iSCSI, Iser, NVMe over roce, NVMe over InfiniBand y NVMe over Fibre Channel.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+
+set initiator (["initiatorName"] | <"initiatorQualifiedName">) ([userLabel="newInitiatorName"] |
+[host="newHostName"] | [chapSecret="newSecurityKey"])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`initiator`
+ a| 
+Permite especificar el identificador del iniciador en el que se desean definir propiedades. El nombre debe escribirse entre comillas dobles ("' "'). También se debe escribir entre corchetes ([ ]) si el valor es una etiqueta de usuario o entre paréntesis angulares (< >) si el valor es un nombre completo (por ejemplo, IQN o nqn).
+
+
+
+ a| 
+`userLabel`
+ a| 
+Permite introducir una nueva etiqueta de usuario para el objeto iniciador. La nueva etiqueta de usuario debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+Permite introducir un nuevo host al cual se conecta el puerto de host. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`chapSecret`
+ a| 
+Permite introducir una clave de seguridad nueva que se desea usar para autenticar una conexión entre iguales. La clave de seguridad debe escribirse entre comillas dobles (" "). Este parámetro solo se aplica a. `iSCSI` y.. `iSER` tipos de interfaz del host.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.41

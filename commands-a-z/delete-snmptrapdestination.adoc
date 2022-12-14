@@ -1,0 +1,55 @@
+---
+permalink: commands-a-z/delete-snmptrapdestination.html 
+sidebar: sidebar 
+keywords: delete, command, snmptrapdestination, existing, simple, network, management, protocol, trap, destination, previous, create, registered 
+summary: 'El comando delete snmpTrapDestination elimina un destino de capturas de protocolo simple de gestión de redes (SNMP) existente que se creó y registró previamente con el comando create snmpTrapDestination.' 
+---
+= Cancele el registro del destino de captura SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete snmpTrapDestination` Comando elimina un destino de captura de protocolo simple de gestión de redes (SNMP) existente que se creó y registró previamente con el `create snmpTrapDestination` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete snmpTrapDestination trapReceiverIP=_ipAddress_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`trapReceiverIP`
+ a| 
+Dirección IP del administrador SNMP desde el que se desea detener el envío de mensajes de captura.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.30

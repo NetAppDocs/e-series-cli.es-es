@@ -1,0 +1,69 @@
+---
+permalink: commands-a-z/set-cgsnapvolume.html 
+sidebar: sidebar 
+keywords: set, consistency, group, snapshot, volume 
+summary: El comando set cgSnapVolume crea un nombre único para un volumen Snapshot de un grupo de coherencia. 
+---
+= Configurar volumen Snapshot de grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set cgSnapVolume` el comando crea un nombre único para un volumen snapshot de un grupo de coherencia.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set cgSnapVolume pass:quotes[[_cgSnapVolumeName_]]
+userLabel=pass:quotes["_cgSnapVolumeName_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`cgSnapVolume`
+ a| 
+El nombre del volumen del grupo de coherencia que se desea cambiar. El nombre del volumen Snapshot del grupo de coherencia debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nuevo nombre que se desea otorgar al volumen Snapshot en el grupo de coherencia. El nombre nuevo del volumen Snapshot debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,260 @@
+---
+permalink: commands-a-z/create-volume-diskpool.html 
+sidebar: sidebar 
+keywords: create, volume, disk pool 
+summary: El comando create volume DISKPOOL crea un nuevo volumen RAID estándar o un volumen fino en un pool de discos existente. 
+---
+= Crear volumen en pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create volume diskPool` El comando crea un nuevo volumen RAID estándar o un volumen fino en un pool de discos existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Algunos parámetros para crear un volumen RAID estándar en un grupo de volúmenes no son compatibles para la creación de volúmenes de cualquier tipo en un pool de discos. Cuando se usan scripts más antiguos para crear volúmenes en pools de discos, se debe confirmar que todos los parámetros sean válidos para pools de discos. Los parámetros no válidos impiden la correcta ejecución de los scripts y provocan un error.
+
+====
+
+
+== Sintaxis para crear un volumen estándar
+
+[listing, subs="+macros"]
+----
+create volume diskPool=pass:quotes[_"diskPoolName"_
+userLabel="_volumeName_"
+capacity=_volumeCapacity_]
+[thinProvisioned=(TRUE | FALSE)]
+[owner=(a|b)]
+[mapping=(none|default)]
+[dataAssurance=(none|enabled)]
+[cacheReadPrefetch=(TRUE | FALSE)]
+[raidLevel=(1 | 6)]
+[blockSize=requestedBlockSizeValue]
+----
+
+
+== Sintaxis para crear un volumen con aprovisionamiento fino
+
+[listing, subs="+macros"]
+----
+create volume diskPool=pass:quotes[_"diskPoolName"_
+userLabel="_volumeName_"
+capacity=_volumeCapacity_]
+[thinProvisioned=(TRUE | FALSE)]
+[owner=(a|b)]
+[mapping=(none|default)]
+[dataAssurance=(none|enabled)]
+[(existingRepositoryLabel=pass:quotes[_existingRepositoryName_] |
+[newRepositoryCapacity=pass:quotes[_newRepositoryCapacityValue_] (KB | MB | GB | TB | Bytes)]
+[repositoryMaxCapacity=pass:quotes[_repositoryMaxCapacityValue_](KB|MB|GB|TB|Bytes)]
+[warningThresholdPercent=pass:quotes[_warningThresholdPercentValue_]
+[repositoryExpansionPolicy=(automatic|manual)]
+[cacheReadPrefetch=(TRUE | FALSE)]
+----
+[listing, subs="+macros"]
+----
+create volume diskPool=pass:quotes[_"diskPoolName"_
+userLabel="_volumeName_"
+capacity=_volumeCapacity_]
+[thinProvisioned=(TRUE | FALSE)]
+[owner=(a|b)]
+[mapping=(none|default)]
+[(existingRepositoryLabel=pass:quotes[_existingRepositoryName_] |
+[newRepositoryCapacity=pass:quotes[_newRepositoryCapacityValue_] (KB | MB | GB | TB | Bytes)]
+[repositoryMaxCapacity=pass:quotes[_repositoryMaxCapacityValue_](KB|MB|GB|TB|Bytes)]
+[warningThresholdPercent=pass:quotes[_warningThresholdPercentValue_]]
+[repositoryExpansionPolicy=(automatic|manual)]
+[cacheReadPrefetch=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+Nombre del pool de discos en el que se creará el nuevo volumen. El nombre del pool de discos debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se desea otorgar al nuevo volumen. El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`capacity`
+ a| 
+El tamaño del volumen que se está creando.
+
+Para un volumen RAID estándar, la capacidad que se asignará al volumen.
+
+Para un volumen fino, el valor de capacidad virtual que expondrá el volumen fino.
+
+El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`. A continuación, se muestran ejemplos de la sintaxis:
+
+* `capacity=500MB`
+* `capacity=2GB`
+
+
+
+
+ a| 
+`thinProvisioned`
+ a| 
+Este parámetro habilita el thin provisioning para el nuevo volumen. Para usar thin provisioning, el parámetro debe configurarse en `TRUE`. Si se prefiere no usar thin provisioning, el parámetro debe configurarse en `FALSE`.
+
+
+NOTE: Thin provisioning no está disponible para volúmenes de nivel RAID1.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora propietaria del volumen. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Si no se especifica un propietario, el firmware de la controladora lo determina.
+
+
+
+ a| 
+`mapping`
+ a| 
+Este parámetro permite asignar el volumen a un host. Si se prefiere realizar la asignación más tarde, el parámetro debe configurarse en `none`. Si se prefiere realizar la asignación en el momento, el parámetro debe configurarse en `default`. El volumen se asignará a todos los hosts que tengan acceso al pool de almacenamiento.
+
+El valor predeterminado es `none`.
+
+
+
+ a| 
+`existingRepositoryLabel`
+ a| 
+Este parámetro identifica un repositorio existente para un volumen fino. Un volumen de repositorios tiene la capacidad física para un volumen fino. Este parámetro solo se aplica a thin provisioning. Si utiliza la `existingRepositoryLabel` no debe usar el `newRepositoryCapacity` parámetro.
+
+
+
+ a| 
+`newRepositoryCapacity`
+ a| 
+Este parámetro crea un nuevo repositorio para un volumen fino. Un volumen de repositorios tiene la capacidad física para un volumen fino. Use este parámetro únicamente si establece el valor de `thinProvisioned` parámetro a. `TRUE`.
+
+El tamaño se define en unidades de `MB`, `GB`, o. `TB`. A continuación, se muestran ejemplos de la sintaxis:
+
+* `capacity=500MB`
+* `capacity=2GB`
+
+
+El valor predeterminado es el 50 % de la capacidad virtual.
+
+
+
+ a| 
+`repositoryMaxCapacity`
+ a| 
+Este parámetro define la capacidad máxima de un repositorio para un volumen fino. Use este parámetro únicamente si establece el valor de `thinProvisioned` parámetro a. `TRUE`.
+
+El tamaño se define en unidades de `MB`, `GB`, o. `TB`. A continuación, se muestran ejemplos de la sintaxis:
+
+* `capacity=500MB`
+* `capacity=2GB`
+
+
+
+
+ a| 
+`warningThresholdPercent`
+ a| 
+El porcentaje de capacidad de un volumen fino que debe alcanzarse para que se envíe una alerta de advertencia de que el volumen está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %.
+
+Los valores válidos son de 1 a 100.
+
+Si el parámetro se configura en 100, las alertas de advertencia quedan deshabilitadas.
+
+
+
+ a| 
+`repositoryExpansionPolicy`
+ a| 
+Este parámetro establece la política de expansión en `automatic` o. `manual`. Al cambiar la política desde `automatic` para `manual`, el valor de capacidad máxima (cuota) cambia a la capacidad física del volumen de repositorios.
+
+
+
+ a| 
+`cacheReadPrefetch`
+ a| 
+El ajuste para activar o desactivar la captura previa de lectura de caché. Para desactivar la captura previa de lectura de caché, este parámetro debe configurarse en `FALSE`. Para activar la captura previa de lectura de caché, este parámetro debe configurarse en `TRUE`.
+
+
+
+ a| 
+`raidLevel`
+ a| 
+Configura el nivel de RAID para el volumen que se crea en el pool de discos. Para especificar RAID1, establezca en `1`. Para especificar RAID6, establezca en `6`. Si no se establece el nivel de RAID, se usa RAID6 para el pool de discos de forma predeterminada.
+
+
+
+ a| 
+`blockSize`
+ a| 
+Este parámetro configura el tamaño de bloque del volumen que se está creando. Valor de `0` o bien, el parámetro no configurado utiliza el tamaño de bloque predeterminado.
+
+|===
+
+
+== Notas
+
+Cada nombre de volumen debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+Para los volúmenes finos, el `capacity` el parámetro especifica la capacidad virtual del volumen y la `repositoryCapacity` parámetro especifica la capacidad del volumen creado como volumen de repositorios. Utilice la `existingRepositoryLabel` parámetro para especificar un volumen de repositorios existente sin usar en lugar de crear un volumen nuevo.
+
+Para obtener los mejores resultados al crear un volumen fino, el volumen de repositorios ya debe existir o debe crearse en un pool de discos existente. Si no se especifican algunos de los parámetros opcionales al crear volúmenes finos, el software de administración del almacenamiento intentará crear el volumen de repositorios. El volumen candidato más viable es un volumen de repositorios que ya existe y que se encuentra dentro de los requisitos de tamaño. El siguiente candidato más viable es un volumen de repositorios nuevo que se crea en la extensión libre del pool de discos.
+
+No es posible crear volúmenes de repositorios para volúmenes finos en un grupo de volúmenes.
+
+
+
+== Gestión de garantía de datos
+
+La función Data Assurance (DA) mejora la integridad de los datos en todo el sistema de almacenamiento. DA permite a la cabina de almacenamiento comprobar si se producen errores cuando se transfieren datos entre hosts y unidades. Si esta función está habilitada, la cabina de almacenamiento añade códigos de comprobación de errores (también conocidos como comprobaciones de redundancia cíclicas o CRC) a cada bloque de datos del volumen. Una vez movido un bloque de datos, la cabina de almacenamiento utiliza estos códigos de CRC para determinar si se produjeron errores durante la transmisión. Los datos posiblemente dañados no se escriben en el disco ni se vuelven a transferir al host.
+
+Si desea usar la función DA, comience con un pool o grupo de volúmenes que solo incluya unidades que sean compatibles con DA. A continuación, cree volúmenes compatibles con DA. Por último, asigne estos volúmenes compatibles con DA al host por medio de una interfaz de I/o compatible con DA. Las interfaces de I/o compatibles con DA son Fibre Channel, SAS e Iser over InfiniBand (extensiones iSCSI para RDMA/IB). ISCSI sobre Ethernet o SRP over InfiniBand no admiten LA función DA.
+
+[NOTE]
+====
+Cuando todas las unidades son compatibles con DA, es posible configurar el `dataAssurance` parámetro a. `enabled` Y luego usar DA con ciertas operaciones. Por ejemplo, es posible crear un grupo de volúmenes que incluya unidades compatibles con DA y, luego, crear un volumen dentro de ese grupo que tenga la función DA habilitada. Otras operaciones que usan volúmenes con la función DA habilitada tienen opciones para admitir la función DA.
+
+====
+Si `dataAssurance` el parámetro se establece en `enabled`, sólo se considerarán unidades compatibles con garantía de datos para candidatos de volumen; de lo contrario, se considerarán unidades compatibles con garantía de datos o no compatibles con esta función. Si solamente existen unidades con garantía de datos disponibles, se crea el nuevo volumen con las unidades compatibles con esa función.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+8.70 añade el `_raidLevel_` y.. `_blockSize` parámetros.

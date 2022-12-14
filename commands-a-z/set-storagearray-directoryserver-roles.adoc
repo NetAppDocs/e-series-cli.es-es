@@ -1,0 +1,103 @@
+---
+permalink: commands-a-z/set-storagearray-directoryserver-roles.html 
+sidebar: sidebar 
+keywords: set, storage, array, directory, server, role, map 
+summary: El comando set storageArray directoryServer roles permite definir las asignaciones de roles para un servidor de directorio especificado. Estas asignaciones de roles se usan para autenticar usuarios que intentan ejecutar varios comandos de SMcli. 
+---
+= Configure la asignación de roles de servidor de directorio de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray directoryServer roles` el comando permite definir asignaciones de roles para un servidor de directorio especificado. Estas asignaciones de roles se usan para autenticar usuarios que intentan ejecutar varios comandos de SMcli.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Lo que necesitará
+
+Los siguientes roles están disponibles para su asignación:
+
+* *Storage admin* -- acceso completo de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y pools de discos), pero sin acceso a la configuración de seguridad.
+* *Administración de seguridad* -- acceso a la configuración de seguridad en Access Management, administración de certificados, administración de registros de auditoría y la capacidad de activar o desactivar la interfaz de administración heredada (Symbol).
+* *Support admin* -- acceso a todos los recursos de hardware en la cabina de almacenamiento, datos de fallos, eventos MEL y actualizaciones del firmware de la controladora. No brinda acceso a los objetos de almacenamiento ni a la configuración de seguridad.
+* *Monitor* -- acceso de sólo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+set storageArray directoryServer pass:quotes[["_domainId_"]]
+    groupDN=pass:quotes["_groupDistinguishedName_"] roles=pass:quotes[("_role1_"..."_roleN_")]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`directoryServer`
+ a| 
+Permite especificar el dominio según su ID dentro del cual se desean configurar asignaciones de roles.
+
+
+
+ a| 
+`groupDN`
+ a| 
+Permite especificar el nombre distintivo (DN) del grupo que desea agregar a la lista de asignaciones.
+
+
+
+ a| 
+`roles`
+ a| 
+Permite especificar uno o varios roles para los usuarios en el grupo definido. Si se introducen varios roles, los valores deben separarse con un espacio. Las opciones válidas son:
+
+* `storage.monitor`
+* `storage.admin`
+* `security.admin`
+* `support.admin`
+
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "set storageArray directoryServer ["domain1"]
+                    groupDN="CN=ng-hsg-bc-madridsecurity,OU=Managed,
+                    OU=MyCompanyGroups,DC=hq,DC=mycompany,DC=com"
+                    roles=("storage.monitor" "security.admin" "storage.admin");"
+
+SMcli -n Array1 -c "set storageArray directoryServer ["domain1"]
+                    groupDN="CN=ng-epg-engr-manageability,OU=Managed,
+                    OU=MyCompanyGroups,DC=hq,DC=mycompany,DC=com"
+                    roles=("support.admin");"
+
+SMcli completed successfully.
+----

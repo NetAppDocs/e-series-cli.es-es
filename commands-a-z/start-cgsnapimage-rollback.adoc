@@ -1,0 +1,112 @@
+---
+permalink: commands-a-z/start-cgsnapimage-rollback.html 
+sidebar: sidebar 
+keywords: start, consistency, group, snapshot, rollback 
+summary: El comando start cgSnapImage rollback inicia una operación de reversión a los volúmenes base miembro en un grupo de coherencia Snapshot. 
+---
+= Inicie una reversión Snapshot de grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start cgSnapImage rollback` el comando inicia una operación de reversión a los volúmenes base miembro en un grupo de coherencia snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+El contenido de los volúmenes base cambia de inmediato para coincidir con el contenido del momento específico del volumen Snapshot del grupo de coherencia. Una vez que finaliza correctamente la operación de reversión, los volúmenes base quedan inmediatamente disponibles para solicitudes de lectura/escritura.
+
+El volumen de repositorios asociado con el volumen Snapshot del grupo de coherencia continúa realizando un seguimiento de cualquier cambio nuevo entre el volumen base y el volumen Snapshot del grupo de coherencia que ocurra una vez completada la operación de reversión.
+
+Para detener una operación de reversión en los volúmenes base miembro, use el `stop cgSnapImage rollback` comando.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start cgSnapImage pass:quotes[["_snapCGID:imageID_"]] rollback
+memberVolumeSet pass:quotes[("_memberVolumeName1_" ... "_memberVolumeNameN_")]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`cgSnapImage`
+ a| 
+El nombre de la imagen Snapshot del grupo de coherencia de la cual se desea iniciar una operación de reversión. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot.
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` -- esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` -- esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`memberVolumeSet`
+ a| 
+El nombre de uno o más volúmenes base miembro en un grupo de coherencia que se desea revertir. El nombre de cada volumen base miembro debe escribirse entre comillas dobles (" ") dentro de paréntesis.
+
+Es posible introducir más de un nombre de volumen. Todos los nombres de volúmenes deben escribirse entre corchetes ([ ]). El nombre de cada volumen debe escribirse entre comillas dobles (" "). Los nombres de cada volumen deben estar separados por un espacio.
+
+Cuando la `memberVolumeSet` no se usa el parámetro el proceso de reversión se aplica a todos los volúmenes miembro del grupo de coherencia.
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desea iniciar una operación de reversión de la imagen Snapshot más reciente en un grupo de coherencia completo con el nombre CG1, se debería usar el siguiente comando:
+
+[listing]
+----
+start cgSnapImage ["CG1:newest"] rollback;
+----
+Si se desea iniciar una operación de reversión de la imagen Snapshot 12345 para los miembros del volumen base memVol1, memVol2 y memVol3 en un grupo de coherencia con el nombre CG2, se debería usar el siguiente comando:
+
+[listing]
+----
+start cgSnapImage ["CG2:12345"] rollback memberVolumeset=("memVol1 memVol2 memVol3");
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

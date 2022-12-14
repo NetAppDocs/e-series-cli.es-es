@@ -1,0 +1,55 @@
+---
+permalink: commands-a-z/delete-ssdcache.html 
+sidebar: sidebar 
+keywords: delete, cache, command, data, purged, array, support, role, parameter 
+summary: El comando delete ssdCache elimina la caché SSD. Se depuran todos los datos de la caché SSD. 
+---
+= Elimine la caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete ssdCache` El comando elimina la caché SSD. Se depuran todos los datos de la caché SSD.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete ssdCache [_ssdCacheName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD que se desea eliminar. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD incluye caracteres especiales o está compuesto solo de números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

@@ -1,0 +1,189 @@
+---
+permalink: commands-a-z/create-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: create, asynchronous, mirror, group 
+summary: El comando create asyncMirrorGroup crea un nuevo grupo de reflejos asíncronos tanto en la cabina de almacenamiento local como en la cabina de almacenamiento remota. 
+---
+= Cree un grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create asyncMirrorGroup` este comando crea un nuevo grupo de reflejos asíncronos tanto en la cabina de almacenamiento local como en la remota.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Un grupo de reflejos asíncronos es un contenedor donde se pueden alojar varias parejas reflejadas a fin de administrarlas como una misma entidad. Es posible crear un grupo de reflejos asíncronos con el objetivo de definir los ajustes de sincronización para todas las parejas reflejadas dentro del grupo. Cada pareja reflejada de un grupo de reflejos asíncronos comparte los mismos ajustes de sincronización, roles primarios y secundarios, y modo de escritura.
+
+El grupo de reflejos asíncronos está asociado con la cabina de almacenamiento local y con la cabina de almacenamiento remota que se usa para el mirroring. La cabina de almacenamiento local es el lado primario del grupo de reflejos asíncronos, mientras que la cabina de almacenamiento remota es el lado secundario del mismo grupo. Todos los volúmenes que se añaden al grupo de reflejos asíncronos en la cabina de almacenamiento local conservan el rol primario en la relación de reflejo. En consecuencia, todos los volúmenes añadidos al grupo de reflejos asíncronos en la cabina de almacenamiento remota conservan el rol secundario en la relación de mirroring.
+
+Asegúrese de ejecutar el `Create Asynchronous Mirror Group` comando en la cabina de almacenamiento local. La creación de un grupo de reflejos asíncronos se inicia desde la cabina de almacenamiento que contiene los volúmenes con el rol principal en la relación de mirroring. Utilice la `Create Asynchronous Mirror Group` comando para especificar la identidad de la cabina de almacenamiento remota que contiene los volúmenes con el rol secundario en la relación de reflejo.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create asyncMirrorGroup userLabel=pass:quotes[_"asyncMirrorGroupName"_]
+(remoteStorageArrayName=pass:quotes[_"storageArrayName"_] | remoteStorageArrayWWN=pass:quotes[_"wwID"_])
+[remotePassword=pass:quotes[_"password"_]
+interfaceType=(FC | iSCSI)
+[syncInterval=pass:quotes[_integer_](minutes | hours | days)]
+[warningSyncThreshold=pass:quotes[_integer_](minutes | hours | days)]
+[warningRecoveryThreshold=pass:quotes[_integer_](minutes | hours | days)]
+[warningThresholdPercent=pass:quotes[_percentValue_]]
+[autoResync=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre del nuevo grupo de reflejos asíncronos que se desea crear. El nombre del grupo de reflejos asíncronos debe escribirse entre comillas dobles (" ").
+
+El nombre debe ser exclusivo para las cabinas de almacenamiento locales y remotas.
+
+
+
+ a| 
+`remoteStorageArrayName`
+ a| 
+El nombre de la cabina de almacenamiento remota donde se va a reflejar el grupo de reflejos asíncronos. El nombre de la cabina de almacenamiento debe escribirse entre comillas dobles (" ").
+
+La cabina de almacenamiento remota debe tener el mismo tipo de conexión que la cabina de almacenamiento local.
+
+
+
+ a| 
+`remoteStorageArrayWWN`
+ a| 
+El identificador a nivel mundial (WWID) de la cabina de almacenamiento remota donde se va a reflejar el grupo de reflejos asíncronos. Es posible usar el WWID en lugar del nombre de la cabina de almacenamiento para identificar la cabina de almacenamiento. El WWID debe escribirse entre paréntesis angulares (< >).
+
+La cabina de almacenamiento remota debe tener el mismo tipo de conexión que la cabina de almacenamiento local.
+
+
+
+ a| 
+`remotePassword`
+ a| 
+La contraseña de la cabina de almacenamiento remota. Se debe usar este parámetro cuando la cabina de almacenamiento remota está protegida por contraseña. La contraseña debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`interfaceType`
+ a| 
+Especifica el tipo de conexión: Estructura de Fibre Channel o interfaz iSCSI (El valor predeterminado es Fibre Channel). La cabina de almacenamiento local y la cabina de almacenamiento remota deben estar conectadas a través de una estructura Fibre Channel o de una interfaz iSCSI.
+
+
+
+ a| 
+`syncInterval`
+ a| 
+Especifica el intervalo entre el envío automático de actualizaciones de los datos modificados desde la cabina de almacenamiento local hacia la cabina de almacenamiento remota. La duración del intervalo se puede especificar en minutos, horas o días.
+
+[NOTE]
+====
+No se debe añadir un espacio entre el número entero y la unidad de tiempo.
+
+====
+Ejemplo: `10minutes`
+
+
+
+ a| 
+`warningSyncThreshold`
+ a| 
+Se debe especificar la cantidad de tiempo que se esperará antes de activar una advertencia para los casos en que la sincronización de todos los volúmenes del grupo de reflejos asíncronos demore más que el tiempo definido. La duración del intervalo se puede especificar en minutos, horas o días.
+
+[NOTE]
+====
+No se debe añadir un espacio entre el número entero y la unidad de tiempo.
+
+====
+Ejemplo: `30minutes`
+
+
+
+ a| 
+`warningRecoveryThreshold`
+ a| 
+Especifica la cantidad de tiempo que se esperará antes de activar una advertencia cuando la actualización automática de datos de la imagen de un momento específico en la cabina de almacenamiento remota es más antigua que el valor definido. Se debe indicar un umbral respecto del final de la actualización previa. La duración del intervalo se puede especificar en minutos, horas o días.
+
+[NOTE]
+====
+El umbral del punto de recuperación debe ser dos veces mayor que el umbral del intervalo de sincronización.
+
+====
+[NOTE]
+====
+No se debe añadir un espacio entre el número entero y la unidad de tiempo.
+
+====
+Ejemplo: `60minutes`
+
+
+
+ a| 
+`warningThresholdPercent`
+ a| 
+Especifica la cantidad de tiempo que se esperará antes de activar una advertencia cuando la capacidad de un volumen de repositorios de reflejos alcanza el porcentaje definido. El umbral se define según un porcentaje (%) de la capacidad restante.
+
+
+
+ a| 
+`autoResync`
+ a| 
+La configuración de resincronización automática entre los volúmenes primarios y secundarios de una pareja reflejada asíncrona dentro de un grupo de reflejos asíncronos. Este parámetro admite los siguientes valores:
+
+* `enabled` -- se activa la resincronización automática. No es necesaria ninguna acción adicional para volver a sincronizar el volumen primario y el secundario.
+* `disabled` -- la resincronización automática está desactivada. Para volver a sincronizar el volumen primario y el volumen secundario, se debe ejecutar el `resume asyncMirrorGroup` comando.
+
+
+|===
+
+
+== Notas
+
+* La función de mirroring asíncrono debe estar habilitada y activada en las cabinas de almacenamiento locales y remotas que se usarán para las actividades de mirroring.
+* En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+* Las cabinas de almacenamiento locales y remotas deben estar conectadas a través de una estructura Fibre Channel o de una interfaz iSCSI.
+* Las contraseñas se almacenan en cada cabina de almacenamiento en un dominio de gestión. Si no se configuró una contraseña previamente, no es necesario introducirla. La contraseña puede ser cualquier combinación de caracteres alfanuméricos, con un máximo de 30 caracteres. (Puede definir una contraseña de cabina de almacenamiento mediante el `set storageArray` ).
+* De acuerdo con la configuración, existe una cantidad máxima de grupos de reflejos asíncronos que pueden crearse en una cabina de almacenamiento.
+* Los grupos de reflejos asíncronos se crean vacíos y luego se añaden las parejas reflejadas. Solo es posible añadir parejas reflejadas a un grupo de reflejos asíncronos. Cada pareja reflejada se asocia con exactamente un grupo de reflejos asíncronos.
+* El proceso de mirroring asíncrono se inicia con un intervalo de sincronización definido. Las imágenes periódicas de un momento específico se replican, ya que solo se copian los datos modificados y no todo el volumen.
+
+
+
+
+== Nivel de firmware mínimo
+
+7.84

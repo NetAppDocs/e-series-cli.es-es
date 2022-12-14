@@ -1,0 +1,109 @@
+---
+permalink: commands-a-z/show-storagearray-dbmdatabase.html 
+sidebar: sidebar 
+keywords: show, storage, array, dbm, database 
+summary: El comando show storageArray dbmDatabase recupera y muestra metadatos de las ubicaciones de backup integradas de una cabina de almacenamiento. Si existen varias ubicaciones de backup, se muestran los metadatos de cada ubicación. 
+---
+= Mostrar base de datos DBM de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray dbmDatabase` el comando recupera y muestra metadatos de las ubicaciones de backup integradas de una cabina de almacenamiento. Si existen varias ubicaciones de backup, se muestran los metadatos de cada ubicación.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray dbmDatabase
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Este comando muestra información de la base de datos de la configuración en un formato similar al del siguiente ejemplo.
+
+`Configuration Database MetadataLast Host Backup: <date stamp>`
+
+[cols="7*"]
+|===
+| CTL | UBICACIÓN | REVISIÓN | ID | NÚMERO DE GENERACIÓN | ESTADO | MODO DE ACCESO 
+
+
+ a| 
+A.
+ a| 
+Almacenamiento en caché
+ a| 
+X.Y.
+ a| 
+999999
+ a| 
+999999
+ a| 
+AN/AN
+ a| 
+Óptimo
+
+
+
+ a| 
+B
+ a| 
+Almacenamiento en caché
+ a| 
+X.Y.
+ a| 
+999999
+ a| 
+999999
+ a| 
+AN/AN
+ a| 
+Óptimo
+
+
+
+ a| 
+N.A.
+ a| 
+Disco
+ a| 
+X.Y.
+ a| 
+999999
+ a| 
+999999
+ a| 
+AN/AN
+ a| 
+Óptimo
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

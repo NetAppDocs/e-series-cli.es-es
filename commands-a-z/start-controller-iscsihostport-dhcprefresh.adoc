@@ -1,0 +1,131 @@
+---
+permalink: commands-a-z/start-controller-iscsihostport-dhcprefresh.html 
+sidebar: sidebar 
+keywords: start, iscsi, dhcp, refresh 
+summary: El comando start Controller iscsiHostPort dhcpRefresh inicia una actualización de los parámetros DHCP en la interfaz iSCSI. 
+---
+= Inicie la actualización de DHCP de iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start controller iscsiHostPort dhcpRefresh` Comando inicia una actualización de los parámetros DHCP para la interfaz iSCSI.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Si el método de configuración de la interfaz no está establecido en DHCP, el procedimiento devuelve un error.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start controller [(a|b)] iscsiHostPort [portLabel] dhcpRefresh
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La letra identificadora de la controladora que tienen los puertos de host iSCSI. Los valores válidos para los identificadores de la controladora son los siguientes `a` o. `b` donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B.
+
+
+
+ a| 
+`iscsiHostPort`
+ a| 
+La etiqueta del puerto de host o el número del puerto de host iSCSI para los que se desea actualizar los parámetros DHCP.
+
+En la siguiente sección, se ofrece más información:
+
+<<Identificar una etiqueta de puerto de host iSCSI,"Identificar una etiqueta de puerto de host iSCSI">>
+
+|===
+
+
+== Identificar una etiqueta de puerto de host iSCSI
+
+Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
+
+.Pasos
+. Si no se conoce la etiqueta de puerto para el puerto de host iSCSI, ejecute el `show controller` comando.
+. En la sección interfaz de host de los resultados, busque el puerto de host que desea seleccionar.
++
+[NOTE]
+====
+La etiqueta de puerto es el valor completo que se muestra en `Port` campo.
+
+====
+. El valor entero de la etiqueta de puerto debe indicarse entre comillas y corchetes: ["portLabel"]. Por ejemplo, si la etiqueta de puerto es `Ch 2`, Especifique el puerto de host iSCSI de la siguiente manera:
++
+[listing]
+----
+iscsiHostPort[\"ch 2\"]
+----
++
+[NOTE]
+====
+Cuando se usa una línea de comandos de Windows y la etiqueta contiene una barra vertical (|), es necesario escapar el carácter (con {caret}); en caso contrario, se lo interpretará como un comando. Por ejemplo, si la etiqueta de puerto es `e0b|0b`, Especifique el puerto de host iSCSI de la siguiente manera:
+
+====
++
+[listing]
+----
+iscsiHostPort[\"e0b^|0b\"]
+----
+
+
+[NOTE]
+====
+Para obtener compatibilidad con versiones anteriores, el valor de iscsiPortNumber, escrito entre corchetes [ ] en lugar de corchetes y comillas [" "], puede usarse en las controladoras E2700, E5600 o EF560 (y generaciones anteriores de controladoras E-Series o EF-Series). Para estas controladoras, los valores válidos de iscsiPortNumber son los siguientes:
+
+* Para las controladoras con puertos de host integrados, los valores numéricos son 3, 4, 5 o 6.
+* Para las controladoras con puertos de host en una tarjeta de interfaz de host, los valores numéricos son 1, 2, 3 o 4.
+
+
+Un ejemplo de esta sintaxis es:
+
+[listing]
+----
+iscsiHostPort[3]
+----
+====
+
+
+== Notas
+
+Esta operación finaliza las conexiones iSCSI del portal y lo anula temporalmente.
+
+
+
+== Nivel de firmware mínimo
+
+7.10
+
+8.10 integra una revisión del sistema de numeración de los puertos de host iSCSI.
+
+8.30 revisa el método de identificación de los puertos de host iSCSI en E2800.

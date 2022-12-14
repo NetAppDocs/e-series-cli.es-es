@@ -1,0 +1,107 @@
+---
+permalink: commands-a-z/export-storagearray-securitykey.html 
+sidebar: sidebar 
+keywords: export, storage, array, security, key, command, save, drive, securitykey, file, context, role 
+summary: El comando export storageArray securityKey guarda una clave de seguridad de la unidad en un archivo. 
+---
+= Exporte clave de seguridad de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `export storageArray securityKey` el comando guarda una clave de seguridad de la unidad en un archivo.
+
+
+
+== Cabinas compatibles
+
+Si la gestión de claves externas está habilitada, este comando solo se aplica a las cabinas E2800, E5700, EF600 y EF300. Si la gestión de claves internas está habilitada, este comando se aplica a cualquier cabina de almacenamiento individual, siempre que se hayan instalado todos los paquetes de SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Cuando se exporta un archivo de claves de una cabina de almacenamiento, esa clave puede importarse a otra cabina de almacenamiento. De esta forma, es posible mover unidades compatibles con la función de seguridad de una cabina de almacenamiento a otra.
+
+[NOTE]
+====
+Este comando se aplica a la gestión de claves interna y externa.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+export storageArray securityKey
+pass:quotes[passPhrase="_passPhraseString_"]
+pass:quotes[file="_fileName_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`passPhrase`
+ a| 
+Una cadena de caracteres que cifra la clave de seguridad para poder almacenarla en un archivo externo. La frase de contraseña debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardará la clave de seguridad. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\drivesecurity.slk"
+----
+[NOTE]
+====
+El nombre de archivo debe tener la extensión de `.slk`.
+
+====
+|===
+
+
+== Notas
+
+La cabina de almacenamiento a la cual se desplazarán las unidades debe incluir unidades con una capacidad igual o mayor que las unidades que se importan.
+
+El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades de cifrado de disco completo (FDE). Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
+
+La frase de contraseña debe cumplir los siguientes criterios:
+
+* Debe tener entre 8 y 32 caracteres.
+* No debe incluir espacios en blanco.
+* Debe incluir al menos una letra mayúscula.
+* Debe incluir al menos una letra minúscula.
+* Debe incluir al menos un número.
+* Debe incluir al menos un carácter alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de error y se solicita volver a ejecutar el comando.
+
+====
+
+
+== Nivel de firmware mínimo
+
+7.40

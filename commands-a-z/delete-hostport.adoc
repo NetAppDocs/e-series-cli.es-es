@@ -1,0 +1,72 @@
+---
+permalink: commands-a-z/delete-hostport.html 
+sidebar: sidebar 
+keywords: delete, hostport, command, host, port, identification 
+summary: El comando delete hostPort elimina una identificación de puerto de host. 
+---
+= Eliminar puerto de host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete hostPort` el comando elimina una identificación de puerto de host.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La identificación es un valor de software que representa el puerto de host físico que se conecta con la controladora. Si se elimina la identificación, la controladora deja de reconocer las instrucciones y los datos provenientes del puerto de host.
+
+[IMPORTANT]
+====
+Este comando no funciona en un entorno iSCSI, donde los puertos de host se consideran iniciadores. En su lugar, utilice la `delete iscsiInitiator` comando. Consulte xref:delete-iscsiinitiator.adoc[Elimine el iniciador de iSCSI].
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+delete hostPort [hostPortName]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`hostPort`
+ a| 
+El nombre del puerto de host que se desea eliminar. El nombre del puerto de host debe escribirse entre corchetes ([ ]). Si el nombre del puerto de host contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+Un puerto de host es una conexión física de un adaptador de host que reside en un equipo host. Un puerto de host brinda acceso de host a los volúmenes de una cabina de almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

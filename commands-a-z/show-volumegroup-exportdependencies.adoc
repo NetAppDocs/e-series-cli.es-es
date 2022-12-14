@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/show-volumegroup-exportdependencies.html 
+sidebar: sidebar 
+keywords: show, volume, group, export, dependencies 
+summary: El comando show volumeGroup exportDependencies muestra una lista de dependencias de las unidades de un grupo de volúmenes que se desea transferir desde una cabina de almacenamiento hacia una segunda cabina de almacenamiento. 
+---
+= Mostrar dependencias de exportación de grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volumeGroup exportDependencies` el comando muestra una lista de dependencias de las unidades de un grupo de volúmenes que se desea mover de una cabina de almacenamiento a una segunda cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[show volumeGroup [_volumeGroupName_]] exportDependencies
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes del cual se desean ver las dependencias para exportar. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Este comando aumenta la velocidad de giro de las unidades de un grupo de volúmenes, lee el DACstore y muestra una lista de dependencias para importar de un grupo de volúmenes. El grupo de volúmenes debe estar en el estado exportado o forzado.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

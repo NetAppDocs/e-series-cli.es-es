@@ -1,0 +1,166 @@
+---
+permalink: commands-a-z/create-syncmirror.html 
+sidebar: sidebar 
+keywords: create, synchronous, mirroring 
+summary: 'El comando create SyncMirror crea el volumen primario y el volumen secundario para una pareja reflejada remota síncrona. Este comando también configura el modo de escritura (modo de escritura síncrona o modo de escritura asíncrona) y la prioridad de sincronización.' 
+---
+= Cree un mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create syncMirror` el comando crea tanto el volumen primario como el volumen secundario para una pareja reflejada remota síncrona. Este comando también configura el modo de escritura (modo de escritura síncrona o modo de escritura asíncrona) y la prioridad de sincronización.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create syncMirror primary=pass:quotes[_"primaryVolumeName_"
+secondary="_secondaryVolumeName_"
+(remoteStorageArrayName="_storageArrayName_" |
+remoteStorageArrayWwn="_wwID_")]
+[remotePassword="password"]
+[syncPriority=(highest | high | medium | low | lowest)]
+[autoResync=(enabled | disabled)]
+[writeOrder=(preserved | notPreserved)]
+[writeMode=(synchronous | asynchronous)]
+[role=(primary | secondary)]
+[force=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre de un volumen existente en la cabina de almacenamiento local que se usará para el volumen primario. El nombre del volumen primario debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`secondary`
+ a| 
+El nombre de un volumen existente en la cabina de almacenamiento remota que se usará para el volumen secundario. El nombre del volumen secundario debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remoteStorageArrayName`
+ a| 
+El nombre de la cabina de almacenamiento remota. El nombre de la cabina de almacenamiento remota debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remoteStorageArrayWwn`
+ a| 
+El identificador a nivel mundial (WWID) de la cabina de almacenamiento remota. El WWID debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remotePassword`
+ a| 
+La contraseña de la cabina de almacenamiento remota. Se debe usar este parámetro cuando la cabina de almacenamiento remota está protegida por contraseña. La contraseña debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`syncPriority`
+ a| 
+La prioridad de la sincronización completa con respecto a la actividad de I/o del host. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.
+
+
+
+ a| 
+`autoResync`
+ a| 
+La configuración para volver a realizar la sincronización automática entre los volúmenes primario y secundario de una pareja reflejada remota. Este parámetro admite los siguientes valores:
+
+* `enabled` -- se activa la resincronización automática. No es necesaria ninguna acción adicional para volver a sincronizar el volumen primario y el secundario.
+* `disabled` -- la resincronización automática está desactivada. Para volver a sincronizar el volumen primario y el volumen secundario, se debe ejecutar el `resume syncMirror` comando.
+
+
+
+
+ a| 
+`writeOrder`
+ a| 
+El orden de escritura para la transmisión de datos entre el volumen primario y el volumen secundario. Los valores válidos son `preserved` o. `notPreserved`.
+
+
+
+ a| 
+`writeMode`
+ a| 
+La manera en que el volumen primario escribe en el volumen secundario. Los valores válidos son `synchronous` o. `asynchronous`.
+
+
+
+ a| 
+`role`
+ a| 
+Este parámetro permite promover el grupo de reflejos asíncronos a un rol primario o degradar el grupo de reflejos asíncronos a un rol secundario. Para asignar el rol primario al grupo de reflejos asíncronos, se debe configurar este parámetro en `primary`. Para asignar el rol secundario al grupo de reflejos asíncronos, se debe configurar este parámetro en `secondary`.
+
+
+
+ a| 
+`force`
+ a| 
+La reversión de roles se fuerza cuando el enlace de comunicación entre las cabinas de almacenamiento no funciona, y la promoción o la degradación en el lado local generan una condición de rol primario o secundario duplicado. Para aplicar la reversión de roles, se debe configurar este parámetro en `TRUE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+Cuando se seleccionan los volúmenes primario y secundario, el volumen secundario debe tener un tamaño igual o mayor que el volumen primario. El nivel de RAID del volumen secundario no necesita ser igual al del volumen primario.
+
+Las contraseñas se almacenan en cada cabina de almacenamiento en un dominio de gestión. Si no se configuró una contraseña previamente, no es necesario introducirla. La contraseña puede ser cualquier combinación de caracteres alfanuméricos, con un máximo de 30 caracteres. (Puede definir una contraseña de cabina de almacenamiento mediante el `set storageArray` ).
+
+La prioridad de sincronización define la cantidad de recursos del sistema que se usarán para sincronizar los datos entre el volumen primario y el volumen secundario de una relación de reflejos. Si se selecciona el nivel de prioridad más alto, la sincronización de datos utiliza la mayor cantidad de recursos del sistema para realizar la sincronización completa, lo que reduce el rendimiento para las transferencias de datos del host.
+
+La `writeOrder` el parámetro se aplica solo a los modos de escritura asíncrona y hace que la pareja reflejada sea parte de un grupo de coherencia. Ajuste de `writeOrder` parámetro a. `preserved` hace que la pareja reflejada remota transmita datos del volumen primario al volumen secundario en el mismo orden que el host escribe en el volumen primario. Si el enlace de transmisión falla, los datos se guardan en búfer hasta que se puede realizar una sincronización completa. Esta acción puede implicar una sobrecarga adicional en el sistema para mantener los datos en búfer, lo cual ralentiza las operaciones. Ajuste de `writeOrder` parámetro a. `notPreserved` libera al sistema de tener que mantener datos en un búfer, pero requiere forzar una sincronización completa para garantizar que el volumen secundario tenga los mismos datos que el volumen primario.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

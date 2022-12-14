@@ -1,0 +1,104 @@
+---
+permalink: commands-a-z/smcli-autosupportschedule-reset.html 
+sidebar: sidebar 
+keywords: reset, autosupport, message, collection, schedule 
+summary: El comando SMcli autoSupportSchedule reset restablece los horarios diarios y semanales, así como los días de la semana, en que se envían los mensajes de AutoSupport. Se pueden aceptar los valores aleatorios predeterminados generados por el software de gestión o se pueden especificar valores con este comando. 
+---
+= Restablecer la programación de recogida de mensajes de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli autoSupportSchedule reset` El comando restablece la frecuencia diaria y semanal, y los días de la semana en que se envían mensajes de AutoSupport. Se pueden aceptar los valores aleatorios predeterminados generados por el software de gestión o se pueden especificar valores con este comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+* Si AutoSupport está habilitado, el software de gestión envía mensajes diarios y semanales AutoSupport de AutoSupport.
+* El software de gestión selecciona de forma aleatoria una hora del día para los mensajes diarios y semanales, y un día de la semana para los mensajes semanales. El software de gestión se asegura por todos los medios que no haya dos cabinas de almacenamiento dentro de un dominio de gestión que envíen mensajes programados de AutoSupport al mismo tiempo.
+* Se puede especificar un rango (granularidad hora-nivel) para el momento en que se enviarán los mensajes diarios y semanales para las cabinas de almacenamiento en el dominio de gestión.
+* En el caso de la programación semanal, se seleccionan los días de la semana preferidos para la recogida y la transmisión de AutoSupport.
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+SMcli -autoSupportSchedule reset | (dailyTime=<startTime>-<endTime>
+   dayOfWeek=[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+   weeklyTime=<startTime>-<endTime>)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`reset`
+ a| 
+Restablece y genera programaciones nuevas mediante un intervalo de días de 24 horas y semanas de 7 días (de domingo a sábado).
+
+
+
+ a| 
+`dailyTime`
+ a| 
+<``startTime``> - <``endTime``> especifica la hora del día en que se desea iniciar y finalizar la recogida de datos de AutoSupport para todas las cabinas de almacenamiento. El formato de startTime y EndTime debe ser HH:MM[am|pm}.
+
+
+
+ a| 
+`dayOfWeek`
+ a| 
+[Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday] especifica los días de la semana preferidos (de domingo a sábado) en que se deben recoger datos de recogida de bundle de AutoSupport para todas las cabinas de almacenamiento. La `_dayOfWeek_` el parámetro se debe escribir entre paréntesis y debe estar separado por un espacio.
+
+
+
+ a| 
+`weeklyTime`
+ a| 
+<``startTime``> - <``endTime``> especifica la hora del día en que se desea iniciar y finalizar la recogida de los datos de recogida de bundle de AutoSupport para cada día de la semana seleccionado. La `_startTime_` y.. `_endTime_` Debe tener el formato HH:MM[am|pm].
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplo
+
+[listing]
+----
+ SMcli -autoSupportSchedule dailyTime=10:00am-11:00am
+dayOfWeek=[Monday Thursday Friday] weeklyTime=2:00am-3:00am
+----
+`SMcli -autoSupportSchedule dailyTime=10:00am-11:00am dayOfWeek=[Monday Thursday Friday] weeklyTime=2:00am-3:00am`
+
+
+
+== Verificación
+
+Utilice la `SMcli -autoSupportSchedule show` comando para ver el cambio resultante en la programación en el dominio de gestión.

@@ -1,0 +1,102 @@
+---
+permalink: commands-a-z/create-snmpuser-username.html 
+sidebar: sidebar 
+keywords: register, snmpv3 usm, user 
+summary: 'El comando create snmpUser Username crea un nuevo usuario del protocolo simple de gestión de redes (SNMP) y registra el nuevo usuario como una entidad conocida para el agente SNMP. Se rechaza cualquier intento de registrar un nuevo usuario con el mismo nombre e ID de motor que un usuario existente.' 
+---
+= Registre el usuario USM de SNMPv3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create snmpUser userName` El comando crea un nuevo usuario del Protocolo simple de administración de red (SNMP) y registra el nuevo usuario como una entidad conocida para el agente SNMP. Se rechaza cualquier intento de registrar un nuevo usuario con el mismo nombre e ID de motor que un usuario existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+create snmpUser userName="snmpUserName"
+    [engineId=(local | engineId)]
+    [authProtocol=(none | sha | sha256 | sha512) authPassword="authPassword"]
+    [privProtocol=(none | aes128) privPassword="privPassword"]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userName`
+ a| 
+El nombre del usuario USM en SNMP que desea crear. El nombre de usuario USM en SNMP debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`engineId`
+ a| 
+Identificador del identificador de motor SNMP autorizado del usuario. El valor puede ser "[.code]``local``" Para especificar que el agente SNMP local sea el agente autorizado o una cadena de dígitos hexadecimales para especificar un ID de motor de agente SNMP remoto. El valor predeterminado es ".[.code]``local``".
+
+
+
+ a| 
+`authProtocol`
+ a| 
+El protocolo de autenticación (HMAC) que se utilizará para el usuario. El valor puede ser uno de los siguientes:
+
+* `none` - Sin autenticación de mensajes SNMP (predeterminado)
+* `sha` - Autenticación SHA-1
+* `sha256` - Autenticación SHA-256
+* `sha512` - Autenticación SHA-512
+
+
+
+
+ a| 
+`authPassword`
+ a| 
+La contraseña que se utilizará para la autenticación del usuario. Debe especificarse si el protocolo de autenticación es "[.code]``sha``", "[.code]``sha256``" o "[.code]``sha512``"
+
+
+
+ a| 
+`privProtocol`
+ a| 
+El protocolo de privacidad (cifrado) que se utilizará para el usuario. El valor puede ser uno de los siguientes:
+
+* `none` - Sin cifrado de mensajes SNMP (predeterminado)
+* `aes128` - Cifrado AES-18
+
+
+
+
+ a| 
+`privPassword`
+ a| 
+La contraseña que se va a utilizar para privacidad/cifrado del usuario. Debe especificarse si el protocolo de privacidad es "[.code]``aes128``".
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.72

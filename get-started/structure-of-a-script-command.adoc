@@ -1,0 +1,161 @@
+---
+permalink: get-started/structure-of-a-script-command.html 
+sidebar: sidebar 
+keywords: structure, script command 
+summary: Todos los comandos de script presentan la siguiente estructura. 
+---
+= Estructura de un comando de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Todos los comandos de script presentan la siguiente estructura:
+
+[listing]
+----
+
+      *command operand-data* (*statement-data*)
+----
+* `command` identifica la acción que se realizará.
+* `operand-data` representa los objetos asociados con una cabina de almacenamiento que se desea configurar o gestionar.
+* `statement-data` proporciona la información necesaria para ejecutar el comando.
+
+
+La sintaxis para `_operand-data_` tiene la siguiente estructura:
+
+[listing]
+----
+(*object-type* | all *object-types* | [*qualifier*] (*object-type* [*identifier*] (*object-type* [*identifier*] | *object-types* [*identifier-list*])))
+----
+Un objeto se puede identificar de cuatro maneras:
+
+* Object type -- Use cuando el comando no haga referencia a un objeto específico.
+* `*all*` Prefijo de parámetro -- utilice cuando el comando haga referencia a todos los objetos del tipo especificado en la cabina de almacenamiento (por ejemplo, `*allVolumes*`).
+* Corchetes -- utilizar al ejecutar un comando en un objeto específico para identificar el objeto (por ejemplo, `*volume [engineering]*`).
+* Una lista de identificadores -- utilice para especificar un subconjunto de objetos. Los identificadores de objeto deben escribirse entre corchetes (por ejemplo, `*volumes [sales engineering marketing]*`).
+
+
+Se requiere un calificador para incluir información adicional de descripción de los objetos.
+
+El tipo de objeto y los identificadores asociados con cada tipo de objeto se detallan en esta tabla.
+
+[cols="2*"]
+|===
+| Tipo de objeto | Identificador 
+
+
+ a| 
+`*controller*`
+ a| 
+a o b
+
+
+
+ a| 
+`*drive*`
+ a| 
+En el caso de compartimentos con cajones, utilice el ID de soporte, el ID de cajón y el ID de ranura. Como alternativa, solo el ID de soporte y el ID de ranura.
+
+
+
+ a| 
+`*replacementDrive*`
+ a| 
+En el caso de compartimentos con cajones, utilice el ID de soporte, el ID de cajón y el ID de ranura. Como alternativa, solo el ID de soporte y el ID de ranura.
+
+
+
+ a| 
+`*driveChannel*`
+ a| 
+Identificador de canal de unidad
+
+
+
+ a| 
+`*host*`
+ a| 
+Etiqueta de usuario
+
+
+
+ a| 
+`*hostChannel*`
+ a| 
+Identificador del canal de host
+
+
+
+ a| 
+`*hostGroup*`
+ a| 
+Etiqueta de usuario
+
+
+
+ a| 
+`*hostPort*`
+ a| 
+Etiqueta de usuario
+
+
+
+ a| 
+`*iscsiInitiator*`
+ a| 
+Etiqueta de usuario o nombre completo de iSCSI (IQN)
+
+
+
+ a| 
+`*iscsiTarget*`
+ a| 
+Etiqueta de usuario o IQN
+
+
+
+ a| 
+`*storageArray*`
+ a| 
+No aplicable
+
+
+
+ a| 
+`*tray*`
+ a| 
+ID de soporte
+
+
+
+ a| 
+`*volume*`
+ a| 
+Etiqueta de usuario de volumen o identificador a nivel mundial (WWID) de volumen (`set` solo comando)
+
+
+
+ a| 
+`*volumeCopy*`
+ a| 
+Etiqueta de usuario de volumen objetivo y, opcionalmente, etiqueta de usuario de volumen de origen
+
+
+
+ a| 
+`*volumeGroup*`
+ a| 
+Etiqueta de usuario
+
+Los caracteres válidos son los alfanuméricos, los guiones y los guiones bajos.
+
+|===
+Los datos de declaración presentan el siguiente formato:
+
+* Parámetro = valor (como `*raidLevel=5*`)
+* Parámetro-nombre (por ejemplo `*batteryInstallDate*`)
+* Operación-nombre (por ejemplo `*redundancyCheck*`)
+
+
+Se denomina variable a una entrada definida por el usuario (como una etiqueta de usuario). En la sintaxis, se muestra en cursiva (por ejemplo `trayID` o. `volumeGroupName`).

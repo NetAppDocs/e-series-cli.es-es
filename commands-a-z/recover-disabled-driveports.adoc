@@ -1,0 +1,43 @@
+---
+permalink: commands-a-z/recover-disabled-driveports.html 
+sidebar: sidebar 
+keywords: recover, disable, drive ports 
+summary: El comando recover disabled drivePorts recupera puertos de unidades deshabilitados. 
+---
+= Recuperar puertos de unidad deshabilitados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `recover disabled drivePorts` el comando recupera los puertos de unidades deshabilitados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+recover disabled drivePorts;
+----
+
+
+== Ejemplos
+
+[listing]
+----
+recover disabled drivePorts;
+----

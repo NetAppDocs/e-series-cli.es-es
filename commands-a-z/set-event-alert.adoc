@@ -1,0 +1,91 @@
+---
+permalink: commands-a-z/set-event-alert.html 
+sidebar: sidebar 
+keywords: set, event, alert, filter 
+summary: Los comandos set event alert habilitan o deshabilitan las notificaciones relacionadas con un evento específico que genera alertas. Para evitar este tipo de notificaciones sobre un evento, debe bloquearlo. Para habilitar las notificaciones sobre un evento, debe desbloquearlo. 
+---
+= Configure filtrado de alertas de eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set event alert` los comandos gestionan la notificación de eventos de alerta al deshabilitar o habilitar las notificaciones relacionadas con un evento específico que genera alertas. Para evitar notificaciones sobre un evento específico que genera alertas, _block_ IT. Para habilitar las notificaciones acerca de un evento específico que genera alertas, debe _unblock_ it.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica solo a las cabinas de almacenamiento E2700 y E5600.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento
+
+====
+
+
+== Contexto
+
+Cuando se define la cabina de almacenamiento, es posible configurar las alertas y definir de qué manera se manejan los eventos de alerta. Si la cabina de almacenamiento se configuró para enviar alertas, se envía una notificación a un destinatario designado al producirse un evento que genera alertas. Esta notificación puede ser de uno o todos los siguientes tipos:
+
+* correo electrónico
+* syslog
+* Notificaciones de capturas SNMP
+
+
+Los comandos de la CLI para configurar alertas de eventos funcionan en una sola cabina de almacenamiento. Cuando se ejecutan los comandos en una cabina de almacenamiento, solo afectan a esa cabina. El resto de las cabinas de almacenamiento en las que no se ejecutó el comando de la CLI tendrá la conducta predeterminada.
+
+[NOTE]
+====
+Bloquear un evento de alerta no impide que el evento se publique en el registro de eventos del sistema. Todos los eventos siguen publicándose en el registro de eventos.
+
+====
+[NOTE]
+====
+Los eventos que no generan alertas no pueden convertirse en eventos que generan alertas usando este comando.
+
+====
+
+
+== Sintaxis para bloquear un evento de alerta
+
+[listing, subs="+macros"]
+----
+set blockEventAlert pass:quotes[_eventType_]
+----
+
+
+== Sintaxis para desbloquear un evento de alerta
+
+[listing, subs="+macros"]
+----
+set unBlockEventAlert pass:quotes[_eventType_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`_eventType_`
+ a| 
+Este parámetro es el valor de número entero de un evento. Introduzca el valor del evento en formato hexadecimal, por ejemplo, 0x280D. Siempre debe comenzar el valor hexadecimal con *0x* para indicar que está en formato hexadecimal. Si no se utiliza 0x, el valor se interpreta como decimal y se convierte a hexadecimal antes de aplicar el comando de bloqueo o desbloqueo. Esto puede provocar que se bloquee o se desbloquee un evento incorrecto.
+
+Aparecerá un error si introduce un evento no válido.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.10

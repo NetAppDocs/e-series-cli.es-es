@@ -1,0 +1,52 @@
+---
+permalink: commands-a-z/show-controller-diagnostic-status.html 
+sidebar: sidebar 
+keywords: show, controller, diagnostic, status 
+summary: El comando show Controller muestra el estado del diagnóstico de la controladora que se inició con el comando start Controller diagnostic. 
+---
+= Muestra el estado de diagnóstico de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show controller` el comando muestra el estado del diagnóstico de la controladora que inició `start controller diagnostic` comando.
+
+Si terminó el proceso de diagnóstico, se muestran todos los resultados de las pruebas de diagnóstico. Si no terminaron las pruebas de diagnóstico, solo se muestran los resultados de las pruebas finalizadas. Los resultados de las pruebas aparecen en la terminal, o bien, se pueden escribir los resultados en un archivo.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show controller [(a| b)] diagnosticStatus pass:quotes[[file=_filename_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La configuración para obtener información acerca de una controladora específica de la cabina de almacenamiento. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`file`
+ a| 
+El nombre del archivo que tiene los resultados de las pruebas de diagnóstico. Este comando no incorpora automáticamente una extensión de archivo al nombre del archivo. Se debe añadir una extensión al introducir el nombre del archivo.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.70 añade la funcionalidad del estado del diagnóstico de la controladora.

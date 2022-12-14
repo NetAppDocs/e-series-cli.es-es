@@ -1,0 +1,59 @@
+---
+permalink: commands-a-z/reset-storagearray-ibstatsbaseline.html 
+sidebar: sidebar 
+keywords: reset, storage array, infiniband, statistics, baseline 
+summary: El comando reset storageArray ibStatsBaseline restablece la base de estadística de InfiniBand a 0 para la cabina de almacenamiento. 
+---
+= Restablezca la línea de base para las estadísticas InfiniBand de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset storageArray ibStatsBaseline` El comando restablece la base para las estadísticas de InfiniBand en 0 para la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+[NOTE]
+====
+Este comando quedó obsoleto y fue sustituido por el xref:reset-storagearray-hostportstatisticsbaseline.adoc[Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento] comando.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+reset storageArray ibStatsBaseline
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Este comando no restablece realmente los números de formato mantenidos en el hardware y el firmware. En su lugar, el firmware crea una Snapshot de los valores del contador actual y utiliza estos valores para informar de las diferencias en los números cuando se recuperan las estadísticas. El nuevo tiempo de base se aplica a las dos controladoras de manera que los números de la controladora se sincronizan entre sí. Si una controladora se restablece y la otra no, los números ya no están sincronizados. El cliente nota que las controladoras no están sincronizadas porque los datos de la Marca de hora que se informan junto a las estadísticas no son los mismos para ambas controladoras.
+
+
+
+== Nivel de firmware mínimo
+
+7.10
+
+8.41 este comando quedó obsoleto.

@@ -1,0 +1,122 @@
+---
+permalink: commands-a-z/delete-volume.html 
+sidebar: sidebar 
+keywords: delete, volume, command, one, standard, volume, supported, array, role 
+summary: El comando delete volume elimina uno o varios volúmenes estándar. 
+---
+= Elimine el volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete volume` el comando elimina uno o varios volúmenes estándar.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+*Posible daño en la configuración de la matriz de almacenamiento* -- todos los datos del volumen se pierden tan pronto como se ejecuta este comando.
+
+====
+[NOTE]
+====
+Cuando un volumen supera un tamaño determinado (actualmente 128 TB), la eliminación se lleva a cabo en segundo plano y es posible que el espacio liberado no esté disponible inmediatamente.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+delete (allVolumes) |
+volume [volumeName] |
+volumes [volumeName1 ... volumeNameN]
+[removeVolumeGroup=(TRUE | FALSE)]
+[force=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+Este parámetro elimina todos los volúmenes de una cabina de almacenamiento.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen que se desea eliminar. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes que se eliminarán. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes contienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`removeVolumeGroup`
+ a| 
+Al eliminar el último volumen de un grupo de volúmenes, no se elimina el grupo. Es posible tener un grupo de volúmenes independiente (sin volúmenes). Para quitar el grupo de volúmenes independiente, este parámetro debe configurarse en `TRUE`. Para conservar el grupo de volúmenes independiente sin cambios, este parámetro debe configurarse en `FALSE`.
+
+
+
+ a| 
+`force`
+ a| 
+Este parámetro fuerza la eliminación inmediata de un volumen aunque las controladoras estén ejecutando otras operaciones. Para forzar la eliminación de un volumen de inmediato, este parámetro debe configurarse en `TRUE`. Para esperar hasta que las controladoras terminen de ejecutar otras operaciones, este parámetro no se debe usar o se lo debe configurar en `FALSE`.
+
+|===
+
+
+== Notas
+
+Cuando utilice la `allVolumes` parámetro, este comando elimina volúmenes hasta que se quitan todos los volúmenes o hasta que se encuentra un error. Si se encuentra un error, el comando no intenta eliminar los volúmenes restantes. Es posible eliminar volúmenes de diferentes grupos. Todos los grupos de volúmenes que quedan vacíos se eliminan al configurar el `removeVolumeGroup` parámetro a. `TRUE`.
+
+Si desea eliminar un grupo de volúmenes completo, también puede usar el `delete volumeGroup` comando.
+
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+7.10 añade el `removeVolumeGroup` parámetro.

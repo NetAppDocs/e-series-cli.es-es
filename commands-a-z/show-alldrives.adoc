@@ -1,0 +1,163 @@
+---
+permalink: commands-a-z/show-alldrives.html 
+sidebar: sidebar 
+keywords: show, drive 
+summary: El comando show allDrives muestra información acerca de las unidades de la cabina de almacenamiento. 
+---
+= Mostrar unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show allDrives` el comando muestra información acerca de las unidades de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra la siguiente información de cada unidad de la cabina de almacenamiento:
+
+* La cantidad total de unidades
+* El tipo de unidad (SAS o NVMe4K).
+* Información acerca de la unidad básica:
++
+** La ubicación del soporte y de la ranura
+** El estado
+** La capacidad
+** La tasa de transferencia de datos
+** El ID de producto
+** El nivel de firmware
+
+
+* Información acerca de la vida útil de las unidades SSD (esta información solo es válida para E2800 y E5700/EF570, y no se muestra si la cabina no tiene unidades SSD):
++
+** El número de eliminaciones promedio;
+** Los bloques de reserva restantes;
+** El porcentaje de resistencia usado (nuevo en la versión 11.41). El porcentaje de resistencia usado es la cantidad de datos escritos en las unidades SSD hasta la fecha, dividida por el límite teórico total de escritura de las unidades.
+
+
+* Información acerca del canal de la unidad:
++
+** La ubicación del soporte y de la ranura
+** El canal preferido
+** El canal redundante
+
+
+* Cobertura de la pieza de repuesto
+* Detalles de cada unidad
++
+[NOTE]
+====
+La información de la fecha de fabricación no está disponible para las unidades NVMe.
+
+====
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show ((allDrives
+[driveMediaType=(HDD | SSD | unknown | allMedia)] |
+[driveType=( SAS | NVMe4K)]) |
+(drive pass:quotes[[_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID_]] | drives pass:quotes[[_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]]))
+summary
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allDrives`
+ a| 
+La configuración que muestra información acerca de todas las unidades de la cabina de almacenamiento.
+
+
+
+ a| 
+`driveMediaType`
+ a| 
+El tipo de medio de la unidad acerca de la cual se desea recuperar información. Los siguientes valores son tipos válidos de medios de unidades:
+
+* `HDD` -- Utilice esta opción cuando tenga unidades de disco duro en la bandeja de unidades
+* `SSD` -- esta opción se usa cuando hay unidades de estado sólido en el soporte de unidades
+* `unknown` -- use esta opción si no está seguro de qué tipos de unidades hay en el soporte
+* `allMedia` -- esta opción se usa cuando se desean utilizar todos los tipos de unidades del soporte
+
+
+
+
+ a| 
+`driveType`
+ a| 
+El tipo de unidad acerca del cual se desea recuperar información. No es posible mezclar tipos de unidad.
+
+Los tipos de unidades válidos son los siguientes:
+
+* `SAS`
+* `NVMe4K`
+
+
+Si no se especifica un tipo de unidad, los valores predeterminados del comando son any type.
+
+
+
+ a| 
+`drive` o. `drives`
+ a| 
+En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`summary`
+ a| 
+La opción que permite conocer el estado, la capacidad, la tasa de transferencia de datos, el ID de producto y la versión de firmware de las unidades específicas.
+
+|===
+
+
+== Notas
+
+Si desea conocer información acerca del tipo y de la ubicación de todas las unidades de la cabina de almacenamiento, utilice `allDrives` parámetro.
+
+Si desea conocer información acerca de las unidades SAS de la cabina de almacenamiento, utilice `driveType` parámetro.
+
+Para determinar el tipo de unidad de una ubicación específica, use `drive` Parámetro, e introduzca el ID de soporte y el ID de ranura de la unidad.
+
+La `drive` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
+
+
+
+== Nivel de firmware mínimo
+
+5.43
+
+7.60 añade el `drawerID` entrada del usuario y la `driveMediaType` parámetro.
+
+8.41 añade información de los informes de vida útil, en forma del porcentaje de resistencia usado de las unidades SSD en un sistema E2800, E5700 o EF570.

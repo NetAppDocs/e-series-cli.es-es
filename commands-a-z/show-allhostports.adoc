@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/show-allhostports.html 
+sidebar: sidebar 
+keywords: show, host, ports 
+summary: El comando show allHostPorts muestra información acerca de los puertos de host configurados. 
+---
+= Muestra puertos de host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show allHostPorts` el comando muestra información acerca de los puertos de host configurados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra la siguiente información de todos los puertos de host conectados a una cabina de almacenamiento:
+
+* El identificador de puerto de host
+* El nombre de puerto de host
+* El tipo de host
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+show allHostPorts
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Este comando muestra información del puerto de host de un HBA que se asemeja al siguiente ejemplo.
+
+[listing]
+----
+HOST PORT IDENTIFIER     HOST PORT NAME  HOST TYPE
+12:34:56:54:33:22:22:22  Jupiter1        Solaris
+12:34:56:78:98:98:88:88  Pluto1          Windows 2000/Server 2003 Clustered
+54:32:12:34:34:55:65:66  Undefined       Undefined
+----
+
+
+== Nivel de firmware mínimo
+
+5.40

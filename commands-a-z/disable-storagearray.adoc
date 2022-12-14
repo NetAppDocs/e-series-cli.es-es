@@ -1,0 +1,57 @@
+---
+permalink: commands-a-z/disable-storagearray.html 
+sidebar: sidebar 
+keywords: disable, storage, array, command, storage, feature 
+summary: El comando disable storageArray deshabilita una función de la cabina de almacenamiento. 
+---
+= Deshabilite la función de cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `disable storageArray` comando deshabilita una función de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Ejecute el `show storageArray` comando para ver una lista de los identificadores de todas las funciones habilitadas en la cabina de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[disable storageArray (featurePack | feature=_featureAttributeList_)]
+----
+Aprobado:comillas[el `_featureAttributeList_`] puede ser uno o más de estos valores de atributo. Si se introducen varios valores de atributos, se deben separar los valores con un espacio.
+
+* `driveSecurity`
+
+
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.20 añade el `driveSecurity` atributo y quita todos los demás atributos.

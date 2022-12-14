@@ -1,0 +1,102 @@
+---
+permalink: commands-a-z/smcli-autosupportconfig-test.html 
+sidebar: sidebar 
+keywords: test, autosupport, configuration 
+summary: Se utiliza el comando SMcli -autoSupportConfig test para realizar una prueba de la configuración de AutoSupport mediante el envío de un mensaje de prueba. Este comando opera en el dominio de gestión. El software de administración del almacenamiento elige una cabina compatible con AutoSupport en el dominio de gestión para tomar los datos de muestra que se incluirán en el mensaje de prueba. 
+---
+= Pruebe la configuración de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilice la `SMcli -autoSupportConfig test` Comando para probar la configuración de AutoSupport, envíe un mensaje de prueba. Este comando opera en el dominio de gestión. El software de administración del almacenamiento elige una cabina compatible con AutoSupport en el dominio de gestión para tomar los datos de muestra que se incluirán en el mensaje de prueba.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+[NOTE]
+====
+Persistent Monitor debe encontrarse en ejecución en la estación de gestión para enviar mensajes de AutoSupport programados o activados por un evento. Inicie el servicio antes de utilizar este comando.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+SMcli -autoSupportConfig test reply-toEmail<address>
+----
+
+
+== Parámetros
+
+En la tabla siguiente, se enumeran los parámetros para enviar un mensaje de prueba de AutoSupport.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`test`
+ a| 
+Parámetro obligatorio para el comando. No requiere ningún valor.
+
+
+
+ a| 
+`reply-toEmail`
+ a| 
+Permite al usuario especificar la dirección de correo electrónico de respuesta de los mensajes de AutoSupport con tipo de entrega SMTP.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplo de prueba con entrega HTTP/HTTPS
+
+A continuación encontrará ejemplos de uso de este comando cuando se utilizan los tipos de entrega HTTP o HTTPS, en los que no se especifica una dirección de correo electrónico para la entrega.
+
+[listing]
+----
+SMcli -autoSupportConfig test
+The sample AutoSupport message was successfully sent to the ASUP gateway.
+
+SMcli completed successfully.
+----
+
+
+== Ejemplo de pruebas con entrega SMTP
+
+A continuación, se presentan algunos ejemplos de uso de este comando. Cuando se utiliza un método de entrega SMTP, es posible utilizar el `reply-toEmail` parámetro para especificar la dirección de destino.
+
+[listing]
+----
+SMcli -autoSupportConfig test reply-toEmail:user@netapp.com
+The sample AutoSupport message was successfully sent to the ASUP gateway.
+
+An email has been sent to 'user@netapp.com', please check the mailbox
+for delivery confirmation.
+
+SMcli completed successfully.
+----

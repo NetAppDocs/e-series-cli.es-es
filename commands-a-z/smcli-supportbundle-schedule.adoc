@@ -1,0 +1,388 @@
+---
+permalink: commands-a-z/smcli-supportbundle-schedule.html 
+sidebar: sidebar 
+keywords: schedule, automatic, support, bundle, collection, configuration 
+summary: El comando SMcli -supportBundle schedule crea o elimina una programación para guardar un bundle de soporte en una o varias cabinas de almacenamiento. Se recoge información de la configuración y del sistema en bundles de soporte para transmitirla al soporte técnico para su análisis y diagnóstico. 
+---
+= Programar configuración de recogida automática de bundle de soporte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli -supportBundle schedule` comando crea o quita una programación para guardar un bundle de soporte en una o varias cabinas de almacenamiento. Se recoge información de la configuración y del sistema en bundles de soporte para transmitirla al soporte técnico para su análisis y diagnóstico.
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+Es posible crear dos tipos de programaciones:
+
+* Diaria/Semanal: Utilice esta programación si necesita recopilar datos de manera frecuente para supervisar nuevas configuraciones o resolver problemas en una configuración existente.
+* Mensual/Anual: Utilice esta programación si desea recoger datos para evaluar el funcionamiento a largo plazo de la cabina de almacenamiento.
+
+
+
+
+== Sintaxis para crear una programación diaria/semanal
+
+[listing, subs="+macros"]
+----
+SMcli -supportBundle schedule enable
+pass:quotes[(all | _storageArrayName_)]
+pass:quotes[startTime=_HH:MM_]
+pass:quotes[startDate=_MM:DD:YYYY_]
+pass:quotes[endDate=_MM:DD:YYYY_]
+daysOfWeek=[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+pass:quotes[data=_pathName_]
+----
+
+
+== Sintaxis para crear una programación mensual/anual
+
+[listing, subs="+macros"]
+----
+SMcli -supportBundle schedule enable
+pass:quotes[(all | _storageArrayName_)]
+pass:quotes[startTime=_HH:MM_]
+pass:quotes[startDate=_MM:DD:YYYY_]
+pass:quotes[endDate=_MM:DD:YYYY_]
+months=[January February March April May June July August September October
+November December]
+weekNumber=(First|Second|Third|Fourth|Last)
+dayOfWeek=(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)|
+onDays=[1-31] |
+pass:quotes[data=_pathName_]
+----
+
+
+== Sintaxis para eliminar una programación
+
+[NOTE]
+====
+Este comando elimina completamente la programación de la cabina de almacenamiento. Para comenzar a guardar información del bundle de soporte nuevamente, debe crear una programación nueva.
+
+====
+[listing, subs="+macros"]
+----
+SMcli -supportBundle schedule disable
+pass:quotes[(all|_storageArrayName_)]
+----
+
+
+== Parámetros
+
+En la siguiente tabla, se enumeran los parámetros para una programación diaria/semanal.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`enable`
+ a| 
+Habilita la recogida automática de bundles de soporte cuando se detecta un evento crítico de MEL. Este parámetro reanuda la recogida de datos del bundle de soporte si se ha suspendido. Es necesario usar el parámetro siempre que se cree una programación nueva o se modifique una existente.
+
+
+
+ a| 
+`all`
+ a| 
+Use este parámetro si desea definir una programación de recogida para todas las cabinas de almacenamiento detectadas en el host.
+
+
+
+ a| 
+`_storageArrayName_`
+ a| 
+El nombre de una cabina de almacenamiento específica para la cual se desea definir una programación.
+
+
+
+ a| 
+`startTime`
+ a| 
+La hora del día en que se desea comenzar la recogida del bundle de soporte. El formato para introducir la hora es HH:MM, donde HH es la hora y MM son los minutos. Utilice el formato de 24 horas.
+
+La hora predeterminada es 00:00, medianoche. Si no introduce una hora de inicio y habilitó la recogida de bundles de soporte, la recogida se producirá automáticamente a la medianoche.
+
+
+
+ a| 
+`startDate`
+ a| 
+Una fecha específica en la cual se desea iniciar la recogida de datos del bundle de soporte. El formato para introducir la fecha es MM:DD:AA.
+
+La fecha predeterminada es la actual.
+
+
+
+ a| 
+`endDate`
+ a| 
+Una fecha específica en la cual se desea detener la recogida de datos del bundle de soporte. El formato para introducir la fecha es MM:DD:AA.
+
+No existe una fecha predeterminada.
+
+Si usa este parámetro, su valor debe ser por lo menos una semana después de la fecha de inicio, y no puede ser una fecha pasada.
+
+
+
+ a| 
+`daysOfWeek`
+ a| 
+El día o los días específicos de la semana en los que se desea recoger datos del bundle de soporte. Use este parámetro si desea recoger datos del bundle de soporte uno o varios días a la semana. Por ejemplo:
+
+[listing]
+----
+daysOfWeek=[Tuesday]
+----
+[listing]
+----
+daysOfWeek=[Monday Wednesday Friday]
+----
+Los días de la semana deben escribirse entre corchetes ([ ]). Si introduce más de un día, separe cada día con un espacio.
+
+
+
+ a| 
+`data`
+ a| 
+La ruta y el nombre del archivo donde se guardarán los datos del bundle de soporte. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\data.txt"
+----
+[NOTE]
+====
+Se puede usar cualquier extensión de archivo.
+
+====
+La ruta y el nombre del archivo deben escribirse entre comillas dobles (" ").
+
+|===
+En la siguiente tabla, se enumeran los parámetros para una programación mensual/anual.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`enable`
+ a| 
+Habilita la recogida automática de bundles de soporte cuando se detecta un evento crítico de MEL. Este parámetro reanuda la recogida de datos del bundle de soporte si se ha suspendido. Es necesario usar el parámetro siempre que se cree una programación nueva o se modifique una existente.
+
+
+
+ a| 
+`all`
+ a| 
+Use este parámetro si desea definir una programación de recogida para todas las cabinas de almacenamiento detectadas en el host.
+
+
+
+ a| 
+`storageArrayName`
+ a| 
+El nombre de una cabina de almacenamiento específica para la cual se desea definir una programación.
+
+
+
+ a| 
+`startTime`
+ a| 
+La hora del día en que se desea comenzar la recogida del bundle de soporte. El formato para introducir la hora es HH:MM, donde HH es la hora y MM son los minutos. Utilice el formato de 24 horas.
+
+La hora predeterminada es 00:00, medianoche. Si no introduce una hora de inicio y habilitó la recogida de bundles de soporte, la recogida se producirá automáticamente a la medianoche.
+
+
+
+ a| 
+`startDate`
+ a| 
+Una fecha específica en la cual se desea iniciar la recogida de datos del bundle de soporte. El formato para introducir la fecha es MM:DD:AA.
+
+La fecha predeterminada es la actual.
+
+
+
+ a| 
+`endDate`
+ a| 
+Una fecha específica en la cual se desea detener la recogida de datos del bundle de soporte. El formato para introducir la fecha es MM:DD:AA.
+
+No existe una fecha predeterminada.
+
+
+
+ a| 
+`months`
+ a| 
+El mes o los meses específicos del año en los que se desea recoger datos del bundle de soporte. Use este parámetro si desea recoger datos del bundle de soporte uno o varios meses al año. Por ejemplo:
+
+[listing]
+----
+months=[June]
+----
+[listing]
+----
+months=[January April July October]
+----
+El mes debe escribirse entre corchetes ([ ]). Si introduce más de un mes, separe cada mes con un espacio.
+
+
+
+ a| 
+`weekNumber`
+ a| 
+La semana del mes durante la cual se desea recoger datos del bundle de soporte. Por ejemplo:
+
+[listing]
+----
+weekNumber=first
+----
+
+
+ a| 
+`dayOfWeek`
+ a| 
+Un día específico de la semana en el que se desea recoger datos del bundle de soporte. Use este parámetro si desea recoger datos del bundle de soporte un solo día a la semana. Por ejemplo:
+
+[listing]
+----
+dayOfWeek=Wednesday
+----
+
+
+ a| 
+`onDays`
+ a| 
+El día o los días específicos de un mes en los que se desea recoger datos del bundle de soporte. Por ejemplo:
+
+[listing]
+----
+onDays=[15]
+----
+[listing]
+----
+onDays=[7 21]
+----
+El día debe escribirse entre corchetes ([ ]). Si introduce más de un día, separe cada día con un espacio.
+
+[NOTE]
+====
+No puede utilizar el `*onDays*` con el `*weekNumber*` o el `*dayOfWeek*` parámetro.
+
+====
+
+
+ a| 
+`data`
+ a| 
+La ruta y el nombre del archivo donde se guardarán los datos del bundle de soporte. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\data.txt"
+----
+[NOTE]
+====
+Se puede usar cualquier extensión de archivo.
+
+====
+La ruta y el nombre del archivo deben escribirse entre comillas dobles (" ").
+
+|===
+En la siguiente tabla, se enumeran los parámetros para eliminar una programación.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`disable`
+ a| 
+Deshabilita la recogida automática de bundles de soporte y elimina inmediatamente todas las programaciones definidas con anterioridad.
+
+[NOTE]
+====
+Al deshabilitar una programación, también se la elimina.
+
+====
+
+
+ a| 
+`all`
+ a| 
+Use este parámetro si desea definir una programación de recogida para todas las cabinas de almacenamiento detectadas en el host.
+
+
+
+ a| 
+`storageArrayName`
+ a| 
+El nombre de una cabina de almacenamiento específica para la cual se desea definir una programación.
+
+|===
+
+
+== Notas
+
+Cuando utilice la `all` parámetro para definir una programación común para todas las cabinas de almacenamiento, se eliminan las programaciones para las cabinas de almacenamiento individuales. Si se define una programación para todas las cabinas de almacenamiento, las cabinas de almacenamiento recién detectadas seguirán la misma programación. Si se define una programación para todas las cabinas de almacenamiento y luego se define otra para una sola cabina de almacenamiento, las cabinas de almacenamiento recién detectadas no tendrán una programación definida.
+
+A continuación, se presentan algunos ejemplos de uso de este comando. El primer ejemplo es una programación diaria/semanal que cumple con estos criterios de recogida de datos del bundle de soporte:
+
+* El nombre de la cabina de almacenamiento es DevKit4
+* La hora de inicio de la recogida es 02:00 (2:00 de la mañana).
+* La fecha de inicio es 05:01:2013 (1 de mayo de 2013).
+* Los datos se recogerán el lunes y el viernes de cada semana
+* Esta programación no tiene una fecha de finalización y solo puede detenerse mediante la ejecución de `SMcli -supportBundle schedule disable` comando
+
+
+[listing]
+----
+SMcli -supportBundle schedule enable DevKit4 startTime=02:00
+startDate=05:01:2013 endDate=05:10:2014 daysOfWeek=[Monday Friday]
+----
+El segundo ejemplo es una programación mensual/anual que cumple con estos criterios de recogida de datos del bundle de soporte:
+
+* El nombre de la cabina de almacenamiento es eng_stor1
+* La hora de inicio de la recogida es 04:00 (4:00 de la mañana).
+* La fecha de inicio es 05:01:2013 (1 de mayo de 2013).
+* Los datos se recogerán en marzo, abril, mayo, junio y agosto
+* Los datos se recogerán los días 1 y 21 de cada mes
+* Esta programación no tiene una fecha de finalización y solo puede detenerse mediante la ejecución de `SMcli -supportBundle schedule disable` comando
+
+
+[listing]
+----
+SMcli -supportBundle schedule enable eng_stor1 startTime=04:00
+startDate=05:01:2013 months=[March April May June August] onDays=[1 21]
+----
+El tercer ejemplo es una programación mensual/anual que cumple con estos criterios de recogida de datos del bundle de soporte:
+
+* El nombre de la cabina de almacenamiento es firmware_2
+* La hora de inicio de la recogida es 22:00 (10:00 de la noche).
+* La fecha de inicio es 05:01:2013 (1 de mayo de 2013).
+* Los datos se recogerán en marzo, abril, mayo, junio y agosto
+* Los datos se recogerán los viernes de la primera semana de cada mes
+* Esta programación finalizará el día 05:10:2014 (10 de mayo de 2014)
+
+
+[listing]
+----
+SMcli -supportBundle schedule enable firmware_2 startTime=22:00
+startDate=05:01:2013 endDate=05:10:2014 months=[March April May June August]
+weekNumber=First dayOfWeek=Friday
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,605 @@
+---
+permalink: commands-a-z/set-controller-hostport.html 
+sidebar: sidebar 
+keywords: set, controller, host, port, properties 
+summary: 'El comando set Controller hostPort cambia las propiedades de red de los siguientes tipos de puertos de host: ISCSI, Iser, NVMe over InfiniBand y NVMe over roce. Entre los cambios se encuentran las propiedades de IPv4 e IPv6, la velocidad de puertos y la carga útil de trama máxima.' 
+---
+= Configure las propiedades de los puertos de host de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set controller hostPort` El comando cambia las propiedades de red de los siguientes tipos de puertos de host: ISCSI, Iser, NVMe over InfiniBand y NVMe over roce. Entre los cambios se encuentran las propiedades de IPv4 e IPv6, la velocidad de puertos y la carga útil de trama máxima.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando reemplaza a la obsoleto xref:set-controller-iscsihostport.adoc[Establezca propiedades de red de los puertos de host iSCSI] comando.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+
+set controller [(a|b)] hostPort ["portLabel"[, "physical"|"virtual"]]
+    (IPV4Address=(0-255).(0-255).(0-255).(0-255) |
+    IPv6LocalAddress=(FE80):(0000):(0000):(0000):(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+    IPv6RoutableAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+    IPv6RouterAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+    enableIPv4=(TRUE | FALSE) |
+    enableIPv6=(TRUE | FALSE) |
+    enableIPv4Vlan=(TRUE | FALSE) |
+    enableIPv6Vlan=(TRUE | FALSE) |
+    enableIPv4Priority=(TRUE | FALSE) |
+    enableIPv6Priority=(TRUE | FALSE) |
+    fecMode=(auto:none:reedSolomon:fireCode) |
+    IPv4ConfigurationMethod=(static | dhcp) |
+    IPv6ConfigurationMethod=(static | auto) |
+    IPv4GatewayIP=(0-255).(0-255).(0-255).(0-255) |
+    IPv6HopLimit=[0-255] |
+    IPv6NdDetectDuplicateAddress=[0-255] |
+    IPv6NdReachableTime=[0-65535] |
+    IPv6NdRetransmitTime=[0-65535] |
+    IPv6NdTimeOut=[0-65535] |
+    IPv4Priority=[0-7] |
+    IPv6Priority=[0-7] |
+    IPv4SubnetMask=(0-255).(0-255).(0-255).(0-255) |
+    IPv4VlanId=[1-4094] |
+    IPv6VlanId=[1-4094] |
+    maxFramePayload=[1500-9000] |
+    tcpListeningPort=(3260 | [49152-65535]) |
+    portSpeed=(autoNegotiate | 10 | 25 | 40 | 50 | 100))
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora en la cual se desean definir propiedades.
+
+
+
+ a| 
+`hostPort`
+ a| 
+Permite especificar la etiqueta de puerto de host en la cual se desean definir propiedades. Solo para puertos de host de 200 GB, puede especificar `physical` o. `virtual` como parámetros.
+
+[NOTE]
+====
+Si no se especifica un valor para la conexión del puerto de host de 200 GB, el `physical` el parámetro está establecido de forma predeterminada.
+
+====
+
+
+ a| 
+`IPV4Address`
+ a| 
+Permite introducir la dirección en este formato: (0-255).(0-255).(0-255).(0-255).
+
+
+
+ a| 
+`IPV6LocalAddress`
+ a| 
+Le permite introducir la dirección en este formato: (FE80):(0000):(0000):(0000): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF).
+
+
+
+ a| 
+`IPv6RoutableAddress`
+ a| 
+Permite introducir la dirección en este formato: (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF).
+
+
+
+ a| 
+`IPV6RouterAddress`
+ a| 
+Permite introducir la dirección en este formato: (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF).
+
+
+
+ a| 
+`enableIPV4`
+ a| 
+Permite habilitar IPv4.
+
+
+
+ a| 
+`enableIPV6`
+ a| 
+Permite habilitar IPv6. El espacio de la dirección IPv6 es 128 bits. Se representa con ocho bloques hexadecimales de 16 bits separados por dos puntos.
+
+
+
+ a| 
+`enableIPv4Vlan`
+ a| 
+Permite habilitar VLAN IPv4. Una red de área local virtual (VLAN) es una red lógica que se comporta como si estuviese físicamente separada de otras redes de área local virtuales y físicas (LAN) admitidas por los mismos switches, los mismos enrutadores, o ambos.
+
+
+
+ a| 
+`enableIPv6Vlan`
+ a| 
+Permite habilitar VLAN IPv6. Una red de área local virtual (VLAN) es una red lógica que se comporta como si estuviese físicamente separada de otras redes de área local virtuales y físicas (LAN) admitidas por los mismos switches, los mismos enrutadores, o ambos.
+
+
+
+ a| 
+`enableIPv4Priority`
+ a| 
+Permite habilitar el parámetro que determina la prioridad de acceso a la red. En un entorno de red de área local (LAN) compartida, como Ethernet, es posible que muchas estaciones compitan por el acceso a la red. El acceso se otorga por orden de llegada. Es posible que dos estaciones intenten acceder a la red al mismo tiempo, lo que provoca que ambas estaciones se apagen y esperen antes de volver a intentarlo. Este proceso se minimiza para Ethernet con switch, donde existe una sola estación conectada a un puerto del switch.
+
+
+
+ a| 
+`enableIPv6Priority`
+ a| 
+Permite habilitar el parámetro que determina la prioridad de acceso a la red. En un entorno de red de área local (LAN) compartida, como Ethernet, es posible que muchas estaciones compitan por el acceso a la red. El acceso se otorga por orden de llegada. Es posible que dos estaciones intenten acceder a la red al mismo tiempo, lo que provoca que ambas estaciones se apagen y esperen antes de volver a intentarlo. Este proceso se minimiza para Ethernet con switch, donde existe una sola estación conectada a un puerto del switch.
+
+
+
+ a| 
+`fecMode`
+ a| 
+Permite establecer el modo FEC para el puerto de host en una de las siguientes opciones:
+
+* `auto`
+* `none`
+* `reedSolomon`
+* `fireCode`
+
+
+
+
+ a| 
+`IPv4ConfigurationMethod`
+ a| 
+Permite configurar la asignación de direcciones IPv4 estáticas o DHCP.
+
+
+
+ a| 
+`IPv6ConfigurationMethod`
+ a| 
+Permite configurar la asignación de direcciones IPv6 estáticas o DHCP.
+
+
+
+ a| 
+`IPv4GatewayIP`
+ a| 
+Permite introducir la dirección de puerta de enlace en este formato: (0-255).(0-255).(0-255).(0-255).
+
+
+
+ a| 
+`IPv6HopLimit`
+ a| 
+Permite configurar el número de saltos máximo que puede recorrer un paquete IPv6. El valor predeterminado es 64.
+
+
+
+ a| 
+`IPv6NdDetectDuplicateAddress`
+ a| 
+Permite configurar el número de mensajes de solicitud de vecino que se pueden enviar para intentar determinar el carácter único de la dirección IP.
+
+
+
+ a| 
+`IPv6NdReachableTime`
+ a| 
+Permite configurar la cantidad de tiempo, en milisegundos, que un nodo IPv6 remoto se considera accesible. El valor predeterminado es 30000 milisegundos.
+
+
+
+ a| 
+`IPv6NdRetransmitTime`
+ a| 
+Permite configurar la cantidad de tiempo, en milisegundos, que se debe seguir retransmitiendo un paquete a un nodo IPv6. El valor predeterminado es 1000 milisegundos.
+
+
+
+ a| 
+`IPv6NdTimeOut`
+ a| 
+Permite configurar el valor de tiempo de espera, en milisegundos, para un nodo IPv6. El valor predeterminado es 30000 milisegundos.
+
+
+
+ a| 
+`IPv4Priority`
+ a| 
+Permite configurar la asignación de prioridades para paquetes IPv4.
+
+
+
+ a| 
+`IPv6Priority`
+ a| 
+Permite configurar la asignación de prioridades para paquetes IPv6.
+
+
+
+ a| 
+`IPv4SubnetMask`
+ a| 
+Permite introducir la dirección de máscara de subred en este formato: (0-255).(0-255).(0-255).(0-255).
+
+
+
+ a| 
+`IPv4VlanId`
+ a| 
+Permite configurar el identificador de VLAN IPv4
+
+
+
+ a| 
+`IPv6VlanId`
+ a| 
+Permite configurar el identificador de VLAN IPv6
+
+
+
+ a| 
+`maxFramePayload`
+ a| 
+Permite configurar el tamaño máximo de un paquete o una trama que se envía en una red. La porción de carga útil de una trama Ethernet estándar se establece en 1500 y una trama gigante Ethernet se establece en 9000. Cuando se utilizan tramas gigantes, todos los dispositivos en la ruta de red deben ser capaces de manipular este tamaño. El valor predeterminado es 1500 bytes por trama.
+
+[NOTE]
+====
+Para garantizar el mejor rendimiento en un entorno NVMe over roce, configure un tamaño de trama de 4200.
+
+====
+
+
+ a| 
+`tcpListeningPort`
+ a| 
+Permite configurar el número de puerto TCP que se utiliza para escuchar inicios de sesión iSCSI de iniciadores. El puerto predeterminado es 3260.
+
+
+
+ a| 
+`portSpeed`
+ a| 
+Permite configurar la velocidad, en megabits por segundo (Mb/seg), a la que debe comunicarse el puerto.
+
+[NOTE]
+====
+Este parámetro solo se admite con una tarjeta de interfaz del host iSCSI de 25 Gbps y una tarjeta de interfaz del host Ethernet de 100 Gbps. Para una tarjeta de interfaz del host iSCSI de 25 Gbps, un cambio en la velocidad de un puerto cambia la velocidad de los cuatro puertos en la tarjeta. Las opciones permitidas en este caso son 10 o 25. Para una tarjeta de interfaz del host Ethernet de 100 Gbps, nuevo en la versión 8.50, un cambio de la velocidad de un puerto no afecta a los demás puertos de la tarjeta. Las opciones permitidas en este caso son autoNegotiate, 10, 25, 40, 50, O 100 GbE.
+
+====
+|===
+
+
+== Parámetros admitidos según el tipo de puerto de host
+
+Los parámetros admitidos varían según el tipo de puerto de host (iSCSI, Iser, NVMe over InfiniBand o NVMe over roce), como se describe en la siguiente tabla:
+
+[cols="5*"]
+|===
+| Parámetro | ISCSI | Iser | NVMe over InfiniBand | NVMe over roce 
+
+
+ a| 
+`IPV4Address`
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+`IPV6LocalAddress`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPv6RoutableAddress`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPV6RouterAddress`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`enableIPV4`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`enableIPV6`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`enableIPv4Vlan`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`enableIPv6Vlan`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`enableIPv4Priority`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`enableIPv6Priority`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`IPv4ConfigurationMethod`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPv6ConfigurationMethod`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPv4GatewayIP`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPv6HopLimit`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`IPv6NdDetectDuplicateAddress`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`IPv6NdReachableTime`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`IPv6NdRetransmitTime`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`IPv6NdTimeOut`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`IPv4Priority`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`IPv6Priority`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`IPv4SubnetMask`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`IPv4VlanId`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`IPv6VlanId`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+No
+
+
+
+ a| 
+`maxFramePayload`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+
+
+ a| 
+`tcpListeningPort`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+`portSpeed`
+ a| 
+Sí
+ a| 
+ a| 
+ a| 
+Sí
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.41
+
+8.50 añadió información sobre el entorno NVMe over roce.
+
+11.70.1 añadió el `fecMode` parámetro.

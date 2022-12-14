@@ -1,0 +1,50 @@
+---
+permalink: commands-a-z/show-volumecopy-source-targetcandidates.html 
+sidebar: sidebar 
+keywords: show, volume, copy, target, candidates 
+summary: El comando show VolumeCopy source targetCandidates muestra información acerca de los volúmenes candidatos que es posible usar como objetivo de una operación de copia de volumen. Este comando es válido para las parejas de copias de volumen Snapshot. 
+---
+= Mostrar candidatos objetivo de copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volumeCopy source targetCandidates` el comando muestra información acerca de los volúmenes candidatos que pueden usarse como objetivo de una operación de copia de volumen. Este comando es válido para las parejas de copias de volumen Snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show volumeCopy source pass:quotes[["_sourceName_"]] targetCandidates
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`source`
+ a| 
+El nombre del volumen de origen para el cual se intenta encontrar un volumen objetivo candidato. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===

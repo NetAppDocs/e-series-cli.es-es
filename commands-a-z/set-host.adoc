@@ -1,0 +1,124 @@
+---
+permalink: commands-a-z/set-host.html 
+sidebar: sidebar 
+keywords: set, host 
+summary: El comando set host asigna un host a un grupo de hosts o lo mueve a otro grupo. 
+---
+= Configure el host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set host` el comando asigna un host a un grupo de hosts o lo mueve a otro grupo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+También es posible crear un nuevo grupo de hosts y asignarle el host usando este comando. Las acciones que realiza este comando dependen de que el host tenga asignaciones individuales o no.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set host [hostName]
+hostGroup=pass:quotes[("_hostGroupName_"] | none | defaultGroup)
+userLabel=pass:quotes["_newHostName_"]
+hostType=pass:quotes[(_hostTypeIndexLabel_ | _hostTypeIndexNumber_)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`host`
+ a| 
+El nombre de host que se desea asignar a un grupo de hosts. El nombre del host debe escribirse entre corchetes ([ ]). Si el nombre de host tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre del grupo de hosts al que se desea asignar el host. (La siguiente tabla define cómo se ejecuta el comando si el host tiene o no asignaciones individuales). El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). La `defaultGroup` opción es el grupo de hosts que contiene el host al que se asigna el volumen.
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nuevo nombre de host. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`hostType`
+ a| 
+La etiqueta de índice o el número del tipo de host para el puerto de host. Utilice la `show storageArray hostTypeTable` comando para generar una lista de identificadores de tipo de host disponibles. Si el tipo de host tiene caracteres especiales, se debe escribir entre comillas dobles (" ").
+
+|===
+[cols="3*"]
+|===
+| Parámetro del grupo de hosts | Host con asignaciones individuales | Host sin asignaciones individuales 
+
+
+ a| 
+`_hostGroupName_`
+ a| 
+El host se elimina del grupo de hosts presente y se coloca en el nuevo grupo de hosts definido por `_hostGroupName_`.
+ a| 
+El host se elimina del grupo de hosts presente y se coloca en el nuevo grupo de hosts definido por `_hostGroupName_`.
+
+
+
+ a| 
+`none`
+ a| 
+El host se elimina del grupo de hosts como una partición independiente y se coloca debajo del nodo raíz.
+ a| 
+El host se elimina del grupo de hosts presente y se coloca en el grupo predeterminado.
+
+
+
+ a| 
+`defaultGroup`
+ a| 
+Error del comando.
+ a| 
+El host se elimina del grupo de hosts presente y se coloca en el grupo predeterminado.
+
+|===
+
+
+== Notas
+
+Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
+
+Para los nombres, es posible usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

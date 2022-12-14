@@ -1,0 +1,50 @@
+---
+permalink: commands-a-z/show-array-label.html 
+sidebar: sidebar 
+keywords: show, array, label 
+summary: El comando Show array label devuelve información sobre si se definió una etiqueta para la cabina de almacenamiento o sobre todas las etiquetas de la cabina de almacenamiento. 
+---
+= Mostrar etiqueta de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `Show array label` el comando muestra información acerca de si se definió una etiqueta de cabina de almacenamiento o todas las etiquetas de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a las cabinas de almacenamiento EF600.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[show storageArrayLabel label _userDefinedString_]
+show storageArrayLabel all
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userDefinedString`
+ a| 
+Permite especificar una etiqueta definida por el usuario para la cabina de almacenamiento.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.60

@@ -1,0 +1,94 @@
+---
+permalink: commands-a-z/reset-storagearray-arvmstats-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: reset, asynchronous, mirror group, statistics 
+summary: El comando reset storageArray arvmStats asyncMirrorGroup restablece las estadísticas de sincronización para uno o varios volúmenes miembro de un grupo de reflejos asíncronos a un 0 relativo. 
+---
+= Restablezca las estadísticas de grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset storageArray arvmStats asyncMirrorGroup` el comando restablece las estadísticas de sincronización de uno o más volúmenes miembro de un grupo de reflejos asíncronos a un 0 relativo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+reset storageArray arvmStats asyncMirrorGroup pass:quotes[[_asyncMirrorGroupName_]]
+volume=pass:quotes[_"volumeName"_] sampleType=(all | mostRecent | longestSyncTime | errors)
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos para el cual se desean restablecer estadísticas de sincronización. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene números o caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volume`
+ a| 
+Este parámetro es opcional. El nombre del volumen miembro específico en el grupo de reflejos asíncronos para el cual se desean restablecer las estadísticas de sincronización. Si no se especifica ningún volumen, se restablecen las estadísticas para cada volumen miembro en el grupo de reflejos asíncronos.
+
+El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`sampleType`
+ a| 
+Este parámetro es opcional. El valor predeterminado para `sampleType` es `all`.
+
+* `all`-- se restablecen los datos para los tres tipos de muestras.
+* `mostRecent` -- se restablecen las estadísticas para las 50 muestras de resincronización más recientes.
+* `longestSyncTime` -- se restablecen las estadísticas para las 20 muestras de resincronización más largas.
+* `errors`-- se restablecen las estadísticas para las 20 muestras de resincronización con error más recientes.
+
+
+|===
+
+
+== Notas
+
+Se restablecen estadísticas para los volúmenes reflejados con el rol primario. Las estadísticas que se restablecen incluyen los siguientes datos:
+
+* Hora de inicio de la sincronización
+* Tipo de sincronización (manual o periódica)
+* Duración de la sincronización
+* Cantidad de bytes enviados
+* Tiempo de escritura máximo y mínimo (para una sola escritura)
+* Velocidad mínima y máxima de datos de sincronización
+* Tiempo de escritura total
+* Utilización del repositorio (%)
+* Antigüedad de punto de recuperación
+
+
+
+
+== Nivel de firmware mínimo
+
+7.84

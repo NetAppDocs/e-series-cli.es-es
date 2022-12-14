@@ -1,0 +1,175 @@
+---
+permalink: commands-a-z/start-volume-initialize.html 
+sidebar: sidebar 
+keywords: initialize, thin volume 
+summary: El comando start volume initialize inicializa o reinicializa un volumen fino. 
+---
+= Inicialice el volumen fino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volume initialize` el comando inicializa o reinicializa un volumen fino.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La acción depende de los parámetros que se utilicen:
+
+* Si se utiliza sin ninguno de los parámetros opcionales, este comando elimina los datos del volumen fino. La capacidad del volumen del repositorio no se ve afectada.
+* Si se utiliza con alguno de los parámetros opcionales, este comando provoca la reinicialización y las acciones en el volumen del repositorio.
+
+
+[NOTE]
+====
+La inicialización de un volumen fino inicia una operación de ejecución prolongada que no se puede detener.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volume [_volumeName_]] initialize
+pass:quotes[[existingRepositoryLabel=_existingRepositoryName_]]
+pass:quotes[[diskPool=_diskPoolName_ capacity=_capacityValue_]]
+[retainRepositoryMembers=(TRUE|FALSE)]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+Nombre del volumen sobre el cual se inicia la inicialización. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene números o caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`existingRepositoryLabel`
+ a| 
+Este parámetro reemplaza el volumen del repositorio por el volumen candidato especificado.
+
+* El valor especificado es una etiqueta de usuario de volumen del repositorio existente. El volumen especificado debe ser un volumen del repositorio que no se utilice con el nombre en el formato correcto.
+* Si el volumen del repositorio recién especificado se encuentra en un pool de discos diferente, la propiedad del volumen fino cambiará a ese pool.
+* De manera predeterminada, se eliminará el volumen del repositorio antiguo.
+
+
+Si el nombre del volumen del repositorio existente contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ").
+
+
+
+ a| 
+`diskPool`
+ a| 
+Nombre del pool de discos en el que se desea crear un volumen del repositorio nuevo con la capacidad especificada. Si el nombre del pool de discos contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ").
+
+Se debe usar este parámetro con el `capacity` parámetro para crear un volumen del repositorio nuevo con la capacidad especificada.
+
+
+
+ a| 
+`capacity`
+ a| 
+Tamaño que se desea establecer para el volumen del repositorio que se está creando. El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+La capacidad física mínima es 4 GB.
+
+La capacidad física máxima es 257 TB.
+
+Se debe usar este parámetro con el `diskPool` parámetro para crear un volumen del repositorio nuevo con la capacidad especificada.
+
+
+
+ a| 
+`retainRepositoryMembers`
+ a| 
+Si este parámetro se establece en `TRUE`, se conserva el repositorio antiguo. De manera predeterminada, se elimina el repositorio antiguo. Se ignora este parámetro si se vuelve a utilizar el repositorio existente.
+
+|===
+
+
+== Notas
+
+Si no se especifica un volumen con el `volume` parámetro, este comando restablece los metadatos en el repositorio y, en efecto, hace que el volumen fino aparezca vacío al host. Si se especifica un volumen con el `*volume*` parámetro, ese volumen se reemplaza por un volumen recién creado o por un volumen existente si se especifica uno con el `existingRepositoryLabel` parámetro. Si especifica un volumen existente con el `existingRepositoryLabel` el parámetro que se encuentra en un pool de discos diferente, la propiedad del volumen fino cambiará al pool de discos nuevo.
+
+Los parámetros de volumen del volumen fino, como la capacidad virtual, la cuota y el umbral de advertencia, conservan sus valores anteriores después de que se reinicializa el volumen fino.
+
+[NOTE]
+====
+El formato de disponibilidad inmediata (IAF) no se aplica a los volúmenes de más de 64 TB.
+
+====
+En la siguiente tabla, se enumeran los límites de capacidad para un volumen fino.
+
+[cols="2*"]
+|===
+| Tipo de capacidad | Tamaño 
+
+
+ a| 
+Capacidad virtual mínima
+ a| 
+32 MB
+
+
+
+ a| 
+Capacidad virtual máxima
+ a| 
+256 TB
+
+
+
+ a| 
+Capacidad física mínima
+ a| 
+4 GB
+
+
+
+ a| 
+Capacidad física máxima
+ a| 
+257 TB
+
+|===
+Los volúmenes finos son compatibles con las mismas operaciones que los volúmenes estándar, con las siguientes excepciones:
+
+* No se puede cambiar el tamaño de los segmentos de un volumen fino.
+* No se puede habilitar la comprobación de redundancia de lectura previa de un volumen fino.
+* No se puede utilizar un volumen fino como volumen objetivo en una copia de volumen.
+* No se puede utilizar un volumen fino en una operación de mirroring síncrono.
+
+
+Para cambiar un volumen fino por un volumen estándar, se debe utilizar la operación de copia de volumen para crear una copia del volumen fino. El destino de una copia de volumen siempre es un volumen estándar.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+8.30 aumenta la capacidad máxima de un volumen fino a 256 TB.

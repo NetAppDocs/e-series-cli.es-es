@@ -1,0 +1,65 @@
+---
+permalink: commands-a-z/set-storagearray-securitykey.html 
+sidebar: sidebar 
+keywords: set, internal, storage, array, security key 
+summary: El comando set storageArray securityKey define la clave de seguridad que se utiliza en toda la cabina de almacenamiento para implementar la funciones de seguridad Drive Security. 
+---
+= Configure clave de seguridad de la cabina de almacenamiento interna
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray securityKey` Comando configura la clave de seguridad que se usa en la cabina de almacenamiento para implementar la función Drive Security.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Cuando una unidad compatible con la función de seguridad en la cabina de almacenamiento se asigna a un grupo de volúmenes o un pool de discos protegido, esa unidad tiene la función de seguridad habilitada a través de la clave de seguridad. Para poder configurar la clave de seguridad, debe usar el `create storageArray securityKey` comando para crear la clave de seguridad.
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves internas.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray securityKey
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Las unidades compatibles con la función de seguridad tienen hardware para acelerar el procesamiento criptográfico y cada una tiene una clave de unidad única. Una unidad compatible con la función de seguridad se comporta como cualquier otra unidad hasta que se añade a un grupo de volúmenes protegido, momento en el cual se convierte en una unidad con la función de seguridad habilitada.
+
+Siempre que se enciende una unidad con la función de seguridad habilitada. Se requiere la clave de seguridad correcta de la controladora para poder leer o escribir datos. Por lo tanto, una unidad con la función de seguridad habilitada utiliza dos claves: La clave de la unidad, que cifra y descifra los datos, y la clave de seguridad, que autoriza los proceso de cifrado y descifrado. La `set storageArray securityKey` el comando confirma la clave de seguridad con todas las controladoras y las unidades con la función de seguridad habilitada en la cabina de almacenamiento. La función de cifrado de disco completo garantiza que si una unidad con la función de seguridad habilitada se quita físicamente de una cabina de almacenamiento, ningún otro dispositivo puede leer sus datos a menos que se conozca la clave de seguridad.
+
+
+
+== Nivel de firmware mínimo
+
+7.50

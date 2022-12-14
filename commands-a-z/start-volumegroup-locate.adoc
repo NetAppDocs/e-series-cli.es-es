@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/start-volumegroup-locate.html 
+sidebar: sidebar 
+keywords: start, volume, group, locate 
+summary: El comando start volumeGroup locate identifica las unidades agrupadas lógicamente para formar el grupo de volúmenes especificado mediante el parpadeo de las luces indicadoras en las unidades. 
+---
+= Inicie la búsqueda de grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volumeGroup locate` el comando identifica las unidades que se agrupan lógicamente para formar el grupo de volúmenes especificado mediante el parpadeo de las luces indicadoras en las unidades.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Utilice la `stop volumeGroup locate` comando para apagar las luces indicadoras de las unidades.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volumeGroup [_volumeGroupName_]] locate
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes del que se desea localizar las unidades que pertenecen a dicho grupo de volúmenes. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.16

@@ -1,0 +1,91 @@
+---
+permalink: commands-a-z/enable-or-disable-autosupport-individual-arrays.html 
+sidebar: sidebar 
+keywords: command, enable, disable, autosupport, feature, storage, array, possible, transit, messages, technical, support, site, capable, automatically, prepare, collect, data, remote, troubleshooting, problem, analysis 
+summary: 'Este comando habilita o deshabilita la función AutoSupport (ASUP) para la cabina de almacenamiento y permite transmitir mensajes al sitio de soporte técnico. Una vez que se habilita la función ASUP, la cabina de almacenamiento compatible con ASUP queda preparada automáticamente para recoger y enviar datos relacionados con soporte al soporte técnico. Estos datos pueden usarse para tareas remotas de solución y análisis de problemas.' 
+---
+= Habilitar o deshabilitar AutoSupport (todas las cabinas individuales)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Este comando habilita o deshabilita la función AutoSupport (ASUP) para la cabina de almacenamiento y permite transmitir mensajes al sitio de soporte técnico. Una vez que se habilita la función ASUP, la cabina de almacenamiento compatible con ASUP queda preparada automáticamente para recoger y enviar datos relacionados con soporte al soporte técnico. Estos datos pueden usarse para tareas remotas de solución y análisis de problemas.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Después de habilitar esta función, es posible habilitar la función AutoSupport OnDemand (si se desea) y, luego, la función AutoSupport Remote Diagnostics (si se desea).
+
+Es necesario habilitar estas tres funciones en el siguiente orden:
+
+. *Activar AutoSupport*
+. *Activar AutoSupport OnDemand*
+. *Activar Diagnóstico remoto de AutoSupport*
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray autoSupport (enable | disable)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`enable | disable`
+ a| 
+Permite habilitar o deshabilitar AutoSupport. Si las funciones OnDemand y Remote Diagnostics están habilitadas, la acción disable desactiva también esas dos funciones.
+
+|===
+
+
+=== Ejemplos
+
+[listing]
+----
+
+   SMcli -n Array1 -c "set storageArray autoSupport enable;"
+
+   SMcli completed successfully.
+----
+
+
+== Verificación
+
+Utilice la `show storageArray autoSupport` comando para ver si ha habilitado la función. La línea inicial del resultado muestra el estado de habilitación:
+
+[listing]
+----
+The AutoSupport feature is enabled on this storage array.
+----
+
+
+== Nivel de firmware mínimo
+
+7.86 añadió el comando para todas las cabinas de almacenamiento hasta los modelos E2700 y E5600
+
+8.40 añadió compatibilidad con E2800 y E5700

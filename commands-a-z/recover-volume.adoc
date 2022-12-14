@@ -1,0 +1,239 @@
+---
+permalink: commands-a-z/recover-volume.html 
+sidebar: sidebar 
+keywords: recover, raid, volume 
+summary: El comando recover volume crea un volumen RAID con las propiedades determinadas sin inicializar ninguna de las áreas de datos de usuario en las unidades. 
+---
+= Recuperar volumen RAID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `recover volume` El comando crea un volumen RAID con las propiedades determinadas sin inicializar ninguna de las áreas de datos de usuario en las unidades.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Los valores de los parámetros se derivan del archivo de datos del perfil de recuperación (`recovery-profile.csv`) para la cabina de almacenamiento. Se puede crear el volumen de recuperación en un grupo de volúmenes existente o crear un grupo de volúmenes nuevo mediante este comando.
+
+[NOTE]
+====
+Este comando se puede ejecutar únicamente desde una línea de comandos. No se puede ejecutar este comando desde el editor de secuencia de comandos de la interfaz gráfica de usuario. No se puede utilizar la interfaz gráfica de usuario de administración del almacenamiento para recuperar un volumen.
+
+====
+[NOTE]
+====
+No se puede usar este comando para volúmenes de pools de discos dinámicos (DDP).
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+recover volume (drive=pass:quotes[(_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID_])) |
+(drives=pass:quotes[_trayID1_,pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1 ... trayIDn,_]pass:quotes[[_drawerIDn,_]]pass:quotes[_slotIDn_])) |
+volumeGroup=pass:quotes[_volumeGroupName_]))
+[newVolumeGroup=pass:quotes[_volumeGroupName_]]
+userLabel=pass:quotes["_volumeName_" volumeWWN="_volumeWWN_"
+capacity=_volumeCapacity_
+offset=_offsetValue_
+raidLevel=(0 | 1 | 3 | 5 | 6)
+segmentSize=_segmentSizeValue_
+dssPreAllocate=(TRUE | FALSE)
+SSID=_subsystemVolumeID_]
+[owner=(a|b)]
+[cacheReadPrefetch=(TRUE | FALSE)]
+[dataAssurance=(none | enabled)]
+[hostUnmapEnabled=(TRUE | FALSE)]
+[blockSize=blockSizeValue]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`drive` o. `drives`
+ a| 
+Unidades que se desean asignar al grupo de volúmenes que contendrá el volumen que se desea recuperar. En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`volumeGroup`
+ a| 
+Nombre de un grupo de volúmenes existente en el que se desea crear el volumen. (Para determinar los nombres de los grupos de volúmenes en la cabina de almacenamiento, ejecute el `show storageArray profile` ).
+
+
+
+ a| 
+`newVolumeGroup`
+ a| 
+Nombre que se desea otorgar a un grupo de volúmenes nuevo. El nombre del nuevo grupo de volúmenes debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+Nombre del volumen que se desea recuperar. La etiqueta de usuario tiene dos partes:
+
+* El nombre del volumen. El nombre del volumen debe escribirse entre comillas dobles (" ").
+* El nombre a nivel mundial del volumen, `volumeWWN`, Con el formato de un identificador de 16 bytes, por ejemplo, 60080E500017B4320000000049887D77. El identificador debe escribirse entre comillas dobles (" ").
+
+
+Se debe introducir tanto el nombre del volumen como el nombre a nivel mundial del volumen. Se debe introducir el nombre del volumen en primer lugar. Por ejemplo:
+
+[listing]
+----
+userLabel="engdata"
+volumeWWN=60080E500017B4320000000049887D77
+----
+
+
+ a| 
+`capacity`
+ a| 
+El tamaño del volumen que se añadirá a la cabina de almacenamiento. El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+
+ a| 
+`offset`
+ a| 
+Cantidad de bloques desde el inicio del grupo de volúmenes hasta el inicio del volumen de referencia.
+
+
+
+ a| 
+`raidLevel`
+ a| 
+Nivel de RAID del grupo de volúmenes que contiene las unidades. Los valores válidos son `0`, `1`, `3`, `5`, o. `6`.
+
+
+
+ a| 
+`segmentSize`
+ a| 
+Cantidad de datos (en KB) que la controladora escribe en una sola unidad de un grupo de volúmenes antes de escribir datos en la siguiente unidad. Los valores válidos son `8`, `16`, `32`, `64`, `128`, `256`, o. `512`.
+
+
+
+ a| 
+`dssPreAllocate`
+ a| 
+Configuración para activar o desactivar la asignación de capacidad de almacenamiento de volumen para futuros cambios de tamaño de segmentos. Para activar la asignación, se debe establecer este parámetro en `TRUE`. Para desactivar la asignación, se debe establecer este parámetro en `FALSE`.
+
+
+
+ a| 
+`SSID`
+ a| 
+Identificador del subsistema de la cabina de almacenamiento de un volumen. Utilice la `show volume` comando para determinar el identificador del subsistema de la cabina de almacenamiento.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora propietaria del volumen. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Si no se especifica un propietario, el firmware de la controladora lo determina.
+
+
+
+ a| 
+`cacheReadPrefetch`
+ a| 
+El ajuste para activar o desactivar la captura previa de lectura de caché. Para desactivar la captura previa de lectura de caché, este parámetro debe configurarse en `FALSE`. Para activar la captura previa de lectura de caché, este parámetro debe configurarse en `TRUE`.
+
+
+
+ a| 
+`hostUnmapEnabled`
+ a| 
+Cuando este parámetro se establece en `True`, se permite que un host emita comandos unmap al volumen. Los comandos UNMAP solo se permiten en volúmenes aprovisionados con recursos.
+
+
+
+ a| 
+`blockSize`
+ a| 
+Esta configuración es el tamaño de bloque del volumen en bytes.
+
+|===
+
+
+== Notas
+
+El software de administración del almacenamiento recoge perfiles de recuperación de las cabinas de almacenamiento supervisadas y los guarda en una estación de administración del almacenamiento.
+
+La `drive` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
+
+Si se intenta recuperar un volumen mediante el `drive` o el `drives` parámetro y las unidades quedan en estado sin asignar, la controladora crea automáticamente un grupo de volúmenes nuevo. Utilice la `newVolumeGroup` parámetro que permite especificar un nombre para el nuevo grupo de volúmenes.
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+La `owner` el parámetro define qué controladora es propietaria del volumen. La propiedad de controladora preferida de un volumen es la controladora a la que actualmente pertenece el grupo de volúmenes.
+
+
+
+== Asignar previamente la capacidad de almacenamiento
+
+La `dssPreAllocate` el parámetro permite asignar capacidad en un volumen para almacenar la información que se utiliza para reconstruir un volumen. Al ajustar la `dssPreallocate` parámetro a. `TRUE`, la lógica de asignación de espacio de almacenamiento del firmware de la controladora asigna previamente el espacio de un volumen para futuros cambios de tamaño de segmento. El espacio asignado previamente es el tamaño máximo permitido para los segmentos. La `dssPreAllocate` el parámetro es necesario para recuperar correctamente las configuraciones de volúmenes que no se pueden recuperar de la base de datos de la controladora. Para desactivar la capacidad de preasignación, defina `dssPreAllocate` para `FALSE`.
+
+
+
+== Tamaño de los segmentos
+
+El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
+
+Cuando se introduce un valor para el tamaño de segmento, se controla si corresponde a los valores admitidos que indica la controladora en el tiempo de ejecución. Si el valor especificado no es válido, la controladora muestra una lista de valores válidos. Cuando se utiliza una sola unidad para una solicitud única, las demás unidades disponibles pueden atender simultáneamente otras solicitudes.
+
+Si el volumen se encuentra en un entorno en el que un único usuario transfiere grandes unidades de datos (como multimedia), el rendimiento se maximiza cuando se atiende una única solicitud de transferencia de datos con una única franja de datos. (Una franja de datos es el tamaño de segmento multiplicado por la cantidad de unidades en el grupo de volúmenes que se usan para la transferencia de datos.) En este caso, se usan varias unidades para la misma solicitud, pero se accede una sola vez a cada unidad.
+
+Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de datos multiusuario o sistema de archivos, se debe configurar un tamaño de segmento que minimice la cantidad de unidades necesarias para satisfacer una solicitud de transferencia de datos.
+
+
+
+== Captura previa de lectura de caché
+
+La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde el disco. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. La configuración de la cabina de almacenamiento que se utiliza determina la cantidad de bloques de datos adicionales que la controladora lee en caché. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`.
+
+
+
+== Nivel de firmware mínimo
+
+5.43
+
+7.10 añade la funcionalidad para el nivel de RAID 6 y el `newVolumeGroup` parámetro.
+
+7.60 añade el `drawerID` entrada del usuario.
+
+7.75 añade el `dataAssurance` parámetro.
+
+8.78 añade el `hostUnmapEnabled` parámetro.
+
+11.70.1 añade el `blockSize` parámetro.

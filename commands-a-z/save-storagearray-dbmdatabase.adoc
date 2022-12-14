@@ -1,0 +1,109 @@
+---
+permalink: commands-a-z/save-storagearray-dbmdatabase.html 
+sidebar: sidebar 
+keywords: save, storage, array, dbm, database 
+summary: El comando save storageArray dbmDatabase realiza un backup de los datos de configuración de RAID o de todos los datos de un archivo en el host. Es posible especificar varias ubicaciones de datos y controladoras. 
+---
+= Guarde base de datos DBM de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray dbmDatabase` El comando realiza un backup de los datos de configuración RAID o de todos los datos de un archivo en el host. Es posible especificar varias ubicaciones de datos y controladoras.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+save storageArray dbmDatabase
+[sourceLocation=(disk | onboard)]
+[controller [(a|b)]]
+[contentType= all]
+ file="fileName"
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se desea guardar la base de datos. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\dbmdata.zip"`
+
+Este parámetro debe aparecer en último lugar, después de los parámetros opcionales.
+
+Este comando crea un archivo .zip, y no es necesario especificar una extensión de archivo.
+
+
+
+ a| 
+`sourceLocation`
+ a| 
+Este parámetro especifica la ubicación de la cual se puede obtener información sobre la base de datos de backup.
+
+* `disk` indica que los datos provienen directamente de la base de datos en la unidad
+* `onboard` Indica que los datos provienen de la ubicación de la memoria RPA
+
+
+La ubicación predeterminada es `onboard`.
+
+
+
+ a| 
+`controller`
+ a| 
+Este parámetro especifica la controladora de la cual se pueden recuperar datos de manera exclusiva, si `sourceLocation` se establece en `onboard`. Si la `controller` no se especifica el parámetro, es posible que se recuperen datos de cualquiera de las controladoras.
+
+Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B.
+
+
+
+ a| 
+`contentType`
+ a| 
+Este parámetro especifica el tipo de contenido de los datos que se recuperarán.
+
+Este parámetro se establece en `all` de forma predeterminada, se recuperan todos los datos, incluidos los datos de configuración del pool de discos.
+
+|===
+
+
+== Notas
+
+Si es necesario, los datos que se guardan en el host con este comando pueden restaurarse en la controladora. Sin embargo, se requiere un validador para restaurar los datos desde el archivo en el host.
+
+
+
+== Nivel de firmware mínimo
+
+7.75
+
+en la versión 7.83, se añaden estos parámetros:
+
+* `sourceLocation`
+* `controller`
+* `contentType`
+

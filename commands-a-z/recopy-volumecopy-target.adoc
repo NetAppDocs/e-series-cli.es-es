@@ -1,0 +1,104 @@
+---
+permalink: commands-a-z/recopy-volumecopy-target.html 
+sidebar: sidebar 
+keywords: volumecopy, target, command, operation, volume, copy, pair, reinitiate, array, role, context 
+summary: El comando recopy VolumeCopy target reinicia una operación de copia de volumen mediante una pareja de copias de volumen existente. 
+---
+= Volver a crear una copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `recopy volumeCopy target` el comando vuelve a iniciar una operación de copia de volumen mediante una pareja de copias de volumen existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 7.83 `copyType=(online | offline)` el parámetro ya no se utiliza.
+
+====
+Este comando es válido para las parejas de copias de volumen de imágenes Snapshot.
+
+Este comando funciona con parejas de copias de volumen creadas con un volumen de imágenes Snapshot.
+
+[NOTE]
+====
+Al iniciar una operación de copia de volumen, se sobrescriben todos los datos existentes en el volumen objetivo, el volumen objetivo se vuelve de solo lectura para los hosts y se genera un error en todos los volúmenes de imágenes Snapshot asociados con el volumen objetivo, si existe alguno. Si el volumen objetivo se utilizó anteriormente como copia, se debe verificar que los datos ya no sean necesarios o que exista un backup.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+recopy volumeCopy target [targetName]
+[source [sourceName]]
+[copyPriority=(highest | high | medium | low | lowest)]
+[targetReadOnlyEnabled=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`target`
+ a| 
+Nombre del volumen objetivo para el que se desea reiniciar una operación de copia de volumen. El nombre del volumen objetivo se debe escribir entre corchetes ([ ]). Si el nombre del volumen objetivo contiene caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`source`
+ a| 
+Nombre del volumen de origen para el que se desea reiniciar una operación de copia de volumen. El nombre del volumen de origen se debe escribir entre corchetes ([ ]). Si el nombre del volumen de origen contiene caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`copyPriority`
+ a| 
+Prioridad que tiene la copia de volumen con respecto a la actividad de I/o del host. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.
+
+
+
+ a| 
+`targetReadOnlyEnabled`
+ a| 
+El ajuste para establecer si se puede escribir en el volumen objetivo o solo leer el volumen objetivo. Para escribir en el volumen objetivo, este parámetro debe configurarse en `FALSE`. Para impedir la escritura en el volumen objetivo, este parámetro debe configurarse en `TRUE`.
+
+|===
+
+
+== Notas
+
+La prioridad de copia define la cantidad de recursos del sistema que se usarán para copiar los datos entre el volumen de origen y el volumen objetivo de una pareja de copias de volumen. Si se selecciona el nivel de prioridad más alto, la copia de volumen utiliza la mayor cantidad de recursos del sistema para llevar a cabo la copia de volumen, lo cual disminuye el rendimiento para las transferencias de datos del host.
+
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+7.83 elimina la `copyType=(online | offline)` parámetro.

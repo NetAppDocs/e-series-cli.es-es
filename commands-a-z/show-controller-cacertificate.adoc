@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/show-controller-cacertificate.html 
+sidebar: sidebar 
+keywords: show, installed, root, intermediate, ca, certificates, summary 
+summary: El comando show Controller caCertificate muestra un resumen de los certificados de una CA instalados en una controladora específica. El uso de este comando puede ser útil antes de ejecutar el comando delete Controller caCertificate para conocer los alias de los certificados que se desea eliminar. 
+---
+= Mostrar resumen de certificados de CA raíz/intermedios instalados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show controller caCertificate` El comando muestra un resumen de los certificados de CA instalados de la controladora especificada. Este comando es útil para realizar el `delete controller caCertificate` comando para conocer los alias de los certificados que se desea eliminar.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show controller [(a|b)] caCertificate [all | aliases=pass:quotes[("_alias1_" ... "_aliasN_")]] summary
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite que el usuario especifique la controladora en la que se desea recuperar los certificados intermedios/de raíz. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`all`
+ a| 
+Permite al usuario especificar la recuperación de todos los certificados raíz/intermedios.
+
+
+
+ a| 
+`aliases`
+ a| 
+Permite al usuario especificar qué certificados raíz/intermedios recuperar mediante el alias. Todos los alias se deben escribir entre paréntesis. Si se introducen varios alias, se deben separar con un espacio.
+
+|===
+
+
+== Ejemplos
+
+[listing, subs="+macros"]
+----
+
+SMcli -n Array1 -c "show controller[a] caCertificate all summary;"
+
+SMcli -n Array1 -c "show controller[b] caCertificate alias=("myAlias" "anotherAlias") summary;"
+============================
+Controller A Authority Certificates
+============================
+Alias:        19527b38-8d26-44e5-8c7f-5bf2ca9db7cf
+Subject DN:   CN=My Corp Issuing CA 1
+Issuer DN:    CN=My Corp Root CA
+pass:quotes[Start:        _date_]
+pass:quotes[Expire:       _date_]
+---------------------
+Alias:        myAliasName
+Subject DN:   CN=My Corp Issuing CA 1
+Issuer DN:    CN=My Corp Root CA
+pass:quotes[Start:        _date_]
+pass:quotes[Expire:       _date_]
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

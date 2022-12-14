@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/set-storagearray-externalkeymanagement.html 
+sidebar: sidebar 
+keywords: set, external, key, management, set 
+summary: El comando set storageArray externalKeyManagement configura el número de puerto y la dirección del servidor de gestión de claves externo. 
+---
+= Configure ajustes de gestión de claves externas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray externalKeyManagement` el comando configura la dirección del servidor de gestión de claves externo y el número de puertos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+set storageArray externalKeyManagement serverAddress=pass:quotes[_serverAddress_]
+serverPort=pass:quotes[_portNumber_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`serverAddress`
+ a| 
+Permite especificar la dirección del servidor de gestión de claves externo. La dirección del servidor debe ser un nombre de dominio completo, una dirección IPv4 o una dirección IPv6.
+
+
+
+ a| 
+`serverPort`
+ a| 
+Permite especificar el número de puerto del servidor de gestión de claves externo.
+
+|===
+
+
+== Ejemplo
+
+[listing]
+----
+SMcli -n Array1 -c "set storageArray externalKeyManagement serverAddress=192.0.2.1 serverPort=8081;"
+
+   SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

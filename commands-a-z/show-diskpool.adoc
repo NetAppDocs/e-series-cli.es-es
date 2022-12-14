@@ -1,0 +1,86 @@
+---
+permalink: commands-a-z/show-diskpool.html 
+sidebar: sidebar 
+keywords: show, disk pool 
+summary: El comando show DISKPOOL muestra información acerca de un pool de discos. 
+---
+= Mostrar pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show diskPool` el comando muestra información acerca de un pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra la siguiente información acerca de un pool de discos:
+
+* El estado (por ejemplo, optimal, online, offline).
+* La capacidad total
+* La capacidad de conservación, la capacidad utilizable y la capacidad inutilizable
+* La capacidad usada, la capacidad libre y el total del porcentaje
+* El propietario actual (la controladora de la ranura A o la controladora de la ranura B ).
+* El medio de la unidad (SAS)
+* El tipo de medio de la unidad (HDD o SSD).
+* El tipo de interfaz de la unidad (Fibre Channel, iSCSI, InfiniBand, SAS).
+* Protección contra pérdida de soporte (sí o no).
+* Secure capable: Indica si el pool de discos se compone de todas unidades compatibles con la función de seguridad. Las unidades compatibles con esta función pueden ser unidades FDE o FIPS.
+* Secure: Indica si el pool de discos tiene la seguridad de la unidad activada (a esto se denomina "función de seguridad habilitada").
+* La configuración de notificación de la capacidad restante (crucial y alarma anticipada).
+* La configuración de la prioridad
+* Los volúmenes y la capacidad libre relacionados
+* Las unidades relacionadas
+* Funcionalidades de garantía de datos y presencia de volúmenes con garantía de datos habilitada
+* Funcionalidades de aprovisionamiento de recursos
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[show diskPool [_diskPoolName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+El nombre del pool de discos del que se desea recuperar información. El nombre del pool de discos debe escribirse entre corchetes ([ ]). Si el nombre del pool de discos tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de los corchetes.
+
+|===
+
+
+== Notas
+
+Este comando se usa para ver el contenido del pool de discos del perfil de la cabina de almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

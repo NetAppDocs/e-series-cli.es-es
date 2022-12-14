@@ -1,0 +1,90 @@
+---
+permalink: commands-a-z/set-auditlog.html 
+sidebar: sidebar 
+keywords: set, audit log 
+summary: El comando set auditlog configura las opciones del registro de auditoría. 
+---
+= Configurar ajustes del registro de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set auditLog` el comando configura los ajustes del registro de auditoría.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+set auditLog (logLevel={all | writeOnly} |
+    fullPolicy={overwrite | preventSystemAccess} |
+    pass:quotes[maxRecords=_n_] | pass:quotes[warningThreshold=_n_)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`logLevel`
+ a| 
+Permite especificar el nivel de registro. Las opciones válidas son: `all` y.. `writeOnly`. El valor predeterminado es `writeOnly`.
+
+
+
+ a| 
+`fullPolicy`
+ a| 
+Permite especificar la política que se debe seguir cuando se llena el registro. Las opciones válidas son: `overwrite` y.. `preventSystemAccess`.
+
+
+
+ a| 
+`maxRecords`
+ a| 
+Permite al usuario especificar el número máximo de registros que se deben almacenar donde `n` es un entero que comienza en 30000 y finaliza en 50000.
+
+
+
+ a| 
+`warningThreshold`
+ a| 
+Permite especificar el porcentaje en el cual se enviará una alerta de advertencia para indicar que el registro de auditoría está casi completo cuando se establece la política completa `preventSystemAccess`. Use valores enteros entre 0 y 100. Si este parámetro se establece en 0 (cero), se desactivan las alarmas de advertencia.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "set auditLog logLevel=writeOnly fullPolicy=preventSystemAccess maxRecords=40000 warningThreshold=90;"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

@@ -1,0 +1,80 @@
+---
+permalink: commands-a-z/delete-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: delete, asynchronous, mirror group 
+summary: El comando delete asyncMirrorGroup elimina uno o varios grupos de reflejos asíncronos tanto de la cabina de almacenamiento local como de la cabina de almacenamiento remota. 
+---
+= Elimine el grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete asyncMirrorGroup` este comando elimina uno o varios grupos de reflejos asíncronos tanto de la cabina de almacenamiento local como de la cabina de almacenamiento remota.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+El grupo de reflejos asíncronos debe estar vacío para poder eliminarlo correctamente. Antes de usar este comando, es necesario quitar todas las parejas reflejadas asíncronas del grupo de reflejos asíncronos.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+delete (allAsyncMirrorGroups | asyncMirrorGrouppass:quotes[[_"asyncMirrorGroupName"_] |
+asyncMirrorGroups pass:quotes[[_"asyncMirrorGroupName_1" ... "asyncMirrorGroupName_n"_]])
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allAsyncMirrorGroups`
+ a| 
+Este parámetro permite quitar todos los grupos de reflejos asíncronos tanto de la cabina de almacenamiento local como de la cabina de almacenamiento remota.
+
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos que se desea eliminar. El nombre del grupo de reflejos asíncronos debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`asyncMirrorGroups`
+ a| 
+Los nombres de varios grupos de reflejos asíncronos que se desean eliminar. Para introducir los nombres de los grupos de reflejos asíncronos, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

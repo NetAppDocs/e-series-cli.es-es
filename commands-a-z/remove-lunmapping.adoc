@@ -1,0 +1,127 @@
+---
+permalink: commands-a-z/remove-lunmapping.html 
+sidebar: sidebar 
+keywords: remove, volume, lun map 
+summary: 'El comando remove lunMapping quita el mapa de número de unidad lógica (LUN) o el ID de espacio de nombres (NSID) de uno o más volúmenes.' 
+---
+= Quite el mapa de LUN de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `remove lunMapping` El comando quita el mapa de número de unidad lógica (LUN) o el ID de espacio de nombres (NSID) de uno o más volúmenes.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+remove (volume pass:quotes[[_"volumeName"_]] | accessVolume) lunMapping
+(host=pass:quotes[_"hostName_" | hostGroup=(_"hostGroupName"_] | defaultGroup)
+----
+
+
+== Sintaxis para quitar el mapa de LUN o NSID de un mapa de LUN o NSID de más de un volumen
+
+[listing, subs="+macros"]
+----
+remove (allVolumes | volumes pass:quotes[[_volumeName1 ... volumeNameN_]])
+lunMapping
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+Nombre de un volumen del cual se está quitando el mapa de LUN o NSID. El nombre del volumen debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`accessVolume`
+ a| 
+Este parámetro quita el volumen de acceso.
+
+
+
+ a| 
+`allVolumes`
+ a| 
+Este parámetro quita el mapa de LUN de todos los volúmenes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Nombres de los volúmenes de los cuales se está quitando el mapa de LUN o NSID. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes contienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`host`
+ a| 
+Nombre del host al que se asigna el volumen. El nombre de host debe escribirse entre comillas dobles (" ").
+
+Este parámetro solo funciona cuando se quita el mapa de LUN o NSID de un volumen.
+
+
+
+ a| 
+`hostGroup`
+ a| 
+Nombre del grupo de hosts que contiene el host al que se asigna el volumen. El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). La `defaultGroup` valor es el grupo de hosts que contiene el host al que se asigna el volumen.
+
+Este parámetro solo funciona cuando se quita el mapa de LUN o NSID de un volumen.
+
+|===
+
+
+== Notas
+
+El volumen de acceso es el volumen en un entorno SAN que se utiliza para la comunicación entre el software de administración del almacenamiento y la controladora de la cabina de almacenamiento. El volumen de acceso usa una dirección LUN o NSID y consume 20 MB de espacio de almacenamiento que no se encuentra disponible para el almacenamiento de datos de la aplicación. Se requiere un volumen de acceso solo para las cabinas de almacenamiento gestionadas en banda.
+
+[NOTE]
+====
+*La extracción de un volumen de acceso puede dañar la configuración* -- el agente utiliza los volúmenes de acceso para comunicarse con una matriz de almacenamiento. Si se quita un mapa de volumen de acceso para una cabina de almacenamiento de un host que tiene un agente en ejecución, el software de administración del almacenamiento ya no puede gestionar la cabina de almacenamiento a través del agente.
+
+====
+Debe utilizar el `host` y la `hostGroup` parámetro cuando se especifica un volumen sin acceso o un volumen de acceso. El motor de scripts ignora la `host` o el `hostGroup` cuando utilice el `allVolumes` o el `volumes` parámetro.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

@@ -1,0 +1,107 @@
+---
+permalink: commands-a-z/create-hostport.html 
+sidebar: sidebar 
+keywords: create, host, port 
+summary: 'El comando create hostPort crea una nueva identificación del puerto de host en un adaptador de bus de host (HBA) o en un adaptador de canal de host (HCA).' 
+---
+= Crear puerto de host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create hostPort` El comando crea una nueva identificación de puerto de host en un adaptador de bus de host (HBA) o en un adaptador de canal de host (HCA).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La identificación del puerto de host es un valor de software que representa el puerto de host físico del HBA o HCA que se conecta con la controladora. Sin la identificación de puerto de host correcta, la controladora no puede recibir instrucciones ni datos del puerto de host.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create hostPort identifier=pass:quotes[_("wwID"_ | "_gid"_)
+userLabel="_portLabel"_]
+[host=pass:quotes[_"hostName"_]]
+[interfaceType=(FC | SAS | IB)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`identifier`
+ a| 
+El identificador a nivel mundial (WWID) de 8 bytes o el identificador de grupo (GID) de 16 bytes del puerto de host del HBA o HCA. El WWID o el GID debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se asignará al nuevo puerto de host del HBA o HCA. La etiqueta del puerto de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+El nombre del host para el cual se define un puerto de host de HBA o HCA. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`interfaceType`
+ a| 
+El identificador del tipo de interfaz del puerto de host.
+
+Las opciones para los tipos de interfaz del puerto de host son las siguientes:
+
+* `FC` -- Fibre Channel
+* `SAS` -- SCSI con conexión en serie
+* `IB` -- InfiniBand
+
+
+Cuando se seleccionan FC o SAS, se requiere un WWID de 8 bytes. Si se selecciona IB, se necesita un identificador de grupo (GID) de 16 bytes.
+
+Si no especifica el tipo de interfaz, `FC` se usa como interfaz predeterminada para el puerto de host.
+
+|===
+
+
+== Notas
+
+Un puerto de host de HBA o HCA es una conexión física de un adaptador de bus de host o un adaptador de canal de host que reside en un equipo host. Un puerto de host de HBA o de HCA brinda acceso de host a los volúmenes de una cabina de almacenamiento. Si el HBA o el HCA tienen solamente una conexión física (un puerto de host), los términos puerto de host y adaptador de bus de host o adaptador de canal de host son sinónimos.
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+5.20
+
+7.10 deja obsoleto el `hostType` parámetro. La `hostType` el parámetro se ha agregado a la `create host` comando.
+
+7.32 añade el `interfaceType` parámetro.

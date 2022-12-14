@@ -1,0 +1,54 @@
+---
+permalink: commands-a-z/resume-ssdcache.html 
+sidebar: sidebar 
+keywords: resume, ssd, cache 
+summary: El comando resume ssdCache reinicia el almacenamiento en caché para todos los volúmenes en los que se utiliza la caché SSD que se detuvo temporalmente con el comando suspend ssdCache. 
+---
+= Reanude la caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `resume ssdCache` El comando reinicia el almacenamiento en caché de todos los volúmenes que utilizan la caché SSD que se detuvo temporalmente con el `suspend ssdCache` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+resume ssdCache pass:quotes[[_ssdCacheName_]]
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD en la cual se desean reanudar operaciones de almacenamiento en caché. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

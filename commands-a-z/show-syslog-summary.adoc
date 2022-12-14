@@ -1,0 +1,66 @@
+---
+permalink: commands-a-z/show-syslog-summary.html 
+sidebar: sidebar 
+keywords: show, syslog, configuration 
+summary: El comando show syslog summary muestra información acerca de la configuración de alertas de syslog. 
+---
+= Mostrar configuración de syslog
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show syslog summary` comando muestra la información de configuración de alertas de syslog.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show syslog summary
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SYSLOG SUMMARY
+   Default facility: 3
+   Default tag: StorageArray
+   Syslog format: rfc5424
+   Syslog Servers
+      Server Address               Port Number
+      serverName1.company.com      514
+      serverName2.company.com      514
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40
+
+11.70.1 añadió el `syslogFormat` Parámetro para especificar el formato del mensaje de syslog.

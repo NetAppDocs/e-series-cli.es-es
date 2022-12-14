@@ -1,0 +1,81 @@
+---
+permalink: commands-a-z/start-secureerase-drive.html 
+sidebar: sidebar 
+keywords: start, fde, secure, drive, erase 
+summary: 'El comando start secureErase drive borra todos los datos de una o más unidades de cifrado de disco completo (FDE), de modo que puedan volver a utilizarse como unidades FDE.' 
+---
+= Inicie un borrado seguro de unidad FDE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start secureErase drive` El comando borra todos los datos de una o varias unidades de cifrado de disco completo (FDE) de modo que se puedan reutilizar como unidades FDE.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Ejecute este comando solo cuando las unidades FDE ya no formen parte del pool de discos o grupo de volúmenes seguro, o cuando no conozca la clave de seguridad.
+
+[NOTE]
+====
+Para borrar una unidad FIPS cuando está bloqueada y la clave de seguridad para desbloquearla no está disponible, use el `set drive securityID` comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+[start secureErase (drive pass:quotes[[_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID_]] | drives pass:quotes[[_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`drive` o. `drives`
+ a| 
+En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+[NOTE]
+====
+La lista de unidades no puede contener todas las unidades de la cabina de almacenamiento; de lo contrario, se rechazará el comando. Para garantizar el borrado de todas las unidades, ejecute este comando dos veces y especifique la lista de unidades en dos grupos separados.
+
+====
+|===
+
+
+== Notas
+
+El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades FDE. Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+7.40

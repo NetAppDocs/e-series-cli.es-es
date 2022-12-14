@@ -1,0 +1,80 @@
+---
+permalink: commands-a-z/delete-snapgroup.html 
+sidebar: sidebar 
+keywords: delete, snapgroup, command, entire, snapshot, group, option, associate, repository, volume 
+summary: El comando delete snapGroup elimina un grupo Snapshot completo y, opcionalmente, los volúmenes de repositorios asociados. 
+---
+= Eliminar grupo Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete snapGroup` comando: un grupo snapshot completo y, opcionalmente, los volúmenes de repositorios asociados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+*Posible daño en la configuración de la matriz de almacenamiento* -- todos los datos del grupo de instantáneas se pierden tan pronto como se ejecuta este comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete snapGroup ["_snapGroupName_"]]
+[deleteRepositoryMembers=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapGroup`
+ a| 
+El nombre del grupo Snapshot que se desea eliminar. El nombre del grupo Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`deleteRepositoryMembers`
+ a| 
+El parámetro para eliminar o guardar los volúmenes de repositorios. Para eliminar los volúmenes de repositorios, este parámetro debe configurarse en `TRUE`. Para guardar los volúmenes de repositorios, este parámetro debe configurarse en `FALSE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+Es posible eliminar un grupo Snapshot si está vacío o si contiene imágenes Snapshot. Todas las imágenes Snapshot del grupo se eliminan junto con el grupo Snapshot. Si alguna de las imágenes Snapshot del grupo tiene un volumen Snapshot asociado, se detiene cada volumen Snapshot y se lo desvincula de la imagen Snapshot. Cuando se elimina un grupo Snapshot, también se elimina el volumen de repositorios asociado. De forma predeterminada, todos los volúmenes miembro del volumen de repositorios se conservan como volúmenes estándar sin usar y sin asignar. Para quitar los volúmenes miembro, establezca el `deleteRepositoryMembers` parámetro a. `TRUE`, o no utilice este parámetro. Para conservar los volúmenes miembro, establezca el `deleteRepositoryMembers` parámetro a. `FALSE`.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

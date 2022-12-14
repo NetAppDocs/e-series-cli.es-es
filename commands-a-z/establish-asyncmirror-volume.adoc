@@ -1,0 +1,89 @@
+---
+permalink: commands-a-z/establish-asyncmirror-volume.html 
+sidebar: sidebar 
+keywords: establish, asynmirror, volume, asynchronous, mirrored, remote, storage, array, secondary, existing 
+summary: El comando establish asyncMirror volume añade un volumen secundario a un grupo de reflejos asíncronos existente para generar una pareja reflejada asíncrona en la cabina de almacenamiento remota. 
+---
+= Establezca la pareja reflejada asíncrona
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `establish asyncMirror volume` el comando completa una pareja reflejada asíncrona en la cabina de almacenamiento remota añadiendo un volumen secundario a un grupo de reflejos asíncronos existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Para poder ejecutar este comando, debe existir el grupo de reflejos asíncronos y el volumen primario debe existir en el grupo de reflejos asíncronos. Una vez que este comando se completa correctamente, el mirroring asíncrono se inicia entre el volumen primario y el secundario.
+
+Los dos volúmenes que conforman una pareja reflejada asíncrona funcionan como una misma entidad. Establecer una pareja reflejada asíncrona permite ejecutar acciones en toda la pareja reflejada, en lugar de en los dos volúmenes de forma individual.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[establish asyncMirror volume="_secondaryVolumeName_"]
+pass:quotes[asyncMirrorGroup="_asyncMirrorGroupName_"]
+pass:quotes[primaryVolume="_primaryVolumeName_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre de un volumen existente en la cabina de almacenamiento remota que se usará para el volumen secundario. El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos existente que se desea usar para contener la pareja reflejada asíncrona. El nombre del grupo de reflejos asíncronos debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`primaryVolume`
+ a| 
+El nombre de un volumen existente en la cabina de almacenamiento local que se usará para el volumen primario. El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+Una pareja reflejada asíncrona consta de dos volúmenes, un volumen primario y uno secundario, que contienen copias idénticas de los mismos datos. La pareja reflejada es parte de un grupo de reflejos asíncronos, que permite que la pareja reflejada se sincronice al mismo tiempo que otras parejas reflejadas del grupo de reflejos asíncronos.
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+Cuando se seleccionan los volúmenes primario y secundario, el volumen secundario debe tener un tamaño igual o mayor que el volumen primario. El nivel de RAID del volumen secundario no necesita ser igual al del volumen primario.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

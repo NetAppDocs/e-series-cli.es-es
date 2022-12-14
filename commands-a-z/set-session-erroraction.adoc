@@ -1,0 +1,120 @@
+---
+permalink: commands-a-z/set-session-erroraction.html 
+sidebar: sidebar 
+keywords: set, session 
+summary: El comando set session ErrorAction define la forma de ejecución de la sesión de motor de scripts actual. 
+---
+= Configurar la sesión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set session errorAction` el comando define la forma en que se desea que se ejecute la sesión de motor de scripts actual.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+A los fines de este comando, una sesión es lo que dura la ejecución de los comandos. Este comando no define de manera permanente los parámetros de la cabina de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set session errorAction=(stop | continue)
+password="storageArrayPassword"
+performanceMonitorInterval=intervalValue
+performanceMonitorIterations=iterationValue
+----
+[listing]
+----
+set session errorAction=(stop | continue)
+password="storageArrayPassword"
+userRole=(admin | monitor)
+performanceMonitorInterval=intervalValue
+performanceMonitorIterations=iterationValue
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`errorAction`
+ a| 
+Cómo responde la sesión si se encuentra un error durante el procesamiento. Al encontrar un error, se puede optar por detener la sesión o continuarla. El valor predeterminado es `stop`. (Este parámetro define la acción para errores de ejecución, no errores de sintaxis. Es posible que algunas condiciones de error anulen el `continue` value).
+
+
+
+ a| 
+`password`
+ a| 
+La contraseña para la cabina de almacenamiento. La contraseña debe escribirse entre comillas dobles (" ").
+
+[NOTE]
+====
+Cuando el tipo de cliente está configurado como `https`, este parámetro es obsoleto. Debe especificarse la contraseña antes de la ejecución del script de comandos de la CLI. Además, la contraseña no puede cambiarse en medio de un script.
+
+====
+
+
+ a| 
+`performanceMonitorInterval`
+ a| 
+La frecuencia en que se recogen datos de rendimiento. Introduzca un valor en números enteros para el intervalo de sondeo, en segundos, en el que desea capturar datos. El intervalo de valores es `3` para `3600` segundos. El valor predeterminado es `5` segundos.
+
+[NOTE]
+====
+Cuando el tipo de cliente está configurado como `https`, este parámetro es obsoleto. Para cambiar el valor de intervalo predeterminado, use este parámetro con los comandos individuales afectados. Los comandos son `save storageArray performanceStats` y.. `show drive performanceStats`.
+
+====
+
+
+ a| 
+`performanceMonitorIterations`
+ a| 
+El número de muestras que se van a capturar. Introduzca un valor en números enteros. El intervalo de valores para las muestras capturadas es `1` para `3600`. El valor predeterminado es `5`.
+
+[NOTE]
+====
+Cuando el tipo de cliente está configurado como `https`, este parámetro es obsoleto. Para cambiar el valor de iteración predeterminado, use este parámetro con los comandos individuales afectados. Los comandos son `save storageArray performanceStats` y.. `show drive performanceStats`.
+
+====
+|===
+
+
+== Notas
+
+Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
+
+Las contraseñas se almacenan en cada cabina de almacenamiento en un dominio de gestión. Si no se configuró una contraseña previamente, no es necesario introducirla. La contraseña puede ser cualquier combinación de caracteres alfanuméricos, con un máximo de 30 caracteres. (Puede definir una contraseña de cabina de almacenamiento mediante el `set storageArray` ).
+
+El intervalo de sondeo y el número de iteraciones que se especifican siguen vigentes hasta que finaliza la sesión. Finalizada la sesión, el intervalo de sondeo y el número de iteraciones vuelven a los valores predeterminados.
+
+
+
+== Nivel de firmware mínimo
+
+5.20
+
+8.40 - cuando el tipo de cliente está establecido en `https`, se ha obsoleto el `password`, `userRole`, `performanceMonitorInterval`, y. `performanceMonitorIterations` parámetros.

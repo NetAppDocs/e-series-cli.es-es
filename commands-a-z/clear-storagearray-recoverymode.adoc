@@ -1,0 +1,60 @@
+---
+permalink: commands-a-z/clear-storagearray-recoverymode.html 
+sidebar: sidebar 
+keywords: clear, storage array, recovery, mode 
+summary: El comando clear storageArray recoveryMode fuerza la salida del modo de recuperación de una cabina de almacenamiento. 
+---
+= Borrar el modo de recuperación de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear storageArray recoveryMode` comando obliga a una cabina de almacenamiento a salir del modo de recuperación.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+clear storageArray recoveryMode
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+[NOTE]
+====
+Se ingresa al modo de recuperación durante las operaciones de comienzo del día, cuando se borra la configuración del sistema y hay un backup integrado válido disponible. Para salir de este modo, restaure la configuración del sistema desde una ubicación de copia de seguridad o desactive las copias de seguridad existentes integradas. Mientras está vigente el modo de recuperación, se eleva una condición needs attention y Recovery Guru está disponible en la interfaz de usuario. Sin embargo, la configuración del sistema está vacía durante el modo de recuperación.
+
+====
+[NOTE]
+====
+Si desea que la cabina de almacenamiento regrese a una configuración previa, debe restaurar la configuración desde backup antes de desactivar el modo de recuperación. Debe efectuar comprobaciones de validación o corroborar con el soporte técnico para asegurarse de que la restauración se haya realizado correctamente. Una vez que se determina que la restauración se realizó correctamente, se puede desactivar el modo de recuperación.
+
+====
+
+
+== Nivel de firmware mínimo
+
+7.83

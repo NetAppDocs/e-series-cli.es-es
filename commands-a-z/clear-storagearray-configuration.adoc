@@ -1,0 +1,143 @@
+---
+permalink: commands-a-z/clear-storagearray-configuration.html 
+sidebar: sidebar 
+keywords: clear, storage array, configuration 
+summary: El comando clear storageArray Configuration borra la configuración de una cabina de almacenamiento de manera total o parcial, o borra solo la configuración del grupo de volúmenes y del volumen. 
+---
+= Borrar la configuración de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear storageArray configuration` comando borra la configuración de una cabina de almacenamiento de forma completa o parte de la configuración de una cabina de almacenamiento, o borra solo la configuración del grupo de volúmenes y del volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Use este comando para realizar una de las siguientes operaciones:
+
+* Borrar toda la configuración de la cabina de almacenamiento para que regrese a su estado de instalación inicial.
+* Borrar la configuración, excepto la información de seguridad y la información de identificación.
+* Borrar solo la información de configuración del grupo de volúmenes y la información de configuración del volumen.
+
+
+[NOTE]
+====
+*Posible daño en la configuración de la cabina de almacenamiento* -- tan pronto como se ejecuta este comando, se elimina la configuración existente de la cabina de almacenamiento.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+clear storageArray configuration (all | volumeGroups)
+----
+[listing]
+----
+clear storageArray configuration factoryReset
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+*Ninguno*
+ a| 
+Si no se introduce un parámetro, este comando elimina toda la información de configuración de la cabina de almacenamiento, excepto la información de seguridad e identificación.
+
+
+
+ a| 
+`all`
+ a| 
+La opción para eliminar toda la configuración de la cabina de almacenamiento, incluida la información de seguridad e identificación. Si se elimina toda la información de configuración, la cabina de almacenamiento vuelve a su estado inicial.
+
+
+
+ a| 
+`volumeGroups`
+ a| 
+La opción para eliminar la configuración del volumen y la configuración del grupo de volúmenes. El resto de la configuración permanece intacto.
+
+
+
+ a| 
+`factoryReset`
+ a| 
+Esta opción elimina toda la configuración de la cabina de almacenamiento (la misma función que la `all` parámetro), pero además restablece la configuración de red y toda la información de contraseña almacenada en la controladora.
+
+
+
+ a| 
+`supportReset`
+ a| 
+[NOTE]
+====
+Este comando es de uso exclusivo del personal de soporte técnico.
+
+====
+Este ajuste se comporta como el `factoryReset` parámetro, pero también borra todas las claves de bundle.
+
+|===
+
+
+== Notas
+
+Con este comando, es posible borrar la configuración de la cabina de almacenamiento de distintas maneras. Cuando se borra la cabina de almacenamiento del grupo de volúmenes, se inicia automáticamente el modo de recuperación. En el modo de recuperación, se incorporan los backups (siempre que existan en la plataforma) incorporados (en la caché). Cuando la cabina de almacenamiento está en modo de recuperación, otra opción es restaurar la cabina desde un archivo de backup basado en un host o desde uno de los backups incorporados (en la caché).
+
+Este comando también restablece el identificador de la cabina de almacenamiento. Todas las funciones premium habilitadas con un archivo de claves quedan invalidadas, y deben crearse y aplicarse nuevas claves de funciones premium. Póngase en contacto con el soporte técnico.
+
+Cuando se ejecuta este comando, la cabina de almacenamiento deja de responder y se cancela todo el procesamiento de scripts. Debe quitar y volver a añadir la cabina de almacenamiento para reanudar la comunicación con el host. Para quitar una cabina de almacenamiento que no responde, utilice este comando contenedor de SMcli:
+
+[listing, subs="+macros"]
+----
+SMcli -X -n pass:quotes[_storageArrayName_]
+----
+La `X` Es un terminal único de SMcli y debe escribirse en mayúsculas.
+
+Para volver a añadir la cabina de almacenamiento, utilice este comando contenedor de SMcli:
+
+[listing, subs="+macros"]
+----
+SMcli -A -n pass:quotes[_storageArrayName_]
+----
+La `A` Es un terminal único de SMcli y debe escribirse en mayúsculas.
+
+
+
+== Nivel de firmware mínimo
+
+en la versión 7.10, se añaden estos parámetros:
+
+* `all`
+* `volumeGroups`
+
+
+en la versión 7.83, se añade la funcionalidad del modo de recuperación.
+
+en la versión 11.41, se añaden estos parámetros:
+
+* `factoryReset`
+* `supportReset`
+

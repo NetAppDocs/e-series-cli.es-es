@@ -1,0 +1,71 @@
+---
+permalink: commands-a-z/reset-storagearray-autosupport-schedule.html 
+sidebar: sidebar 
+keywords: reset, autosupport, message, collection, schedule 
+summary: El comando reset storageArray AutoSupport schedule restablece los horarios diarios y semanales, así como los días de la semana, en que se devuelven los mensajes de AutoSupport a los valores aleatorios generados por el software de gestión. 
+---
+= Restablecer programación de recogida de mensajes de AutoSupport (para cabinas E2800 o E5700 individuales)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset storageArray autoSupport schedule` El comando restablece la frecuencia diaria y semanal, y los días de la semana en que los mensajes de AutoSupport se devuelven a los valores aleatorios generados por el software de gestión.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+* El software de gestión selecciona de forma aleatoria una hora del día para los mensajes diarios y semanales, y un día de la semana para los mensajes semanales.
+* El software de gestión se asegura por todos los medios que no haya dos cabinas de almacenamiento dentro de un dominio de gestión que envíen mensajes programados de AutoSupport al mismo tiempo.
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+reset storageArray autoSupport schedule
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "reset storageArray autoSupport schedule;"
+
+SMcli completed successfully.
+----
+
+
+== Verificación
+
+Utilice la `show storageArray autoSupport` comando para ver el cambio resultante en la programación.
+
+
+
+== Nivel de firmware mínimo
+
+8.40

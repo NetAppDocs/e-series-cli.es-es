@@ -1,0 +1,49 @@
+---
+permalink: commands-a-z/smcli-alerttest.html 
+sidebar: sidebar 
+keywords: test, alerts 
+summary: El comando SMcli alertTest envía un alerta de prueba a Windows Event Log y a todos los receptores de syslog configurados. 
+---
+= Probar alertas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli alertTest` El comando envía un alerta de prueba al registro de eventos de Windows y a todos los receptores de syslog configurados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica solo a las cabinas de almacenamiento E2700 y E5600.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+SMcli -alertTest
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

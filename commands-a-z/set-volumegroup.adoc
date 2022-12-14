@@ -1,0 +1,137 @@
+---
+permalink: commands-a-z/set-volumegroup.html 
+sidebar: sidebar 
+keywords: set, volume, group 
+summary: El comando set volumeGroup define las propiedades de un grupo de volúmenes. 
+---
+= Configure el grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set volumeGroup` el comando define las propiedades de un grupo de volúmenes.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Se debe realizar solo una operación (añadir unidades, cambiar el nivel de RAID o cambiar la titularidad del grupo de volúmenes) por comando. Por lo tanto, no es posible realizar más de una operación con un solo comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set volumeGroup pass:quotes[[_volumeGroupName_]]
+[addDrives=pass:quotes[(_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]) ]|
+[raidLevel=(0 | 1 | 3 | 5 | 6) ]|
+[owner=(a|b)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes para el cual se desean configurar propiedades. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`addDrives`
+ a| 
+La ubicación de la unidad que se desea añadir al grupo de volúmenes. En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`raidLevel`
+ a| 
+El nivel de RAID del grupo de volúmenes. Los valores válidos son `0`, `1`, `3`, `5`, o. `6`.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora a la que pertenece el grupo de volúmenes. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es el controlador de la ranura A , y. `b` Es la controladora en la ranura B. Este parámetro se usa únicamente para cambiar el propietario del grupo de volúmenes.
+
+|===
+
+
+== Notas
+
+Se pueden producir errores de I/o del host en grupos de volúmenes de más de 32 volúmenes. Es posible que esta operación también tenga como resultado reinicios internos de la controladora debido a que el tiempo de espera finaliza antes de que se configure la definición del grupo de volúmenes. Si tiene este problema, desactive las operaciones de I/o del host y vuelva a intentar ejecutar el comando.
+
+Cuando se usa este comando, es posible especificar solo uno de los parámetros.
+
+[NOTE]
+====
+Especifique el `addDrives` o el `raidLevel` parámetro inicia una operación de ejecución prolongada que no se puede detener.
+
+====
+La `addDrives` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
+
+
+
+== Resolución de problemas
+
+Si se intentan expandir grupos de volúmenes de gran tamaño, se pueden producir errores con el siguiente mensaje:
+
+`Return code: Error 26 - The modification operation cannot complete because of the number of drives in the volume group and the segment size of the associated volumes. Reduce the segment size of all volumes in the volume group to 128 KB or below using the Change Segment Size option. Then, retry the operation.`
+
+Los sistemas que ejecutan el firmware 7.35.xx pueden fallar con el siguiente mensaje en lugar de uno de los mencionados anteriormente:
+
+`Return code: Error 462 - A SYMbol procedure could not be carried out because the firmware could not allocate sufficient cache memory. Operation when error occurred: PROC_startVolum`
+
+Además de los mensajes anteriores, puede ocurrir un evento de registro de evento principal (MEL) donde se indica que la caché disponible es insuficiente para realizar la operación de DCE.
+
+Cualquier controladora que ejecute la versión de firmware 7.xx puede presentar este problema.
+
+DCE requiere memoria suficiente para almacenar en el búfer los datos que se leyeron del volumen original y los datos que se escribirán en el volumen expandido. Cierta combinación de cantidad de unidades en la operación de ampliación, tamaño de franja y operaciones de reflejo habilitadas puede dar como resultado que no haya memoria suficiente disponible para completar la operación de DCE.
+
+Si se encuentra dicha situación, las siguientes son soluciones alternativas posibles:
+
+* Cree el grupo de volúmenes de tamaño deseado usando otras unidades sin asignar.
+* Elimine el grupo de volúmenes actual y luego vuelva a crear el grupo de volúmenes con el número de unidades deseado.
+* Reduzca el tamaño de segmentos que se va a usar y luego vuelva a intentar realizar la operación.
+* Si fuera posible, añada memoria adicional a la controladora y luego vuelva a intentar realizar la operación.
+
+
+
+
+== Nivel de firmware mínimo
+
+7.10 añade la funcionalidad de RAID 6.
+
+7.30 elimina la `availability` parámetro.
+
+7.60 añade el `drawerID` entrada del usuario.

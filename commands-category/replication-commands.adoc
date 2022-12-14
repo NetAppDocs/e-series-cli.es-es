@@ -1,0 +1,145 @@
+---
+permalink: commands-category/replication-commands.html 
+sidebar: sidebar 
+keywords: replication, commands, consistency group, command, repository volume, 
+summary: Comandos de replicación 
+---
+= Comandos de replicación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+
+
+== Comandos de grupo de coherencia
+
+link:../commands-a-z/set-consistencygroup-addcgmembervolume.html["Añada miembro a un grupo de coherencia"]
+
+link:../commands-a-z/create-consistencygroup.html["Cree un grupo de consistencia"]
+
+link:../commands-a-z/create-cgsnapimage-consistencygroup.html["Cree una imagen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/create-cgsnapvolume.html["Crear volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/create-mapping-cgsnapvolume.html["Crear asignación de volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/delete-consistencygroup.html["Eliminar un grupo de consistencia"]
+
+link:../commands-a-z/delete-cgsnapimage-consistencygroup.html["Elimine la imagen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/delete-sgsnapvolume.html["Elimine el volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/remove-member-volume-from-consistency-group.html["Quite el volumen miembro del grupo de coherencia"]
+
+link:../commands-a-z/resume-cgsnapvolume.html["Reanude el volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/set-consistency-group-attributes.html["Configure los atributos del grupo de coherencia"]
+
+link:../commands-a-z/set-cgsnapvolume.html["Configurar volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/show-consistencygroup.html["Mostrar grupo de coherencia"]
+
+link:../commands-a-z/show-cgsnapimage.html["Mostrar imagen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/start-cgsnapimage-rollback.html["Inicie una reversión Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/stop-cgsnapimage-rollback.html["Detener reversión Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/stop-cgsnapvolume.html["Detener volumen Snapshot de grupo de coherencia"]
+
+link:../commands-a-z/stop-consistencygroup-pendingsnapimagecreation.html["Detenga las imágenes Snapshot pendientes en un grupo de coherencia"]
+
+
+
+== Comandos de análisis de volúmenes de repositorios
+
+link:../commands-a-z/check-repositoryconsistency.html["Comprobar la coherencia de un repositorio"]
+
+
+
+== Comandos de grupo Snapshot
+
+link:../commands-a-z/create-snapgroup.html["Crear grupo Snapshot"]
+
+link:../commands-a-z/delete-snapvolume.html["Eliminar volumen Snapshot"]
+
+link:../commands-a-z/revive-snapgroup.html["Reactivar grupo Snapshot"]
+
+link:../commands-a-z/set-snapgroup.html["Configurar atributos de grupo Snapshot"]
+
+link:../commands-a-z/set-snapgroup-mediascanenabled.html["Configurar análisis de medios de grupo Snapshot"]
+
+link:../commands-a-z/set-snapgroup-increase-decreaserepositorycapacity.html["Configurar capacidad para un volumen de repositorios de grupo Snapshot"]
+
+link:../commands-a-z/set-snapgroup-enableschedule.html["Configurar la programación del grupo Snapshot"]
+
+link:../commands-a-z/set-volume-ssdcacheenabled.html["Configure la caché SSD para un volumen"]
+
+link:../commands-a-z/show-snapgroup.html["Mostrar grupo Snapshot"]
+
+link:../commands-a-z/stop-pendingsnapimagecreation.html["Detenga las imágenes Snapshot pendientes en el grupo Snapshot"]
+
+
+
+== Comandos de imagen Snapshot
+
+link:../commands-a-z/create-snapimage.html["Crear una imagen Snapshot"]
+
+link:../commands-a-z/delete-snapimage.html["Eliminar imagen Snapshot"]
+
+link:../commands-a-z/resume-snapimage-rollback.html["Reanudar una reversión de imagen Snapshot"]
+
+link:../commands-a-z/show-snapimage.html["Mostrar imagen Snapshot"]
+
+link:../commands-a-z/start-snapimage-rollback.html["Iniciar reversión de imagen Snapshot"]
+
+link:../commands-a-z/stop-snapimage-rollback.html["Detener reversión de imagen Snapshot"]
+
+
+
+== Comandos de volumen Snapshot
+
+link:../commands-a-z/create-read-only-snapshot-volume.html["Crear volumen Snapshot de solo lectura"]
+
+link:../commands-a-z/create-snapshot-volume.html["Crear un volumen Snapshot"]
+
+link:../commands-a-z/delete-snapgroup.html["Eliminar grupo Snapshot"]
+
+link:../commands-a-z/set-snapvolume.html["Cambiar el nombre del volumen Snapshot"]
+
+link:../commands-a-z/resume-snapvolume.html["Reanudar volumen Snapshot"]
+
+link:../commands-a-z/revive-snapvolume.html["Reactivar volumen Snapshot"]
+
+link:../commands-a-z/set-snapvolume-converttoreadwrite.html["Configurar un volumen Snapshot de solo lectura como volumen de lectura/escritura"]
+
+link:../commands-a-z/set-snapvolume-mediascanenabled.html["Configurar análisis de medios de volumen Snapshot"]
+
+link:../commands-a-z/set-snapvolume-increase-decreaserepositorycapacity.html["Configurar capacidad para volumen de repositorios de un volumen Snapshot"]
+
+link:../commands-a-z/set-volume-ssdcacheenabled.html["Configure la caché SSD para un volumen"]
+
+link:../commands-a-z/show-snapvolume.html["Mostrar volúmenes Snapshot"]
+
+link:../commands-a-z/stop-snapvolume.html["Detener volumen Snapshot"]
+
+
+
+== Comandos de copia de volumen
+
+link:../commands-a-z/create-volumecopy.html["Crear la copia de volumen"]
+
+link:../commands-a-z/recopy-volumecopy-target.html["Volver a crear una copia de volumen"]
+
+link:../commands-a-z/remove-volumecopy-target.html["Quite la copia de volumen"]
+
+link:../commands-a-z/set-volumecopy-target.html["Configure la copia de volumen"]
+
+link:../commands-a-z/show-volumecopy.html["Mostrar copia de volumen"]
+
+link:../commands-a-z/show-volumecopy-sourcecandidates.html["Mostrar candidatos de origen de copia de volumen"]
+
+link:../commands-a-z/show-volumecopy-source-targetcandidates.html["Mostrar candidatos objetivo de copia de volumen"]
+
+link:../commands-a-z/stop-volumecopy-target-source.html["Detener la copia de volumen"]

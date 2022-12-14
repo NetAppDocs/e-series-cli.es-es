@@ -1,0 +1,527 @@
+---
+permalink: commands-a-z/save-storagearray-supportdata.html 
+sidebar: sidebar 
+keywords: save, storage, array, support, data 
+summary: El comando save storageArray supportData guarda en un archivo la información relacionada con soporte de la cabina de almacenamiento. 
+---
+= Guarde datos de soporte de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray supportData` comando guarda en un archivo la información relacionada con soporte de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+En la tabla siguiente, se enumera el tipo de datos de soporte que se puede recoger.
+
+[cols="2*"]
+|===
+| Tipo de datos | Nombre del archivo y descripción 
+
+
+ a| 
+Estadística de equilibrio de carga automática
+ a| 
+`alb-statistics-A.txt`
+
+`alb-statistics-B.txt`
+
+Este archivo, uno por controladora, especifica diversas estadísticas relacionadas con la función de equilibrio de carga automática que permite continuar el análisis por medio de una herramienta de análisis sin conexión.
+
+
+
+ a| 
+Metadatos de volcado de memoria
+ a| 
+`all-coredump.xml`
+
+Este archivo consta de metadatos de volcado de memoria para la cabina.
+
+[NOTE]
+====
+A partir del lanzamiento de la versión 8.25, se modificó el nombre core-dump-info.xml por all-coredump.xml.
+
+====
+
+
+ a| 
+Estado de AutoSupport
+ a| 
+`autosupport.xml`
+
+Este archivo especifica el estado actual de ASUP para una determinada cabina.
+
+
+
+ a| 
+El archivo de historial de AutoSupport
+ a| 
+`autosupport-history.xml`
+
+Este archivo especifica todos los mensajes de ASUP, tanto los mensajes estándar como los mensajes de AutoSupport OnDemand, para una determinada cabina. Cada entrada de la tabla corresponde a un mensaje de ASUP que actualmente se encuentra en uno de los repositorios de una cabina determinada.
+
+
+
+ a| 
+Registros de AutoSupport
+ a| 
+`asup-transmission-logs.txt`
+
+Este archivo consta de todos los mensajes de AutoSupport transmitidos.
+
+
+
+ a| 
+Información del cliente de servidor Web
+ a| 
+`client-info.txt`
+
+Este archivo especifica diversa información acerca del cliente de Web Services.
+
+[NOTE]
+====
+Este parámetro no es aplicable a las cabinas E2700 y E5600.
+
+====
+
+
+ a| 
+Topología del cableado de la unidad
+ a| 
+`connection.txt` Este archivo contiene información acerca de las conexiones entre el módulo de servicios del entorno (ESM) del soporte de unidades y la pareja de controladoras.
+
+
+
+ a| 
+Bundles de estadísticas acumulativas
+ a| 
+`cumulative-drive-vol-stats.xml`
+
+Este archivo tiene estadísticas acumulativas de las controladoras.
+
+
+
+ a| 
+Registro de unidad que no funciona correctamente
+ a| 
+`controller-drive-error-event-log.txt`
+
+Este archivo contiene mensajes de errores y registros de eventos de la controladora de la cabina de almacenamiento.
+
+
+
+ a| 
+Metadatos de la imagen del estado de la controladora
+ a| 
+`all-coredump.xml`
+
+Este archivo contiene información de la imagen del estado de la controladora en DPL.
+
+[NOTE]
+====
+A partir del lanzamiento de la versión 8.25, se modificó el nombre core-dump-info.xml por all-coredump.xml.
+
+====
+
+
+ a| 
+Archivos de diarios DOM 0 para la controladora A (solo E2800 o E5700)
+ a| 
+`dom0-complete-journal-A.7z`
+
+Este archivo, uno por controladora, consta de registros detallados del sistema Linux. Esto incluye registros para paquetes Linux, así como utilidades y servicios Linux estándar.
+
+
+
+ a| 
+Archivos de diarios DOM 0 para la controladora B (solo E2800 o E5700)
+ a| 
+`dom0-complete-journal-B.7z`
+
+Este archivo, uno por controladora, consta de registros detallados del sistema Linux. Esto incluye registros para paquetes Linux, así como utilidades y servicios Linux estándar.
+
+
+
+ a| 
+Archivos de registro DOM 0 varios para la controladora A (solo E2800 o E5700)
+ a| 
+`dom0-misc-logs-A.7z`
+
+Este archivo, uno por controladora, consta de registros de sistema que no se pueden incluir en el diario. Esto incluye el registro de serie para la aplicación de RAID y registros de depuración para el hipervisor.
+
+
+
+ a| 
+Archivos de registro DOM 0 varios para la controladora B (solo E2800 o E5700)
+ a| 
+`dom0-misc-logs-B.7z`
+
+Este archivo, uno por controladora, consta de registros de sistema que no se pueden incluir en el diario. Esto incluye el registro de serie para la aplicación de RAID y registros de depuración para el hipervisor.
+
+
+
+ a| 
+Valores de tiempo de espera antiguos de comandos de la unidad
+ a| 
+`drive-command-aging-timeout.txt` Este archivo consta de valores predeterminados y actuales para el campo de tiempo de espera de vencimiento de comandos de cada unidad.
+
+
+
+ a| 
+Registros del estado de la unidad
+ a| 
+`drive-health-data.bin` Este archivo contiene información de la unidad relacionada con el estado de la unidad.
+
+[NOTE]
+====
+Este archivo es binario y requiere un analizador sin conexión para convertirlo a un formato legible.
+
+====
+
+
+ a| 
+Datos del analizador de rendimiento de la unidad
+ a| 
+`drive-performance-log.txt`
+
+Este archivo consta de datos de rendimiento de la unidad que sirven para identificar las unidades cuyo nivel de rendimiento está por debajo de las expectativas.
+
+
+
+ a| 
+Configuración de Enterprise Management Window
+ a| 
+`emwdata_v04.bin`
+
+Este archivo contiene el archivo del almacén de datos de la configuración de EMW.
+
+[NOTE]
+====
+En los bundles de soporte para E2800 y E5700, no existe este archivo.
+
+====
+
+
+ a| 
+Registros de eventos de soporte
+ a| 
+`expansion-tray-log.txt`
+
+Registros de eventos de ESM
+
+
+
+ a| 
+Análisis del repositorio con errores
+ a| 
+`failed-repository-analysis.txt`
+
+Este archivo contiene información del análisis del repositorio con errores.
+
+
+
+ a| 
+Funciones de la cabina de almacenamiento
+ a| 
+`feature-bundle.txt` Este archivo contiene una lista de la cantidad de volúmenes, unidades y soportes de unidades que se permiten en la cabina de almacenamiento y una lista de las funciones disponibles y sus límites.
+
+
+
+ a| 
+Inventario de firmware
+ a| 
+`firmware-inventory.txt` Este archivo contiene una lista de todas las versiones de firmware de todos los componentes de la cabina de almacenamiento.
+
+
+
+ a| 
+Estadísticas de la interfaz de InfiniBand (solo InfiniBand)
+ a| 
+`ib-statistics.csv`
+
+Este archivo contiene las estadísticas de la interfaz de InfiniBand.
+
+
+
+ a| 
+Estadísticas de la ruta de I/O.
+ a| 
+`io-path-statistics.7z` Este archivo contiene datos del rendimiento sin configurar de cada controladora que se pueden usar para analizar problemas en el rendimiento de la aplicación.
+
+
+
+ a| 
+Información de volcado de IOC para el chip de interfaz del host
+ a| 
+`ioc-dump-info.txt` Este archivo contiene información de volcado de la IOC para el chip de interfaz del host.
+
+
+
+ a| 
+Registros de volcado de IOC para el chip de interfaz del host
+ a| 
+`ioc-dump.gz` Este archivo contiene el volcado de registros del chip de la interfaz del host en la controladora. Este archivo está comprimido en formato gz. Este archivo zip se almacena como un archivo dentro del bundle de soporte al cliente.
+
+
+
+ a| 
+Conexiones iSCSI (solo iSCSI)
+ a| 
+`iscsi-session-connections.txt` Este archivo contiene una lista de todas las sesiones actuales de iSCSI.
+
+
+
+ a| 
+Estadísticas de iSCSI (solo iSCSI)
+ a| 
+`iscsi-statistics.csv` Este archivo contiene las estadísticas del control de acceso a medios (MAC) de Ethernet, el protocolo de control de transmisión (TCP) de Ethernet/protocolo de Internet (IP) y destino iSCSI.
+
+
+
+ a| 
+Estadísticas de interfaz Iser (solo Iser over InfiniBand)
+ a| 
+`iser-statistics.csv` Este archivo contiene las estadísticas de la tarjeta de interfaz del host que ejecuta Iser over InfiniBand.
+
+
+
+ a| 
+Registros de eventos principales
+ a| 
+`major-event-log.txt` Este archivo contiene una lista detallada de eventos que tienen lugar en la cabina de almacenamiento. La lista se almacena en áreas reservadas de los discos en la cabina de almacenamiento. La lista registra los eventos de configuración y los errores de componentes de la cabina de almacenamiento.
+
+
+
+ a| 
+Archivo de manifiesto
+ a| 
+`manifest.xml`
+
+Este archivo contiene una tabla que describe los archivos que se incluyen en el archivo archivado y el estado de recogida de cada uno de esos archivos.
+
+
+
+ a| 
+Información de tiempo de ejecución del software de administración del almacenamiento
+ a| 
+`msw-runtime-info.txt`
+
+Ese archivo consta de información de tiempo de ejecución de la aplicación del software de administración del almacenamiento. Cuenta con la versión JRE que actualmente utiliza el software de administración del almacenamiento.
+
+
+
+ a| 
+Estadísticas de NVMe-of
+ a| 
+`nvmeof-statistics.csv`
+
+El archivo contiene una lista de estadísticas, entre las que se encuentran las estadísticas de la controladora NVMe, estadísticas de la cola de NVMe y estadísticas de la interfaz para el protocolo de transporte (por ejemplo, InfiniBand).
+
+
+
+ a| 
+Datos de NVSRAM
+ a| 
+`nvsram-data.txt` Este archivo de la controladora especifica las configuraciones predeterminadas para las controladoras.
+
+
+
+ a| 
+Bundle de objetos
+ a| 
+`object-bundle`.bin`object-bundle`.json
+
+Este bundle contiene una descripción detallada del estado de la cabina de almacenamiento y sus componentes, que era válido en el momento en el que se generó el archivo.
+
+
+
+ a| 
+Resumen de estadísticas de rendimiento
+ a| 
+`perf-stat-daily-summary-a.csv` `perf-stat-daily-summary-b.csv`
+
+Este archivo contiene varias estadísticas de rendimiento de la controladora, un archivo por controladora.
+
+
+
+ a| 
+Reservas y registros persistentes
+ a| 
+`persistent-reservations.txt` Este archivo contiene una lista detallada de volúmenes de la cabina de almacenamiento con reservas y registros persistentes.
+
+
+
+ a| 
+Preferencias del software de administración del almacenamiento del usuario
+ a| 
+`pref-01.bin`
+
+Este archivo contiene el almacén de datos persistente de las preferencias del usuario.
+
+[NOTE]
+====
+En los bundles de soporte para E2800 o E5700, no existe este archivo.
+
+====
+
+
+ a| 
+Procedimientos de Recovery Guru
+ a| 
+`recovery-guru-procedures.html` Este archivo contiene una lista detallada de todos los temas de Recovery Guru que se emiten en respuesta a los problemas detectados en la cabina de almacenamiento. Para las cabinas E2800 y E5700, este archivo solo contiene detalles de Recovery Guru, no los archivos HTML.
+
+
+
+ a| 
+Perfil de recuperación
+ a| 
+`recovery-profile.csv` Este archivo contiene una descripción detallada del último registro del perfil de recuperación y los datos históricos.
+
+
+
+ a| 
+Registros de errores de SAS PHY
+ a| 
+`sas-phy-error-logs.csv`
+
+Este archivo contiene información de errores de SAS PHY.
+
+
+
+ a| 
+Datos captados del estado
+ a| 
+`state-capture-data.txt` Este archivo contiene una descripción detallada del estado actual de la cabina de almacenamiento.
+
+
+
+ a| 
+Configuración de la cabina de almacenamiento
+ a| 
+`storage-array-configuration.cfg` Este archivo contiene una descripción detallada de la configuración lógica de la cabina de almacenamiento.
+
+
+
+ a| 
+Perfil de la cabina de almacenamiento
+ a| 
+`storage-array-profile.txt` Este archivo contiene una descripción de todos los componentes y las propiedades de una cabina de almacenamiento.
+
+
+
+ a| 
+Contenido del búfer de seguimiento
+ a| 
+`trace-buffers.7z` Este archivo contiene el contenido de los búferes de seguimiento de las controladoras que se utilizan para registrar la información de depuración.
+
+
+
+ a| 
+Datos de captura de soporte
+ a| 
+`tray-component-state-capture.7z` Si la bandeja tiene cajones, los datos de diagnóstico se archivan en este archivo comprimido. El archivo zip consta de un archivo de texto aparte para cada soporte que cuenta con cajones. Este archivo zip se almacena como un archivo dentro del bundle de soporte al cliente.
+
+
+
+ a| 
+Sectores ilegibles
+ a| 
+`unreadable-sectors.txt` Este archivo contiene una lista detallada de todos los sectores ilegibles que se registraron en la cabina de almacenamiento.
+
+
+
+ a| 
+Registro de seguimiento de Web Services (solo E2800 o E5700)
+ a| 
+`web-server-trace-log-A.7z`
+
+`web-server-trace-log-B.7z`
+
+Este archivo, uno por controladora, consta de los búferes de seguimiento de Web Services que se usan para registrar la información de depuración.
+
+
+
+ a| 
+Archivo de registro de análisis captado de la carga de trabajo
+ a| 
+`wlc-analytics-a.lz4` `wlc-analytics-b.lz4`
+
+Este archivo, uno por controladora, contiene características de carga de trabajo calculadas como histograma LBA, relación de lectura/escritura y rendimiento de I/o en todos los volúmenes activos.
+
+
+
+ a| 
+Archivo de datos con X encabezado
+ a| 
+`x-header-data.txt` Este encabezado de mensaje de AutoSupport consta de pares de valores clave de texto sin formato que puede incluir información acerca de la cabina y el tipo de mensaje.
+
+|===
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray supportData file=pass:quotes["_filename_"] [force=(TRUE | FALSE)]
+----
+[listing, subs="+macros"]
+----
+save storageArray supportData file=pass:quotes["_filename_"]
+[force=(TRUE | FALSE) |
+csbSubsetid=(basic | weekly | event | daily | complete) |
+csbTimeStamp=pass:quotes[_hh:mm_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardarán los datos relacionados con soporte de la cabina de almacenamiento. Escriba la ruta de acceso y el nombre del archivo entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\supdat.7z"`
+
+
+
+ a| 
+`force`
+ a| 
+Este parámetro fuerza la recogida de datos de soporte si se produce algún error al bloquear las operaciones de la controladora. Para forzar la recogida de datos de soporte, este parámetro debe configurarse en `TRUE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+A partir del nivel de firmware 7.86, la extensión del nombre de archivo debe ser `.7z` En sistemas que ejecutan Windows. Si su versión de firmware es anterior a 7.86 en un sistema Windows, la extensión debe ser `.zip`. En los sistemas que no ejecutan Windows, es posible usar cualquier extensión que funcione.
+
+
+
+== Nivel de firmware mínimo
+
+7.80 añade el `force` parámetro.
+
+8.30 añade información para la cabina de almacenamiento E2800.

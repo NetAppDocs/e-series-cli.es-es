@@ -1,0 +1,163 @@
+---
+permalink: commands-a-z/diagnose-controller-iscsihostport.html 
+sidebar: sidebar 
+keywords: diagnose, controller, hostport, command, diagnostic, tests, copper, cable, host, interface, cards, support, roles 
+summary: El comando diagnose Controller iscsiHostPort ejecuta pruebas de diagnóstico de los cables de cobre que conectan las tarjetas de interfaz del host iSCSI y una controladora. 
+---
+= Diagnosticar cable de host iSCSI de controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `diagnose controller iscsiHostPort` El comando ejecuta pruebas de diagnóstico de los cables de cobre entre las tarjetas de interfaz del host iSCSI y una controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Es posible ejecutar diagnósticos de un puerto seleccionado o de todos los puertos. Los puertos deben admitir la función de diagnóstico de cables. Si los puertos no admiten este tipo de diagnóstico, se devuelve un error.
+
+
+
+== Sintaxis
+
+[listing]
+----
+diagnose controller [(a|b)]
+iscsiHostPort ([all] | [portLabel])
+testID=cableDiagnostics
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora donde se desea ejecutar la prueba de diagnóstico de cables. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+
+
+ a| 
+`iscsiHostPort`
+ a| 
+El puerto de host iSCSI donde se desea ejecutar las pruebas de diagnóstico. Es posible ejecutar el diagnóstico de todos los puertos de host iSCSI o bien se puede ejecutar el diagnóstico de un puerto de host iSCSI específico.
+
+En la siguiente sección, se ofrece más información:
+
+<<Identificar una etiqueta de puerto de host iSCSI,"Identificar una etiqueta de puerto de host iSCSI">>
+
+
+
+ a| 
+`testID`
+ a| 
+El identificador de la prueba de diagnóstico que se desea ejecutar. Para esta prueba de diagnóstico, la única opción es `cableDiagnostics`.
+
+|===
+
+
+== Identificar una etiqueta de puerto de host iSCSI
+
+Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
+
+. Si no se conoce la etiqueta de puerto para el puerto de host iSCSI, ejecute el `show controller` comando.
+. En la sección interfaz de host de los resultados, busque el puerto de host que desea seleccionar.
++
+[NOTE]
+====
+La etiqueta de puerto es el valor completo que se muestra en `Port` campo.
+
+====
+. El valor entero de la etiqueta de puerto debe indicarse entre comillas y corchetes: ["portLabel"]. Por ejemplo, si la etiqueta de puerto es `Ch 2`, Especifique el puerto de host iSCSI de la siguiente manera:
++
+[listing]
+----
+iscsiHostPort[\"ch 2\"]
+----
++
+[NOTE]
+====
+Cuando se usa una línea de comandos de Windows y la etiqueta contiene una barra vertical (|), es necesario escapar el carácter (con {caret}); en caso contrario, se lo interpretará como un comando. Por ejemplo, si la etiqueta de puerto es `e0b|0b`, Especifique el puerto de host iSCSI de la siguiente manera:
+
+====
++
+[listing]
+----
+iscsiHostPort[\"e0b^|0b\"]
+----
+
+
+[NOTE]
+====
+Para obtener compatibilidad con versiones anteriores, el valor de iscsiPortNumber, escrito entre corchetes [ ] en lugar de corchetes y comillas [" "], puede usarse en las controladoras E2700, E5600 o EF560 (y generaciones anteriores de controladoras E-Series o EF-Series). Para estas controladoras, los valores válidos de iscsiPortNumber son los siguientes:
+
+* Para las controladoras con puertos de host integrados, los valores numéricos son 3, 4, 5 o 6.
+* Para las controladoras con puertos de host en una tarjeta de interfaz de host, los valores numéricos son 1, 2, 3 o 4.
+
+
+Un ejemplo de esta sintaxis es:
+
+[listing]
+----
+iscsiHostPort[3]
+----
+====
+
+
+== Notas
+
+Cuando se ejecuta la prueba de diagnóstico de cables, el firmware devuelve la siguiente información:
+
+* *Puerto de host*: El puerto en el que se ejecutó la prueba de diagnóstico.
+* *HIC*: La tarjeta de interfaz del host asociada con este puerto.
+* La fecha y la hora en que se ejecutó la prueba.
+* *Estado*:
++
+** *OK*: Todos los pares de cables están en buen estado y no tienen ningún fallo.
+** *Open*: Uno o más de los cuatro pares de cables están abiertos.
+** *Corto*: Uno o más de los cuatro pares de cables están en cortocircuito.
+** *Incompleto*: Uno o más de los cuatro pares devolvieron resultados de prueba incompletos o no válidos.
+
+
+* *Longitud*: La longitud de los cables se indica en metros y se devuelve la siguiente información sobre los cables:
++
+** Si el estado del cable es correcto, se informa de la longitud aproximada de las parejas de cables. Las longitudes de las parejas de cables se muestran en un intervalo (L1-L2) compuesto por la menor y la mayor longitud de las parejas de cables.
+** Si el estado del cable es Open o Short, se indica la distancia aproximada hasta el error en la pareja de cables. Si existe un solo error, se informa de la longitud de esa pareja de cables. Si hay más de un fallo, la información que se devuelve es la longitud más corta y la más larga de las fallas. Las longitudes se indican en un intervalo (L1-L2), donde <L2. L1
+** Si el estado del cable es Incomplete, la información que se devuelve son las longitudes de las parejas de cables más cortas y más largas que el firmware puede evaluar correctamente. Las longitudes de las parejas de cables válidas se indican en un intervalo (L1-L2), donde <L2. L1
+
+
+* Valores de registro de los diagnósticos de cables. Los valores se indican en formato hexadecimal:
++
+** Dos bytes para indicar el estado de los cables combinados (cuatro bits por puerto).
+** Cuatro números de dos bytes que indican la longitud de cada canal.
+
+
+
+
+
+
+== Nivel de firmware mínimo
+
+7.77
+
+8.10 integra una revisión del sistema de numeración de los puertos de host iSCSI.

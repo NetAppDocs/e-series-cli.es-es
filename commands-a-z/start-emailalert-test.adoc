@@ -1,0 +1,60 @@
+---
+permalink: commands-a-z/start-emailalert-test.html 
+sidebar: sidebar 
+keywords: test, email, alert, configuration 
+summary: El comando start emailAlert test permite realizar una prueba de la configuración de alertas a través del envío de un mensaje de correo electrónico de muestra. 
+---
+= Probar configuración de alertas de correo electrónico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start emailAlert test` el comando permite probar la configuración de alertas mediante el envío de un mensaje de correo electrónico de muestra.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+start emailAlert test
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "start emailAlert test;"
+
+The sample alert message was successfully sent to the email addresses.
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

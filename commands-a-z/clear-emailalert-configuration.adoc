@@ -1,0 +1,57 @@
+---
+permalink: commands-a-z/clear-emailalert-configuration.html 
+sidebar: sidebar 
+keywords: clear email, alert, configuration 
+summary: El comando clear emailAlert Configuration borra la configuración de alertas por correo electrónico y restaura los valores predeterminados. 
+---
+= Borrar configuración de alertas de correo electrónico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear emailAlert configuration` el comando borra la configuración de alertas por correo electrónico a los valores predeterminados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+clear emailAlert configuration
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "clear emailAlert configuration;"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

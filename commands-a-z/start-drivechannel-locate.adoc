@@ -1,0 +1,63 @@
+---
+permalink: commands-a-z/start-drivechannel-locate.html 
+sidebar: sidebar 
+keywords: start, drive, channel, locate 
+summary: El comando start driveChannel locate identifica los soportes de unidades conectados a un canal de la unidad específico mediante el encendido de las luces indicadoras en el soporte de unidades conectado al canal de la unidad. 
+---
+= Inicie la búsqueda de canal de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start driveChannel locate` el comando identifica los soportes de unidades conectados a un canal de unidad específico. para ello, se encienden las luces indicadoras del soporte de unidades conectado al canal de la unidad.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Utilice la `stop driveChannel locate` comando para apagar las luces indicadoras del soporte de unidades
+
+
+
+== Sintaxis
+
+[listing]
+----
+start driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)] locate
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`driveChannel`
+ a| 
+El número identificador del canal de la unidad que se desea localizar. Los siguientes son valores válidos para el número identificador del canal de la unidad `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`. El número identificador del canal de la unidad debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+7.15 añade una actualización al identificador del canal de la unidad.

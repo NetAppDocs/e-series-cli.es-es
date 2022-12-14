@@ -1,0 +1,26 @@
+---
+permalink: get-started/usage-guidelines.html 
+sidebar: sidebar 
+keywords: script command, guidelines 
+summary: En esta lista, se proporcionan directrices para la escritura de comandos de script en la línea de comandos. 
+---
+= Directrices de comandos de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+En esta lista, se proporcionan directrices para la escritura de comandos de script en la línea de comandos:
+
+* Todos los comandos deben finalizar con punto y coma (`;`).
+* Es posible introducir más de un comando en una línea, pero cada comando se debe separar con punto y coma (`;`).
+* Se deben separar cada comando base y sus parámetros primarios y secundarios asociados con un espacio.
+* El motor de scripts no distingue mayúsculas de minúsculas. Se pueden introducir comandos con letras mayúsculas, letras minúsculas o una combinación de ambas.
+* Es posible añadir comentarios a los scripts para facilitar la comprensión del propósito de los comandos de script, tanto para el usuario actual como para los usuarios futuros. (Para obtener información acerca de cómo añadir comentarios, consulte link:adding-comments-to-a-script-file.html["Agregar comentarios a un archivo de script"].)
+
+
+[NOTE]
+====
+Si bien los comandos de la CLI y de script no distinguen mayúsculas de minúsculas, sí lo hacen las etiquetas de usuario (como en el caso de volúmenes, hosts o puertos de host). Si se intenta asignar a un objeto identificado por una etiqueta de usuario, se debe introducir la etiqueta de usuario exactamente como está definida. De lo contrario, se producirá un error en los comandos de la CLI y de script.
+
+====

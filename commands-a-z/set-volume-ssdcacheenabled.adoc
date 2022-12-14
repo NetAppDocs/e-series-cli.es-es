@@ -1,0 +1,118 @@
+---
+permalink: commands-a-z/set-volume-ssdcacheenabled.html 
+sidebar: sidebar 
+keywords: set, ssd, cache, volume 
+summary: El comando set volume ssdCacheEnabled activa o desactiva el almacenamiento en caché con la función de caché SSD para un volumen específico. 
+---
+= Configure la caché SSD para un volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set volume ssdCacheEnabled` El comando activa o desactiva el almacenamiento en caché mediante la función de caché SSD para un volumen específico.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Contexto
+
+El volumen puede ser uno de los siguientes:
+
+* Volumen estándar, identificado por un nombre o un WWID
+* Volumen Snapshot
+* Volumen Snapshot de grupo de coherencia
+
+
+
+
+== Sintaxis aplicable a un volumen estándar
+
+[listing, subs="+macros"]
+----
+set volume (pass:quotes[[_volumeName_]] | <"WWID">) ssdCacheEnabled=(TRUE | FALSE)
+----
+
+
+== Sintaxis aplicable a un volumen Snapshot
+
+[listing, subs="+macros"]
+----
+set snapVolume pass:quotes[["_snapVolumeName_"]] ssdCacheEnabled=(TRUE | FALSE)
+----
+
+
+== Sintaxis aplicable a un volumen Snapshot de grupo de coherencia
+
+[listing, subs="+macros"]
+----
+set cgSnapVolume pass:quotes[["_cgSnapVolumeName_"]] ssdCacheEnabled=(TRUE | FALSE)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen estándar para el que desea activar o desactivar la caché SSD. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`volume`
+ a| 
+El identificador a nivel mundial (WWID) del volumen estándar para el que desea activar o desactivar la caché SSD. El nombre del WWID debe escribirse entre comillas dobles (" ") entre paréntesis angulares (< >).
+
+
+
+ a| 
+`snapVolume`
+ a| 
+El nombre del volumen Snapshot para el que desea activar o desactivar la caché SSD. El nombre del volumen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`cgSnapVolume`
+ a| 
+El nombre del volumen Snapshot de grupo de coherencia para el que desea activar o desactivar la caché SSD. El nombre del volumen Snapshot de grupo de coherencia debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`ssdCacheEnabled`
+ a| 
+Para activar la caché SSD, establezca este parámetro en `TRUE`. Para desactivar la caché SSD, establezca este parámetro en `FALSE`.
+
+|===
+
+
+== Notas
+
+Es posible activar o desactivar la caché SSD de un solo volumen al mismo tiempo.
+
+Cuando se desactiva la caché SSD para un volumen, se purga esa caché SSD.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

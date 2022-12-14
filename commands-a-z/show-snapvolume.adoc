@@ -1,0 +1,118 @@
+---
+permalink: commands-a-z/show-snapvolume.html 
+sidebar: sidebar 
+keywords: show, snapshot, volumes 
+summary: El comando show snapVolume muestra información acerca de uno o varios volúmenes Snapshot. 
+---
+= Mostrar volúmenes Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show snapVolume` el comando muestra información acerca de uno o varios volúmenes snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allSnapVolumes | snapVolume pass:quotes[["_snapVolumeName_"]] |
+snapVolumes pass:quotes[["_snapVolumeName1_" ... "_snapVolumeNamen_"]])
+[summary]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allSnapVolumes`
+ a| 
+El parámetro que muestra información acerca de todos los volúmenes Snapshot de la cabina de almacenamiento.
+
+
+
+ a| 
+`snapVolume`
+ a| 
+El nombre de un volumen Snapshot del cual se desea recuperar información. El nombre del volumen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`snapVolumes`
+ a| 
+Los nombres de varios volúmenes Snapshot de los cuales se desea recuperar información. Para introducir los nombres de los volúmenes Snapshot, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`summary`
+ a| 
+El parámetro muestra una lista concisa de información acerca de los volúmenes Snapshot.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Este comando muestra información acerca del volumen Snapshot, como se observa en el siguiente ejemplo:
+
+[listing]
+----
+SNAPSHOT VOLUME (SNAPSHOT-IMAGE BASED) SUMMARY
+----
+[listing]
+----
+SUMMARY
+
+ Total Snapshot Volumes: 1
+   Most Recent Snapshot Volume: Day month date hh:mm:ss yyyy
+   Status: 1 Optimal, 0 Non Optimal
+
+   Name        Type       Status     Capacity    Associated Base Volume
+   2_SV_0001   Standard   Optimal    3.000 GB    2
+----
+[listing]
+----
+   Snapshot Volume Timestamp   Snapshot Image Timestamp    Mode
+   1/23/12 6:44:31 PM IST      1/23/12 6:27:36 PM IST      Read Write
+----
+[listing]
+----
+   Total Repository Capacity   Available Repository Capacity
+   1.199 GB                    0.125 MB (0%)
+----
+El tamaño del monitor determina la manera en la que la información se resume y aparece.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

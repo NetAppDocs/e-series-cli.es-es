@@ -1,0 +1,132 @@
+---
+permalink: commands-a-z/show-volume-performancestats.html 
+sidebar: sidebar 
+keywords: show, volume, performance, statistics 
+summary: El comando show volume performanceStats devuelve información acerca del rendimiento del volumen. 
+---
+= Mostrar estadísticas de rendimiento de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volume performanceStats` comando muestra información acerca del rendimiento del volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+Este comando devuelve la información siguiente sobre cada volumen en la cabina de almacenamiento:
+
+* Cabinas de almacenamiento
+* Total de IO/s
+* % De lectura
+* % De aciertos en caché de lectura primaria
+* % De aciertos en caché de escritura primaria
+* % De aciertos en caché SSD
+* MB/s actuales
+* MB/s máximos
+* IO/s actuales
+* IO/s máximos
+* IO/s mínimos
+* Promedio de IO/s
+* MB/s mínimos
+* Promedio de MB/s
+* Latencia de IO actual
+* Latencia de IO máxima
+* Latencia de IO mínima
+* Latencia de IO promedio
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allVolumes | volume pass:quotes[["_volumeName_"]]
+volumes pass:quotes[["_volumeName1_" ... "_volumeNameN_"]]) performanceStats
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+El parámetro que devuelve estadísticas de rendimiento acerca de todos los volúmenes en la cabina de almacenamiento.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre de un volumen del cual se desea recuperar información. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes de los cuales se desea recuperar información. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes tienen caracteres especiales o números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+|===
+
+
+== Notas
+
+Antes de ejecutar `show volume performanceStat` ejecute el `set session performanceMonitorInterval` y la `set session performanceMonitorIterations` comando para definir la frecuencia con la que se recogen las estadísticas.
+
+La `show volume performanceStat` el comando muestra las estadísticas de rendimiento del volumen, como se observa en el siguiente ejemplo:
+
+[listing]
+----
+Performance Monitor Statistics for Storage Array: Tyler -
+Date/Time: 11/6/12 10:00: 34 AM - Polling interval in seconds: 5
+
+
+"Storage Arrays","Total IOs","Read %","Primary Read Cache Hit %",
+"Primary Write Cache Hit %","SSD Read Cache Hit %","Current MBs/sec",
+"Maximum MBs/sec","Current IOs/sec","Maximum IOs/sec","Minimum IOs/sec",
+"Average IOs/sec","Minimum MBs/sec","Average MBs/sec","Current IO Latency",
+"Maximum IO Latency","Minimum IO Latency","Average IO Latency"
+
+"Capture Iteration: 1","","","","","","","","","","","","","","","","",""
+"Date/Time: 11/6/12 10:00:34 AM","","","","","","","","","","","","","","",
+   "","","""Volume Unnamed","0.0","","0.0","0.0","0.0","0.0","0.0","0.0","0.0","0.0",
+   "0.0","0.0","0.0","0.0","0.0","0.0","0.0"
+----
+
+
+== Nivel de firmware mínimo
+
+6.10

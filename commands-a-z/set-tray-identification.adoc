@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/set-tray-identification.html 
+sidebar: sidebar 
+keywords: set, tray, identification 
+summary: El comando set tray configura el ID de soporte de un soporte de controladoras, un soporte de controladora-unidad o un soporte de unidades de una cabina de almacenamiento. 
+---
+= Configure la identificación de soporte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set tray` El comando configura el ID de soporte de un soporte de controladoras, un soporte de controladora-unidad o un soporte de unidades de una cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando es válido únicamente para soportes de controladoras, los soportes de controladora-unidad o los soportes de unidades con ID de soporte que se puedan configurar mediante el firmware de la controladora. No es posible usar este comando para los soportes de controladoras, los soportes de controladora-unidad ni los soportes de unidades con un ID de soporte que se configure con un switch.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set tray pass:quotes[["_serialNumber_"]] pass:quotes[id=_trayID_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`tray`
+ a| 
+El número de serie del soporte de controladoras, del soporte de controladora-unidad o del soporte de unidades para el cual se desea configurar el ID de soporte. Los números de serie pueden ser una combinación de caracteres alfanuméricos y pueden tener cualquier longitud. El número de serie debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`id`
+ a| 
+El valor de ID de soporte del soporte de controladoras, ID de soporte de controladora-unidad o ID de soporte del soporte de unidades. Los valores de ID de soporte son `0` por `9` o. `10` por `99`.
+
+[NOTE]
+====
+Para los compartimentos DE5600, DE1600 y DE6600, preceda el número de serie con la cadena de texto "SN" y un espacio. Por ejemplo: `SN SV23802522`.
+
+====
+[NOTE]
+====
+No es necesario escribir el valor de ID de soporte entre paréntesis.
+
+====
+[NOTE]
+====
+Valores de soporte de `00` por `09` la controladora los rechaza. Uso `0` por `9` para especificar esos valores.
+
+====
+|===
+
+
+== Notas
+
+Este comando originalmente admitía el soporte de controladoras CE6998 Los soportes de controladoras CE6998 pueden conectarse a varios soportes de unidades, incluidos los que tienen ID de soporte que se configuran con un switch. Cuando se conecte un soporte de controladoras CE6998 a soportes de unidades con ID de soporte que se configura mediante un switch, se establecen valores válidos para los ID de soporte `80` por `99`. Este rango evita conflictos con ID de soporte que se usan para soportes de unidades asociadas.

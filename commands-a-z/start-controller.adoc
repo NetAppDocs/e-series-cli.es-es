@@ -1,0 +1,148 @@
+---
+permalink: commands-a-z/start-controller.html 
+sidebar: sidebar 
+keywords: start, controller, trace 
+summary: El comando start Controller inicia una operación que guarda la información de rastros de depuración en un archivo comprimido. 
+---
+= Inicie el seguimiento de la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start controller` comando inicia una operación que guarda la información de rastros de depuración en un archivo comprimido.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+El equipo de soporte técnico puede utilizar la información de rastros de depuración como ayuda para analizar qué tan bien funciona una cabina de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start controller [(a
+ | b
+ | both)] trace
+dataType=(current | flushed | currentFlushed | all)
+forceFlush=(TRUE | FALSE)
+pass:quotes[file="_fileName_]"
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora de la cual se desea recoger la información de rastros de depuración. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es el controlador de la ranura A , y. `b` Es la controladora en la ranura B. También es posible recoger simultáneamente la depuración de ambas controladoras, para lo cual se debe introducir `both` . El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+
+
+ a| 
+`dataType`
+ a| 
+El tipo de datos que se desea recoger:
+
+* `current` -- recupera los rastros de DQ actuales
+* `flushed` -- recupera todos los rastros de DQ vaciados
+* `currentFlushed` -- recupera tanto el rastro de DQ actual como el rastro de DQ vaciado
+* `all` -- recupera el rastro de DQ actual, el rastro de DQ vaciado y todos los rastros de DQ de plataforma
+
+
+[NOTE]
+====
+Si `dataType=flushed` y.. `forceFlush=True`, se devuelve un mensaje de error que indica que sólo las trazas activas pueden vaciarse en el búfer durante la recuperación.
+
+====
+
+
+ a| 
+`*forceFlush*`
+ a| 
+La configuración para mover la información de DQ del búfer actual al búfer vaciado cuando la información de rastros de DQ definida por el `dataType` se ha recuperado el parámetro. Para habilitar el vaciado forzado, se debe configurar este parámetro como `TRUE`. Para deshabilitar el vaciado forzado, se debe configurar este parámetro como `FALSE`.
+
+[NOTE]
+====
+Si `dataType=flushed` y.. `forceFlush=True`, se devuelve un mensaje de error que indica que sólo las trazas activas pueden vaciarse en el búfer durante la recuperación.
+
+====
+
+
+ a| 
+`file`
+ a| 
+La ruta de acceso y el nombre del archivo en el que se desea guardar la información de rastros de DQ. El nombre del archivo debe escribirse entre comillas dobles (" ").
+
+Consulte la sección Notas para obtener información acerca de la nomenclatura de archivos.
+
+|===
+
+
+== Notas
+
+La información de rastros de DQ se escribe en un archivo comprimido con la extensión .zip. El nombre del archivo es una combinación de un nombre de archivo definido por el usuario y del identificador de la cabina de almacenamiento (SAID). También se añade la constante "dq" al nombre de archivo. El nombre completo del archivo tiene el formato siguiente:
+
+[listing]
+----
+user_defined_file_name-SAID-dq.zip
+----
+El archivo comprimido contiene la información que figura en esta tabla.
+
+[cols="3*"]
+|===
+| Nombre de archivo | Directorio | Comentarios 
+
+
+ a| 
+`user_provided_file_name-SAID-A.dq`
+ a| 
+`SAID/timestamp/`
+ a| 
+Los datos de rastros de DQ recuperados de la controladora A.
+
+
+
+ a| 
+`user_provided_file_name-SAID-B.dq`
+ a| 
+`SAID/timestamp/`
+ a| 
+Los datos de rastros de DQ recuperados de la controladora B.
+
+
+
+ a| 
+`user_provided_file_name-SAID-trace_description.xm`
+ a| 
+`SAID/timestamp/`
+ a| 
+El archivo de descripción en formato xml que describe los atributos del archivo DQ para la minería de datos futura.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.75

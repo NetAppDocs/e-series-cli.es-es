@@ -1,0 +1,74 @@
+---
+permalink: commands-a-z/clear-volume-unreadablesectors.html 
+sidebar: sidebar 
+keywords: clear, volume, unreadable, sectors 
+summary: El comando clear volume unreadableSectors borra la información de sectores ilegibles de un volumen o más. 
+---
+= Borrar sectores de volumen ilegibles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear volume unreadableSectors` el comando borra la información de sectores ilegibles de uno o más volúmenes.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+clear (allVolumes | volume pass:quotes[[_volumeName_]] |
+volumes pass:quotes[[_"volumeName1" ... "volumeNameN"_]]) unreadableSectors
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+La configuración para borrar información de sectores ilegibles de todos los volúmenes de la cabina de almacenamiento.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre de un volumen para el cual se borra información de sectores ilegibles. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes para los cuales se borra información de sectores ilegibles. Para introducir los nombres de los volúmenes miembro, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+|===
+
+
+== Notas
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.

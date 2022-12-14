@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/change-ssd-cache-application-type.html 
+sidebar: sidebar 
+keywords: ssd cache application type 
+summary: El comando set ssdCache cambia el tipo de aplicación asociado con la caché SSD. El tipo de aplicación puede ser servidor web, base de datos o multimedia. Cuando se modifica el tipo de aplicación, se modifica el tamaño del bloque, el tamaño del bloque secundario, el umbral de relleno en lectura y el umbral de relleno en escritura para los volúmenes subyacentes de la caché SSD. 
+---
+= Cambie el tipo de aplicación de la caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set ssdCache` El comando cambia el tipo de aplicación asociado con la caché SSD. El tipo de aplicación puede ser servidor web, base de datos o multimedia. Cuando se modifica el tipo de aplicación, se modifica el tamaño del bloque, el tamaño del bloque secundario, el umbral de relleno en lectura y el umbral de relleno en escritura para los volúmenes subyacentes de la caché SSD.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set ssdCache pass:quotes[[_ssdCacheName_]]usageHint=(webServer|dataBase|fileSystem)
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+Nombre de la caché SSD para la que se desea cambiar el tipo de aplicación. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD incluye caracteres especiales o está compuesto solo de números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`usageHint`
+ a| 
+Los valores se basan en el patrón de uso de I/o típico de la aplicación que utiliza la caché SSD. Los valores válidos son `webServer`, `dataBase`, o. `fileSystem`.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

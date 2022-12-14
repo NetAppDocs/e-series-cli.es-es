@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/show-consistencygroup.html 
+sidebar: sidebar 
+keywords: show, consistency, group 
+summary: El comando show consistencyGroup muestra información acerca de uno o más grupos de coherencia. 
+---
+= Mostrar grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show consistencyGroup` el comando muestra información acerca de uno o varios grupos de coherencia.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allConsistencyGroups | consistencyGroup pass:quotes[[_consistencyGroupName_]] |
+consistencyGroups pass:quotes[[_consistencyGroupName1_ ... _consistencyGroupNameN_]])
+[(summary | schedule)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allConsistencyGroups`
+ a| 
+Esta configuración muestra información acerca de todos los grupos de coherencia de la cabina de almacenamiento.
+
+
+
+ a| 
+`consistencyGroup`
+ a| 
+El nombre del grupo de coherencia del que se va a recuperar información. El nombre del grupo de coherencia debe escribirse entre corchetes ([ ]). Si el nombre del grupo de coherencia tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de los corchetes.
+
+
+
+ a| 
+`consistencyGroups`
+ a| 
+Los nombres de varios grupos de coherencia de los que se va a recuperar información. Todos los volúmenes tendrán las mismas propiedades. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes contienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`summary`
+ a| 
+Esta opción muestra una lista concisa de información acerca de los grupos de coherencia.
+
+
+
+ a| 
+`schedule`
+ a| 
+Este parámetro muestra información acerca de cualquier programación de un grupo de coherencia.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

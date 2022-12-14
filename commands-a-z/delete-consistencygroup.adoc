@@ -1,0 +1,72 @@
+---
+permalink: commands-a-z/delete-consistencygroup.html 
+sidebar: sidebar 
+keywords: delete, consistency, group 
+summary: El comando delete consistencyGroup elimina un grupo de coherencia Snapshot. 
+---
+= Eliminar un grupo de consistencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete consistencyGroup` el comando elimina un grupo de coherencia snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando funciona de dos maneras:
+
+* Es posible eliminar tanto el grupo de coherencia como los volúmenes de repositorios contenidos en el grupo de coherencia.
+* Solo se puede eliminar el grupo de coherencia y dejar los volúmenes de repositorios que contiene el grupo de coherencia intactos.
+
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+delete consistencyGroup pass:quotes[[_"consistencyGroupName"_]]
+[deleteRepositoryMembers=(TRUE | FALSE)]
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`consistencyGroup`
+ a| 
+El nombre del grupo de coherencia Snapshot que se desea eliminar. El nombre del grupo de coherencia Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`deleteRepositoryMembers`
+ a| 
+El ajuste para eliminar o conservar los volúmenes de repositorios. Para eliminar los volúmenes de repositorios, este parámetro debe configurarse en `TRUE`. Para conservar los volúmenes de repositorios, este parámetro debe configurarse en `FALSE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

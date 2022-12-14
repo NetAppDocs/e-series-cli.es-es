@@ -1,0 +1,140 @@
+---
+permalink: commands-a-z/save-storagearray-warningevents.html 
+sidebar: sidebar 
+keywords: save, storage, array, events 
+summary: El comando save storageArray warningEvents guarda eventos del registro de eventos serios en un archivo. 
+---
+= Guarde eventos de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray warningEvents` El comando guarda eventos del registro de eventos serios en un archivo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando guarda eventos del registro de eventos serios en un archivo. Es posible guardar los siguientes eventos:
+
+* *Eventos críticos* -- se produjo un error en la matriz de almacenamiento que se debe solucionar inmediatamente. Es posible perder acceso a los datos si no se corrige inmediatamente el error.
+* *Eventos de advertencia* -- se ha producido un error en la matriz de almacenamiento que provoca una degradación del rendimiento o reduce la capacidad para recuperarse de otro error. No se pierde acceso a los datos, pero se debe corregir el error para evitar una posible pérdida de acceso a los datos si se produce otro error.
+* *Eventos informativos* -- se produjo un evento en la matriz de almacenamiento que no afecta a las operaciones normales. El evento notifica un cambio en la configuración u otra información que puede ser útil para evaluar el nivel de rendimiento de la cabina de almacenamiento.
+* *Eventos de depuración* -- se produjo un evento en la matriz de almacenamiento que proporciona información que puede utilizar para ayudar a determinar los pasos o estados que condujeron a un error. Se puede enviar un archivo con esta información al soporte técnico para ayudar a determinar la causa de un error.
+
+
+[NOTE]
+====
+Es posible que algunas cabinas de almacenamiento no admitan los cuatro tipos de eventos.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray (allEvents | criticalEvents |
+warningEvents | infoEvents | debugEvents)
+file=pass:quotes["_filename_"]
+[count=pass:quotes[_numberOfEvents_]]
+[forceSave=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allEvents`
+ a| 
+El parámetro para guardar todos los eventos en un archivo.
+
+
+
+ a| 
+`criticalEvents`
+ a| 
+El parámetro para guardar solo los eventos críticos en un archivo.
+
+
+
+ a| 
+`warningEvents`
+ a| 
+El parámetro para guardar solo los eventos de advertencia en un archivo.
+
+
+
+ a| 
+`infoEvents`
+ a| 
+El parámetro para guardar solo los eventos informativos en un archivo.
+
+
+
+ a| 
+`debugEvents`
+ a| 
+El parámetro para guardar solo los eventos de depuración en un archivo.
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se desea guardar los eventos. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\events.txt"`
+
+El nombre predeterminado del archivo que contiene el contenido del registro de eventos serios es `major-event-log.txt`. Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+
+
+ a| 
+`count`
+ a| 
+El número de eventos que se desea guardar en un archivo. Si no se introduce un valor para el número, todos los eventos que coincidan con el tipo de evento especificado se guardarán en el archivo. Si se introduce un valor para el número, solo ese número de eventos (a partir del último evento introducido) se guardará en el archivo. Deben usarse valores enteros.
+
+
+
+ a| 
+`forceSave`
+ a| 
+El parámetro para que los eventos de depuración que se puedan haber filtrado de la vista se guarden forzadamente en un archivo. Para guardar forzadamente los eventos, configure este parámetro en `TRUE`. El valor predeterminado es `FALSE`.
+
+[NOTE]
+====
+El uso de este parámetro guarda los eventos de depuración que se han filtrado desde el Visor de eventos de SANtricity.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+7.77 añade estos parámetros:
+
+* `warningEvents`
+* `infoEvents`
+* `debugEvents`
+* `forceSave`
+

@@ -1,0 +1,130 @@
+---
+permalink: commands-a-z/save-storagearray-keymanagementclientcsr.html 
+sidebar: sidebar 
+keywords: generate, key, management, certificate, sign, request, csr 
+summary: El comando save storageArray keyManagementClientCSR solicita una CSR generada para la cabina de almacenamiento que se puede guardar en un archivo. 
+---
+= Generar solicitud de firma de certificación (CSR) para gestión de claves
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray keyManagementClientCSR` El comando solicita una CSR generada para la cabina de almacenamiento que se puede guardar en un archivo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+save storageArray keyManagementClientCSR commonName=pass:quotes["_common_name_"]
+organization=pass:quotes["_organization_"]
+locality=pass:quotes["_locality_"]
+country=pass:quotes["_country_"]
+file=pass:quotes["_file_"]
+[organizationalUnit=pass:quotes["_organizational unit_"]]
+[stateProvince=pass:quotes["_state_province_"]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`commonName`
+ a| 
+El valor introducido para este parámetro debe coincidir con uno de los nombres de usuario definidos en el servidor KMIP.
+
+
+
+ a| 
+`organization`
+ a| 
+Permite especificar el nombre legal completo de la organización a la que pertenece la cabina de almacenamiento. No se debe abreviar y se deben incluir todos los sufijos correspondientes, como Inc, Corp o LLC.
+
+
+
+ a| 
+`locality`
+ a| 
+Permite especificar la ciudad o localidad donde se encuentra la cabina de almacenamiento.
+
+
+
+ a| 
+`country`
+ a| 
+Permite especificar el código ISO (Organización Internacional de Normalización) 3166-1 alfa-2 de dos dígitos, como US.
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar el archivo y la ubicación del archivo donde se guardará el archivo de certificado firmado de la controladora.
+
+
+
+ a| 
+`organizationalUnit`
+ a| 
+Permite especificar la división de la organización que maneja el certificado.
+
+
+
+ a| 
+`stateProvince`
+ a| 
+Permite especificar el estado o la región donde se encuentra la cabina de almacenamiento. No se debe abreviar.
+
+|===
+
+
+== Ejemplo
+
+[listing, subs="+macros"]
+----
+
+SMcli -n Array1 -c "save storageArray keyManagementClientCSR commonName=pass:quotes["_192.0.2.1_"]
+organization=pass:quotes["_Widgets Are Us_, _Inc_."]
+locality=pass:quotes["_sedgwick_"]
+country=pass:quotes["_US_"]
+file=pass:quotes["_latestCertificate_"]
+organizationalUnit=pass:quotes["_Products Unit_"]
+stateProvince=pass:quotes["_Kansas_"];"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

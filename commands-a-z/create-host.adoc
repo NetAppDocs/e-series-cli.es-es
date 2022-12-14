@@ -1,0 +1,90 @@
+---
+permalink: commands-a-z/create-host.html 
+sidebar: sidebar 
+keywords: create, host 
+summary: El comando create host crea un nuevo host. 
+---
+= Crear host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create host` el comando crea un nuevo host.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Para las cabinas de almacenamiento E2700 y E5600, si no se especifica un grupo de hosts donde crear el nuevo host, este se crea en el grupo predeterminado.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create host userLabel=pass:quotes[_"hostName"_]
+[hostGroup=pass:quotes[(_"hostGroupName"_] | defaultGroup)]
+[hostType=(hostTypeIndexLabel | hostTypeIndexNumber)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se desea asignar al host que se va a crear. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre del grupo de hosts para el cual se creará el nuevo host. El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). (Si no hay un grupo de hosts, puede crear un nuevo grupo de hosts mediante el `create hostGroup` ). La `defaultGroup` opción es el grupo de hosts que contiene el host al que se asigna el volumen.
+
+
+
+ a| 
+`hostType`
+ a| 
+La etiqueta de índice o el número de índice que identifica el tipo de host. Utilice la `show storageArray hostTypeTable` comando para generar una lista de identificadores de tipo de host disponibles. Si el tipo de host tiene caracteres especiales, se debe escribir entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+Un host es un equipo conectado a la cabina de almacenamiento y que tiene acceso a los volúmenes de esa cabina a través de puertos de host. Es posible definir asignaciones específicas para un host individual. También es posible asignar el host a un grupo de hosts que comparte el acceso a un volumen o a varios.
+
+Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
+
+Si no se especifica un grupo de hosts donde se colocará el host que se está creando, el nuevo host pertenecerá al grupo de hosts predeterminado.
+
+
+
+== Nivel de firmware mínimo
+
+5.20
+
+7.10 añade el `hostType` parámetro.

@@ -1,0 +1,55 @@
+---
+permalink: commands-a-z/delete-snmpcommunity.html 
+sidebar: sidebar 
+keywords: delete, snmpcommunity, command, existing, simple, network, management, protocol, community, previously, create, effective, unregister, trap, destination, associate, remove 
+summary: 'El comando delete snmpCommunity elimina una comunidad de protocolo simple de gestión de redes (SNMP) existente que se creó y registró previamente con el comando create snmpCommunity. Al eliminar una comunidad SNMP, se cancela la registro de la comunidad de forma efectiva. También se quitan todos los destinos de capturas asociados con esa comunidad.' 
+---
+= Cancele el registro de la comunidad SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete snmpCommunity` Comando elimina una comunidad de protocolo simple de gestión de redes (SNMP) existente que se creó y registró previamente mediante el `create snmpCommunity` comando. Al eliminar una comunidad SNMP, se cancela la registro de la comunidad de forma efectiva. También se quitan todos los destinos de capturas asociados con esa comunidad.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete snmpCommunity communityName="_snmpCommunityName_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`communityName`
+ a| 
+El nombre de la comunidad SNMP que se desea eliminar. El nombre de la comunidad SNMP se debe escribir entre comillas dobles (" ").
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.30

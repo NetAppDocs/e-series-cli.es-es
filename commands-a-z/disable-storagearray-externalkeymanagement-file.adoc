@@ -1,0 +1,116 @@
+---
+permalink: commands-a-z/disable-storagearray-externalkeymanagement-file.html 
+sidebar: sidebar 
+keywords: disable, storage, array, external, management, file, command, disable, security, key, full, disk, encryption, drives 
+summary: El comando disable storageArray externalKeyManagement file deshabilita la gestión de claves de seguridad externas para una cabina de almacenamiento que contiene unidades de cifrado de disco completo. 
+---
+= Deshabilite la gestión de claves de seguridad externas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `disable storageArray externalKeyManagement file` El comando deshabilita la gestión de claves de seguridad externas para una cabina de almacenamiento que tiene unidades de cifrado de disco completo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+disable storageArray externalKeyManagement
+pass:quotes[file="_fileName_"]
+pass:quotes[passPhrase="_passPhraseString_"]
+pass:quotes[saveFile=(_TRUE_ | _FALSE_)]
+----
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando habilita la gestión de claves internas como forma alternativa de seguridad de unidades.
+
+====
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se debe almacenar el archivo de claves de seguridad internas. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\drivesecurity.slk"
+----
+[IMPORTANT]
+====
+El nombre de archivo debe tener la extensión de `.slk`.
+
+====
+
+
+ a| 
+`passPhrase`
+ a| 
+Una cadena de caracteres que cifra la clave de seguridad para poder almacenarla en un archivo externo.
+
+
+
+ a| 
+`saveFile`
+ a| 
+Verifica y guarda la clave de seguridad en un archivo. Establezca en `FALSE` no guardar y verificar la clave de seguridad en un archivo. El valor predeterminado es `TRUE`.
+
+|===
+
+
+== Notas
+
+La frase de contraseña debe cumplir los siguientes criterios:
+
+* Debe tener entre 8 y 32 caracteres.
+* Sin espacios en blanco.
+* Debe incluir al menos una letra mayúscula.
+* Debe incluir al menos una letra minúscula.
+* Debe incluir al menos un número.
+* Debe incluir al menos un carácter alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de error.
+
+====
+
+
+== Nivel de firmware mínimo
+
+8.40
+
+8.70 añade el `saveFile` parámetro.

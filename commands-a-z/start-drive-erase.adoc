@@ -1,0 +1,75 @@
+---
+permalink: commands-a-z/start-drive-erase.html 
+sidebar: sidebar 
+keywords: start, drive, erase 
+summary: El comando start drive Erase borra todos los datos de una o varias unidades. 
+---
+= Iniciar borrado de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start drive erase` el comando borra todos los datos de una o varias unidades.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. Funciona en cabinas de almacenamiento E2700 y E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Ejecute este comando solo si desea quitar de forma permanente todos los datos de una unidad. Si la unidad tiene la función de seguridad habilitada, el `start drive erase` la opción de comando realiza un borrado criptográfico y restablece los atributos de seguridad de la unidad de nuevo a compatible con la función de seguridad.
+
+[NOTE]
+====
+La operación de borrado no se puede deshacer. Asegúrese de seleccionar la unidad correcta al usar este comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start drive pass:quotes[[_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID_]] | drivespass:quotes[[_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]] erase
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`drive` o. `drives`
+ a| 
+En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+[NOTE]
+====
+La lista de unidades no puede contener todas las unidades de la cabina de almacenamiento; de lo contrario, se rechazará el comando.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+11.70.1

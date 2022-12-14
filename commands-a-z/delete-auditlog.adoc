@@ -1,0 +1,99 @@
+---
+permalink: commands-a-z/delete-auditlog.html 
+sidebar: sidebar 
+keywords: delete, audit, log, records 
+summary: El comando delete auditlog elimina algunas o todas las entradas del registro de auditoría. 
+---
+= Eliminar registros de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete auditLog` el comando elimina algunos o todos los registros de auditoría.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+delete auditLog (all | (endRecord=pass:quotes[_timestamp_ | endDate=_date_) |
+ (retentionCount=_integer_))]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`all`
+ a| 
+Permite eliminar todas las entradas del registro de auditoría.
+
+
+
+ a| 
+`endRecord`
+ a| 
+Permite especificar la última entrada que se desea eliminar, comenzando por la más antigua. El valor es el valor entero que representa la Marca de hora de la última entrada del registro de auditoría, inclusive.
+
+
+
+ a| 
+`endDate`
+ a| 
+Permite especificar la última fecha que se desea eliminar, comenzando por la entrada más antigua. El formato para introducir la fecha es MM:DD:AA en la zona horaria del cliente.
+
+[NOTE]
+====
+Se eliminarán las entradas del registro de auditoría, incluida la fecha especificada.
+
+====
+
+
+ a| 
+`retentionCount`
+ a| 
+Permite especificar la cantidad de entradas más recientes del registro de auditoría que se desea conservar.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "delete auditLog all;"
+
+SMcli -n Array1 -c "delete auditLog endRecord=1493070393313;"
+
+SMcli -n Array1 -c "delete auditLog endDate=04:30:17;"
+
+SMcli -n Array1 -c "delete auditLog retentionCount=1000;"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

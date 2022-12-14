@@ -1,0 +1,121 @@
+---
+permalink: commands-a-z/diagnose-controller.html 
+sidebar: sidebar 
+keywords: diagnose, controller, command, run, diagnostic, tests, arrays, roles, context 
+summary: El comando diagnose Controller ejecuta pruebas de diagnóstico en la controladora. 
+---
+= Diagnosticar controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `diagnose controller` el comando ejecuta pruebas de diagnóstico en la controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Las pruebas de diagnóstico son pruebas de bucle invertido en las que se escriben y se leen datos en las unidades.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+diagnose controller [(a| b)]
+loopbackDriveChannel=(allchannels | (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8))
+testID=(1 | 2 | 3 | discreteLines)
+pass:quotes[[patternFile="_filename_"]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora donde se desea ejecutar las pruebas de diagnóstico. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+
+
+ a| 
+`loopbackDriveChannel`
+ a| 
+Los canales de unidad donde se desea ejecutar las pruebas de diagnóstico. Es posible ejecutar el diagnóstico de todos los canales o seleccionar un canal específico para el diagnóstico. Si se selecciona un canal específico, los valores válidos para los canales de unidad son `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`.
+
+
+
+ a| 
+`testID`
+ a| 
+El identificador de la prueba de diagnóstico que se desea ejecutar. El identificador y las pruebas correspondientes son los siguientes:
+
+* `1` -- Leer prueba
+* `2` -- escribir prueba
+* `3` -- Prueba de bucle invertido de datos
+* `discreteLines` -- Prueba de diagnóstico de líneas discretas
+
+
+
+
+ a| 
+`patternFile`
+ a| 
+La ruta y el nombre del archivo que contiene el patrón de datos que se desea usar como datos de prueba. Escriba el nombre del archivo del patrón de datos entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\sup\patfile.txt"`
+
+|===
+
+
+== Notas
+
+Cuando se ejecuta una prueba de bucle invertido de datos, es posible especificar un archivo que contenga un patrón de datos. Si no se especifica un archivo, el firmware de la controladora usa un patrón predeterminado.
+
+Las líneas discretas son líneas de control y líneas de estado conectadas entre dos controladoras de un soporte de controladoras La prueba de diagnóstico de líneas discretas permite que cada controladora compruebe si se pueden observar las transiciones de señales de control en las entradas de control de la controladora alternativa. La prueba de diagnóstico de líneas discretas se ejecuta automáticamente después de cada ciclo de encendido y apagado o cada restablecimiento de la controladora. La prueba de diagnóstico de líneas discretas puede ejecutarse después de reemplazar un componente que no superó la prueba de diagnóstico de líneas discretas inicial. La prueba de diagnóstico de líneas discretas devuelve uno de los siguientes mensajes:
+
+* Cuando la prueba de diagnóstico de líneas discretas se ejecuta correctamente, se muestra el siguiente mensaje:
++
+[listing]
+----
+The controller discrete lines successfully passed the diagnostic
+test. No failures were detected.
+----
+* Si la prueba de diagnóstico de líneas discretas no se ejecuta correctamente, se muestra el siguiente mensaje:
++
+[listing]
+----
+One or more controller discrete lines failed the diagnostic test.
+----
+* Si la interfaz de línea de comandos no puede ejecutar la prueba de diagnóstico de líneas discretas, devuelve el error 270, que indica que no se pudo iniciar o finalizar la prueba.
+
+
+
+
+== Nivel de firmware mínimo
+
+6.10 añade la prueba de lectura, la prueba de escritura y la prueba de bucle invertido de datos.
+
+6.14 añade la prueba de diagnóstico de líneas discretas.
+
+7.30 añade el identificador de canal de unidad actualizado.

@@ -1,0 +1,100 @@
+---
+permalink: commands-a-z/set-disk-pool-modify-disk-pool.html 
+sidebar: sidebar 
+keywords: set, disk pool, modify 
+summary: 'El comando set DISKPOOL añade capacidad a un pool de discos (ampliación de capacidad dinámica o DCE) o cambia la propiedad de la controladora en todo el pool de discos.' 
+---
+= Configurar pool de discos (modificar pool de discos)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set diskPool` El comando añade capacidad a un pool de discos (ampliación de capacidad dinámica o DCE) o cambia la propiedad de la controladora en todo el pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Estas dos operaciones son mutuamente excluyentes.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set diskPool pass:quotes[[_diskPoolName_]]
+(addDrives=pass:quotes[[_trayID1_,_drawerID1_,_slotID1_ ... _trayIDn_,_drawerIDn_,_slotIDn_]] |
+addCapacity=pass:quotes[(_diskPoolCapacity_))]
+[owner=(a| b)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+El nombre del pool de discos que se desea modificar. El nombre del pool de discos debe escribirse entre corchetes ([ ]). Si el nombre del pool de discos tiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`addDrives`
+ a| 
+Las unidades que se desean añadir al pool de discos. Para los soportes de unidades de gran capacidad, es necesario indicar el valor de ID de soporte, el valor de ID de cajón y el valor de ID de ranura de la unidad que se desea añadir. Para los soportes de unidades de poca capacidad, es necesario indicar el valor de ID de soporte y el valor de ID de ranura de la unidad que se desea añadir. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`. Los valores de ID de ranura son `1` para `24`. Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+[NOTE]
+====
+Esta función tiene un límite de 12 unidades.
+
+====
+
+
+ a| 
+`addCapacity`
+ a| 
+La cantidad de capacidad de almacenamiento adicional que se desea añadir al pool de discos. Este parámetro selecciona automáticamente las unidades para la capacidad que se desea añadir. La capacidad se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora a la que pertenece el pool de discos. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Si no se especifica un propietario, el firmware de la controladora lo determina.
+
+|===
+
+
+== Notas
+
+Los volúmenes que ya están en el pool de discos permanecen en línea y disponibles para operaciones de I/o mientras se añaden unidades nuevas. El pool de discos debe estar en estado Complete para que pueda añadirse capacidad. Si el pool de discos no está en estado completar, ejecute el `set diskPool complete` debe command antes de añadir unidades nuevas.
+
+Para añadir capacidad, especifique unidades individuales con `addDrives` parámetro o una cantidad de capacidad de unidad con el `addCapacity` parámetro. Si utiliza `addDrives`, el host debe validar el conjunto de unidades antes de permitir la ejecución de la operación. Si utiliza la `addCapacity` la capacidad que especifique se toma como la capacidad mínima que se añadirá. Las unidades candidatas con la mejor opción de calidad de servicio y una capacidad mayor o igual a la especificada se utilizan. Si no hay ningún candidato disponible con una coincidencia mínima o la lista de unidades especificada no está disponible o se detectan incoherencias de atributo, la operación falla.
+
+También puede usar este comando para modificar la propiedad de un pool de discos de una controladora de la cabina de almacenamiento a otra. El uso de este comando para modificar la propiedad es mutuamente excluyente con el uso del comando para añadir unidades o capacidad.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

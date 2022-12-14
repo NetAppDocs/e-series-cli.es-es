@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/start-diskpool-fullprovisioning.html 
+sidebar: sidebar 
+keywords: start, disk pool, full, provision 
+summary: El comando start DISKPOOL fullProvisioning inicia una operación de aprovisionamiento completa en todos los volúmenes del pool de discos y, opcionalmente, deshabilita el aprovisionamiento de recursos en el pool de discos. 
+---
+= Inicie el aprovisionamiento completo del pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start diskPool fullProvisioning` el comando inicia una operación de aprovisionamiento completa en todos los volúmenes del pool de discos y, opcionalmente, deshabilita el aprovisionamiento de recursos en el pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La función de aprovisionamiento de recursos mejora la vida útil de las unidades SSD y aumenta el rendimiento de escritura al dejar una parte mayor de los bloques de la unidad en estado sin asignar que un volumen estándar. Un volumen aprovisionado por recursos es un volumen grueso de un grupo de volúmenes SSD o pool, en el que se asigna capacidad de las unidades (asignada al volumen), pero los bloques de las unidades se desasignan (anula la asignación) durante la creación de volúmenes. Los bloques de unidades se asignan según sea necesario para completar la I/o de escritura del host. Las operaciones de anulación de asignación de host pueden devolver los bloques de unidades al estado sin asignar . Además, el aprovisionamiento de recursos elimina la inicialización en segundo plano vinculada con el tiempo, lo que permite inicializar rápidamente grandes volúmenes.
+
+Los volúmenes aprovisionados de recursos solo se admiten en pools y grupos de volúmenes SSD, donde todas las unidades del grupo o pool admiten la funcionalidad de recuperación de error de bloque lógico no escrito o desasignado (DULBE). La mejora del rendimiento varía en función del modelo de unidad y la capacidad.
+
+El formato de aprovisionamiento completo garantiza que todos los bloques necesarios para los volúmenes del pool de almacenamiento se encuentren totalmente asignados en las unidades. Este comando solo se aplica a pools de almacenamiento aprovisionados con recursos. Si la opción a. `disableResourceProvisioning` no está establecido en `FALSE`, entonces los volúmenes seguirán siendo aprovisionados con recursos y los nuevos volúmenes creados en la agrupación de almacenamiento serán aprovisionados con recursos. Si la opción para deshabilitar el aprovisionamiento de recursos se establece en `TRUE`, entonces los volúmenes ya no serán aprovisionados mediante recursos y los nuevos volúmenes creados en el grupo de almacenamiento no serán aprovisionados mediante recursos.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start diskPool[diskPoolName] fullProvisioning [disableResourceProvisioning=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+El pool de discos que desea iniciar la operación de aprovisionamiento completo. El nombre del pool de discos debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`disableResourceProvisioning`
+ a| 
+El ajuste para especificar si debe deshabilitarse el aprovisionamiento de recursos una vez que finaliza la operación de aprovisionamiento completo. Para omitir el proceso de deshabilitación del aprovisionamiento de recursos, establezca esta opción en `FALSE`. El valor predeterminado es `TRUE`.
+
+[NOTE]
+====
+Para volver a habilitar el aprovisionamiento de recursos en un pool de almacenamiento y todos los volúmenes asociados, use el `Start Disk Pool Resource Provisioning` comando.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+11.72

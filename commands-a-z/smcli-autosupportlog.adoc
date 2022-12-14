@@ -1,0 +1,119 @@
+---
+permalink: commands-a-z/smcli-autosupportlog.html 
+sidebar: sidebar 
+keywords: capture, view, autosupport, log 
+summary: El comando SMcli -autoSupportLog permite ver un archivo de registro de AutoSupport. Este archivo brinda información sobre el estado, el historial de actividades de transmisión y los errores encontrados durante la entrega de los mensajes de AutoSupport. El registro se encuentra disponible para todas las cabinas de almacenamiento compatibles con AutoSupport y habilitadas para AutoSupport. 
+---
+= Capturar o ver un registro de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli -autoSupportLog` Permite ver un archivo de registro de AutoSupport. Este archivo brinda información sobre el estado, el historial de actividades de transmisión y los errores encontrados durante la entrega de los mensajes de AutoSupport. El registro se encuentra disponible para todas las cabinas de almacenamiento compatibles con AutoSupport y habilitadas para AutoSupport.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+Este comando permite ver dos tipos de registros:
+
+* Registro actual: Vea el registro capturado en este momento específico.
+* Registro de archivo: Vea el registro desde un archivo archivado.
+
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+SMcli -autoSupportLog pass:quotes[(all|-n "_storageArrayName_" | -w "_wwID_")]
+pass:quotes[inputArchive=_n_] pass:quotes[outputLog=_filename_]
+----
+
+
+== Parámetros
+
+En la siguiente tabla, se enumeran los parámetros del comando.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`all`
+ a| 
+Este parámetro se utiliza si se desea crear un registro de transmisión para todas las cabinas de almacenamiento en el dominio de gestión con la funcionalidad AutoSupport que se han habilitado para AutoSupport.
+
+
+
+ a| 
+`_n_`
+ a| 
+Nombre de la cabina de almacenamiento para la que se desea ver un registro de AutoSupport.
+
+
+
+ a| 
+`_w_`
+ a| 
+Identificador a nivel mundial (WWID) de la cabina de almacenamiento para la que se desea ver un registro de AutoSupport.
+
+
+
+ a| 
+`inputArchive`
+ a| 
+Permite especificar el registro AutoSupport archivado, donde se encuentra el documento de archivo `_n_`, un entero de 0 a 5.
+
+[NOTE]
+====
+Si se omite este parámetro, se selecciona el registro de AutoSupport actual (capturado en este momento específico).
+
+====
+
+
+ a| 
+`outputLog`
+ a| 
+Permite especificar el nombre de archivo del registro AutoSupport de salida.
+
+[NOTE]
+====
+Este parámetro es obligatorio.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplo
+
+[listing]
+----
+SMcli -autosupportLog -n StorageArrayName inputArchive=0 outputLog=ASUPTransmissionLog
+----
+
+
+== Verificación
+
+Es posible ver el registro de AutoSupport solicitado, que se encuentra en el directorio de cliente donde se instaló el software de administración del almacenamiento.

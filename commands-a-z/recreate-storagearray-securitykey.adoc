@@ -1,0 +1,109 @@
+---
+permalink: commands-a-z/recreate-storagearray-securitykey.html 
+sidebar: sidebar 
+keywords: recreate, external, security key 
+summary: El comando recreate storageArray securityKey regenera una clave de seguridad de la cabina de almacenamiento para usarla con la función de gestión de claves de seguridad externas. 
+---
+= Vuelva a crear una clave de seguridad externa
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `recreate storageArray securityKey` el comando regenera una clave de seguridad de la cabina de almacenamiento para usarla con la función de gestión de claves de seguridad externas.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+recreate storageArray securityKey
+passPhrase=pass:quotes[_"passPhraseString"_
+file="_fileName"_]
+[deleteOldKey=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`passPhrase`
+ a| 
+Una cadena de caracteres que cifra la clave de seguridad para poder almacenarla en un archivo externo. La frase de contraseña debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo que contiene la clave de seguridad. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\drivesecurity.slk"
+----
+[NOTE]
+====
+El nombre de archivo debe tener la extensión de `.slk`.
+
+====
+
+
+ a| 
+`deleteOldKey`
+ a| 
+Configure este parámetro en `TRUE` para eliminar la clave de seguridad anterior del servidor de gestión de claves externo una vez creada la clave de seguridad nueva. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+La frase de contraseña debe cumplir los siguientes criterios:
+
+* La frase de contraseña debe tener entre 8 y 32 caracteres.
+* La frase de contraseña debe contener al menos una letra mayúscula.
+* La frase de contraseña debe contener al menos una letra minúscula.
+* La frase de contraseña debe contener al menos un número.
+* La frase de contraseña debe contener al menos un carácter no alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de error.
+
+====
+
+
+== Nivel de firmware mínimo
+
+7.70
+
+11.73 añade el `deleteOldKey` parámetro.

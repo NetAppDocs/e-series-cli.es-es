@@ -1,0 +1,56 @@
+---
+permalink: commands-a-z/save-storagearray-statecapture.html 
+sidebar: sidebar 
+keywords: save, storage, array, state, capture 
+summary: El comando save storageArray stateCapture guarda en un archivo la captura de estado de una cabina de almacenamiento. 
+---
+= Guarde la captura de estado de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray stateCapture` el comando guarda la captura de estado de una cabina de almacenamiento en un archivo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray stateCapture file=pass:quotes["_filename_"]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardará la captura de estado. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\state.txt"`
+
+Puede utilizar cualquier nombre de archivo, pero debe utilizar `.txt` extensión.
+
+El nombre predeterminado del archivo que contiene la captura de estado es `state-capture-data.txt`. Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+|===

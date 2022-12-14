@@ -1,0 +1,85 @@
+---
+permalink: commands-a-z/download-storagearray-keymanagementcertificate.html 
+sidebar: sidebar 
+keywords: download, storage, array, management, key, certificate, command, intall, external, support, role 
+summary: El comando download storageArray keyManagementCertificate instala los certificados de gestión de claves externas en la cabina de almacenamiento. 
+---
+= Instale el certificado de gestión de claves externas de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `download storageArray keyManagementCertificate` el comando instala los certificados de gestión de claves externas en la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[download storageArray keyManagementClientCertificate certificateType=(client|server) file="_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`certificateType`
+ a| 
+Permite especificar el tipo de archivo de certificado. Las opciones válidas son `client` o. `server`.
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar el certificado firmado de cliente o el certificado de CA raíz/intermedio de servidor. El formato del archivo debe ser PEM/DER.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "download storageArray keyManagementClientCertificate certificateType=client
+   file="C:\serverSignedKeyMgmtClientCert.cer";"
+
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

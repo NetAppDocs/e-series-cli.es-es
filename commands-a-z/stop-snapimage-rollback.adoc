@@ -1,0 +1,99 @@
+---
+permalink: commands-a-z/stop-snapimage-rollback.html 
+sidebar: sidebar 
+keywords: stop, snapshot, image, rollback 
+summary: El comando stop snapImage rollback detiene una operación de reversión de imagen Snapshot iniciada con el comando start snapImage rollback. 
+---
+= Detener reversión de imagen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop snapImage rollback` el comando detiene una operación de reversión de imagen snapshot que inició el `start snapImage rollback` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+La cancelación de una operación de reversión de imagen Snapshot deja al volumen base en un estado indefinido y, potencialmente, con datos incoherentes o no válidos. El volumen de imágenes Snapshot relacionado queda deshabilitado e inutilizable.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[stop snapImage [_snapCGID:imageID_] rollback]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapImage`
+ a| 
+El nombre de la imagen Snapshot en la que se desea detener una operación de reversión. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` -- esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` -- esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desea detener una operación de reversión para una imagen Snapshot 12345 que se encuentra en un grupo Snapshot denominado snapGroup1, se debe usar este comando:
+
+[listing]
+----
+stop snapImage ["snapGroup1:12345"] rollback;
+----
+Para detener una operación de reversión de la imagen Snapshot más reciente en un grupo Snapshot con el nombre snapGroup1, se debería usar el siguiente comando:
+
+[listing]
+----
+stop snapImage ["snapGroup1:newest"] rollback;
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,57 @@
+---
+permalink: commands-a-z/set-tray-attribute.html 
+sidebar: sidebar 
+keywords: set, tray, attribute 
+summary: El comando set tray configura atributos definidos por el usuario para un soporte 
+---
+= Configure atributo de soporte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set tray` el comando establece atributos definidos por el usuario para un soporte
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set tray pass:quotes[[_trayID_]] (chassisName | assetTag)=pass:quotes["_userID_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`tray`
+ a| 
+Identifica un soporte específico para el cual se desea configurar el atributo. Los valores de ID de soporte abarcan de 0 a 99. Debe colocar corchetes ([ ]) alrededor del valor de ID de gabinete.
+
+
+
+ a| 
+`chassisName`
+ a| 
+El nombre o número de chasis para otorgar al compartimento nuevo. Los nombres de chasis pueden ser cualquier combinación de caracteres alfanuméricos con una longitud máxima de 32 caracteres. Los caracteres alfabéticos pueden ser en mayúsculas o minúsculas. También puede utilizar el carácter de subrayado (_) y el carácter de guión (-). No es posible usar espacios en un nombre de chasis. Debe escribir el nombre de chasis entre comillas (" ").
+
+
+
+ a| 
+`assetTag`
+ a| 
+El nombre o número de etiqueta de activo para otorgar al compartimento nuevo. Las etiquetas de activos pueden ser una combinación de caracteres alfanuméricos con una longitud máxima de 10 caracteres. Los caracteres alfabéticos pueden ser en mayúsculas o minúsculas. También puede utilizar el carácter de subrayado (_) y el carácter de guión (-). No es posible usar espacios en un nombre de etiqueta de activo. Debe escribir el nombre de etiqueta de activo entre comillas (" ").
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.16

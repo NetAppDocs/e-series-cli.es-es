@@ -1,0 +1,59 @@
+---
+permalink: commands-a-z/reset-storagearray-sasphybaseline.html 
+sidebar: sidebar 
+keywords: reset, storage array, sas, phy, baseline 
+summary: 'El comando reset storageArray SASPHYBaseline restablece la base de la capa física SAS (SAS PHY) de todos los dispositivos y quita la lista de errores del archivo .csv.' 
+---
+= Restablezca la línea de base SAS PHY de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset storageArray SASPHYBaseline` El comando restablece la base de la capa física SAS (SAS PHY) de todos los dispositivos y quita la lista de errores de la `.csv` archivo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La `.csv` el archivo se genera cuando se ejecuta el `save storageArray SASPHYCounts` comando.
+
+[NOTE]
+====
+La versión anterior de `reset storageArray SASPHYBaseline` el comando borró los números de errores de todos los dispositivos, excepto las unidades. La `reset storageArray SASPHYBaseline` Ahora el comando restablece la base SAS PHY para las unidades y los otros dispositivos. Todos los errores se eliminan de la `.csv` archivo.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+reset storageArray SASPHYBaseline
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+7.83 restablece la base SAS PHY para las unidades.

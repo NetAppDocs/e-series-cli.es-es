@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/diagnose-syncmirror.html 
+sidebar: sidebar 
+keywords: diagnose, syncmirror, command, test, connection, specified, primary, volumes, mirror, storage, array, synchronous, feature, enabled 
+summary: El comando diagnose SyncMirror prueba la conexión entre los volúmenes primarios especificados y los volúmenes de reflejo en una cabina de almacenamiento con la función Synchronous Mirroring habilitada. 
+---
+= Diagnosticar mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `diagnose syncMirror` el comando prueba la conexión entre los volúmenes primarios especificados y los volúmenes de reflejos en una cabina de almacenamiento con la función synchronous mirroring habilitada.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[diagnose syncMirror (_primary [primaryVolumeName_]] |pass:quotes[primaries ["_primaryVolumeName1_]" ... pass:quotes[_"primaryVolumeNameN"_]])
+testID=connectivity
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre del volumen primario de la pareja reflejada remota que se desea evaluar. El nombre del volumen primario debe escribirse entre corchetes ([ ]). Si el nombre del volumen primario incluye caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`primaries`
+ a| 
+Es posible introducir más de un nombre de volumen. Todos los nombres de volúmenes deben escribirse entre corchetes ([ ]). El nombre de cada volumen debe escribirse entre comillas dobles (" "). Los nombres de cada volumen deben estar separados por un espacio.
+
+Los nombres de varios volúmenes que se desea usar como volúmenes primarios. Para introducir los nombres de los volúmenes primarios, se deben respetar las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

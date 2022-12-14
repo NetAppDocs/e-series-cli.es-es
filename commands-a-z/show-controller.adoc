@@ -1,0 +1,191 @@
+---
+permalink: commands-a-z/show-controller.html 
+sidebar: sidebar 
+keywords: show, controller 
+summary: El comando show Controller muestra información acerca de una controladora. 
+---
+= Mostrar controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show controller` comando muestra información acerca de una controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra la siguiente información de cada controladora de una cabina de almacenamiento:
+
+* El estado (en línea/sin conexión).
+* El firmware y la configuración de NVSRAM actuales
+* La configuración de firmware pendiente y la configuración de NVSRAM (si las hubiera)
+* El ID de placa
+* El ID de producto
+* La revisión de producto
+* El número de serie
+* La fecha de fabricación
+* El tamaño de la caché o el tamaño del procesador
+* La fecha y la hora en que se configuró la controladora
+* Los volúmenes asociados (incluso el propietario preferido)
+* El puerto Ethernet
+* La interfaz del disco físico
+* La interfaz del host, que se aplica solo a interfaces del host Fibre Channel
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+show (allControllers | controller [(a|b)])
+ [summary]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allControllers`
+ a| 
+Esta configuración muestra la información de ambas controladoras de la cabina de almacenamiento.
+
+
+
+ a| 
+`controller`
+ a| 
+La configuración para obtener información acerca de una controladora específica de la cabina de almacenamiento. Los identificadores válidos de la controladora son los siguientes `a` o. `b` , donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`summary`
+ a| 
+La configuración para ver una lista concisa de información acerca de ambas controladoras de la cabina de almacenamiento.
+
+|===
+
+
+== Notas
+
+La siguiente lista es un ejemplo de la información que devuelve el `show controller` comando. Este ejemplo solo muestra cómo se presenta la información y no se debe considerar que representa la práctica recomendada para una configuración de la cabina de almacenamiento.
+
+[listing]
+----
+Controller in slot A
+
+   Status: Online
+   Current configuration
+      Firmware version: 96.10.21.00
+         Appware version: 96.10.21.00
+         Bootware version: 96.10.21.00
+      NVSRAM version: N4884-610800-001
+   Pending configuration
+      Firmware version: Not applicable
+         Appware version: Not applicable
+         Bootware version: Not applicable
+      NVSRAM version: Not applicable
+      Transferred on: Not applicable
+   Board ID: 4884
+   Product ID: INF-01-00
+   Product revision: 9610
+   Serial number: 1T14148766
+   Date of manufacture: October 14, 2006
+   Cache/processor size (MB): 1024/128
+   Date/Time: Wed Feb 18 13:55:53 MST 2008
+   Associated Volumes (* = Preferred Owner):
+      1*, 2*, CTL 0 Mirror Repository*, Mirror Repository 1*,
+      JCG_Remote_MirrorMenuTests*
+   Ethernet port: 1
+      MAC address: 00:a0:b8:0c:c3:f5
+      Host name: ausctlr9
+      Network configuration: Static
+      IP address: 172.22.4.249
+      Subnet mask: 255.255.255.0
+      Gateway: 172.22.4.1
+      Remote login: Enabled
+   Drive interface: Fibre
+      Channel: 1
+      Current ID: 125/0x1
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+   Drive interface: Fibre
+      Channel: 2
+      Current ID: 125/0x1
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+   Drive interface: Fibre
+      Channel: 3
+      Current ID: 125/0x1
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+   Drive interface: Fibre
+      Channel: 4
+      Current ID: 125/0x1
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+   Host interface: Fibre
+      Port: 1
+      Current ID: Not applicable/0xFFFFFFFF
+      Preferred ID: 126/0x0
+      NL-Port ID: 0x011100
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+      Topology: Fabric Attach
+      World-wide port name: 20:2c:00:a0:b8:0c:c3:f6
+      World-wide node name: 20:2c:00:a0:b8:0c:c3:f5
+      Part type: HPFC-5200    revision 10
+   Host interface: Fibre
+      Port: 2
+      Current ID: Not applicable/0xFFFFFFFF
+      Preferred ID: 126/0x0
+      NL-Port ID: 0x011100
+      Maximum data rate: 2 Gbps
+      Current data rate: 1 Gbps
+      Data rate control: Switch
+      Link status: Up
+      Topology: Fabric Attach
+      World-wide port name: 20:2c:00:a0:b8:0c:c3:f7
+      World-wide node name: 20:2c:00:a0:b8:0c:c3:f5
+      Part type: HPFC-5200    revision 10
+----
+Cuando utilice la `summary` parámetro, el comando muestra la lista de información sin la información del canal de la unidad ni el canal del host.
+
+La `show storageArray` el comando también muestra información detallada acerca de la controladora.
+
+
+
+== Nivel de firmware mínimo
+
+5.43 añade el `summary` parámetro.

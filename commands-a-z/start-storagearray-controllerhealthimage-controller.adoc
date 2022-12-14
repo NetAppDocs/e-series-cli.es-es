@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/start-storagearray-controllerhealthimage-controller.html 
+sidebar: sidebar 
+keywords: start, storage, array, controller, health, image 
+summary: El comando start storageArray controllerHealthImage Controller genera una imagen del estado de la controladora de las cabinas de almacenamiento compatibles con esta función. 
+---
+= Inicie la imagen de estado de controladora de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start storageArray controllerHealthImage controller` comando genera una imagen de estado de controladora de la cabina de almacenamiento en cabinas de almacenamiento que admiten la función de imagen de estado de controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 8.20 `coreDump` el parámetro se sustituye por el `controllerHealthImage` parámetro.
+
+====
+[NOTE]
+====
+Use este comando solo bajo la supervisión del soporte técnico.
+
+====
+Si la cabina de almacenamiento no es compatible con la función de imagen de estado de controladora, el comando devuelve un error.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start storageArray controllerHealthImage controller [(a|b)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Este parámetro especifica la controladora de la cual se generará la imagen de estado de la controladora. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
+
+|===
+
+
+== Notas
+
+Este comando obliga a la controladora seleccionada a volcar los datos principales en la caché. Utilice la `save storageArray controllerHealthImage` comando para guardar una copia de los datos de la caché en un archivo de host.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+8.20 sustituye la `coreDump` con el `controllerHealthImage` parámetro.

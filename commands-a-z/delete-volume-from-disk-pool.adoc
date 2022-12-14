@@ -1,0 +1,116 @@
+---
+permalink: commands-a-z/delete-volume-from-disk-pool.html 
+sidebar: sidebar 
+keywords: delete, volume, command, normal, thin, disk pool, roles, support 
+summary: El comando delete volume elimina los volúmenes normales o finos de un pool de discos. 
+---
+= Elimine el volumen del pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete volume` el comando elimina los volúmenes normales o finos de un pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando también puede usarse para eliminar las programaciones relacionadas con el volumen. Al eliminar una programación, no se elimina el volumen.
+
+[]
+====
+*Posible daño en la configuración de la matriz de almacenamiento* -- todos los datos del volumen se pierden tan pronto como se ejecuta este comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+delete (allVolumes |
+volume [volumeName] |
+pass:quotes[volumes ["_volumeName1_" ... "_volumeNameN_"]]
+[force=(TRUE | FALSE)]
+[schedule]
+[retainRepositoryMembers=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+Este parámetro elimina todos los volúmenes de un pool de discos.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen específico que se desea eliminar. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes que se eliminarán. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`force`
+ a| 
+Este parámetro fuerza la eliminación inmediata de un volumen aunque las controladoras estén ejecutando otras operaciones. Para forzar la eliminación de un volumen de inmediato, este parámetro debe configurarse en `TRUE`. Para esperar hasta que las controladoras terminen de ejecutar otras operaciones, este parámetro no se debe usar o se lo debe configurar en `FALSE`.
+
+
+
+ a| 
+`schedule`
+ a| 
+Este parámetro elimina cualquier programación para un volumen de pool de discos específico. Solo se elimina la programación, y se conserva el volumen de pool de discos.
+
+
+
+ a| 
+`retainRepositoryMembers`
+ a| 
+Al eliminar un volumen fino, también se elimina el volumen de repositorios asociado, de forma predeterminada. Sin embargo, cuando la `retainRepositoryMembers` se establece en `TRUE`, se conserva el volumen del repositorio. Para los volúmenes normales, este parámetro no tiene efecto.
+
+|===
+
+
+== Notas
+
+Cuando utilice la `allVolumes` parámetro, este comando elimina volúmenes hasta que se quitan todos los volúmenes o hasta que se encuentra un error. Si se encuentra un error, el comando no intenta eliminar los volúmenes restantes. Es posible eliminar volúmenes de diferentes grupos. Todos los grupos de volúmenes que quedan vacíos se eliminan al configurar el `removeVolumeGroup` parámetro a. `TRUE`.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

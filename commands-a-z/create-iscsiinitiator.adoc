@@ -1,0 +1,93 @@
+---
+permalink: commands-a-z/create-iscsiinitiator.html 
+sidebar: sidebar 
+keywords: create, iscsi, initiator 
+summary: El comando create iscsiInitiator crea un nuevo objeto iniciador de iSCSI. 
+---
+= Cree un iniciador de iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create iscsiInitiator` Comando crea un nuevo objeto iniciador de iSCSI.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+[NOTE]
+====
+Este comando quedó obsoleto y fue sustituido por el xref:create-initiator.adoc[Cree el iniciador] comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create iscsiInitiator iscsiName=pass:quotes[_"iscsiID"_
+userLabel="_name_"
+host="_hostName"_]
+[chapSecret=pass:quotes[_"securityKey"_]]
+----
+
+
+== Parámetros
+
+|===
+| Parámetros | Descripción 
+
+
+ a| 
+`iscsiName`
+ a| 
+El identificador predeterminado del iniciador de iSCSI. El identificador debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se usará para el iniciador de iSCSI. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+El nombre del host de instalación del iniciador de iSCSI. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`chapSecret`
+ a| 
+La clave de seguridad que se desea usar para autenticar una conexión entre iguales. La clave de seguridad debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+El protocolo de autenticación por desafío mutuo (CHAP) es un protocolo que autentica los iguales de una conexión. EL FUNCIONAMIENTO DE CHAP se basa en que los iguales compartan un _secret_. Un secreto es una clave de seguridad similar a una contraseña.
+
+Utilice la `chapSecret` parámetro para configurar claves de seguridad para los iniciadores que requieren autenticación mutua.
+
+
+
+== Nivel de firmware mínimo
+
+7.10
+
+8.41 este comando quedó obsoleto.

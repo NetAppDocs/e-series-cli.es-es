@@ -1,0 +1,52 @@
+---
+permalink: commands-a-z/start-storagearray-autosupport-manualdispatch.html 
+sidebar: sidebar 
+keywords: start, storage, array, autosupport, manual, dispatch 
+summary: El comando start storageArray AutoSupport manualDispatch inicia un paquete de soporte completo y el mensaje de ASUP para el paquete. 
+---
+= Inicie el envío manual de la AutoSupport de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start storageArray autoSupport manualDispatch` El comando inicia un paquete de soporte completo y el mensaje de ASUP para el paquete.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Debido a la cantidad de tiempo que debe completarse, el comando devuelve correctamente si puede iniciar el proceso.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start storageArray autoSupport manualDispatch
+----
+
+
+== Parámetros
+
+Ninguno
+
+
+
+== Nivel de firmware mínimo
+
+8.63

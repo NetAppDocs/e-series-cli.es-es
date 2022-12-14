@@ -1,0 +1,60 @@
+---
+permalink: commands-a-z/delete-host.html 
+sidebar: sidebar 
+keywords: delete, host 
+summary: El comando delete host elimina uno o varios hosts. 
+---
+= Eliminar host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete host` el comando elimina uno o varios hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+delete host pass:quotes[[_hostName_]]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`host`
+ a| 
+El nombre del host que se desea eliminar. El nombre del host debe escribirse entre corchetes ([ ]). Si el nombre del host contiene caracteres especiales, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+Un host es un equipo que se conecta a la cabina de almacenamiento y tiene acceso a los volúmenes de la cabina de almacenamiento a través de puertos de host en el host.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

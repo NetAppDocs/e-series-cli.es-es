@@ -1,0 +1,69 @@
+---
+permalink: commands-a-z/enable-volumegroup-security.html 
+sidebar: sidebar 
+keywords: enable, volumegroup, security, command, non secure, volume, group 
+summary: El comando enable volumeGroup Security convierte un grupo de volúmenes no seguro en un grupo de volúmenes seguro. 
+---
+= Habilite la seguridad del grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `enable volumeGroup security` el comando convierte un grupo de volúmenes no seguro en un grupo de volúmenes seguro.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[enable volumeGroup [_volumeGroupName_]] security
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea colocar en estado Security Enabled. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Para poder ejecutar este comando, se deben cumplir estas condiciones.
+
+* Todas las unidades del grupo de volúmenes deben ser unidades con cifrado de disco completo.
+* Se debe habilitar la función Drive Security.
+* Se debe establecer la clave de seguridad de la cabina de almacenamiento.
+* El estado del grupo de volúmenes debe ser óptima y no debe incluir volúmenes de repositorios.
+
+
+El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades FDE. Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+7.40

@@ -1,0 +1,89 @@
+---
+permalink: get-started/formatting-rules-for-script-commands.html 
+sidebar: sidebar 
+keywords: format, rules, script, commands 
+summary: La sintaxis exclusiva de un comando de script específico se explica en la sección Notas al final de la descripción de cada comando de script. 
+---
+= Reglas de formato para comandos de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+La sintaxis exclusiva de un comando de script específico se explica en la sección Notas al final de la descripción de cada comando de script.
+
+*Distinción entre mayúsculas y minúsculas* -- los comandos de script no distinguen entre mayúsculas y minúsculas. Es posible escribir los comandos de script en minúscula, mayúscula o ambas. (En las siguientes descripciones de comandos, se usan mayúsculas y minúsculas para facilitar la lectura de los nombres de comandos y la comprensión de su finalidad).
+
+*Espacios* -- debe introducir espacios en los comandos de script tal como se muestran en las descripciones de los comandos.
+
+*Corchetes* -- los corchetes se usan de dos maneras:
+
+* Como parte de la sintaxis del comando.
+* Para indicar que los parámetros son opcionales. La descripción de cada parámetro indica si es necesario escribir el valor entre corchetes.
+
+
+*Paréntesis* -- los paréntesis que se muestran en la sintaxis del comando encierran opciones específicas para un parámetro. Por lo tanto, si se desea usar el parámetro, es necesario introducir uno de los valores entre paréntesis. Generalmente, no se incluyen paréntesis en un comando de script. Sin embargo, en algunos casos, cuando se introduce una lista es necesario escribirla entre paréntesis. La lista puede incluir los valores de ID de soporte y de ID de ranura. La descripción de cada parámetro indica si es necesario escribir el valor entre paréntesis.
+
+*Barras verticales* -- las barras verticales de un comando de script indican "'or'" y separan los valores válidos para el parámetro. Por ejemplo, la sintaxis de `raidLevel` el parámetro en la descripción del comando aparece de la siguiente manera:
+
+[listing]
+----
+ raidLevel=(0 | 1 | 3 | 5 | 6)
+----
+Para utilizar la `raidLevel` Parámetro para configurar el nivel de RAID 5, introduzca este valor:
+
+[listing]
+----
+ raidLevel=5
+----
+*Ubicación de unidades* -- los comandos CLI que identifican ubicaciones de unidades admiten bandejas de unidades de alta capacidad y bandejas de unidades de baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en 0 y especificar el ID de ranura donde reside la unidad. Los valores de ID deben separarse con comas. Si se introducen varios conjuntos de valores de ID, se debe separar cada conjunto de valores con un espacio.
+
+Se pueden seguir dos convenciones para especificar unidades en la interfaz de línea de comandos. La convención que debe usarse se especifica en cada comando. En una convención, se usa un signo igual y paréntesis:
+
+[listing]
+----
+
+        drive=\(trayID,[drawerID,]slotID\)
+----
+En la otra convención, no se usa el signo igual, sino corchetes para delimitar las unidades especificadas:
+
+[listing]
+----
+
+        drive \[trayID,[drawerID,]slotID\]
+----
+Ejemplos con paréntesis:
+
+[listing]
+----
+(1,1 1,2 1,3 1,4 2,1 2,2 2,3 2,4)
+----
+ejemplo de un soporte de unidades de alta capacidad:
+
+[listing]
+----
+(1,1,1 1,2,2 1,3,3 1,4,4 2,1,1 2,2,2 2,3,3 2,4,4)
+----
+*Términos en cursiva* -- los términos en cursiva del comando indican un valor o información que usted necesita proporcionar. Por ejemplo, el siguiente texto en cursiva:
+
+[listing]
+----
+
+          *numberOfDrives*
+----
+Reemplace el término en cursiva por un valor para la cantidad de unidades que se desea incluir con el comando de script.
+
+*Punto y coma* -- los comandos de script deben terminar con punto y coma (`;`). Es posible introducir más de un comando de script en la línea de comandos o en un archivo de script. Por ejemplo, en el siguiente archivo de script se usa punto y coma para separar cada comando de script.
+
+[listing]
+----
+create volume drives=(0,2 0,3 1,4 1,5 2,6 2,7) raidLevel=5 userLabel=”v1” capacity=2gb owner=a;
+create volume volumeGroup=2 userLabel=”v2” capacity=1gb owner=b;
+create volume volumeGroup=2 userLabel=”v3” capacity=1gb owner=a;
+----
+[listing]
+----
+create volume drives=(0,4 0,5 1,6 1,7 2,8 2,9) raidLevel=5 userLabel=”v4” capacity=2gb owner=b;
+create volume volumeGroup=3 userLabel=”v5” capacity=1gb owner=a;
+create volume volumeGroup=3 userLabel=”v6” capacity=1gb owner=b;
+----

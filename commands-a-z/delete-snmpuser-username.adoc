@@ -1,0 +1,62 @@
+---
+permalink: commands-a-z/delete-snmpuser-username.html 
+sidebar: sidebar 
+keywords: delete, user, name, command, simple, network, management, protocol, create, register, effective, unregister, trap, destination, associate, remove 
+summary: 'El comando delete snmpUser Username elimina un usuario USM existente del protocolo simple de gestión de redes (SNMP) que ha creado y registrado previamente con el comando "create snmpUser". Al eliminar un usuario SNMP, se desregistra el usuario de forma efectiva. También se quitan todos los destinos de capturas asociados con ese usuario.' 
+---
+= Cancele el registro del usuario USM de SNMPv3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete snmpUser userName` El comando elimina un usuario USM en un protocolo simple de gestión de redes (SNMP) que haya creado y registrado previamente con el símbolo "[.code]``create snmpUser``comando ". Al eliminar un usuario SNMP, se desregistra el usuario de forma efectiva. También se quitan todos los destinos de capturas asociados con ese usuario.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete snmpUser userName="_snmpUserName_" [engineId=(local | engineId)]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userName`
+ a| 
+El nombre del usuario USM en SNMP que desea eliminar. El nombre de usuario USM en SNMP debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`engineId`
+ a| 
+El identificador de motor del usuario USM en SNMP que desea actualizar. El ID del motor es necesario si hay más de un usuario USM con el mismo nombre de usuario. El valor puede ser "[.code]``_local_``" Para especificar el agente SNMP local es el agente autorizado o una cadena de dígitos hexadecimales para especificar un ID de motor de agente SNMP remoto.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.72

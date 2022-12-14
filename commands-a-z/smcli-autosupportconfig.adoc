@@ -1,0 +1,177 @@
+---
+permalink: commands-a-z/smcli-autosupportconfig.html 
+sidebar: sidebar 
+keywords: specify, autosupport, delivery, method 
+summary: El comando SMcli -autoSupportConfig configura el método de entrega para el envío de mensajes de AutoSupport. 
+---
+= Especifique método de entrega de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli -autoSupportConfig` El comando configura el método de entrega para enviar mensajes de AutoSupport.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+Es posible crear dos tipos principales de métodos de entrega para el envío de mensajes de AutoSupport:
+
+* SMTP: Utilice este método cuando desee utilizar el correo electrónico como método de entrega para enviar mensajes de AutoSupport.
+* HTTP/HTTPS -- este método permite enviar mensajes de AutoSupport con los protocolos HTTP o HTTPS. Se debe utilizar HTTPS para usar los diagnósticos AutoSupport OnDemand o AutoSupport Remote Diagnostics.
+
+
+
+
+== Sintaxis para el método de entrega de SMTP
+
+[listing]
+----
+SMcli -autoSupportConfig deliveryMethod=SMTP
+mailRelayServer=<mailRelayServerName> senderMail=<senderEmailAddress>
+----
+
+
+== Parámetros para el método de entrega de SMTP
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`deliveryMethod`
+ a| 
+Permite especificar el método de entrega de los mensajes de AutoSupport. La opción válida es SMTP. En la sección siguiente de este tema, se ofrece información acerca del uso de HTTP o HTTPS, que también son opciones válidas.
+
+
+
+ a| 
+`mailRelayServer`
+ a| 
+Permite especificar el servidor de transmisión de correo para los mensajes de AutoSupport.
+
+
+
+ a| 
+`senderMail`
+ a| 
+Permite especificar la dirección de correo electrónico remitente para los mensajes de AutoSupport.
+
+|===
+
+
+== Sintaxis para los métodos de entrega de HTTP/HTTPS
+
+[listing]
+----
+SMcli -autoSupportConfig deliveryMethod={HTTP|HTTPS}
+ {direct|proxyConfigScript=<proxyConfigScript>| proxyServer
+hostAddress:<address>portNumber=<portNumber> [userName=<userName>password=<password>]}
+----
+
+
+== Parámetros para los métodos de entrega de HTTP/HTTPS
+
+En la tabla siguiente, se enumeran los parámetros para los métodos de entrega de HTTP/HTTPS.
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`deliveryMethod`
+ a| 
+Permite especificar el método de entrega de los mensajes de AutoSupport. Las opciones válidas son HTTPS y HTTP (consulte la sección anterior para ver el uso de SMTP, que también es una opción válida).
+
+
+
+ a| 
+`direct`
+ a| 
+Permite conectarse directamente a los sistemas de soporte técnico de destino mediante los protocolos HTTPS o HTTP.
+
+
+
+ a| 
+`proxyConfigScript`
+ a| 
+Permite especificar la ubicación de un archivo de script Proxy Auto-Configuration (PAC).
+
+
+
+ a| 
+`proxyServer`
+ a| 
+Permite especificar los detalles del servidor del proxy HTTP(S) necesarios para establecer la conexión con el sistema de soporte técnico de destino.
+
+
+
+ a| 
+`hostAddress`
+ a| 
+La dirección IP del host de ProxyServer.
+
+
+
+ a| 
+`portNumber`
+ a| 
+El número de puerto del servidor del proxy. Este parámetro es obligatorio cuando se utiliza el parámetro ProxyServer.
+
+
+
+ a| 
+`userName`
+ a| 
+El nombre de usuario. Este parámetro es obligatorio.
+
+
+
+ a| 
+`password`
+ a| 
+La contraseña de autenticación. Este parámetro es obligatorio.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplos
+
+[listing]
+----
+SMcli –autoSupportConfig deliveryMethod=SMTP
+mailRelayServer:server.eng.netapp.com
+senderEmail:user@netapp.com
+----
+[listing]
+----
+SMcli -autoSupportConfig deliveryMethod=HTTPS
+proxyServer hostAddress:10.117.12.112 portNumber=8080
+userName=user password=0987654321
+----
+
+
+== Verificación
+
+Envíe un mensaje de prueba mediante el `SMcli -autoSupportConfig test` comando para verificar que sus métodos de entrega están configurados correctamente.

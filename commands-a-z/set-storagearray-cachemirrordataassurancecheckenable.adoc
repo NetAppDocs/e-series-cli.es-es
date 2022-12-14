@@ -1,0 +1,46 @@
+---
+permalink: commands-a-z/set-storagearray-cachemirrordataassurancecheckenable.html 
+sidebar: sidebar 
+keywords: set, storage, array, enable, disable, cache, mirror, data, assurance, check 
+summary: El comando set storageArray cacheMirrorDataAssuranceCheckEnable permite habilitar o deshabilitar la verificación de garantía de datos de reflejo de la caché. 
+---
+= Configurar la cabina de almacenamiento para habilitar o deshabilitar la verificación de garantía de datos de reflejo de la caché
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray cacheMirrorDataAssuranceCheckEnable` permite habilitar o deshabilitar la verificación de garantía de datos de reflejo de la caché.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray cacheMirrorDataAssuranceCheckEnable=(TRUE | FALSE)
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.41 Nuevo parámetro de comando.

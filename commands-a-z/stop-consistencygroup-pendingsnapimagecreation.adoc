@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/stop-consistencygroup-pendingsnapimagecreation.html 
+sidebar: sidebar 
+keywords: stop, snapshot, images, consistency, group 
+summary: El comando stop consistencyGroup pendingSnapImageCreation detiene todas las imágenes Snapshot pendientes que se deben crear en un grupo de coherencia Snapshot. 
+---
+= Detenga las imágenes Snapshot pendientes en un grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop consistencyGroup pendingSnapImageCreation` el comando detiene todas las imágenes snapshot pendientes que se van a crear en un grupo de coherencia snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Si el grupo de coherencia Snapshot no tiene imágenes Snapshot pendientes, el software de administración del almacenamiento muestra un mensaje de error y no ejecuta el comando.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+stop consistencyGroup pass:quotes[[_consistencyGroupName_]]pendingSnapImageCreation
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`consistencyGroupName`
+ a| 
+El nombre del grupo de coherencia para el que se desea detener cualquier operación Snapshot pendiente. El nombre del grupo de coherencia debe escribirse entre corchetes ([ ]). Si el nombre del grupo de coherencia tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de los corchetes.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,109 @@
+---
+permalink: commands-a-z/save-storagearray-controllerhealthimage.html 
+sidebar: sidebar 
+keywords: save, storage, array, controller, health, image 
+summary: El comando save storageArray controllerHealthImage guarda una imagen de estado de la controladora en un archivo especificado en un host para las cabinas de almacenamiento compatibles con la función de imagen de estado de controladora. 
+---
+= Guarde la imagen de estado de controladora de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray controllerHealthImage` el comando guarda una imagen de estado de controladora en un archivo específico de un host, para las cabinas de almacenamiento que admiten la función de imagen de estado de controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 8.20 `coreDump` el parámetro se sustituye por el `controllerHealthImage` parámetro.
+
+====
+Si la cabina de almacenamiento no es compatible con la función de imagen de estado de controladora, el comando devuelve un error.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray controllerHealthImage file=pass:quotes["_filename_"]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo en el que se debe guardar la imagen de estado de controladora. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+[listing]
+----
+file="C:\Array Backups\DBMbackup_03302010.core"
+----
+|===
+
+
+== Notas
+
+Un archivo de imagen de estado de controladora puede tener entre 1 y 2 gigabytes, y guardarlo puede llevar varios minutos. Además de guardar la imagen de estado de controladora, este comando genera un archivo descriptor XML basado en los metadatos de la imagen de estado de controladora. Este archivo descriptor se guarda en formato de archivo ZIP en la misma ruta que la imagen de estado de controladora. En el siguiente ejemplo, se muestra el formato XML del archivo descriptor.
+
+[listing]
+----
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+- <DPLcontrollerHealthImageInfo>
+<dplcontrollerHealthImageTag>sometag#</dplcontrollerHealthImageTag>
+<captureTime>12/22/10 3:58:53 PM IST</captureTime>
+- <StorageArrayData>
+<ArraySAID>600a0b80006e006a000000004c65efc1</ArraySAID>
+<ManagementApiVersion>devmgr.v1083api01.Manager</ManagementApiVersion>
+<fwVersion>07.83.01.00</fwVersion>
+<platformType>7091</platformType>
+</StorageArrayData>
+<fullcontrollerHealthImageCtlr>controllerserialNumber1
+     </fullcontrollerHealthImageCtlr>
+<fullcontrollerHealthImageSize>fullCaptureSize</fullcontrollerHealthImageSize>
+<altcontrollerHealthImageCtlr>controllerserialNumber2</altcontrollerHealthImage
+     Ctlr>
+<altcontrollerHealthImageSize>altCaptureSize</altcontrollerHealthImageSize>
+<triggerReason>Exception</triggerReason>-<DPLcontrollerHealthImageDetail>
+<dplcontrollerHealthImageReason>DPLcontrollerHealthImageReason
+     </dplcontrollerHealthImageReason>
+- <fwLocation >
+<filename>filename</filename>
+<lineNumber>line#</lineNumber>
+</fwLocation >
+<panicReason>panicString</panicReason>
+</DPLcontrollerHealthImageDetail>
+</DPLcontrollerHealthImageInfo>
+----
+Cuando se recupera una imagen de estado de controladora de la caché de la controladora a un host, se configura un indicador en la controladora para señalar que no es necesario recuperar la imagen de estado de la controladora. Esta configuración dura 48 horas. Si se produce una nueva imagen de estado de controladora en ese periodo, se guarda la nueva imagen de estado de controladora en la caché de la controladora y se sobrescriben todos los datos de imagen de estado de controladora en la caché.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+8.20 sustituye la `coreDump` con el `controllerHealthImage` parámetro.

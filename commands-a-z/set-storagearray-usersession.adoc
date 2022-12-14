@@ -1,0 +1,56 @@
+---
+permalink: commands-a-z/set-storagearray-usersession.html 
+sidebar: sidebar 
+keywords: set, storage, array, user, session 
+summary: El comando set storageArray userSession permite configurar un tiempo de espera en System Manager, de modo que las sesiones inactivas de los usuarios se desconecten después de un tiempo específico. 
+---
+= Configure la sesión de usuario de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray userSession` El comando permite configurar un tiempo de espera en System Manager, de modo que las sesiones inactivas de los usuarios se desconecten después de un tiempo específico.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Use este comando para realizar una de las siguientes operaciones:
+
+* Configurar un tiempo de espera en segundos para sesiones de usuarios. El valor de tiempo de espera mínimo es 900 segundos (15 minutos).
+* Configurar el valor en 0 para desactivar los tiempos de espera de sesión.
+
+
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray userSession sessionTimeout=n
+----
+
+
+== Nivel de firmware mínimo
+
+8.41

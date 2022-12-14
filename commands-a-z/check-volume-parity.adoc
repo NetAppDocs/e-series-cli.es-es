@@ -1,0 +1,110 @@
+---
+permalink: commands-a-z/check-volume-parity.html 
+sidebar: sidebar 
+keywords: check, volume, parity 
+summary: El comando check volume parity comprueba los errores de paridad y medios de un volumen y, a continuación, escribe los resultados de la comprobación en un archivo. 
+---
+= Comprobar la paridad de un volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `check volume parity` el comando comprueba si hay errores de paridad y medios en un volumen y, a continuación, escribe los resultados de la comprobación en un archivo.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+check volume pass:quotes[[_volumeName_]] parity
+[parityErrorFile=pass:quotes[_filename_]]
+[mediaErrorFile=pass:quotes[_filename_]]
+[priority=(highest | high | medium | low | lowest)]
+[startingLBA=pass:quotes[_LBAvalue_]]
+[endingLBA=pass:quotes[_LBAvalue_]]
+[verbose=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen específico en el que se comprobará la paridad. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales o está compuesto solo por números, se debe escribir el identificador entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`parityErrorFile`
+ a| 
+La ruta y el nombre del archivo donde se guardará la información de errores de paridad. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\parerr.txt"`
+
+Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+
+
+ a| 
+`mediaErrorFile`
+ a| 
+La ruta y el nombre del archivo donde se guardará la información de errores de medios. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\mederr.txt"`
+
+Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+
+
+ a| 
+`priority`
+ a| 
+La prioridad que posee la comprobación de paridad con respecto a la actividad de I/o del host. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.La tasa de prioridad más baja beneficia al rendimiento del sistema, pero la comprobación de paridad lleva más tiempo. La tasa de prioridad más alta beneficia la comprobación de paridad, pero el rendimiento del sistema puede verse afectado.
+
+
+
+ a| 
+`startingLBA`
+ a| 
+La dirección del bloque lógico inicial.
+
+
+
+ a| 
+`endingLBA`
+ a| 
+La dirección del bloque lógico final.
+
+
+
+ a| 
+`verbose`
+ a| 
+La opción para capturar detalles de progreso, como el porcentaje que resta completar, y para mostrar la información a medida que se analiza la paridad del volumen. Para capturar los detalles del progreso, este parámetro se debe establecer en `TRUE`. Para evitar la captura de detalles del progreso, este parámetro se debe establecer en `FALSE`.
+
+|===
+
+
+== Notas
+
+La dirección del bloque lógico inicial y la dirección del bloque lógico final son útiles para espacios de nombres o LUN de volúmenes individuales grandes. Ejecutar una comprobación de paridad de un volumen en un espacio de nombres o LUN de un volumen individual grande puede llevar mucho tiempo. Al definir la dirección inicial y final de los bloques de datos, es posible reducir el tiempo que lleva completar la comprobación de paridad de un volumen.

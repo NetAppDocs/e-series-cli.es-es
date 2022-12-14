@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/check-syncmirror.html 
+sidebar: sidebar 
+keywords: check, synchronous, mirroring status 
+summary: El comando check SyncMirror muestra el estado de un volumen de reflejo remoto. Use este comando para determinar en qué momento la condición del volumen de reflejo remoto se vuelve óptima. 
+---
+= Comprobar el estado de mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `check syncMirror` el comando muestra el estado de un volumen de reflejo remoto. Use este comando para determinar en qué momento la condición del volumen de reflejo remoto se vuelve óptima.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+check syncMirror localVolume pass:quotes[[_volumeName_]] optimalStatus timeout=pass:quotes[_timeoutValue_]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`localVolume`
+ a| 
+El nombre de cualquier volumen de reflejo remoto. El volumen de reflejo remoto puede ser el volumen primario o el volumen secundario de una pareja reflejada remota. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen contiene caracteres especiales, se debe escribir entre comillas dobles (" ").
+
+
+
+ a| 
+`timeout`
+ a| 
+El intervalo dentro del cual el software puede devolver la condición del volumen de reflejo remoto. El valor del tiempo de espera es en minutos.
+
+|===
+
+
+== Notas
+
+Este comando espera hasta que la condición sea óptima o se cumpla el intervalo de tiempo de espera. Use este comando cuando ejecuta la utilidad Asynchronous Synchronous Mirroring.

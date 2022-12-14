@@ -1,0 +1,34 @@
+---
+permalink: commands-a-z/getting-started-with-internal-key-management.html 
+sidebar: sidebar 
+keywords: security key, string, characters, secure enabled, drive, controllers, storage, array, internal, key, management, create, maintain, persistent, memory 
+summary: Una clave de seguridad es una cadena de caracteres, que se comparte entre las unidades y controladoras con la función de seguridad habilitada en una cabina de almacenamiento. Cuando se usa la gestión de claves internas, se crean y se mantienen claves de seguridad en la memoria persistente de la controladora. 
+---
+= Introducción a la gestión de claves internas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Una clave de seguridad es una cadena de caracteres, que se comparte entre las unidades y controladoras con la función de seguridad habilitada en una cabina de almacenamiento. Cuando se usa la gestión de claves internas, se crean y se mantienen claves de seguridad en la memoria persistente de la controladora.
+
+En la ayuda en línea de SANtricity System Manager, se proporciona información conceptual sobre el uso de claves de seguridad internas.
+
+A continuación, se muestra el flujo de trabajo básico para el uso de claves de seguridad internas:
+
+. *Crear claves de seguridad*
+. *Establecer claves de seguridad*
+. *Validar clave de seguridad*
+
+
+
+
+== Pasos del flujo de trabajo
+
+Los siguientes son los comandos iniciales para usar claves de seguridad internas:
+
+. Cree una clave de seguridad de la cabina de almacenamiento mediante el `create storageArray securityKey` comando. Consulte xref:create-storagearray-securitykey.adoc[Creación de una clave de seguridad de la cabina de almacenamiento].
+. Configure la clave de seguridad de la cabina de almacenamiento mediante el `set storageArray securityKey` comando. Consulte xref:set-storagearray-securitykey.adoc[Configurar una clave de seguridad de la cabina de almacenamiento].
+. Valide la clave de seguridad mediante el `validate storageArray securityKey` comando. Consulte xref:validate-storagearray-securitykey.adoc[Validar una clave de seguridad de la cabina de almacenamiento].
+

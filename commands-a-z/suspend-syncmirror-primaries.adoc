@@ -1,0 +1,110 @@
+---
+permalink: commands-a-z/suspend-syncmirror-primaries.html 
+sidebar: sidebar 
+keywords: suspend, synchronous, mirror 
+summary: El comando suspend SyncMirror primaries suspende una operación de mirroring síncrono. 
+---
+= Suspenda el mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `suspend syncMirror primaries` el comando suspende una operación de mirroring síncrono.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+suspend syncMirror (primary pass:quotes[[_primaryVolumeName_]]
+primaries pass:quotes[[_primaryVolumeName1_ ... _primaryVolumeNameN_])]
+[writeConsistency=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre del volumen primario en el cual se desea suspender la operación. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`primaries`
+ a| 
+Los nombres de varios volúmenes primarios en los cuales se desean suspender operaciones. Todos los volúmenes tendrán las mismas propiedades. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes tienen caracteres especiales o números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`writeConsistency`
+ a| 
+Este parámetro define si los volúmenes identificados en este comando se encuentran en un grupo de coherencia de escritura o separados. Para los volúmenes que se encuentran en el mismo grupo de coherencia de escritura, configure este parámetro en `TRUE`. Para los volúmenes que se encuentran separados, configure este parámetro en `FALSE`.
+
+|===
+
+
+== Notas
+
+Si establece la `writeConsistency` parámetro a. `TRUE`, los volúmenes deben estar en un grupo de coherencia de escritura (o grupos). Este comando suspende todos los grupos de coherencia de escritura que contienen los volúmenes. Por ejemplo, si los volúmenes A, B y C se encuentran en un grupo de coherencia de escritura y tienen equivalentes remotos A''', B'' y C'', el comando:
+
+[listing]
+----
+suspend syncMirror volume ["A"] writeConsistency=TRUE
+----
+SUSPENDE A-A'', B-B'' Y C-C''. Si posee un grupo de coherencia de escritura 1={A, B, C} y un grupo de coherencia de escritura 2={D, E, F}, el comando:
+
+[listing]
+----
+suspend syncMirror volumes ["A" "D"] writeConsistency=TRUE
+----
+suspende ambos grupos de coherencia de escritura.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

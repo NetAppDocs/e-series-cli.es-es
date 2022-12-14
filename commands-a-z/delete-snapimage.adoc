@@ -1,0 +1,127 @@
+---
+permalink: commands-a-z/delete-snapimage.html 
+sidebar: sidebar 
+keywords: delete, snapimage, command, snapshot, images, group, support, array, roles 
+summary: El comando delete snapImage elimina una o varias imágenes Snapshot de un grupo Snapshot. 
+---
+= Eliminar imagen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete snapImage` el comando elimina una o varias imágenes snapshot de un grupo snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete snapImage (snapGroup="snapGroupName" |
+snapGroups=("_snapGroupName1"
+... "snapGroupNamen_"))]
+[deleteCount=numberOfSnapImages]
+[retainCount=numberOfSnapImages]
+[ignoreSnapVolume=(TRUE | FALSE)]
+[snapImageID=OLDEST]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapGroup`
+ a| 
+El nombre del grupo Snapshot que contiene la imagen Snapshot que se desea eliminar. El nombre del grupo Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`snapGroups`
+ a| 
+Los nombres de varios grupos Snapshot que contienen la imagen Snapshot que se desea eliminar. Para introducir los nombres de los grupos Snapshot, se deben respetar las siguientes reglas:
+
+* Los nombres deben escribirse entre paréntesis.
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`deleteCount`
+ a| 
+La cantidad de imágenes Snapshot que se desea eliminar del grupo Snapshot. Deben usarse valores enteros.
+
+Este parámetro elimina primero la imagen Snapshot más antigua y avanza en orden cronológico hasta alcanzar el número que se introdujo.
+
+Si la cantidad introducida es mayor que la cantidad real de imágenes Snapshot en el grupo Snapshot, se eliminan todas las imágenes Snapshot. El grupo Snapshot queda vacío.
+
+
+
+ a| 
+`retainCount`
+ a| 
+La cantidad de imágenes Snapshot que se desea conservar en el grupo Snapshot. Deben usarse valores enteros.
+
+Este parámetro conserva las imágenes Snapshot más recientes en el grupo Snapshot y elimina las más antiguas.
+
+Si la cantidad de imágenes Snapshot en el grupo Snapshot es menor que la cantidad introducida, no se elimina ninguna.
+
+
+
+ a| 
+`ignoreSnapVolume`
+ a| 
+Este parámetro permite confirmar que no se elimine una imagen Snapshot que tenga un volumen Snapshot asociado. Es posible usar uno de los siguientes valores:
+
+* `TRUE` - Este valor se usa para eliminar la imagen Snapshot aunque esta imagen tenga un volumen Snapshot asociado.
+* `FALSE` - Este valor se usa para conservar la imagen Snapshot cuando esta imagen tiene un volumen Snapshot asociado.
+
+
+El valor predeterminado es `TRUE`.
+
+
+
+ a| 
+`snapImageID`
+ a| 
+La `snapImageID` el parámetro solo acepta el `OLDEST` opción. Este parámetro elimina la imagen Snapshot más antigua.
+
+|===
+
+
+== Notas
+
+Es posible eliminar la imagen Snapshot más antigua de un volumen de repositorios de grupo Snapshot. Se quita del sistema la definición de la imagen Snapshot que se elimina. El espacio ocupado por la imagen Snapshot que se elimina del volumen de repositorios de grupo Snapshot se libera y se puede volver a utilizar dentro del grupo Snapshot.
+
+Si no se usa ningún otro parámetro con el `snapGroup` parámetro o. `snapGroups` se elimina la imagen snapshot más antigua de forma predeterminada.
+
+Los volúmenes Snapshot existentes para una imagen Snapshot pasan al estado detenido cuando se elimina la imagen Snapshot.
+
+Este comando no se ejecuta cuando la controladora está en modo de bloqueo.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

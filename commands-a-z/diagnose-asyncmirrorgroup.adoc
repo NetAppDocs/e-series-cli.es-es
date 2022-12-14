@@ -1,0 +1,75 @@
+---
+permalink: commands-a-z/diagnose-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: diagnose, command, tests, possible, communication, problems, local, storage, array, remote, asynchronous, mirror, group 
+summary: El comando diagnose asyncMirrorGroup realiza pruebas en busca de posibles problemas de comunicación entre la cabina de almacenamiento local y la cabina de almacenamiento remota asociada con un grupo de reflejos asíncronos. 
+---
+= Probar conectividad de grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `diagnose asyncMirrorGroup` comando prueba posibles problemas de comunicación entre la cabina de almacenamiento local y la cabina de almacenamiento remota asociada con un grupo de reflejos asíncronos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[diagnose asyncMirrorGroup [_asyncMirrorGroupName_]]
+testID=(all | connectivity | latency | bandwidth | portConnections)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos existente en el que se desea realizar pruebas. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene números o caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`testID`
+ a| 
+El identificador de la prueba de diagnóstico que se desea ejecutar. El identificador y las pruebas correspondientes son los siguientes:
+
+* *Todo* -- realiza todas las pruebas asociadas con este comando.
+* *Conectividad* -- verifica que los dos controladores tengan una ruta de comunicación. La prueba de conectividad envía un mensaje entre controladoras a las cabinas de almacenamiento y luego valida la existencia del grupo de reflejos asíncronos correspondiente en la cabina de almacenamiento remota. También valida que los miembros del volumen del grupo de reflejos asíncronos en el sistema remoto coincidan con los miembros del volumen del grupo de reflejos asíncronos en el sistema local.
+* *Latencia* -- envía un comando de unidad de prueba SCSI a cada volumen de la matriz de almacenamiento remota asociada con el grupo de reflejos asíncronos para probar la latencia mínima, media y máxima.
+* *Bandwidth* -- envía dos mensajes entre controladores a la matriz de almacenamiento remota para probar el ancho de banda mínimo, medio y máximo, así como la velocidad de enlace negociada del puerto en el controlador que realiza la prueba.
+* *Conexiones de puerto*: Muestra el puerto que se utiliza para la duplicación en la matriz de almacenamiento local y el puerto que recibe los datos reflejados en la matriz de almacenamiento remota.
+
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

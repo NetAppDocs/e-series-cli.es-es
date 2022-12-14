@@ -1,0 +1,35 @@
+---
+permalink: get-started/formatting-cli-commands-in-windows-powershell.html 
+sidebar: sidebar 
+keywords: format, rules, cli, commands, windows, powershell 
+summary: Windows PowerShell es un shell de scripting interactivo que proporciona acceso a las herramientas de línea de comandos. 
+---
+= Reglas de formato para los comandos de la CLI en Windows PowerShell
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Windows PowerShell es un shell de scripting interactivo que proporciona acceso a las herramientas de línea de comandos. Windows PowerShell es una mejora del símbolo del sistema de Windows con un conjunto más amplio de comandos y funcionalidades de scripting. Es posible ejecutar todos los comandos de la CLI y de script en Windows PowerShell; no obstante, Windows PowerShell tiene algunos requisitos de formato particulares. Estos requisitos son los siguientes:
+
+* Todos los comandos de SMcli deben comenzar con un punto y una barra diagonal (./)
+* El contenedor de SMcli debe identificarse como comando ejecutable con la extensión .exe (SMcli.exe).
+* El comando de script debe escribirse entre comillas simples (' ').
+* Las comillas dobles que forman parte de un nombre, ruta de archivo o valor deben llevar una barra diagonal inversa antes de cada carácter de comillas dobles (\").
+
+
+A continuación se muestra un ejemplo de un comando de la CLI para crear un nombre de cabina de almacenamiento en Windows PowerShell. Se debe tener en cuenta que las comillas simples funcionan como delimitadores del comando de script, mientras que la barra diagonal inversa y las comillas dobles delimitan el nombre de la cabina de almacenamiento, identificada como `userLabel` en la sintaxis del comando.
+
+[listing]
+----
+PS C:\...\StorageManager\client> ./SMcli.exe 123.45.67.88 123.45.67.89
+-c ’set storageArray userLabel=\"Engineering\";’
+----
+A continuación se muestra un ejemplo de un comando de la CLI para habilitar una función premium en Windows PowerShell. Se debe tener en cuenta que la barra diagonal inversa de comillas dobles antes de la ruta de archivo a la clave de funciones premium.
+
+[listing]
+----
+PS C:\...\StorageManager\client> ./SMcli.exe 123.45.67.88 123.45.67.89
+-c ’enable storageArray feature file=\"C:\licenseKey.bin\";’
+----
+En los ejemplos anteriores, se usan letras mayúsculas y minúsculas, Lo cual sirve para mostrar el formato de los comandos. No obstante, Windows PowerShell no distingue mayúsculas de minúsculas y no tiene requisitos específicos al respecto.

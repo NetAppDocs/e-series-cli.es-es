@@ -1,0 +1,78 @@
+---
+permalink: commands-a-z/start-ssdcache-performancemodeling.html 
+sidebar: sidebar 
+keywords: start, ssd, cache, performance, model 
+summary: El comando start ssdCache performanceModeling inicia el modelado de rendimiento de la caché SSD. 
+---
+= Inicie modelado de rendimiento de caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start ssdCache performanceModeling` El comando inicia el modelado de rendimiento de la caché SSD.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Contexto
+
+El modelado de rendimiento supervisa y mide la actividad de I/o durante un periodo, y realiza una estimación del rendimiento de varios tamaños de caché SSD. Para la estimación del rendimiento se tienen en cuenta dos métricas: El porcentaje de acierto en caché y el tiempo promedio de respuesta. Los datos de modelado de rendimiento no estarán disponibles hasta que se detenga la operación con la `stop ssdCache performanceModeling` comando.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start ssdCache pass:quotes[[_ssdCacheName_]] performanceModeling
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD para la cual se desea modelar el rendimiento. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD incluye caracteres especiales o está compuesto solo de números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+El modelado de rendimiento finaliza y los datos de modelado de rendimiento se ponen a disposición cuando sucede una de las condiciones siguientes:
+
+* Ejecute el `stop ssdCache performanceModeling` comando.
+* Se recuperan los datos de modelado de rendimiento por medio del software de administración del almacenamiento.
+
+
+El modelado de rendimiento finaliza, pero los datos no se ponen a disposición si se da alguna de las condiciones siguientes:
+
+* Se reinicia la controladora.
+* Se realizan cambios en la configuración de la caché SSD.
+* Cambia el estado de la caché SSD.
+
+
+
+
+== Nivel de firmware mínimo
+
+7.84

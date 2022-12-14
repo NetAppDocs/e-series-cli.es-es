@@ -1,0 +1,76 @@
+---
+permalink: commands-a-z/save-drivechannel-faultdiagnostics-file.html 
+sidebar: sidebar 
+keywords: save, drive, channel, fault, isolation, diagnostic, status 
+summary: El comando save driveChannel faultDiagnostics file guarda los datos de diagnóstico de aislamiento de fallos de un canal de unidad que se devuelven con el comando start driveChannel faultDiagnostics. 
+---
+= Guarde el estado de diagnóstico de aislamiento de fallos de un canal de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save driveChannel faultDiagnostics file` el comando guarda los datos de diagnóstico de aislamiento de fallos del canal de la unidad que se devuelven desde el `start driveChannel faultDiagnostics` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 8.10, el `save driveChannel faultDiagnostics` el comando queda obsoleto.
+
+====
+Es posible guardar los datos de diagnóstico como un archivo de texto estándar o XML.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save driveChannel faultDiagnostics file=pass:quotes["_filename_"]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardarán los resultados de la prueba de diagnóstico de aislamiento de fallos en el canal de unidad. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\sup\fltdiag.txt"`
+
+Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+|===
+
+
+== Notas
+
+No se anexa automáticamente una extensión de archivo al archivo guardado. Es necesario especificar la extensión de archivo con formato correspondiente para el archivo. Si se especifica una extensión de archivo de `.txt`, la salida tendrá un formato de archivo de texto. Si se especifica una extensión de archivo de `.xml` , La salida tendrá un formato de archivo XML.
+
+
+
+== Nivel de firmware mínimo
+
+7.15 introduce esta nueva funcionalidad para los soportes de controladoras heredados.

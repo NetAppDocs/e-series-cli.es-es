@@ -1,0 +1,35 @@
+---
+permalink: get-started/structure-of-a-cli-command.html 
+sidebar: sidebar 
+keywords: structure, cli, commands 
+summary: Los comandos de la CLI tienen la forma de un contenedor de comando con elementos integrados. 
+---
+= Estructura de los comandos de la CLI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Los comandos de la CLI tienen la forma de un contenedor de comando con elementos integrados. Un comando de la CLI se compone de los siguientes elementos:
+
+* Un contenedor de comando identificado por el término `SMcli`
+* El identificador de la cabina de almacenamiento
+* Terminales en los que se define la operación que se realizará
+* Comandos de script
+
+
+El contenedor de comando de la CLI es un shell que identifica las controladoras de la cabina de almacenamiento, incrusta terminales operativos, incrusta comandos de script y traslada estos valores al motor de scripts.
+
+Todos los comandos de la CLI presentan la siguiente estructura:
+
+[listing]
+----
+SMcli *storageArray terminal script-commands*;
+----
+* `SMcli` invoca la interfaz de línea de comandos.
+* `storageArray` Es el nombre o la dirección IP de la cabina de almacenamiento.
+* `terminal` Es un valor de la CLI que define el entorno y el propósito del comando.
+* `script-commands` son uno o más comandos de script o el nombre de un archivo de script que contiene comandos de script. (Los comandos de script configuran y gestionan la cabina de almacenamiento.)
+
+
+Si introduce una información incompleta o imprecisa `SMcli` cadena que no tiene la sintaxis, los nombres de parámetros, las opciones o los terminales correctos, el motor de scripts devuelve información de uso.

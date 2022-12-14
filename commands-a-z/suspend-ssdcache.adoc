@@ -1,0 +1,68 @@
+---
+permalink: commands-a-z/suspend-ssdcache.html 
+sidebar: sidebar 
+keywords: suspend, ssd cache 
+summary: El comando suspend ssdCache detiene temporalmente el almacenamiento en caché de todos los volúmenes que utilizan la caché SSD. 
+---
+= Suspenda la caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `suspend ssdCache` El comando detiene temporalmente el almacenamiento en caché de todos los volúmenes que utilizan la caché SSD.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Contexto
+
+Mientras el almacenamiento en caché se encuentra detenido, se realiza el mantenimiento de las lecturas de host desde los volúmenes base, en lugar de desde la caché SSD.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[suspend ssdCache [_ssdCacheName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD que se desea suspender. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+Para reiniciar el almacenamiento en caché, utilice `resume ssdCache` comando.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

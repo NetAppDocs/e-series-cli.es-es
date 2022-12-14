@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/start-tray-locate.html 
+sidebar: sidebar 
+keywords: start, tray, locate 
+summary: El comando start tray locate localiza un soporte mediante el encendido de la luz indicadora. 
+---
+= Inicie la búsqueda de soporte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start tray locate` el comando localiza un soporte mediante el encendido de la luz indicadora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Utilice la `stop tray locate` comando para apagar la luz indicadora del soporte
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start tray [_trayID_]] locate
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`tray`
+ a| 
+El soporte que se desea localizar. Los valores de ID de soporte son `0` para `99`. El valor de ID de soporte debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

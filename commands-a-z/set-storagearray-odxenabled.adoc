@@ -1,0 +1,67 @@
+---
+permalink: commands-a-z/set-storagearray-odxenabled.html 
+sidebar: sidebar 
+keywords: enable, disable, odx 
+summary: 'El comando set storageArray odxEnabled activa o desactiva la transferencia de datos descargados (ODX) para una cabina de almacenamiento.' 
+---
+= Habilite o deshabilite ODX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray odxEnabled` El comando activa o desactiva la transferencia de datos descargados (ODX) para una cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+La cabina de almacenamiento viene con la función ODX activada. Este comando permite desactivar la función ODX si no se la desea ejecutar o si provoca problemas con la cabina de almacenamiento. La única cabina de almacenamiento afectada es aquella donde se ejecuta el comando.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray odxEnabled=(TRUE | FALSE)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`odxEnabled`
+ a| 
+El ajuste para activar o desactivar ODX. Para activar la función ODX, se debe establecer este parámetro en `TRUE`. Para desactivar la función ODX, se debe establecer este parámetro en `FALSE`. La configuración predeterminada es la función ODX activada.
+
+|===
+
+
+== Notas
+
+ODX ofrece un método de transferencia de datos sin usar operaciones de lectura y escritura en búfer que no requiere la participación directa del host en la operación de transferencia de datos. Cuando la función ODX no está habilitada, los datos se leen del almacenamiento de origen al host, y luego del host al almacenamiento objetivo. Cuando la función ODX está habilitada, las operaciones de transferencia de datos son gestionadas directamente por la infraestructura de almacenamiento. Los datos se traspasan directamente del almacenamiento de origen al objetivo sin pasar por el host.
+
+
+
+== Nivel de firmware mínimo
+
+8.20

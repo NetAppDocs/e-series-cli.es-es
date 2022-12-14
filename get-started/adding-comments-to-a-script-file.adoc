@@ -1,0 +1,36 @@
+---
+permalink: get-started/adding-comments-to-a-script-file.html 
+sidebar: sidebar 
+keywords: add, comments, script file 
+summary: El motor de scripts busca ciertos caracteres o un comando para mostrar comentarios. Existen tres formas de añadir comentarios en un archivo de script. 
+---
+= Agregar comentarios a un archivo de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+El motor de scripts busca ciertos caracteres o un comando para mostrar comentarios. Existen tres formas de añadir comentarios en un archivo de script:
+
+* Añada texto después de dos barras diagonales (`//` ) como comentario hasta alcanzar un carácter de fin de línea. Si el motor de scripts no encuentra un carácter de fin de línea en el script después de procesar un comentario, se muestra un mensaje de error y se completa la operación de script. Este error suele ocurrir cuando se coloca un comentario al final de una secuencia de comandos y no se ha presionado la tecla *Intro*.
++
+[listing]
+----
+// Deletes the existing configuration.
+set storageArray resetConfiguration=true;
+----
+* Añada texto entre `/*` y.. `*/` como comentario. Si el motor de scripts no encuentra una notación de comentario de inicio o de finalización, se muestra un mensaje de error y se completa la operación de script.
++
+[listing]
+----
+/* Deletes the existing configuration */
+set storageArray resetConfiguration=true;
+----
+* Utilice la `show` declaración para insertar comentarios en un archivo de script que desea que se muestre mientras se ejecuta el archivo de script. Incluya el texto que desea que aparezca usando comillas dobles ("' ').
++
+[listing]
+----
+show “Deletes the existing configuration”;
+set storageArray resetConfiguration=true;
+----
+

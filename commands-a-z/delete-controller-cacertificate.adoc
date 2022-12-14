@@ -1,0 +1,73 @@
+---
+permalink: commands-a-z/delete-controller-cacertificate.html 
+sidebar: sidebar 
+keywords: remove, install, root, intermediate, ca, certificates 
+summary: El comando delete Controller caCertificate quita el certificado de CA raíz o intermedio instalado en la controladora especificada. 
+---
+= Quite los certificados de CA raíz/intermedios instalados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete controller caCertificate` Comando quita el certificado de CA raíz/intermedio instalado de la controladora especificada.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+delete controller [(a|b)] caCertificate aliases=("alias1" ... "aliasN")
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora de la que se desea quitar el certificado firmado. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`aliases`
+ a| 
+Permite especificar uno o varios certificados de CA para quitarlos mediante nombres de alias o especificarlos todos. Los alias deben provenir de la controladora en la cual se está quitando el certificado. Todos los alias se deben escribir entre paréntesis. Si se introducen varios alias, se deben separar con un espacio.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "delete controller[a] caCertificate aliases=("myAlias" "anotherAlias");"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

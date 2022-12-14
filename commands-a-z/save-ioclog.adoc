@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/save-ioclog.html 
+sidebar: sidebar 
+keywords: save, input, output, controller, ioc, dump 
+summary: El comando save IOCLog guarda los volcados de IOC de las controladoras de una cabina de almacenamiento en un archivo en un host. 
+---
+= Guarde el volcado de una controladora de entrada/salida (IOC)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save IOCLog` El comando guarda los volcados de IOC de las controladoras de una cabina de almacenamiento en un archivo en un host.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save IOCLog [file=pass:quotes["_filename_"]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo en el que se debe guardar el volcado de IOC. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+[listing]
+----
+file="C:\Array Backups\IOCcoredump1.7z"
+----
+Este comando guarda los datos en un archivo comprimido y añade la extensión de archivo `.7z` al archivo guardado. El nombre predeterminado del archivo que contiene los datos relacionados con IOC de las controladoras de la cabina de almacenamiento utiliza el WWN de la cabina de almacenamiento.
+
+|===
+
+
+== Notas
+
+Este comando recupera los datos de registro de volcado de IOC y los metadatos de volcado de IOC de ambas controladoras. Con un formato de archivo 7zip, los datos recuperados se archivan y se comprimen en un solo archivo de nombre a elección. El archivo 7zip contiene lo siguiente:
+
+* Nombre de archivo+"IOCLog"+[A|B].gz: Los registros de IOC recuperados de la controladora A o de la controladora B, si están disponibles
+* Nombre de archivo+"IOCLogInfo"+[A|B].txt: La información de metadatos de los registros de IOC recuperados de la controladora A o de la controladora B . Si los datos de registro de IOC no pueden recuperarse de una controladora, el archivo .txt de metadatos incluirá la condición y el motivo del error.
+
+
+Las siguientes son condiciones de error:
+
+* La plataforma de la controladora y HIC no admiten el volcado de IOC.
+* Las controladoras no recogieron datos de volcado de IOC.
+
+
+Los registros comprimidos no están en un formato legible para seres humanos. Es necesario enviar los registros al soporte técnico para su evaluación.
+
+
+
+== Nivel de firmware mínimo
+
+8.20

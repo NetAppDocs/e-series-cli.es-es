@@ -1,0 +1,80 @@
+---
+permalink: commands-a-z/set-storagearray-revocationchecksettings.html 
+sidebar: sidebar 
+keywords: set, certificate, revocation, check, set 
+summary: 'El comando set storageArray revocationCheckSettings permite habilitar o deshabilitar el control de revocación, así como configurar un servidor de protocolo de estado de certificado en línea (OCSP).' 
+---
+= Configure los ajustes de control de revocación de certificados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray revocationCheckSettings` El comando permite habilitar o deshabilitar el control de revocación, así como configurar un servidor de protocolo de estado de certificado en línea (OCSP).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+El servidor OCSP controla todos los certificados que la entidad de certificación (CA) ha revocado antes de su fecha de vencimiento programada. Se recomienda habilitar el control de revocación en casos donde la CA emitió incorrectamente una certificación o existe una clave privada en riesgo.
+
+[NOTE]
+====
+Asegúrese de que exista un servidor DNS configurado en ambas controladoras, ya que esto le permitirá usar un nombre de dominio completo para el servidor OCSP.
+
+====
+Después de habilitar el control de revocación, la cabina de almacenamiento rechazará los intentos de conexión a un servidor con un certificado revocado.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray revocationCheckSettings ([revocationCheckEnable = boolean] &| [ocspResponderUrl=stringLiteral])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`revocationCheckEnable`
+ a| 
+Establezca en `true` para habilitar el control de revocación de certificados.
+
+
+
+ a| 
+`ocspResponderUrl`
+ a| 
+La URL del servidor de respuesta OCSP que se utilizará para la comprobación de revocación de certificados.
+
+[NOTE]
+====
+Si se especifica una dirección de respuesta OCSP, se anula la dirección OCSP que se encuentra en el archivo de certificado.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+8.42

@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/enable-storagearray-feature-file.html 
+sidebar: sidebar 
+keywords: enable, storage, array, feature, file, command, permanent, upgrade, trial period 
+summary: El comando enable storageArray feature file habilita una función para una actualización permanente a la cabina de almacenamiento o un periodo de prueba. 
+---
+= Habilite la función de cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `enable storageArray feature file` comando habilita una función para realizar una actualización permanente a la cabina de almacenamiento o un periodo de prueba.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+Este comando ejecuta una de estas acciones:
+
+* Habilita una clave de función para realizar una actualización permanente de una función
+* Habilita una clave de función para realizar una actualización permanente de un paquete de funciones
+* Habilita una función para aplicar un periodo de prueba
+
+
+Un paquete de funciones es un conjunto predefinido de varias funciones, como Storage Partitioning y Synchronous Mirroring. Estas funciones se ofrecen combinadas para la comodidad de los usuarios. Cuando un usuario instala un paquete de funciones, todas las funciones incluidas se instalan a la vez.
+
+Cada función se gestiona mediante una clave de licencia que se genera para una función o un paquete de funciones específico y una cabina de almacenamiento específica. La clave de licencia se entrega como un archivo que se ejecuta para aplicar la licencia de la función.
+
+Para determinar qué funciones se cargan en la cabina de almacenamiento, se debe ejecutar el `show storageArray features` comando. La `show storageArray features` comando enumera todas las funciones instaladas en la cabina de almacenamiento, qué funciones pueden evaluarse durante un periodo de prueba, qué funciones están habilitadas y qué funciones están deshabilitadas.
+
+
+
+== Sintaxis para habilitar una clave de función
+
+[listing, subs="+macros"]
+----
+pass:quotes[enable storageArray feature file="_filename_"]
+----
+La `file` parámetro identifica la ruta y el nombre de archivo de un archivo de claves de funciones válido. Escriba la ruta de acceso y el nombre del archivo entre comillas dobles (" "). Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\dnld\ftrkey.key"
+----
+Los nombres de archivo válidos para los archivos de claves de funciones tienen un final `.key` extensión.
+
+Se necesita un archivo de claves de funciones para cada función que se desea habilitar.
+
+
+
+== Sintaxis para habilitar un paquete de funciones
+
+[listing, subs="+macros"]
+----
+pass:quotes[enable storageArray featurePack file="_filename_"]
+----
+La `file` parámetro identifica la ruta y el nombre de archivo de un archivo de paquete de funciones válido. Escriba la ruta de acceso y el nombre del archivo entre comillas dobles (" "). Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\dnld\ftrpk.key"
+----
+Los nombres de archivo válidos para los archivos de claves de funciones tienen un final `.key` extensión.
+
+
+
+== Sintaxis para habilitar una función para un periodo de prueba
+
+[listing, subs="+macros"]
+----
+pass:quotes[enable storageArray feature=_featureAttributeList_]
+----
+Para evaluar una característica para un período de prueba, puede introducir uno o más de los siguientes valores de atributo para `featureAttributeList`. Si se introducen varios valores de atributos, se deben separar los valores con un espacio.
+
+* `driveSecurity`
+
+
+
+
+== Nivel de firmware mínimo
+
+8.25 quita todos los atributos que ya no son válidos.

@@ -1,0 +1,46 @@
+---
+permalink: commands-a-z/stop-diskpool-locate.html 
+sidebar: sidebar 
+keywords: stop, disk pool, locate 
+summary: El comando stop DISKPOOL locate apaga las luces indicadoras en las unidades que se encendieron con el comando start DISKPOOL locate. 
+---
+= Detener búsqueda de pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop diskPool locate` el comando apaga las luces indicadoras en las unidades que se encendieron con el `start diskPool locate` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+stop diskPool locate
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

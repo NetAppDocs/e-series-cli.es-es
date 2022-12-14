@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/show-controller-nvsram.html 
+sidebar: sidebar 
+keywords: show, controller, nvsram 
+summary: El comando show Controller NVSRAM muestra información acerca de los valores de NVSRAM en bytes. 
+---
+= Mostrar NVSRAM de controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show controller NVSRAM` Comando muestra información acerca de los valores de NVSRAM en bytes.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra una lista de los valores de NVSRAM en bytes sobre un tipo de host específico. Si no se introducen los parámetros opcionales, este comando muestra una lista con todos los valores de NVSRAM en bytes.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allControllers | controller [(a|b)])
+NVSRAM pass:quotes[[hostType=_hostTypeIndexLabel_ | host="_hostName_"]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allControllers`
+ a| 
+Esta configuración muestra la información de ambas controladoras de la cabina de almacenamiento.
+
+
+
+ a| 
+`controller`
+ a| 
+La configuración para obtener información acerca de una controladora específica de la cabina de almacenamiento. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`hostType`
+ a| 
+La etiqueta de índice o el número del tipo de host. Utilice la `show storageArray hostTypeTable` comando para generar una lista de identificadores de tipo de host disponibles.
+
+
+
+ a| 
+`host`
+ a| 
+El nombre del host conectado a las controladoras. El nombre de host debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+Utilice la `show controller NVSRAM` Comando para ver alguna parte o toda la NVSRAM antes de usar el `set controller` Comando para cambiar los valores de NVSRAM. Antes de realizar cualquier cambio en la NVSRAM, comuníquese con el soporte técnico para saber qué regiones de la NVSRAM puede modificar.

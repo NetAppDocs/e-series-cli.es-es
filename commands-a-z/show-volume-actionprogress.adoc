@@ -1,0 +1,66 @@
+---
+permalink: commands-a-z/show-volume-actionprogress.html 
+sidebar: sidebar 
+keywords: show, volume, action, progress 
+summary: El comando show volume actionProgress muestra información acerca de la acción del volumen y la cantidad de una operación de ejecución prolongada que se realizó para un volumen. 
+---
+= Mostrar progreso de acción de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volume actionProgress` el comando muestra información acerca de la acción del volumen y la cantidad de la operación de ejecución prolongada que se realizó para una operación de ejecución prolongada en un volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 7.77, el `show volume actionProgress` el comando queda obsoleto. Sustituir este mando por `show storageArray longRunningOperations`.
+
+====
+La cantidad de la operación de ejecución prolongada que se realizó se muestra en forma de porcentaje (por ejemplo, 25 significa que se realizó el 25 % de la operación de ejecución prolongada).
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show volume pass:quotes[[_volumeName_]] actionProgress
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre de un volumen del cual se desea recuperar información acerca de una operación de ejecución prolongada. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+5.43

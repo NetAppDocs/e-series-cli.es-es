@@ -1,0 +1,76 @@
+---
+permalink: commands-a-z/delete-syslog.html 
+sidebar: sidebar 
+keywords: delete, syslog, command, servers, configuration, alerts, array, support, role 
+summary: El comando delete syslog elimina un servidor o varios de la configuración de syslog para que deje de recibir alertas. 
+---
+= Elimine el servidor de syslog
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete syslog` el comando elimina uno o varios servidores de la configuración de syslog para que deje de recibir alertas.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+delete syslog (allServers | serverAddresses pass:quotes[[_serverAddress1_ ... _serverAddressN_]])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allServers`
+ a| 
+Permite al usuario eliminar todos los servidores de syslog.
+
+
+
+ a| 
+`serverAddresses`
+ a| 
+Permite al usuario eliminar los servidores de syslog. Los servidores deben escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "delete syslog allServers;
+
+SMcli -n Array1 -c "delete syslog serverAddresses ["serverName1.company.com"]";
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

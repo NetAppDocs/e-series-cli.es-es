@@ -1,0 +1,122 @@
+---
+permalink: commands-a-z/set-snapvolume-converttoreadwrite.html 
+sidebar: sidebar 
+keywords: set, read-only, snapshot, volume, read/write, volume 
+summary: El comando set snapVolumeconvertToReadWrite cambia un volumen Snapshot que es de solo lectura a un volumen Snapshot que es de lectura/escritura. 
+---
+= Configurar un volumen Snapshot de solo lectura como volumen de lectura/escritura
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set snapVolume convertToReadWrite` el comando cambia un volumen snapshot que es un volumen de solo lectura a un volumen snapshot que es de lectura/escritura.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+También es posible usar este comando para identificar un nuevo volumen de repositorios para el volumen de lectura/escritura, o bien configurar un nivel de advertencia de límite completo para el volumen de repositorios.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set snapVolume pass:quotes[["_snapImageVolumeName_"]] convertToReadWrite
+[(repositoryVolume="repos_xxxx" |
+repositoryVolume=pass:quotes[(_volumeGroupName_] [capacity=pass:quotes[_capacityValue_]])
+repositoryVolume=pass:quotes[(_diskPoolName_] [capacity=pass:quotes[_capacityValue_]))]]
+[repositoryFullLimit=pass:quotes[_percentValue_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapVolume`
+ a| 
+El nombre del volumen Snapshot que se desea cambiar de solo lectura a lectura/escritura. El identificador del volumen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`repositoryVolume`
+ a| 
+El nombre del volumen de repositorios que se desea usar para el volumen de lectura/escritura.
+
+Existen dos opciones para definir el nombre de un volumen de repositorios:
+
+* Usar un volumen de repositorios existente: Name
+* Crear un nuevo volumen de repositorios cuando se ejecuta este comando
+
+
+El nombre de un volumen de repositorios existente se compone de dos partes:
+
+* El término "repos"
+* Un identificador numérico de cuatro dígitos que el software de administración del almacenamiento asigna al nombre del volumen de repositorios
+
+
+El nombre del volumen de repositorios existente debe escribirse entre comillas dobles (" ").
+
+Para crear un nuevo volumen de repositorios cuando se ejecuta este comando, es necesario introducir el nombre de un grupo de volúmenes o un pool de discos donde se ubicará el volumen de repositorios. Opcionalmente, también se puede definir la capacidad del volumen de repositorios. Para definir la capacidad, es posible usar los siguientes valores:
+
+* Un valor entero que representa un porcentaje de la capacidad del volumen base
+* Un valor de fracción decimal que representa un porcentaje de la capacidad del volumen base
+* Un tamaño específico para el volumen de repositorios El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+Si no se usa la opción de capacidad, el software de administración del almacenamiento establece la capacidad en 20 % de la capacidad del volumen base.
+
+Cuando se ejecuta este comando, el software de administración del almacenamiento crea el volumen de repositorios para el volumen Snapshot.
+
+
+
+ a| 
+`repositoryFullLimit`
+ a| 
+El porcentaje de capacidad del volumen de repositorios en el cual se recibe una advertencia donde se indica que el volumen de repositorios de imagen Snapshot está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. El valor predeterminado es 75.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+El firmware y el software de administración del almacenamiento crean automáticamente el nombre del volumen de repositorios cuando se crea un nuevo grupo Snapshot. No se puede cambiar el nombre del volumen de repositorios; esto interrumpe el enlace con las imágenes Snapshot.
+
+Un volumen de repositorios de grupo Snapshot es un volumen expandible que se estructura como un conjunto concatenado de hasta 16 entidades de volumen estándar. Inicialmente, un volumen de repositorios expandible tiene un solo elemento. La capacidad del volumen de repositorios expandible es exactamente igual a la de ese único elemento. Para aumentar la capacidad de un volumen de repositorios expandible, se deben añadir volúmenes estándar. La capacidad compuesta del volumen de repositorios expandible pasa a ser la suma de las capacidades de todos los volúmenes estándar concatenados.
+
+Un volumen de repositorios de grupo Snapshot debe satisfacer un requisito de capacidad mínima que equivale a la suma de lo siguiente:
+
+* 32 MB para admitir la sobrecarga fija para el grupo Snapshot y el procesamiento de copia en escritura.
+* Capacidad para el procesamiento de reversiones, que es equivalente a 1/5000 de la capacidad del volumen base.
+
+
+La capacidad mínima es una imposición del firmware de la controladora y del software de administración del almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/reset-iscsiipaddress.html 
+sidebar: sidebar 
+keywords: reset, iscsi, ip address 
+summary: El comando reset iscsiIpAddress restablece la dirección IP de la cabina de almacenamiento remota para volver a establecer la conexión con la cabina de almacenamiento local. 
+---
+= Restablecer la dirección IP de iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset iscsiIpAddress` El comando restablece la dirección IP de la cabina de almacenamiento remota para restablecer la conexión con la cabina de almacenamiento local.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Este comando se puede usar para notificar a la cabina de almacenamiento local que la dirección IP de iSCSI de la cabina de almacenamiento remota se ha modificado y se debe actualizar.
+
+Cuando se establece una relación de mirroring asíncrono con una conexión iSCSI, tanto la cabina de almacenamiento remota como la local guardan un registro de la dirección IP de la cabina de almacenamiento remota en la configuración de mirroring asíncrono. Si cambia la dirección IP de un puerto iSCSI, la cabina de almacenamiento remota que intenta utilizar ese puerto se encuentra con un error de comunicación.
+
+La cabina de almacenamiento con la dirección IP modificada envía un mensaje a cada cabina de almacenamiento remota asociada con los grupos de reflejos asíncronos que están configurados de manera tal que se reflejan en una conexión iSCSI. Las cabinas de almacenamiento que reciben este mensaje actualizan automáticamente su dirección IP objetivo remota.
+
+Si la cabina de almacenamiento que tiene la dirección IP modificada no puede enviar su mensaje entre controladoras a una cabina de almacenamiento remota, el sistema envía una alerta sobre el problema de conectividad. Utilice la `reset` comando para volver a establecer conexión con la cabina de almacenamiento local.
+
+
+
+== Sintaxis
+
+[listing]
+----
+reset (remoteStorageArrayName="storageArrayName" | remoteStorageArrayWwid=<wwID>)
+iscsiIpAddress
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`remoteStorageArrayName`
+ a| 
+El nombre de la cabina de almacenamiento remota para la cual se restablece la dirección IP de iSCSI. El nombre de la cabina de almacenamiento debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remoteStorageArrayWwid`
+ a| 
+El identificador a nivel mundial (WWID) de la cabina de almacenamiento para la cual se restablece la dirección IP de iSCSI. Es posible usar el WWID en lugar del nombre de la cabina de almacenamiento para identificar la cabina de almacenamiento. El WWID debe escribirse entre paréntesis angulares (< >).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

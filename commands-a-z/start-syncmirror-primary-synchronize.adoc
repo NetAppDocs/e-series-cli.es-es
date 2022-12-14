@@ -1,0 +1,64 @@
+---
+permalink: commands-a-z/start-syncmirror-primary-synchronize.html 
+sidebar: sidebar 
+keywords: start, synchronous, mirror, synchronization 
+summary: El comando start SyncMirror primary synchronize inicia la sincronización de mirroring síncrono. 
+---
+= Inicie la sincronización de mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start syncMirror primary synchronize` el comando inicia la sincronización de mirroring síncrono.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start syncMirror primary ["_volumeName_"]] synchronize
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre del volumen primario para el cual se desea iniciar la sincronización. El nombre del volumen primario debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

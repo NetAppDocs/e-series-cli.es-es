@@ -1,0 +1,87 @@
+---
+permalink: commands-a-z/show-storagearray-hosttopology.html 
+sidebar: sidebar 
+keywords: show, storage, array, host, topology 
+summary: El comando show storageArray hostTopology muestra la topología de la partición de almacenamiento, las etiquetas del tipo de host y el índice del tipo de host correspondientes a la cabina de almacenamiento del host. 
+---
+= Mostrar topología de host de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray hostTopology` el comando muestra la topología de la partición de almacenamiento, las etiquetas del tipo de host y el índice del tipo de host para la cabina de almacenamiento del host.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray hostTopology
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Este comando muestra información de la topología de host que se asemeja al siguiente ejemplo.
+
+[listing]
+----
+TOPOLOGY DEFINITIONS
+ DEFAULT GROUP
+  Default type: Windows 2000/Server 2003 Non-Clustered
+  Host Group: scott
+   Host: scott1
+    Host Port: 28:37:48:55:55:55:55:55
+     Alias: scott11
+     Type: Windows 2000/Server 2003 Clustered
+   Host: scott2
+    Host Port: 98:77:66:55:44:33:21:23
+     Alias: scott21
+     Type: Windows 2000/Server 2003 Clustered
+   Host: Bill
+    Host Port: 12:34:55:67:89:88:88:88
+     Alias: Bill1
+     Type: Windows 2000/Server 2003 Non-Clustered
+NVSRAM HOST TYPE INDEX DEFINITIONS
+HOST TYPE                         ALUA/AVT STATUS   ASSOCIATED INDEXS
+AIX MPIO                          Disabled          9
+AVT_4M                            Enabled           5
+Factory Default                   Disabled          0
+HP-UX                             Enabled           15
+Linux (ATTO)                      Enabled           24
+Linux (DM-MP)                     Disabled          6
+Linux (Pathmanager)               Enabled           25
+Mac OS                            Enabled           22
+ONTAP                             Disabled          4
+SVC                               Enabled           18
+Solaris (v11 or Later)            Enabled           17
+Solaris (version 10 or earlier)   Disabled          2
+VMWare                            Enabled           10 (Default)
+Windows                           Enabled           1
+----
+
+
+== Nivel de firmware mínimo
+
+5.20

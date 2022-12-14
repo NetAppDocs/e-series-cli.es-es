@@ -1,0 +1,117 @@
+---
+permalink: commands-a-z/repair-data-parity.html 
+sidebar: sidebar 
+keywords: repair, data, parity 
+summary: El comando Repair Data parity repara los errores de paridad de datos. 
+---
+= Repare la paridad de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `Repair Data Parity` command repara los errores de paridad de datos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Antes de utilizar este comando, consulte al soporte de NetApp para obtener orientación sobre el firmware, las unidades y la franja RAID afectados.
+
+
+
+== Sintaxis
+
+[listing]
+----
+repair volume[volumeName] parity
+   [startingLBA=LBAvalue]
+   [endingLBA=LBAvalue]
+   [repairMethods=(repairMethod . . . repairMethod)]
+           Space delimited list where possible repair methods are: reconstruct, unmap, updateP, updateQ, updateData, and writeZeros
+   [repairPI=(TRUE|FALSE)]
+   [suspectDrives=(trayID1,[drawerID1,]slotID1 . . . trayIDn,[drawerIDn,]slotIDn)]
+   [timeout=(0-65535)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+Nombre del volumen para el cual se repara la paridad. El nombre del volumen debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`startingLBA`
+ a| 
+La dirección del bloque lógico inicial.
+
+
+
+ a| 
+`endingLBA`
+ a| 
+La dirección del bloque lógico final.
+
+
+
+ a| 
+`repairMethods`
+ a| 
+El método utilizado para reparar el error de paridad. Entre los métodos disponibles se incluyen:
+
+* Reconstruir: Reconstruye las unidades especificadas en la `suspectDrives` parámetro.
+* UNMAP: Para volúmenes de R5/R6, se utiliza para hacer que se desasigne una franja RAID de R5/R6
+* ActualizateP: Se utiliza para corregir el tipo de discrepancia de paridad de datos.
+* ActualizareQ: Se utiliza para corregir el tipo de discrepancia de paridad de datos.
+* UpdateData: Se utiliza para corregir el tipo de discrepancia de paridad de datos.
+* WriteZeros: Para volúmenes de varios discos R5/R6, se usa cuando se encuentra una franja inesperada de RAID5/6 que contiene una mezcla de datos asignados y sin asignar. Toma los bloques sin asignar en la franja y escribe ceros a la misma y, a continuación, actualiza la paridad
+
+
+
+
+ a| 
+`repairPI`
+ a| 
+Establezca EN TRUE para reparar PI en la extensión que comienza en startingLBA.
+
+
+
+ a| 
+`suspectDrives`
+ a| 
+Se utiliza para especificar las unidades para la reconstrucción.
+
+
+
+ a| 
+`timeout`
+ a| 
+El tiempo, en minutos, por el que se desea ejecutar la operación.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.63

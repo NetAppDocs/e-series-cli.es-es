@@ -1,0 +1,91 @@
+---
+permalink: commands-a-z/save-controller-cacertificate.html 
+sidebar: sidebar 
+keywords: retrieve, installed, ca, certificates 
+summary: El comando save Controller caCertificate recupera los certificados de CA instalados en una controladora especificada. En los certificados recuperados, se incluyen todos los certificados de CA solicitados del servidor web de la controladora. 
+---
+= Recupere los certificados de CA instalados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save controller caCertificate` El comando recupera los certificados de CA instalados de la controladora especificada. En los certificados recuperados, se incluyen todos los certificados de CA solicitados del servidor web de la controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+save controller[(a|b)] caCertificate [all | aliases=pass:quotes[("_alias1_" ... "_aliasN_")]]
+ path="fileLocation"
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora en la cual se desean recuperar certificados raíz/intermedios. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`all`
+ a| 
+Permite especificar la recuperación de todos los certificados que se importaron para resolver la cadena de certificados firmada. Los certificados instalados por el usuario incluyen los certificados de gestión de claves.
+
+
+
+ a| 
+`aliases`
+ a| 
+Permite especificar qué usuario instaló un certificado raíz/intermedio para recuperar por alias. Todos los alias se deben escribir entre paréntesis. Si se introducen varios alias, se deben separar con un espacio.
+
+
+
+ a| 
+`path`
+ a| 
+Permite especificar la ubicación local para guardar los certificados raíz/intermedios de los controladores.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "save controller[a] caCertificate all path="C:\";"
+
+SMcli -n Array1 -c "save controller[b] caCertificate aliases=("myAlias" "anotherAlias") path="C:\";"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

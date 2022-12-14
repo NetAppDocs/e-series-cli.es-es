@@ -1,0 +1,138 @@
+---
+permalink: commands-a-z/create-storagearray-securitykey.html 
+sidebar: sidebar 
+keywords: create, storage, array, security, key 
+summary: 'El comando create storageArray securityKey crea una nueva clave de seguridad, o modifica la existente, para una cabina de almacenamiento que tiene unidades de cifrado de disco completo (FDE).' 
+---
+= Cree una clave de seguridad de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create storageArray securityKey` Comando crea o cambia una nueva clave de seguridad de una cabina de almacenamiento que tiene unidades de cifrado de disco completo (FDE).
+
+
+
+== Cabinas compatibles
+
+Si la gestión de claves externas está habilitada, este comando solo se aplica a las cabinas E2800, E5700, EF600 y EF300. Si la gestión de claves internas está habilitada, este comando se aplica a cualquier cabina de almacenamiento individual, siempre que se hayan instalado todos los paquetes de SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Para la gestión de claves internas, este comando habilita la función Internal Key Management y crea la clave de seguridad. Después de crear la clave, utilice `set storageArray securityKey` comando para poner la clave en uso. Este comando también permite modificar la clave de seguridad.
+
+Para la gestión de claves externas, este comando crea una nueva clave que sustituye la clave inicial creada al habilitar la función. Utilice la `enable storageArray externalKeyManagement` Comando para habilitar la función Gestión de claves externa y crear la clave de seguridad inicial. Este comando también permite modificar la clave de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create storageArray securityKey
+[keyIdentifier=pass:quotes[_"keyIdentifierString"_]]
+passPhrase=pass:quotes[_"passPhraseString"_
+file=_"fileName"_]
+[commitSecurityKey=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`keyIdentifier` - solo se aplica a la gestión de claves internas
+ a| 
+Una cadena de caracteres que admite lectura y sirve como contenedor de una clave de seguridad. El identificador de claves debe escribirse entre comillas dobles (" ").
+
+Es posible introducir caracteres para el identificador de claves de las claves de seguridad internas, lo que sirve para identificar la clave más adelante. Las reglas de formato son las siguientes:
+
+* Es posible introducir hasta 189 caracteres alfanuméricos para el identificador de claves. El identificador de claves no puede incluir los siguientes caracteres:
++
+** Espacios
+** Signos de puntuación
+** Símbolos
+
+
+* Si no introduce el `keyIdentifer` parámetro para las claves internas, la controladora genera automáticamente el `keyIdentifer` parámetro.
+
+
+Los caracteres restantes se generan automáticamente y se añaden al final de la cadena introducida para el identificador de claves. Si no se introduce ninguna cadena para el `keyIdentifier` parámetro, el identificador de claves solo consta de caracteres generados automáticamente.
+
+[NOTE]
+====
+Este parámetro se omite para la gestión de claves externas, ya que el identificador de claves se genera de forma totalmente automática. Si la cabina de almacenamiento tiene una etiqueta de usuario, esta cadena generada automáticamente se compone de los caracteres `sa.`, seguido por la etiqueta de usuario de la matriz de almacenamiento, el identificador de la matriz de almacenamiento y una cadena generada aleatoriamente. Los caracteres de la etiqueta de usuario que no sean alfanuméricos se convierten en guiones bajos (`_`) carácter. Por ejemplo, la etiqueta de usuario abc#8 se convertirá en `sa.abc_8` antes de anteponer al resto del identificador de claves. Para las cabinas de almacenamiento sin etiqueta de usuario, el identificador de claves consta del identificador de la cabina de almacenamiento y una cadena generada aleatoriamente.
+
+====
+
+
+ a| 
+`passPhrase`
+ a| 
+Una cadena de caracteres que cifra la clave de seguridad para poder almacenarla en un archivo externo. La frase de contraseña debe escribirse entre comillas dobles (" ").
+
+En las notas de la descripción de este comando, se ofrece más información sobre la forma de crear una frase de contraseña válida.
+
+La frase de contraseña debe cumplir los siguientes criterios:
+
+* Debe tener entre 8 y 32 caracteres.
+* No debe incluir espacios en blanco.
+* Debe incluir al menos una letra mayúscula.
+* Debe incluir al menos una letra minúscula.
+* Debe incluir al menos un número.
+* Debe incluir al menos un carácter alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de error y se solicita volver a ejecutar el comando.
+
+====
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardará la clave de seguridad. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\drivesecurity.slk"
+----
+[NOTE]
+====
+El nombre de archivo debe tener la extensión de `.slk` .
+
+====
+La ruta y el nombre del archivo deben escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`commitSecurityKey` - solo se aplica a la gestión de claves internas
+ a| 
+Este parámetro confirma la clave de seguridad con la cabina de almacenamiento para todas las unidades FDE, así como con las controladoras. Una vez que se confirma la clave de seguridad, se exige una clave para permitir el acceso a los datos de las unidades con la función de seguridad habilitada en la cabina de almacenamiento. Solo es posible leer o modificar los datos si se usa una clave, y nunca se puede usar la unidad en un modo no seguro. De lo contrario, los datos quedarían inutilizables o se borraría por completo la unidad.
+
+El valor predeterminado es FALSE. Si este parámetro está configurado en FALSE, envíe un mensaje aparte `set storageArray securityKey` comando para confirmar la clave de seguridad con la cabina de almacenamiento.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.40, incluido para la gestión de claves internas
+
+8.40, incluido para la gestión de claves externas

@@ -1,0 +1,119 @@
+---
+permalink: commands-a-z/set-volume-logicalunitnumber.html 
+sidebar: sidebar 
+keywords: set, volume, map 
+summary: El comando set volume logicalUnitNumber define el mapa de LUN o el ID de NSID entre un volumen y un host o grupo de hosts. 
+---
+= Configurar asignación de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set volume logicalUnitNumber` El comando define el mapa de número de unidad lógica (LUN) o el ID de espacio de nombres (NSID) entre un volumen y un host o grupo de hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando es aplicable a los volúmenes de un grupo de volúmenes o pool de discos.
+
+[NOTE]
+====
+No se puede usar este comando para un volumen Snapshot que se usa en una copia de volumen en línea.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set (volume pass:quotes[[_volumeName_]] | volume <"wwID"> | accessVolume)
+pass:quotes[logicalUnitNumber=_lun_]
+pass:quotes[(host="_hostName_"] |
+hostGroup=pass:quotes[("_hostGroupName_"] | defaultGroup)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen para el cual se desea definir el número de unidad lógica. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volume`
+ a| 
+El identificador WWID del volumen para el cual se desea definir el número de unidad lógica. El nombre del WWID debe escribirse entre comillas dobles (" ") entre paréntesis angulares (< >).
+
+
+
+ a| 
+`accessVolume`
+ a| 
+El número de unidad lógica para el volumen de acceso. El número de unidad lógica es la única propiedad que se puede configurar para el volumen de acceso.
+
+
+
+ a| 
+`logicalUnitNumber`
+ a| 
+El número de unidad lógica o el ID de espacio de nombres que se desean usar para asignar un host específico. Este parámetro también asigna el host a un grupo de hosts.
+
+[NOTE]
+====
+El número de unidad lógica o el ID de espacio de nombres que se especifican no deben estar en uso y deben encontrarse dentro del rango compatible con el sistema operativo del host. No ocurrirá ningún error si se asigna el volumen a un número de unidad lógica o ID de espacio de nombres que no sean compatibles con el host, pero el host no podrá acceder al volumen.
+
+====
+
+
+ a| 
+`host`
+ a| 
+Nombre del host al que se asigna el volumen. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`hostGroup`
+ a| 
+Nombre del grupo de hosts al que se asigna el volumen. El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). `defaultGroup` es el grupo de hosts que contiene el host al que se asigna el volumen.
+
+|===
+
+
+== Notas
+
+Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+El volumen de acceso es el volumen de un entorno SAN que se usa para la comunicación en banda entre el software de administración del almacenamiento y la controladora de la cabina de almacenamiento. Este volumen usa una dirección de LUN o NSID y consume 20 MB de espacio de almacenamiento que no está disponible para el almacenamiento de datos de la aplicación. Se requiere un volumen de acceso solo para las cabinas de almacenamiento gestionadas en banda. Si especifica el `accessVolume` parámetro, la única propiedad que se puede establecer es la `logicalUnitNumber` parámetro.
+
+
+
+== Nivel de firmware mínimo
+
+7.83 añade volumen snapshot para pools de discos.

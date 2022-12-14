@@ -1,0 +1,279 @@
+---
+permalink: get-started/downloadable-smcli-parameters.html 
+sidebar: sidebar 
+keywords: downloadable, smcli, command line, parameters 
+summary: 'La versión de SANtricity OS 11.60 incluía la capacidad de descargar e instalar la versión de la CLI basada en http (también conocida como CLI segura o SMcli) directamente a través del System Manager de SANtricity.' 
+---
+= Parámetros de línea de comandos de SMcli descargables
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+
+
+== 11.60 y nuevos parámetros de línea de comandos de SMcli descargables
+
+La versión de SANtricity OS 11.60 incluye la capacidad de descargar e instalar la versión de la CLI basada en http (también conocida como "CLI segura" o SMcli) directamente a través del System Manager de SANtricity. Esta versión descargable de SMcli está disponible en EF600, EF300, E5700, EF570, E2800, Y las controladoras EF280. Para descargar la SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* > *sistema* y *Complementos* > *interfaz de línea de comandos* .
+
+
+NOTE: Debe haber disponible un entorno Java Runtime Environment (JRE), versión 8 y superior en el sistema de administración en el que planea ejecutar los comandos de la CLI.
+
+Como en las versiones anteriores de SMcli, la SMcli descargable a través de System Manager de SANtricity tiene un conjunto único de parámetros. Para obtener información sobre el uso de parámetros de línea de comandos para SANtricity OS 11.53 y versiones anteriores, consulte xref:./get-started/command-line-parameters.adoc[Parámetros de la línea de comandos heredados]
+
+
+
+=== Autenticación multifactor
+
+Si SAML (lenguaje de marcado de aserción de seguridad) está habilitado, solo se pueden usar tokens de acceso con la CLI. Si SAML no está habilitado, se pueden utilizar el nombre de usuario/contraseña o los tokens de acceso. Los tokens de acceso pueden generarse mediante el Administrador del sistema SANtricity.
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`-t`
+ a| 
+Define el token de acceso que se utilizará para la autenticación con una cabina de almacenamiento. Un token de acceso es un reemplazo para proporcionar el nombre de usuario y la contraseña.
+
+
+
+ a| 
+`-T` (mayúscula)
+ a| 
+Este argumento requiere uno de estos dos argumentos:
+
+* `access_token-file` - Contiene el token de acceso que se va a utilizar para la autenticación
+* `-(dash)` - Lea el token de acceso de stdin
+
+
+
+
+ a| 
+`-u`
+ a| 
+Siga este parámetro con el `_username_` variable. Este parámetro es necesario siempre que no se utilice un token de acceso.
+
+
+
+ a| 
+`-p`
+ a| 
+Define la contraseña de la cabina de almacenamiento en la cual se desean ejecutar comandos. No es necesaria una contraseña en las siguientes condiciones:
+
+* No se estableció una contraseña en la cabina de almacenamiento.
+* La contraseña está especificada en un archivo de script en ejecución.
+
+
+
+
+ a| 
+`-P` (mayúscula)
+ a| 
+Este argumento requiere uno de estos dos argumentos:
+
+* `_password_file_` - Contiene la contraseña que se debe utilizar para la autenticación.
+* `-` (Un guion) - Lea la contraseña desde `stdin`.
+
+
+|===
+
+
+=== Parámetros generales de la línea de comandos del modo https
+
+La SMcli descargable solo admite el modo https. Los siguientes son parámetros de la línea de comandos más utilizados para el modo https.
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`_host-name-or-IP-address_`
+ a| 
+Especifica el nombre de host o la dirección del protocolo de Internet (IP) (`_xxx.xxx.xxx.xxx_`) de una cabina de almacenamiento gestionada fuera de banda.
+
+Cuando se administra la administración del almacenamiento fuera de banda a través de la conexión Ethernet de cada controladora, se debe especificar el `_host-name-or-IP-address_` de las controladoras.
+
+
+
+ a| 
+`-k`
+ a| 
+Este argumento opcional permite a. `*https*` para que el cliente funcione en modo no seguro. Esto significa que el certificado de la cabina de almacenamiento no se valida. De forma predeterminada, si se omite, se realiza la validación adecuada.
+
+
+NOTE: Para obtener información adicional sobre la gestión de certificados de la cabina de almacenamiento, consulte <<storedcertificates,Administrar los parámetros de línea de comandos de certificados almacenados>>.
+
+
+
+ a| 
+`-e`
+ a| 
+Ejecuta los comandos sin realizar primero una comprobación de la sintaxis.
+
+
+
+ a| 
+`-L` (mayúscula)
+ a| 
+Muestra los avisos legales de SMcli Downloadable.
+
+
+
+ a| 
+`-n`
+ a| 
+Especifica la etiqueta almacenada localmente en la que desea ejecutar los comandos de script. Esto es opcional cuando se utiliza `_host-name-or-IP-address_`. La etiqueta almacenada localmente se requiere cuando el `_host-name-or-IP-address_` no se utiliza.
+
+
+NOTE: Para obtener información adicional sobre el uso de etiquetas almacenadas localmente para gestionar las cabinas de almacenamiento, consulte <<managearrays,Administrar parámetros de línea de comandos de matrices almacenadas>>.
+
+
+
+ a| 
+`-o`
+ a| 
+Especifica un nombre de archivo para todo el texto de salida que se genera como resultado de la ejecución de los comandos de script. Utilice la `-o` parámetro con estos parámetros:
+
+* `-c`
+* `-f`
+
+
+Si no se especifica un archivo de resultados, el texto de salida va a los resultados estándar  `stdout`). Se envían todos los resultados de los comandos que no son comandos de script a. `stdout`, independientemente de si este parámetro está establecido.
+
+
+
+ a| 
+`-S` (mayúscula)
+ a| 
+Suprime los mensajes informativos sobre el progreso de los comandos que aparecen cuando se ejecutan comandos de script. (La supresión de los mensajes informativos también se denomina modo silencioso). Este parámetro suprime los mensajes que indican lo siguiente:
+
+* `Performing syntax check`
+* `Syntax check complete`
+* `Executing script`
+* `Script execution complete`
+* `SMcli completed successfully`
+
+
+
+
+ a| 
+`-version`
+ a| 
+Muestra la versión descargable de SMcli
+
+
+
+ a| 
+`-?`
+ a| 
+Muestra la información de uso de los comandos de la CLI.
+
+|===
+
+
+=== Gestión de las cabinas almacenadas
+
+Los siguientes parámetros de línea de comandos permiten gestionar cabinas almacenadas a través de la etiqueta almacenada localmente.
+
+
+NOTE: Es posible que la etiqueta almacenada localmente no coincida con el nombre real de la cabina de almacenamiento que se muestra en SANtricity System Manager.
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`SMcli storageArrayLabel show all`
+ a| 
+Muestra todas las etiquetas almacenadas localmente y sus direcciones asociadas
+
+
+
+ a| 
+`SMcli storageArrayLabel show label <LABEL>`
+ a| 
+Muestra las direcciones asociadas con la etiqueta almacenada localmente denominada `<LABEL>`
+
+
+
+ a| 
+`SMcli storageArrayLabel delete all`
+ a| 
+Elimina todas las etiquetas almacenadas localmente
+
+
+
+ a| 
+`SMcli storageArrayLabel delete label <LABEL>`
+ a| 
+Elimina la etiqueta almacenada localmente denominada `<LABEL>`
+
+
+
+ a| 
+`SMcli <host-name-or-IP-address> [host-name-or-IP-address] storageArrayLabel add label <LABEL>`
+ a| 
+* Agrega una etiqueta almacenada localmente con el nombre `<LABEL>` que contiene las direcciones proporcionadas
+* Las actualizaciones no son compatibles directamente. Para actualizar, elimine la etiqueta y vuelva a añadirla.
+
+
+
+NOTE: SMcli no entra en contacto con la cabina de almacenamiento cuando se añade una etiqueta almacenada localmente.
+
+|===
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`SMcli localCertificate show all`
+ a| 
+Muestra todos los certificados de confianza almacenados localmente
+
+
+
+ a| 
+`SMcli localCertificate show alias <ALIAS>`
+ a| 
+Muestra un certificado de confianza almacenado localmente con el alias `<ALIAS>`
+
+
+
+ a| 
+`SMcli localCertificate delete all`
+ a| 
+Elimina todos los certificados de confianza almacenados localmente
+
+
+
+ a| 
+`SMcli localCertificate delete alias <ALIAS>`
+ a| 
+Elimina un certificado de confianza almacenado localmente con el alias `<ALIAS>`
+
+
+
+ a| 
+`SMcli localCertificate trust file <CERT_FILE> alias <ALIAS>`
+ a| 
+* Guarda un certificado de confianza con el alias `<ALIAS>`
+* El certificado que se deberá confiar se descarga de la controladora en una operación separada, como mediante un explorador web
+
+
+
+
+ a| 
+`SMcli <host-name-or-IP-address> [host-name-or-IP-address] localCertificate trust`
+ a| 
+* Se conecta a cada dirección y guarda el certificado devuelto en el almacén de certificados de confianza
+* El nombre de host o la dirección IP especificada se utiliza como alias para cada certificado guardado de esta manera
+* El usuario debe comprobar que el certificado de las controladoras se debe tener de confianza antes de ejecutar este comando
+* Para obtener la mayor seguridad, se debe utilizar el comando trust que toma un archivo para garantizar que el certificado no haya cambiado entre la validación del usuario y la ejecución de este comando
+
+
+|===

@@ -1,0 +1,81 @@
+---
+permalink: commands-a-z/show-volumecopy.html 
+sidebar: sidebar 
+keywords: show, volume, copy 
+summary: El comando show VolumeCopy muestra información acerca de las operaciones de copia de volumen. 
+---
+= Mostrar copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volumeCopy` el comando muestra información acerca de las operaciones de copia de volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+Este comando muestra la siguiente información acerca de las operaciones de copia de volumen:
+
+* El estado de la copia
+* La Marca de hora de inicio
+* La Marca de hora de finalización
+* La prioridad de copia
+* El identificador WWID del volumen de origen o el WWID del volumen objetivo
+* La configuración del atributo solo de lectura del volumen objetivo
+
+
+Se puede recuperar información acerca de una pareja de copia de volumen específica o de todas las parejas de copia de volumen de la cabina de almacenamiento. Este comando es válido para las parejas de copias de volumen Snapshot.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show volumeCopy (allVolumes | source pass:quotes[["_sourceName_"]] |
+target pass:quotes[["_targetName_"]])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+La configuración que muestra información acerca de las operaciones de copia de volumen de todas las parejas de copia de volumen.
+
+
+
+ a| 
+`source`
+ a| 
+El nombre del volumen de origen del cual se desea recuperar información. El nombre del volumen de origen debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`target`
+ a| 
+El nombre del volumen objetivo del cual se desea recuperar información. El nombre del volumen objetivo debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+|===

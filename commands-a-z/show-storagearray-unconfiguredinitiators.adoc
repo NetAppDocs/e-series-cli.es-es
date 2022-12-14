@@ -1,0 +1,48 @@
+---
+permalink: commands-a-z/show-storagearray-unconfiguredinitiators.html 
+sidebar: sidebar 
+keywords: show, unconfigured, initiators 
+summary: El comando show storageArray unconfiguredInitiators muestra una lista de iniciadores que detectó la cabina de almacenamiento, pero que todavía no se configuraron en la topología de la cabina de almacenamiento. 
+---
+= Muestra iniciadores sin configurar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray unconfiguredInitiators` el comando muestra una lista de iniciadores detectados por la cabina de almacenamiento que todavía no se configuraron en la topología de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+Este comando sustituye a link:show-storagearray-unconfigurediscsiinitiators.html["Show storageArray unconfiguredIscsiInitiators"] comando.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray unconfiguredInitiators
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.50

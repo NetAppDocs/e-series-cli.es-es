@@ -1,0 +1,67 @@
+---
+permalink: commands-a-z/set-storagearray-hostconnectivityreporting.html 
+sidebar: sidebar 
+keywords: enable, disable, host, connectivity, report 
+summary: El comando set storageArray hostConnectivityReporting habilita o deshabilita la generación de informes sobre conectividad de host en la controladora. 
+---
+= Habilitar o deshabilitar la generación de informes de conectividad de host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray hostConnectivityReporting` el comando habilita o deshabilita la generación de informes de conectividad de host en la controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray hostConnectivityReporting (enable | disable)
+----
+
+
+== Contexto
+
+Cuando se habilita la generación de informes de conectividad de host en la cabina de almacenamiento, la cabina supervisa constantemente la conexión entre las controladoras de la cabina de almacenamiento y los hosts configurados, y envía alertas si la conexión se interrumpe debido a cables flojos, dañados o ausentes, o a otros problemas con el host. El usuario también recibe una notificación si el tipo de host no se especificó correctamente en la cabina de almacenamiento (lo cual provoca problemas de conmutación por error).
+
+[NOTE]
+====
+Para deshabilitar la generación de informes de conectividad de host, primero se debe deshabilitar el equilibrio de carga automático.
+
+====
+[NOTE]
+====
+Es posible mantener habilitada la conectividad de host aunque se deshabilite el equilibrio de carga automático.
+
+====
+[NOTE]
+====
+La generación de informes de conectividad de host y el equilibrio de carga automático funcionan únicamente en los hosts de tipo Linux DHALUA, Windows/Windows Clustered y VMware.
+
+====
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.42 Nuevo parámetro de comando.

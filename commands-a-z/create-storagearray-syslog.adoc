@@ -1,0 +1,100 @@
+---
+permalink: commands-a-z/create-storagearray-syslog.html 
+sidebar: sidebar 
+keywords: create, storage, array, syslog, configuration 
+summary: El comando create storageArray syslog permite archivar registros de auditoría en un servidor de syslog externo. Una vez que se establece la conexión entre la cabina de almacenamiento y el servidor de syslog, los registros de auditoría se almacenan automáticamente en el servidor de syslog. 
+---
+= Crear la configuración de syslog de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create storageArray syslog` el comando permite archivar registros de auditoría en un servidor de syslog externo. Una vez que se establece la conexión entre la cabina de almacenamiento y el servidor de syslog, los registros de auditoría se almacenan automáticamente en el servidor de syslog.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+create storageArray syslog serverAddress="<address>" port=<port> protocol=("udp" | "tcp" | "tls") components=(componentName=("auditLog") ...)
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`serverAddress`
+ a| 
+Nombre de host o dirección IP del receptor de syslog.
+
+
+
+ a| 
+`port`
+ a| 
+Número de puerto del receptor de syslog.
+
+
+
+ a| 
+`protocol`
+ a| 
+Protocolo de transmisión de syslog. Los valores admitidos incluyen udp, tcp o tls.
+
+
+
+ a| 
+`components`
+ a| 
+Lista de entradas del componente que se registrarán en el servidor de syslog. En este momento, solo se admiten registros de auditoría.
+
+
+
+ a| 
+`componentName`
+ a| 
+Nombre del componente; en este momento, solo se admite "auditlog".
+
+|===
+
+
+=== Ejemplo
+
+[listing]
+----
+SMcli -n Array1 -c "create storageArray syslog
+serverAddress=\"192.168.2.1\" port=514 protocol=\"udp\"
+components=(componentName=\"auditLog\");"
+ID: 331998fe-3154-4489-b773-b0bb60c6b48e
+Server Address: 192.168.2.1.com
+Port: 514
+Protocol: udp
+Components
+1. Component Name: auditLog
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.42

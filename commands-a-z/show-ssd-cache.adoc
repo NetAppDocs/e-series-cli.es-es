@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/show-ssd-cache.html 
+sidebar: sidebar 
+keywords: show, ssd, cache 
+summary: El comando show ssdCache muestra información acerca de la caché SSD. 
+---
+= Mostrar caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show ssdCache` El comando muestra información acerca de la caché SSD.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show ssdCache pass:quotes[[_ssdCacheName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD de la que se desea recuperar información. El nombre de la caché SSD debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+Este comando muestra información de la caché SSD que se asemeja al siguiente ejemplo.
+
+[listing]
+----
+SSD Cache name: my_cache
+
+Status:                              Optimal
+Type:                                Read Only
+I/O characteristic type:             File System
+Maximum capacity allowed:            1,862.645 GB
+Current capacity:                    557.792 GB
+Additional capacity allowed          1,304.852 GB
+Drive capacities:                    All 278.896 GB
+Quality of Service (QoS) Attributes
+   Security capable:                 No
+   Secure:                           No
+   Data Assurance (DA) capable:      No
+Associated drives:
+
+Tray     Slot
+0        4
+0        11
+Volumes using SSD cache:             volume_test
+----
+
+
+== Nivel de firmware mínimo
+
+7.84

@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/show-storagearray-odxsetting.html 
+sidebar: sidebar 
+keywords: show, storage, array, odx, set 
+summary: 'El comando show storageArray odxsetting muestra la configuración actual de la transferencia de datos descargados (ODX) y la arquitectura de cabinas de VMware vStorage API (VAAI) de la cabina de almacenamiento.' 
+---
+= Mostrar configuración ODX de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray odxsetting` El comando muestra la configuración actual de la transferencia de datos descargados (ODX) y la arquitectura de cabinas de VMware vStorage API (VAAI) de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+La configuración de este comando puede ser alguna de las siguientes opciones:
+
+* True -- ODX y VAAI están activados.
+* False -- ODX y VAAI están desactivados.
+* Inconsistent -- las controladoras no tienen la misma configuración.
+* Unknown: No se puede determinar la configuración de ODX ni VAAI.
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray odxsetting
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Este comando muestra información de ODX y VAAI que se asemeja al siguiente ejemplo.
+
+[listing]
+----
+Windows ODX Setting Status
+odxEnabled  True | False | Inconsistent | Unknown
+vaaiEnabled True | False | Inconsistent | Unknown
+----
+
+
+== Nivel de firmware mínimo
+
+8.20

@@ -1,0 +1,95 @@
+---
+permalink: commands-a-z/save-storagearray-dbmvalidatorinfo.html 
+sidebar: sidebar 
+keywords: save, storage, array, dbm, validator, information, file 
+summary: 'El comando save storageArray dbmValidatorInfo guarda la información de validación de gestión de bases de datos (DBM) para una cabina de almacenamiento en un archivo XML.' 
+---
+= Guarde el archivo de información de validador de DBM de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray dbmValidatorInfo` Comando guarda la información de validación de gestión de bases de datos (DBM) para una cabina de almacenamiento en un archivo XML.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+El soporte técnico puede usar este archivo XML para generar una cadena de validador (un código de seguridad). La cadena de validador se debe incluir en la `load storageArray dbmDatabase` comando al restaurar una cabina de almacenamiento a una configuración preexistente.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray dbmValidatorInfo file=pass:quotes["_filename_"] dbmDatabase=pass:quotes["_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo del validador DBM requerido para el soporte técnico. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Array Backups \DBMvalidator.xml"` Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Es necesario especificar la extensión de archivo .xml al introducir el nombre del archivo.
+
+
+
+ a| 
+`dbmDatabase`
+ a| 
+La ruta y el nombre del archivo de la base de datos DBM desde la cual se desea generar el archivo de información XML. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`dbmDatabase="C:\Array Backups \DBMbackup_03302010.dbm"` Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Es necesario especificar la extensión de archivo .dbm al introducir el nombre del archivo.
+
+|===
+
+
+== Notas
+
+Si desea generar el archivo de información XML para obtener una cadena de validador, debe ejecutar este comando mientras está conectado a la controladora donde intenta restaurar la base de datos. En el siguiente ejemplo, se muestra el formato del archivo XML:
+
+[listing]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<DbmImageMetadata>
+<Controllers>
+<A>1IT0nnnnnnnnnABCD</A>
+<B>1T0nnnnnnnnnABCD</B>
+</Controllers>
+<Header>
+<ImageVersion>1</ImageVersion>
+<TimeStamp>1269388283</TimeStamp>
+</Header>
+<Trailer>
+<CRC>nnnnnnnnnn</CRC><
+/Trailer>
+</DbmImageMetadata>
+----
+
+
+== Nivel de firmware mínimo
+
+7.75

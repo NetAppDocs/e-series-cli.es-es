@@ -1,0 +1,58 @@
+---
+permalink: commands-a-z/clear-syslog-configuration.html 
+sidebar: sidebar 
+keywords: clear, syslog, configuration 
+summary: El comando clear syslog Configuration borra la información de alertas de syslog. 
+---
+= Borrar configuración de syslog
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `clear syslog configuration` el comando borra la información de alertas de syslog.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+clear syslog configuration
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "clear syslog configuration;"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

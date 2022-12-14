@@ -1,0 +1,76 @@
+---
+permalink: commands-a-z/remove-member-volume-from-consistency-group.html 
+sidebar: sidebar 
+keywords: remove, member, volume, consistency group 
+summary: El comando set consistencyGroup quita un volumen miembro de un grupo de coherencia Snapshot existente. 
+---
+= Quite el volumen miembro del grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set consistencyGroup` el comando quita un volumen miembro de un grupo de coherencia snapshot existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+De manera opcional, se pueden eliminar miembros de volúmenes de repositorios del grupo de coherencia.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set consistencyGroup pass:quotes[[_"consistencyGroupName"_]]
+removeCGMemberVolume=pass:quotes["_memberVolumeName_"]
+[deleteRepositoryMembers=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`consistencyGroupName`
+ a| 
+Nombre del grupo de coherencia del que se desea quitar un miembro. El nombre del grupo de coherencia debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`removeCGMemberVolume`
+ a| 
+Nombre del volumen miembro que se desea quitar. El nombre del volumen miembro debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`deleteRepositoryMembers`
+ a| 
+Determina si se quitarán todos los miembros de repositorio del grupo de coherencia.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

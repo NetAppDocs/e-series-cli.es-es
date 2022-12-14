@@ -1,0 +1,60 @@
+---
+permalink: commands-a-z/start-syslog-test.html 
+sidebar: sidebar 
+keywords: test, syslog, configuration 
+summary: El comando start syslog test envía un mensaje de muestra para realizar una prueba de la configuración de syslog. 
+---
+= Probar configuración de syslog
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start syslog test` el comando envía un mensaje de muestra para realizar una prueba de la configuración de syslog.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+start syslog test
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "start syslog test;"
+
+The sample alert message was successfully sent to the syslog servers.
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

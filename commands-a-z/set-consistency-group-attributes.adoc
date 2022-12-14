@@ -1,0 +1,111 @@
+---
+permalink: commands-a-z/set-consistency-group-attributes.html 
+sidebar: sidebar 
+keywords: set, consistency, group, attributes 
+summary: El comando set consistencyGroup define las propiedades de un grupo de coherencia Snapshot. 
+---
+= Configure los atributos del grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set consistencyGroup` el comando define las propiedades de un grupo de coherencia snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set consistencyGroup pass:quotes[["_consistencyGroupName_"]]
+[userLabel=pass:quotes["_consistencyGroupName_"]]
+[repositoryFullPolicy=(failBaseWrites | purgeSnapImages)]
+[repositoryFullLimit=pass:quotes[_percentValue_]]
+[autoDeleteLimit=pass:quotes[_numberOfSnapImages_]]
+[rollbackPriority=(lowest | low | medium | high | highest)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`consistencyGroupName`
+ a| 
+El nombre del grupo de coherencia para el que se configuran las propiedades. El nombre del grupo de coherencia debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nuevo nombre que se desea otorgar al grupo de coherencia Snapshot. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`repositoryFullPolicy`
+ a| 
+La forma en que se desea que el procesamiento de la Snapshot prosiga si los volúmenes de repositorios Snapshot están llenos. Es posible optar por conmutar escrituras en el volumen base (`failBaseWrites`) o eliminar (purgar) las imágenes snapshot  `purgeSnapImages`). La acción predeterminada es `purgeSnapImages`.
+
+
+
+ a| 
+`repositoryFullLimit`
+ a| 
+El porcentaje de la capacidad del repositorio que debe alcanzarse para que se envíe una advertencia de que el volumen de repositorio Snapshot está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. El valor predeterminado es 75.
+
+
+
+ a| 
+`autoDeleteLimit`
+ a| 
+Es posible configurar cada grupo de coherencia para eliminar automáticamente sus imágenes Snapshot con el fin de mantener el número total de imágenes Snapshot en el grupo Snapshot en un nivel determinado o por debajo de él. Cuando se habilita esta opción, cada vez que se crea una nueva imagen Snapshot en el grupo Snapshot, el sistema elimina automáticamente la imagen Snapshot más antigua del grupo a fin de cumplir el límite. Esta acción libera capacidad en el repositorio que se puede utilizar para satisfacer los requisitos continuos de copia en escritura para las imágenes Snapshot restantes.
+
+
+
+ a| 
+`rollBackPriority`
+ a| 
+La prioridad para las operaciones de reversión en un grupo de coherencia mientras la cabina de almacenamiento se encuentra en funcionamiento. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Cuando se usa este comando, es posible especificar uno o varios parámetros. Sin embargo, no es necesario usar todos los parámetros.
+
+La prioridad de reversión define la cantidad de recursos del sistema que se deben asignar a la operación de reversión a expensas del rendimiento del sistema. Valor de `high` Indica que la operación de reversión tiene prioridad sobre todas las demás operaciones de I/o del host Valor de `low` Indica que la operación de reversión debe ejecutarse con el menor impacto posible en la actividad de I/o del host
+
+
+
+== Eliminación automática
+
+Es posible configurar cada grupo Snapshot para eliminar automáticamente sus imágenes Snapshot con el fin de mantener el número total de imágenes Snapshot en el grupo Snapshot en o debajo de un número máximo de imágenes. Cuando se alcanza el límite máximo de imágenes Snapshot en el grupo Snapshot, el `autoDeleteLimit` el parámetro elimina automáticamente las imágenes snapshot cada vez que se crea una nueva imagen snapshot en el grupo snapshot. La `autoDeleteLimit` el parámetro elimina las imágenes snapshot más antiguas del grupo snapshot hasta que se cumple la cantidad máxima de imágenes definidas con el parámetro. Eliminar imágenes Snapshot de esta manera libera capacidad en el repositorio que se puede utilizar para satisfacer los requisitos continuos de copia en escritura de las imágenes Snapshot restantes.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

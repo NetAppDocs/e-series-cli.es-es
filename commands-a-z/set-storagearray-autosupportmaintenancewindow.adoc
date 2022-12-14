@@ -1,0 +1,93 @@
+---
+permalink: commands-a-z/set-storagearray-autosupportmaintenancewindow.html 
+sidebar: sidebar 
+keywords: enable, disable, autosupport, maintenance, window, individual, E2800, E5700, arrays 
+summary: El comando set storageArray autoSupportMaintenanceWindow activa o desactiva la función de ventana de mantenimiento de AutoSupport. 
+---
+= Habilitar o deshabilitar la ventana de mantenimiento de AutoSupport (para cabinas E2800 o E5700 individuales)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray autoSupportMaintenanceWindow` El comando activa o desactiva la función de ventana de mantenimiento de AutoSupport.
+
+Una ventana de mantenimiento permite suprimir la creación automática de incidencias en los eventos de error. En el modo de funcionamiento normal, la cabina de almacenamiento usa AutoSupport para iniciar un caso de soporte técnico cuando se produce un problema. Cuando AutoSupport entra en una ventana de mantenimiento, esta función se suprime.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray autoSupportMaintenanceWindow (enable | disable)
+    emailAddresses=("emailAddress1" "emailAddress2" ...)
+    [duration=<duration_in_hours>];
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`emailAddresses`
+ a| 
+La lista de direcciones de correo electrónico para recibir un mensaje de confirmación de que se procesó la solicitud de ventana de mantenimiento. Se pueden especificar hasta cinco direcciones de correo electrónico.
+
+
+
+ a| 
+`duration`
+ a| 
+Opcional. La duración (en horas) de la habilitación de la ventana de mantenimiento. Si se omite, se usa la duración máxima permitida (72 horas).
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "set storageArray autoSupportMaintenanceWindow enable
+      emailAddresses=\"me@company.com\" duration=5;"
+
+SMcli completed successfully.
+----
+[listing]
+----
+SMcli -n Array1 -c "set storageArray autoSupportMaintenanceWindow enable
+      emailAddresses=(\"me1@company.com\" \"me2@company.com\");"
+
+SMcli completed successfully.
+----
+[listing]
+----
+SMcli -n Array1 -c "set storageArray autoSupportMaintenanceWindow disable
+      emailAddresses=(\"me1@company.com\" \"me2@company.com\" \"me3@company.com\"
+      \"me4@company.com\" \"me5@company.com\");"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.42

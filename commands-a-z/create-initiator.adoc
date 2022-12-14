@@ -1,0 +1,98 @@
+---
+permalink: commands-a-z/create-initiator.html 
+sidebar: sidebar 
+keywords: create, initiator 
+summary: El comando create initiator crea el objeto iniciador. 
+---
+= Cree el iniciador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create initiator` comando crea el objeto iniciador.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando reemplaza a la obsoleto xref:create-iscsiinitiator.adoc[Cree un iniciador de iSCSI] comando.
+
+====
+[NOTE]
+====
+Este comando solo se aplica a iSCSI, Iser, NVMe over roce, NVMe over InfiniBand y NVMe over Fibre Channel.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+
+create initiator identifier="initiatorQualifiedName" userLabel="initiatorName" host="hostName"
+interfaceType=(iscsi | iser | nvmeof) [chapSecret="securityKey"]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`identifier`
+ a| 
+Permite especificar el nombre completo del identificador (como IQN o nqn) para crear un iniciador. El identificador debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userLabel`
+ a| 
+Permite especificar una etiqueta de usuario para el iniciador. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+Permite especificar el nombre de host donde se instala el iniciador. El nombre debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`interfaceType`
+ a| 
+Permite especificar el tipo de interfaz al que corresponde el iniciador. Las opciones válidas son: iscsi, Iser o nvmeof.
+
+
+
+ a| 
+`chapSecret`
+ a| 
+Permite introducir la clave de seguridad que se desea usar para autenticar una conexión entre iguales. La clave de seguridad debe escribirse entre comillas dobles (" "). Este parámetro se aplica únicamente a los tipos de interfaz del host iSCSI e Iser.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.41

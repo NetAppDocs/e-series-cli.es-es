@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/set-storagearray-localusername.html 
+sidebar: sidebar 
+keywords: set, storage, array, local, user, password, symbol 
+summary: El comando set storageArray localUsername y el comando set storageArray symbol permiten configurar una contraseña de nombre de usuario local o una contraseña Symbol para un rol en particular. 
+---
+= Configure la contraseña de usuario local o la contraseña Symbol de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray localUsername` y la `set storageArray symbol` El comando permite configurar una contraseña de nombre de usuario local o una contraseña Symbol para un rol en particular.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set storageArray (localUsername=pass:quotes[{ _admin_ | _storage_ | _security_ | _support_ | _monitor_}]
+| symbol [userRole={admin | monitor}])
+password="string" adminPassword="string"
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`localUsername`
+ a| 
+Permite especificar el usuario para cambiar la contraseña. Las opciones válidas son: `admin`, `storage`, `support`, `monitor`, y. `security`.
+
+
+
+ a| 
+`symbol`
+ a| 
+Permite cambiar la contraseña Symbol. Las opciones válidas son: `admin` y.. `monitor`.
+
+[NOTE]
+====
+Este es el comando de reemplazo para el obsoleto `set storageArray password` comando.
+
+====
+
+
+ a| 
+`password`
+ a| 
+Permite especificar la contraseña para el rol.
+
+
+
+ a| 
+`adminPassword`
+ a| 
+Permite especificar la contraseña de administrador, que se requiere para configurar todas las contraseñas nuevas.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "set storageArray localUsername=storage password="newPassword" adminPassword="theAdminPassword";"
+SMcli -n Array1 -c "set storageArray localUsername=admin password="newAdminPassword" adminPassword="theAdminPassword";"
+SMcli -n Array1 -c "set storageArray symbol userRole=admin password="newSymbolPassword" adminPassword="theAdminPassword";"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40 añade el comando.

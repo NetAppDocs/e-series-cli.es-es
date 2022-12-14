@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/start-volumegroup-resourceprovisioning.html 
+sidebar: sidebar 
+keywords: start, volume, group, resource, provision 
+summary: El comando start volumeGroup resourceProvisioning permite el aprovisionamiento de recursos en un grupo de volúmenes determinado e inicia una operación asíncrona de habilitación de aprovisionamiento de recursos en cada volumen del grupo de volúmenes. El aprovisionamiento de recursos requiere que todas las unidades del grupo de volúmenes sean compatibles con la función DULBE de NVMe. 
+---
+= Inicie el aprovisionamiento de recursos del grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volumeGroup resourceProvisioning` el comando habilita el aprovisionamiento de recursos en un grupo de volúmenes determinado e inicia una operación asíncrona de habilitación de aprovisionamiento de recursos en cada volumen del grupo de volúmenes. El aprovisionamiento de recursos requiere que todas las unidades del grupo de volúmenes sean compatibles con la función DULBE de NVMe.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+Para deshabilitar el aprovisionamiento de recursos en un grupo de volúmenes, se debe usar el comando de aprovisionamiento completo con la opción de deshabilitar el aprovisionamiento de recursos. Un grupo de volúmenes se aprovisionará de recursos cuando se cree si todas las unidades son compatibles con DULBE y las cabinas de almacenamiento `resourceProvisionedVolumes` el ajuste es `true`.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volumeGroup[_volumeGroupName_]] resourceProvisioning
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroupName`
+ a| 
+El grupo de volúmenes que desea habilitar la función de aprovisionamiento de recursos. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+11.73

@@ -1,0 +1,74 @@
+---
+permalink: commands-a-z/remove-volumecopy-target.html 
+sidebar: sidebar 
+keywords: remove, volume, copy 
+summary: El comando remove VolumeCopy target quita una pareja de copia de volumen. 
+---
+= Quite la copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `remove volumeCopy target` el comando quita una pareja de copia de volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando es válido para las parejas de copias de volumen Snapshot.
+
+[NOTE]
+====
+Con la versión de firmware 7.83 `copyType=(online | offline)` el parámetro ya no se utiliza.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+remove volumeCopy target pass:quotes[[_targetName_]] [source pass:quotes[[_sourceName_]]]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`target`
+ a| 
+Nombre del volumen objetivo que se desea quitar. El nombre del volumen objetivo se debe escribir entre corchetes ([ ]). Si el nombre del volumen objetivo contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`source`
+ a| 
+Nombre del volumen de origen que se desea quitar. El nombre del volumen de origen se debe escribir entre corchetes ([ ]). Si el nombre del volumen de origen contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+5.40
+
+7.83 elimina la `copyType=(online | offline)` parámetro.

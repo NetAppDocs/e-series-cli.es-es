@@ -1,0 +1,62 @@
+---
+permalink: commands-a-z/show-auditlog-summary.html 
+sidebar: sidebar 
+keywords: show, audit, log, summary 
+summary: El comando show auditlog summary muestra la información resumida del registro de auditoría. 
+---
+= Muestra un resumen del registro de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show auditLog summary` comando muestra la información resumida del registro de auditoría.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+show auditLog summary
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "show auditLog summary;"
+
+Total log records: 1,532
+First log record: 1493070393313 (2017-04-24T16:46:33.313-0500)
+Last log record: 1493134565128 (2017-04-25T10:36:05.128-0500)
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

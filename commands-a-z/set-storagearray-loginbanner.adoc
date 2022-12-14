@@ -1,0 +1,66 @@
+---
+permalink: commands-a-z/set-storagearray-loginbanner.html 
+sidebar: sidebar 
+keywords: set, storage, array, login, banner 
+summary: El comando set storageArray loginBanner permite cargar un archivo de texto para usar como banner de inicio de sesión. El texto de un banner puede incluir un aviso y un mensaje de consentimiento, que se presentan a los usuarios antes de que establezcan sesiones en System Manager de SANtricity o ejecuten comandos. 
+---
+= Configure el banner de inicio de sesión de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray loginBanner` permite cargar un archivo de texto para usar como banner de inicio de sesión. El texto de un banner puede incluir un aviso y un mensaje de consentimiento, que se presentan a los usuarios antes de que establezcan sesiones en System Manager de SANtricity o ejecuten comandos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray loginBanner file="path_to_login_banner"
+----
+
+
+== Contexto
+
+Después de cargar el archivo de texto, se guarda en la cabina de almacenamiento. El texto del banner se muestra antes de la pantalla de inicio de sesión de System Manager de SANtricity o antes de la ejecución de comandos.
+
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se almacena el archivo de texto del banner de inicio de sesión.
+
+[NOTE]
+====
+El archivo del banner de inicio de sesión no puede estar vacío y debe ser de 5 KB o menos.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+8.41

@@ -1,0 +1,136 @@
+---
+permalink: commands-a-z/start-storagearray-configdbdiagnostic.html 
+sidebar: sidebar 
+keywords: start, storage, array, configuration, database, diagnostic 
+summary: El comando start storageArray configDbDiagnostic ejecuta una comprobación de coherencia con una base de datos de configuración. 
+---
+= Iniciar diagnóstico de base de datos de configuración de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start storageArray configDbDiagnostic` comando ejecuta una comprobación de coherencia con una base de datos de configuración.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+start storageArray configDbDiagnostic
+[sourceLocation=(disk | onboard) |
+diagnosticType=(fileSystem | mirror) |
+controller[(a|b)]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`sourceLocation`
+ a| 
+Este parámetro especifica la ubicación de la base de datos.
+
+* `disk` indica que los datos provienen directamente de la base de datos en la unidad
+* `onboard` Indica que los datos provienen de la ubicación de la memoria RPA
+
+
+La ubicación predeterminada es `disk`.
+
+
+
+ a| 
+`diagnosticType`
+ a| 
+El nivel de pruebas de diagnóstico que se desea ejecutar en la base de datos. Se puede ejecutar uno de los siguientes niveles de prueba:
+
+`fileSystem` -- esta opción comprueba la integridad estructural de la base de datos.
+
+`mirror` -- las pruebas que se ejecutan con esta opción varían según el valor de `sourceLocation` parámetro:
+
+* Cuando la `*sourceLocation*` el parámetro se establece en `disk`, el controlador del mismo nivel inicia una comprobación de bloque.
+* Cuando la `*sourceLocation*` el parámetro se establece en `onboard` , el controlador del mismo nivel inicia una comprobación de registro.
+
+
+[NOTE]
+====
+Puede ejecutar el `mirror` Opción solo desde la línea de comandos o desde el editor de secuencia de comandos. Esta opción no está disponible a través de la GUI del software de administración del almacenamiento. La `mirror` option inicia una operación de ejecución prolongada que no se puede detener.
+
+====
+El valor predeterminado es `fileSystem`.
+
+
+
+ a| 
+`controller`
+ a| 
+La controladora que contiene la base de datos en la que se desea ejecutar las pruebas de diagnóstico. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Este comando ejecuta una comprobación de coherencia con una base de datos de configuración. Se comprueban todos los registros de la base de datos. Los datos de error se escriben automáticamente en un archivo de la carpeta de datos del disco. No es necesario especificar un archivo de salida.
+
+[NOTE]
+====
+Ejecute una comprobación de consistencia con `diagnosticType` parámetro establecido en `mirror` y con la `sourceLocation` parámetro establecido en `onboard` puede provocar que la operación funcione durante mucho tiempo. Esto puede tener efectos adversos en el procesamiento de I/o de host. Esta operación debe llevarse a cabo solo con instrucciones de la organización de soporte.
+
+====
+Una vez finalizada la prueba de diagnóstico, el firmware de la controladora devuelve un resultado que indica lo siguiente:
+
+* `Diagnosis completed without errors. No ZIP file created.`
+* `Diagnosis completed with errors. Refer to the ZIP file created at:`
++
+`+...\Install_dir\data\FirmwareUpgradeReports\timestamp_buildNo.zip+`
+
+
+
+Si la prueba de diagnóstico detecta alguna incoherencia en la base de datos de configuración, el firmware de la controladora realiza las acciones siguientes:
+
+* Devuelve una descripción de la incoherencia
+* Guarda un archivo ZIP con datos binarios sin configurar
+
+
+El firmware de la controladora guarda el archivo ZIP en la siguiente ubicación:
+
+`+...\Install_dir\data\FirmwareUpgradeReports\timestamp_buildNo.zip+`
+
+Puede utilizar los datos binarios como ayuda para determinar la causa del problema o puede enviar el archivo con estos datos al soporte técnico.
+
+Para detener la prueba de diagnóstico de configuración de la base de datos, utilice el `stop storageArray configDbDiagnostic` comando.
+
+Además, es posible iniciar la prueba de diagnóstico de configuración de la base de datos mediante la GUI del software de administración del almacenamiento. Sin embargo, no es posible detener la prueba por este mismo medio. Si desea detener una prueba de diagnóstico en ejecución, debe utilizar el `stop storageArray configDbDiagnostic` comando.
+
+
+
+== Nivel de firmware mínimo
+
+7.75
+
+en la versión 7.83, se añaden estos parámetros:
+
+* `sourceLocation`
+* `diagnosticType`
+* `controller`
+

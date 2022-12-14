@@ -1,0 +1,71 @@
+---
+permalink: commands-a-z/add-drives-to-ssd-cache.html 
+sidebar: sidebar 
+keywords: add drives ssd cache, supported arrays, syntax, parameters, minimum firmware level 
+summary: 'El comando set ssdCache permite agregar discos de estado sólido (SSD) para aumenta la capacidad de la caché SSD existente.' 
+---
+= Añada unidades a la caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set ssdCache` El comando aumenta la capacidad de una caché SSD existente agregando más discos de estado sólido (SSD).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+[NOTE]
+====
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[set ssdCache [_ssdCacheName_]]
+pass:quotes[addDrives=(_trayID1_,[_drawerID1_,]]pass:quotes[_slotID1 ... trayIDn_,]pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`ssdCache`
+ a| 
+El nombre de la caché SSD a la cual se desea añadir SSD. El nombre debe escribirse entre corchetes ([ ]). Si el nombre de la caché SSD contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`addDrives`
+ a| 
+Las unidades que se desean añadir a la caché SSD.para los soportes de unidades de gran capacidad, se deben especificar el valor de ID de soporte, el valor de ID de cajón y el valor de ID de ranura para la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+La caché SSD puede contener cualquier número de SSD. El tamaño máximo de la caché SSD es 5 TB, pero puede ser menor según el tamaño de la caché primaria de la controladora.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

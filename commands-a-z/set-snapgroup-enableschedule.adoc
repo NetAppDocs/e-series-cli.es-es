@@ -1,0 +1,114 @@
+---
+permalink: commands-a-z/set-snapgroup-enableschedule.html 
+sidebar: sidebar 
+keywords: set, snapshot, group, schedule 
+summary: El comando set snapGroup enableSchedule define la programación para tomar imágenes Snapshot en un grupo Snapshot. 
+---
+= Configurar la programación del grupo Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set snapGroup enableSchedule` el comando define la programación para tomar imágenes snapshot de un grupo snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set snapGroup pass:quotes[["_snapGroupName_"]]
+enableSchedule=(TRUE | FALSE)
+schedule (immediate | snapshotSchedule)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapGroup`
+ a| 
+El nombre del grupo Snapshot para el que se configuran las propiedades. El nombre del grupo Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`enableSchedule`
+ a| 
+Este parámetro permite activar o desactivar la capacidad para programar una operación Snapshot. Para activar la programación Snapshot, este parámetro debe configurarse en `TRUE`. Para desactivar la programación Snapshot, este parámetro debe configurarse en `FALSE`.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+La `enableSchedule` y la `schedule` el parámetro permite programar la creación de imágenes snapshot para un grupo snapshot. Con estos parámetros, puede programar Snapshot diariamente, semanalmente o mensualmente (por día o por fecha). La `enableSchedule` el parámetro activa o desactiva la capacidad para programar snapshot. Cuando se habilita la programación, se debe usar el `schedule` parámetro para definir cuándo deben producirse las snapshot.
+
+En esta lista se explica cómo utilizar las opciones para `schedule` parámetro:
+
+* `immediate` -- tan pronto como introduce el comando, se crea una imagen Snapshot y comienza una operación de copia en escritura.
+* `startDate` -- la fecha específica en la que desea crear una imagen Snapshot y realizar una operación de copia en escritura. El formato para introducir la fecha es `MM:DD:YY` . Si no se proporciona una fecha de inicio, se utiliza la fecha actual. Un ejemplo de esta opción es `startDate=06:27:11`.
+* `scheduleDay` -- un día de la semana en el que desea crear una imagen Snapshot y realizar una operación de copia en escritura. Se pueden introducir estos valores: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, y. `all`. Un ejemplo de esta opción es `scheduleDay=wednesday`.
+* `startTime` -- la hora del día en la que desea crear una imagen Snapshot y comenzar una operación de copia en escritura. El formato para introducir la hora es `HH:MM`, donde `HH` es la hora y. `MM` es el minuto que pasa la hora. Utilice el formato de 24 horas. Por ejemplo, 2:00 de la tarde es 14:00. Un ejemplo de esta opción es `*startTime=14:27*`.
+*  `scheduleInterval` -- cantidad mínima de tiempo, en minutos, que desea tener entre las operaciones de copia en escritura. Es posible crear una programación en la que tenga operaciones de copia en escritura superpuestas debido a la duración de una operación de copia. Con esta opción, es posible garantizar que haya tiempo entre las operaciones de copia en escritura. El valor máximo para `scheduleInterval` opción: 1440 minutos. Un ejemplo de esta opción es `*scheduleInterval=180*`.
+* `endDate` -- una fecha específica en la que desea detener la creación de una imagen Snapshot y finalizar la operación de copia en escritura. El formato para introducir la fecha es `MM:DD:YY`. Un ejemplo de esta opción es `*endDate=11:26:11*`.
+* `noEndDate` -- Utilice esta opción si no desea que finalice la operación de copia en escritura Si más adelante decide finalizar la operación de copia en escritura, debe volver a introducir la `set snapGroup` y especifique una fecha de finalización.
+* `timesPerDay` -- el número de veces que desea que se ejecute la programación en un día. Un ejemplo de esta opción es `timesPerDay=4`.
+* `timeZone` -- use este parámetro para definir la zona horaria en la que opera la cabina de almacenamiento. Puede definir la zona horaria de dos maneras:
++
+** `GMT±HH:MM` -- el desfase de zona horaria respecto de GMT. Introduzca el ajuste en horas y minutos. Por ejemplo, GMT-06:00 es la zona horaria central en los Estados Unidos.
+** `Text string` -- cadenas de texto de zona horaria estándar. Por ejemplo: "America/Chicago" o "Australia/Brisbane". Las cadenas de texto de zonas horarias distinguen mayúsculas de minúsculas. Si introduce una cadena de texto incorrecta, se utilizará la hora GMT. La cadena de texto debe escribirse entre comillas dobles.
+
+
+
+
+La cadena de código para definir una programación es similar a estos ejemplos:
+
+[listing]
+----
+enableSchedule=true schedule startTime=14:27
+----
+[listing]
+----
+enableSchedule=true schedule scheduleInterval=180
+----
+[listing]
+----
+enableSchedule=true schedule timeZone=GMT-06:00
+----
+[listing]
+----
+enableSchedule=true schedule timeZone="America/Chicago"
+----
+Si también utiliza la `scheduleInterval` el firmware elige entre `timesPerDay` y la `scheduleInterval` seleccionando el valor más bajo de las dos opciones. El firmware calcula un valor de número entero para `scheduleInterval` opción dividiendo 1440 por el `scheduleInterval` valor de opción definido. Por ejemplo, 1440/180 = 8. A continuación, el firmware compara la `timesPerDay` valor entero con el calculado `scheduleInterval` valor entero y usa el valor más pequeño.
+
+Para eliminar una programación, utilice `delete volume` con el `schedule` parámetro. La `delete volume` con el `schedule` el parámetro solo elimina la programación, no el volumen snapshot.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+7.86 añade el `scheduleDate` y la `month` opción.

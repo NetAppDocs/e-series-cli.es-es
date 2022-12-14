@@ -1,0 +1,545 @@
+---
+permalink: commands-a-z/set-storagearray.html 
+sidebar: sidebar 
+keywords: set, storage, array 
+summary: El comando set storageArray define las propiedades de la cabina de almacenamiento. 
+---
+= Configure la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray` el comando define las propiedades de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 8.10 `cacheFlushStop` el parámetro quedó obsoleto y se quitará de las próximas versiones del software de administración del almacenamiento.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray
+([autoLoadBalancingEnable=(TRUE | FALSE)]|
+[autoSupportMaintenanceWindow AutoSupport Maintenance Window parameters]
+[autoSupport schedule AutoSupport Schedule Parameters]|
+[autoSupportConfig (enable | disable)]|
+[autoSupportOnDemand (enable | disable)]|
+[autoSupportRemoteDiag (enable |disable)]|
+[cacheBlockSize=cacheBlockSizeValue]|
+[cacheFlushStart=cacheFlushStartSize]|
+[cacheFlushStop=cacheFlushStopSize]|
+[cacheMirrorDataAssuranceCheckEnable=(TRUE | FALSE)]|
+[controllerHealthImageAllowOverWrite]|
+[defaultHostType=("hostTypeName" |"hostTypeIdentifier")] |
+[directoryServer directory server parameters]|
+[externalKeyManagement external key management parameters]|
+[failoverAlertDelay=delayValue]|
+[hostConnectivityReporting (enable | disable)]|
+[icmpPingResponse=(TRUE | FALSE)]|
+[isnsIPV4ConfigurationMethod isns IPv4 Config Method Parameters]|
+[isnsIPv6Address=ipAddress]|
+[isnsListeningPort=listeningPortIPAddress]]|
+[isnsRegistration=(TRUE | FALSE)]|
+[learnCycleDate learn cycle parameters]|
+[localUsername=local user name parameters]|
+[loginBanner file="path_to_login_banner"]|
+[managementInterface restOnly={true | false}]|
+[mediaScanRate=(disabled | 1-30)]|
+[odxEnabled=(TRUE | FALSE)]|
+[password="password"]|
+[passwordLength=<INTEGER>]|
+[pqValidateOnReconstruct P/Q Validate on Reconstruct parameters]|
+[redundancyMode=(simplex | duplex)]|
+[revocationCheckSettings revocation check settings parameters]|
+[securityKey]|
+[symbol SYMbol user name and password parameters]|
+[syslog syslog parameters]|
+[time]|
+[trayPositions=(controller | trayID ... trayIDn)]|
+[unnamedDiscoverySession=(TRUE | FALSE)]|
+[userLabel="storageArrayName"]|
+[userSession sessionTimeout=n]|
+[vaaiEnabled=(TRUE | FALSE)])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`autoLoadBalancingEnable`
+ a| 
+Este parámetro habilita el equilibrio de carga automático en la controladora. Para habilitar la opción, configure este parámetro en `TRUE`. Para deshabilitar la opción, configure este parámetro en `FALSE`.
+
+[NOTE]
+====
+Cuando se habilita la función Automatic Load Balancing, también se habilita la función Host Connectivity Reporting.
+
+====
+
+
+ a| 
+`autoSupport schedule`
+ a| 
+Configura la frecuencia diaria y semanal, y los días de la semana en que se envían mensajes de AutoSupport.
+
+
+
+ a| 
+`autoSupportConfig`
+ a| 
+La configuración para recoger automáticamente datos de soporte cada vez que el firmware detecta un evento MEL crucial. Este parámetro admite los siguientes valores:
+
+* `enable` -- activa la recopilación de datos de soporte
+* `disable` -- desactiva la recopilación de datos de soporte
+
+
+Use este parámetro únicamente en las siguientes condiciones:
+
+* La función AutoSupport (ASUP) no está disponible en la cabina de almacenamiento
+* Es necesario admitir configuraciones de cabinas de almacenamiento que usaban este parámetro con anterioridad
+
+
+[NOTE]
+====
+No es posible usar este parámetro con los comandos ASUP.
+
+====
+
+
+ a| 
+`autoSupportMaintenanceWindow`
+ a| 
+Activa o desactiva la función de ventana de mantenimiento de AutoSupport y configura la función.
+
+
+
+ a| 
+`cacheBlockSize`
+ a| 
+El tamaño de bloque de caché que usa la controladora para gestionar la caché. Los valores válidos son `4` (4 KB), `8` (8 KB), `16` (16 KB), o. `32` (32 KB).
+
+
+
+ a| 
+`cacheMirrorDataAssuranceCheckEnable`
+ a| 
+Este parámetro habilita la verificación de garantía de datos de reflejo de la caché en la controladora. Para habilitar la opción, configure este parámetro en `TRUE`. Para deshabilitar la opción, configure este parámetro en `FALSE`.
+
+
+
+ a| 
+`cacheFlushStart`
+ a| 
+El porcentaje de datos sin escribir en la caché que causa un vaciado de caché. Deben usarse valores enteros de `0` para `100` para definir el porcentaje. El valor predeterminado es `80`.
+
+
+
+ a| 
+`cacheFlushStop`
+ a| 
+[NOTE]
+====
+Este parámetro quedó obsoleto y se quitará en un lanzamiento futuro.
+
+====
+El porcentaje de datos sin escribir en la caché que detiene un vaciado de caché. Deben usarse valores enteros de `0` para `100` para definir el porcentaje. Este valor debe ser menor que el valor de `cacheFlushStart` parámetro.
+
+
+
+ a| 
+`controllerHealthImageAllowOverWrite`
+ a| 
+Configura una Marca en la controladora para permitir que una imagen de estado de controladora nueva sobrescriba una imagen de estado de controladora existente en cabinas de almacenamiento que admiten la función de imágenes de estado.
+
+
+
+ a| 
+`defaultHostType`
+ a| 
+El tipo de host predeterminado de cualquier puerto de host sin configurar al cual se conectan las controladoras. Para generar una lista de tipos de host válidos para la cabina de almacenamiento, ejecute el `show storageArray hostTypeTable` comando. Los tipos de host se identifican por un nombre o un índice numérico. Escriba el nombre del tipo de host entre comillas dobles (" "). No escriba el identificador numérico del tipo de host entre comillas dobles.
+
+
+
+ a| 
+`directoryServer`
+ a| 
+Actualiza la configuración del servidor de directorio, incluidas las asignaciones de roles.
+
+
+
+ a| 
+`externalKeyManagement`
+ a| 
+Configura la dirección del servidor de gestión de claves externo y el número de puertos
+
+
+
+ a| 
+`failoverAlertDelay`
+ a| 
+El tiempo de retraso de alerta de conmutación por error en minutos. Los valores válidos para el tiempo de retraso son `0` para `60` minutos. El valor predeterminado es `5`.
+
+
+
+ a| 
+`hostConnectivityReporting`
+ a| 
+Este parámetro habilita los informes de conectividad de host en la controladora. Para habilitar la opción, configure este parámetro en `enable`. Para deshabilitar la opción, configure este parámetro en `disable`.
+
+[NOTE]
+====
+Si se intenta deshabilitar la función Host Connectivity Reporting con la función Automatic Load Balancing habilitada, se recibe un error. En primer lugar, deshabilite el función Automatic Load Balancing, luego deshabilite la función Host Connectivity Reporting.
+
+====
+[NOTE]
+====
+Es posible mantener la función Host Connectivity Reporting habilitada con la función Automatic Load Balancing deshabilitada.
+
+====
+
+
+ a| 
+`icmpPingResponse`
+ a| 
+Este parámetro activa o desactiva los mensajes de Echo Request. Establezca el parámetro en `TRUE` Para activar los mensajes de Echo Request. Establezca el parámetro en `FALSE` Para desactivar los mensajes de Echo Request.
+
+
+
+ a| 
+`isnsIPv4ConfigurationMethod`
+ a| 
+El método que desea usar para definir la configuración del servidor iSNS. Para introducir la dirección IP de los servidores iSNS IPv4, seleccione `static`. Para IPv4, puede optar por un servidor con protocolo de configuración dinámica de hosts (DHCP). Para seleccionar la dirección IP del servidor iSNS, introduzca `dhcp`. Para habilitar DHCP, debe establecer el `isnsIPv4Address` parámetro a. `0.0.0.0`.
+
+
+
+ a| 
+`isnsIPv6Address`
+ a| 
+La dirección IPv6 que desea usar para el servidor iSNS.
+
+
+
+ a| 
+`isnsListeningPort`
+ a| 
+La dirección IP que desea usar para el puerto de escucha del servidor iSNS. El intervalo de valores del puerto de escucha es `49152` para `65535`. El valor predeterminado es `53205`.
+
+El puerto de escucha reside en el servidor y realiza las siguientes actividades:
+
+* Supervisa solicitudes entrantes de conexión de clientes
+* Gestiona el tráfico hacia el servidor
+
+
+Cuando un cliente solicita una sesión de red con un servidor, el dispositivo de escucha recibe la solicitud. Si la información del cliente coincide con la información del dispositivo de escucha, este otorga una conexión con el servidor de bases de datos.
+
+
+
+ a| 
+`isnsRegistration`
+ a| 
+Este parámetro enumera la cabina de almacenamiento como un destino iSCSI en el servidor iSNS. Para registrar la cabina de almacenamiento en el servidor iSNS, configure este parámetro en `TRUE`. Para quitar la cabina de almacenamiento del servidor iSNS, configure este parámetro en `FALSE`.
+
+[NOTE]
+====
+No puede utilizar el `isnsRegistration` parámetro con cualquier otro parámetro cuando ejecuta el `set storageArray` comando.
+
+====
+Para obtener más información sobre el registro de iSNS, consulte `set storageArray isnsRegistration` comando.
+
+
+
+ a| 
+`learnCycleDate`
+ a| 
+Configura los ciclos de aprendizaje de batería de la controladora.
+
+
+
+ a| 
+`localUsername`
+ a| 
+Permite configurar una contraseña de nombre de usuario local o una contraseña Symbol para un rol en particular.
+
+
+
+ a| 
+`loginBanner`
+ a| 
+Permite cargar un archivo de texto para usar como banner de inicio de sesión. El texto de un banner puede incluir un aviso y un mensaje de consentimiento, que se presentan a los usuarios antes de que establezcan sesiones en System Manager de SANtricity o ejecuten comandos
+
+
+
+ a| 
+`managementInterface`
+ a| 
+Cambia la interfaz de gestión de la controladora. Cambie el tipo de interfaz de gestión para aplicar la confidencialidad entre la cabina de almacenamiento y el software de gestión o para acceder a herramientas externas.
+
+
+
+ a| 
+`mediaScanRate`
+ a| 
+El número de días durante los cuales se ejecuta el análisis de medios. Los valores válidos son `disabled` , que desactiva el análisis de medios o. `1` día a. `30` días, donde `1` day es la velocidad de adquisición más rápida, y. `30` days es la tasa de análisis más lenta. Un valor distinto de `disabled` o. `1` para `30` no permite que funcione el análisis de medios.
+
+
+
+ a| 
+`odxEnabled`
+ a| 
+Activa o desactiva la transferencia de datos descargados (ODX) para una cabina de almacenamiento.
+
+
+
+ a| 
+`password`
+ a| 
+La contraseña para la cabina de almacenamiento. La contraseña debe escribirse entre comillas dobles (" ").
+
+[NOTE]
+====
+Con el lanzamiento de la versión 8.40, este parámetro queda obsoleto. Utilice la `localUsername` o el símbolo `symbol` parámetros, junto con `password` o. `adminPassword` en su lugar, parámetros.
+
+====
+
+
+ a| 
+`passwordLength`
+ a| 
+Permite configurar la longitud mínima requerida para todas las contraseñas nuevas o actualizadas. Use un valor entre 0 y 30.
+
+
+
+ a| 
+`pqValidateOnReconstruct`
+ a| 
+Modifica la validación P/Q en la funcionalidad de reconstrucción.
+
+
+
+ a| 
+`redundancyMode`
+ a| 
+Uso `simplex` mode cuando tenga una sola controladora. Uso `duplex` modo cuando tiene dos controladoras.
+
+
+
+ a| 
+`revocationCheckSettings`
+ a| 
+Permite habilitar o deshabilitar el control de revocación, así como configurar un servidor de protocolo de estado de certificado en línea (OCSP).
+
+
+
+ a| 
+`securityKey`
+ a| 
+Configura la clave de seguridad interna que se usa en la cabina de almacenamiento para implementar la función Drive Security.
+
+[NOTE]
+====
+Se usa para una clave de seguridad interna. Cuando se usa un servidor de gestión de claves externo, use el `create storageArray securityKey` comando.
+
+====
+
+
+ a| 
+`symbol`
+ a| 
+Permite configurar una contraseña Symbol para un rol en particular.
+
+
+
+ a| 
+`syslog`
+ a| 
+Permite cambiar el protocolo, el número de puertos o la dirección del servidor de syslog.
+
+
+
+ a| 
+`time`
+ a| 
+Configura los relojes de ambas controladoras de una cabina de almacenamiento mediante la sincronización de los relojes de las controladoras con el reloj del host desde el que se ejecuta este comando.
+
+
+
+ a| 
+`trayPositions`
+ a| 
+Una lista de todos los ID de soporte. La secuencia de los ID de soporte de la lista define las posiciones para el soporte de la controladora y los soportes de las unidades de la cabina de almacenamiento. Los valores válidos son `0` para `99`. Introduzca los valores de ID de los soportes separados por un espacio. Escriba la lista de valores de ID de los soportes entre paréntesis. Para las cabinas de almacenamiento donde el soporte de la controladora tenga un identificador predefinido fuera del rango de valores de posición de soportes válidos, use la `controller` valor.
+
+[NOTE]
+====
+La `controller` la opción no es válida después de la versión de firmware 6.14.
+
+====
+
+
+ a| 
+`unnamedDiscoverySession`
+ a| 
+Permite que la cabina de almacenamiento participe en sesiones de detección sin nombre.
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre para la cabina de almacenamiento. El nombre de la cabina de almacenamiento debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`userSession`
+ a| 
+Permite configurar un tiempo de espera en System Manager, de modo que las sesiones inactivas de los usuarios se desconecten después de un tiempo específico.
+
+
+
+ a| 
+`vaaiEnabled`
+ a| 
+Activa o desactiva VMware vStorage API Array Architecture (VAAI) para una cabina de almacenamiento
+
+|===
+
+
+== Notas
+
+Excepto por `isnsRegistration`, cuando utilice este comando, puede especificar uno o varios de los parámetros opcionales.
+
+
+
+== Datos de Auto Support
+
+[NOTE]
+====
+No es posible usar este parámetro con los comandos ASUP.
+
+====
+Cuando está habilitada, la `set storageArray autoSupportConfig` El comando hace que se devuelva toda la información de configuración y estado de la cabina de almacenamiento cada vez que se detecta un evento crítico del registro de eventos serios (MEL). La información de configuración y estado se obtiene en forma de gráfico de objetos. El gráfico de objetos contiene todos los objetos lógicos y físicos pertinentes, así como la información de estado asociada para la cabina de almacenamiento.
+
+La `set storageArray autoSupportConfig` el comando recopila información de estado y configuración de esta manera:
+
+* La recogida automática de la información de configuración y estado se realiza cada 72 horas. La información de configuración y estado se guarda en el archivo de almacenamiento ZIP de la cabina de almacenamiento. El archivo de almacenamiento tiene una Marca de hora que se utiliza para gestionar los archivos de almacenamiento.
+* Se conservan dos archivos de almacenamiento ZIP para cada cabina de almacenamiento. Los archivos de almacenamiento ZIP se guardan en una unidad. Una vez excedido el periodo de 72 horas, el archivo de almacenamiento más antiguo se sobrescribe durante el ciclo nuevo.
+* Una vez habilitada la recogida automática de la información de configuración y estado mediante este comando, se inicia una recogida inicial de información. Después de emitir el comando, la recogida de información comprueba que exista un archivo de almacenamiento disponible e inicia el ciclo de Marca de tiempo.
+
+
+Puede ejecutar el `set storageArray autoSupportConfig` comando en más de una cabina de almacenamiento.
+
+
+
+== Tamaño del bloque de caché
+
+Cuando se definen los tamaños de bloque de caché, se debe usar el tamaño de bloque de caché de 4 KB para las cabinas de almacenamiento donde se requieren flujos de I/o, los que generalmente son pequeños y aleatorios. Use el tamaño de bloque de caché de 8 KB cuando la mayoría de los flujos de I/o sean mayores de 4 KB, pero menores de 8 KB. Use el tamaño de bloque de caché de 16 KB o 32 KB para las cabinas de almacenamiento que requieran transferencia de datos grandes, secuenciales o aplicaciones de ancho de banda elevado.
+
+La `cacheBlockSize` el parámetro define el tamaño de bloque de caché admitido para todos los volúmenes de la cabina de almacenamiento. No todos los tipos de controladoras admiten todos los tamaños de bloques de caché. Para las configuraciones redundantes, este parámetro incluye todos los volúmenes de ambas controladoras en la cabina de almacenamiento.
+
+
+
+== Inicio de vaciado de caché
+
+Cuando se definen valores para iniciar un vaciado de caché, un valor demasiado bajo aumenta la posibilidad de que los datos necesarios para una lectura de host no se encuentren en la caché. Un valor bajo también aumenta el número de escrituras de la unidad que son necesarias para conservar el nivel de caché, lo que aumenta la sobrecarga del sistema y reduce el rendimiento.
+
+
+
+== Tipo de host predeterminado
+
+Cuando se definen los tipos de host, si se habilita la función Storage Partitioning, el tipo de host predeterminado únicamente afecta a los volúmenes asignados en el grupo predeterminado. Si no se habilita la función Storage Partitioning, todos los hosts asociados a la cabina de almacenamiento deben ejecutar el mismo sistema operativo y ser compatibles con el tipo de host predeterminado.
+
+
+
+== Tasa de análisis de medios
+
+El análisis de medios se ejecuta en todos los volúmenes de la cabina de almacenamiento que tienen el estado Optimal, que no tengan operaciones de modificación en curso y que tengan el `mediaScanRate` parámetro habilitado. Utilice la `set volume` para habilitar o deshabilitar el `mediaScanRate` parámetro.
+
+
+
+== Contraseña
+
+Las contraseñas se almacenan en cada cabina de almacenamiento. Para una mejor protección, la contraseña debe cumplir con los siguientes criterios:
+
+* La contraseña debe tener entre 8 y 30 caracteres.
+* La contraseña debe contener al menos una letra mayúscula.
+* La contraseña debe contener al menos una letra minúscula.
+* La contraseña debe contener al menos un número.
+* La contraseña debe contener al menos un carácter no alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si utiliza unidades de cifrado de disco completo en la cabina de almacenamiento, debe usar estos criterios para la contraseña de la cabina de almacenamiento.
+
+====
+[NOTE]
+====
+Se debe configurar una contraseña para la cabina de almacenamiento a fin de poder crear una clave de seguridad para las unidades de cifrado de disco completo cifradas.
+
+====
+
+
+== Nivel de firmware mínimo
+
+5.00 añade el `defaultHostType` parámetro.
+
+5.40 añade el `failoverAlertDelay` parámetro.
+
+6.10 añade el `redundancyMode`, `trayPositions`, y. `time` parámetros.
+
+6.14 añade el `alarm` parámetro.
+
+7.10 añade el `icmpPingResponse`, `unnamedDiscoverySession`, `isnsIPv6Address`, y. `isnsIPv4ConfigurationMethod` parámetros.
+
+7.15 añade más tamaños de bloque de caché y el `learnCycleDate` parámetro.
+
+7.86 elimina la `alarm` parámetro dado que ya no se utiliza y añade el `coreDumpAllowOverWrite` parámetro.
+
+8.10 deja obsoleto el `cacheFlushStop` parámetro.
+
+8.20 añade el `odxEnabled` y.. `vaaiEnabled` parámetros.
+
+8.20 actualiza la `cacheBlockSize` para añadir el `cacheBlockSizeValue` De 4 (4 KB).
+
+8.20 sustituye la `coreDumpAllowOverWrite` con el `controllerHealthImageAllowOverWrite` parámetro.
+
+8.30 añade el `autoLoadBalancingEnable` parámetro.
+
+8.40 añade el `localUsername` parámetro (se usa con una variable de nombre de usuario y con el `password` o. `adminPassword` parámetro. También añade el `symbol` parámetro (se usa con una variable de nombre de usuario y con el `password` o. `adminPassword` parámetro.
+
+8.40 deja obsoleto el `password` y.. `userRole` parámetros independientes.
+
+8.40 añade el `managementInterface` parámetro.
+
+8.40 añade el `externalKeyManagement` parámetro.
+
+8.41 añade el `cacheMirrorDataAssuranceCheckEnable`, `directoryServer`, `userSession`, `passwordLength`, y. `loginBanner` parámetros.
+
+8.42 añade el `pqValidateOnReconstruct`, `syslog`, `hostConnectivityReporting`, y. `revocationCheckSettings` parámetros.

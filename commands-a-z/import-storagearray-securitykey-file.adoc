@@ -1,0 +1,115 @@
+---
+permalink: commands-a-z/import-storagearray-securitykey-file.html 
+sidebar: sidebar 
+keywords: import, storage, array, security, file, command, unlock, disk, encryption, context, syntax, firmware level, role, context 
+summary: 'El comando import storageArray securityKey file desbloquea una o varias unidades de cifrado de disco completo (FDE) que se desplazaron de una cabina de almacenamiento a otra.' 
+---
+= Importe la clave de seguridad de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `import storageArray securityKey file` El comando desbloquea una o varias unidades de cifrado de disco completo (FDE) que se desplazaron de una cabina de almacenamiento a otra.
+
+
+
+== Cabinas compatibles
+
+Si la gestión de claves externas está habilitada, este comando solo se aplica a las cabinas E2800, E5700, EF600 o EF300. Si la gestión de claves internas está habilitada, este comando se aplica a cualquier cabina de almacenamiento individual, siempre que se hayan instalado todos los paquetes de SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Solo es posible desbloquear las unidades con una clave de seguridad coincidente. Después de desbloquearlas, se aplica la clave de seguridad de la nueva cabina de almacenamiento.
+
+[NOTE]
+====
+Este comando se aplica a la gestión de claves interna y externa.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+import storageArray securityKey file="fileName"
+passPhrase="passPhraseString"
+[forceOverwrite=(TRUE|FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+El nombre y la ruta del archivo que contiene la clave de seguridad original de las unidades FDE importadas. Por ejemplo:
+
+[listing]
+----
+file="C:\Program Files\CLI\sup\drivesecurity.slk"
+----
+[NOTE]
+====
+El nombre de archivo debe tener la extensión de `.slk`.
+
+====
+
+
+ a| 
+`passPhrase`
+ a| 
+La cadena de caracteres que ofrece autenticación para la clave de seguridad.
+
+
+
+ a| 
+`forceOverwrite`
+ a| 
+Si este parámetro se establece en `TRUE`, La importación forzará la sobrescritura de la clave FDE cuando normalmente no se permite la importación, como cuando un controlador está ausente o no ha superado. De forma predeterminada, el parámetro force overwrite está establecido en FALSE.
+
+|===
+
+
+== Notas
+
+El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades FDE. Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
+
+La frase de contraseña debe cumplir los siguientes criterios:
+
+* Debe tener entre 8 y 32 caracteres.
+* Debe incluir al menos una letra mayúscula.
+* Debe incluir al menos una letra minúscula.
+* Debe incluir al menos un número.
+* Debe incluir al menos un carácter alfanumérico, por ejemplo, < > @ +.
+
+
+[NOTE]
+====
+Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de error y se solicita volver a ejecutar el comando.
+
+====
+
+
+== Nivel de firmware mínimo
+
+7.40
+
+8.40 añadió la posibilidad de importar una clave de seguridad de cabina de almacenamiento externa
+
+11.70.1 añadió el `forceOverwrite` parámetro.

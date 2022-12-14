@@ -1,0 +1,152 @@
+---
+permalink: commands-a-z/set-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: set, asynchronous, mirror, group 
+summary: El comando set asyncMirrorGroup cambia la configuración de sincronización y los umbrales de advertencia que utiliza el propietario de la controladora en el lado primario del grupo de reflejos asíncronos al realizar una sincronización inicial o una resincronización. 
+---
+= Configure el grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set asyncMirrorGroup` comando cambia la configuración de sincronización y los umbrales de advertencia que utiliza el propietario de la controladora en el lado primario del grupo de reflejos asíncronos cuando se realiza una sincronización inicial o una resincronización.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin o Support Admin.
+
+
+
+== Contexto
+
+Un cambio en la configuración de sincronización afecta las operaciones de sincronización de todas las parejas reflejadas dentro del grupo de reflejos asíncronos.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set asyncMirrorGroup pass:quotes[[_asyncMirrorGroupName_]]
+[volume="repos_xxxx" increaseRepositoryCapacity (repositoryVolume=("repos_xxxx")]
+[syncInterval=pass:quotes[_integer_] (minutes | hours | days)]
+[warningSyncThreshold=pass:quotes[_integer_] (minutes | hours | days)]
+[warningRecoveryThreshold=integer (minutes | hours | days)]
+[userLabel=pass:quotes["_New_asyncMirrorGroupName_"]]
+[warningThresholdPercent=pass:quotes[_percentValue_]]
+[role=(primary | secondary)]
+[autoResync=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos que se desea modificar. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene números o caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen de repositorios del grupo de reflejos asíncronos en el que se desea aumentar la capacidad.
+
+El nombre de un volumen de repositorios se compone de dos partes:
+
+* El término "repos"
+* Un identificador numérico de cuatro dígitos que el software de administración del almacenamiento asigna al nombre del volumen de repositorios
+
+
+El nombre del volumen de repositorios debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`syncInterval`
+ a| 
+Especifica el intervalo entre el envío automático de actualizaciones de los datos modificados desde la cabina de almacenamiento local hacia la cabina de almacenamiento remota. La duración del intervalo se puede especificar en minutos, horas o días.
+
+
+
+ a| 
+`warningSyncThreshold`
+ a| 
+Se debe especificar la cantidad de tiempo que se esperará antes de activar una advertencia para los casos en que la sincronización de todos los volúmenes del grupo de reflejos asíncronos demore más que el tiempo definido. La duración del intervalo se puede especificar en minutos, horas o días.
+
+
+
+ a| 
+`warningRecoveryThreshold`
+ a| 
+Especifica la cantidad de tiempo que se esperará antes de activar una advertencia cuando la actualización automática de datos de la imagen de un momento específico en la cabina de almacenamiento remota es más antigua que el valor definido. Se debe indicar un umbral respecto del final de la actualización previa. La duración del intervalo se puede especificar en minutos, horas o días.
+
+[NOTE]
+====
+El umbral del punto de recuperación debe ser dos veces mayor que el umbral del intervalo de sincronización.
+
+====
+
+
+ a| 
+`userLabel`
+ a| 
+El nuevo nombre que se desea otorgar al grupo de reflejos asíncronos. Use este parámetro cuando desee cambiar el nombre del grupo de reflejos asíncronos. El nombre del grupo de reflejos asíncronos debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`warningThresholdPercent`
+ a| 
+Especifique el valor porcentual que determina la activación de una advertencia cuando la capacidad de un volumen de repositorios de reflejos alcanza el porcentaje definido. El umbral se define según un porcentaje (%) de la capacidad restante.
+
+
+
+ a| 
+`role`
+ a| 
+Este parámetro permite promover el grupo de reflejos asíncronos a un rol primario o degradar el grupo de reflejos asíncronos a un rol secundario. Para asignar el rol primario al grupo de reflejos asíncronos, se debe configurar este parámetro en `primary`. Para asignar el rol secundario al grupo de reflejos asíncronos, se debe configurar este parámetro en `secondary`.
+
+
+
+ a| 
+`autoResync`
+ a| 
+La configuración de resincronización automática entre los volúmenes primarios y secundarios de una pareja reflejada asíncrona dentro de un grupo de reflejos asíncronos. Este parámetro admite los siguientes valores:
+
+* `enabled` -- se activa la resincronización automática. No es necesaria ninguna acción adicional para volver a sincronizar el volumen primario y el secundario.
+* `disabled` -- la resincronización automática está desactivada. Para volver a sincronizar el volumen primario y el volumen secundario, se debe ejecutar el `start asyncMirrorGroup` comando.
+
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+Cuando se usa este comando, es posible especificar uno o varios parámetros. Sin embargo, no es necesario usar todos los parámetros.
+
+Un volumen de repositorios de grupo de reflejos asíncronos es un volumen expandible que se estructura como un conjunto concatenado de hasta 16 entidades de volumen estándar. Inicialmente, un volumen de repositorios expandible tiene un solo volumen. La capacidad del volumen de repositorios expandible es exactamente la de ese volumen. Para aumentar la capacidad de un volumen de repositorios expandible, es posible añadir volúmenes de repositorios sin usar. La capacidad compuesta del volumen de repositorios expandible pasa a ser la suma de las capacidades de todos los volúmenes estándar concatenados.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

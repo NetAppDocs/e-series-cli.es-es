@@ -1,0 +1,111 @@
+---
+permalink: commands-a-z/stop-cgsnapimage-rollback.html 
+sidebar: sidebar 
+keywords: stop, consistency, group, snapshot, rollback 
+summary: El comando stop cgSnapImage rollback detiene una operación de reversión a volúmenes base miembro en un grupo de coherencia Snapshot. 
+---
+= Detener reversión Snapshot de grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop cgSnapImage rollback` el comando detiene una operación de reversión a volúmenes base miembro en un grupo de coherencia snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+La cancelación de una operación de reversión Snapshot de un grupo de coherencia deja al volumen base en un estado indefinido y, potencialmente, con datos incoherentes o no válidos. El volumen Snapshot del grupo de coherencia relacionado queda deshabilitado e inutilizable.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[stop cgSnapImage["_snapCGID:imageID_"]] rollback
+memberVolumeSet pass:quotes[("_memberVolumeName1_" ... "_memberVolumeNamen_")]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`cgSnapImage`
+ a| 
+El nombre de la imagen Snapshot del grupo de coherencia para el cual se desea detener una operación de reversión. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` -- esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` -- esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`memberVolumeSet`
+ a| 
+El nombre de uno o más volúmenes base miembro en un grupo de coherencia para el cual se desea detener la operación de reversión. El nombre de cada volumen base miembro debe escribirse entre comillas dobles (" ") dentro de paréntesis.
+
+Es posible escribir más de un nombre de volumen base miembro. Todos los nombres de volúmenes base miembro deben escribirse dentro de un par de corchetes ([ ]). El nombre de cada volumen base miembro debe escribirse entre comillas dobles (" "). Cada nombre de volumen base miembro debe separarse con un espacio.
+
+Cuando la `memberVolumeSet` no se utiliza el parámetro mientras el proceso de reversión se aplica a todos los volúmenes miembro del grupo de coherencia.
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desea detener una operación de reversión de la imagen Snapshot más reciente en un grupo de coherencia completo con el nombre CG1, debería usarse el siguiente comando:
+
+[listing]
+----
+stop cgSnapImage ["CG1:newest"] rollback;
+----
+Si se desea detener una operación de reversión de la imagen Snapshot 12345 para los miembros del volumen base memVol1, memVol2 y memVol3 en un grupo de coherencia con el nombre CG2, debería usarse el siguiente comando:
+
+[listing]
+----
+stop cgSnapImage ["CG2:12345"] rollback memberVolumeset=("memVol1 memVol2 memVol3");
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

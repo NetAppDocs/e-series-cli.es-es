@@ -1,0 +1,100 @@
+---
+permalink: commands-a-z/show-storagearray-trustedcertificate-summary.html 
+sidebar: sidebar 
+keywords: show, installed, trusted, ca, certificates, summary 
+summary: El comando show storageArray trustedCertificate summary muestra un resumen de los certificados de CA instalados de confianza de la cabina. El uso de este comando puede ser útil antes de ejecutar el comando delete storageArray trustedCertificate para conocer los alias de los certificados que se desea eliminar. 
+---
+= Mostrar resumen de certificados de CA de confianza instalados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray trustedCertificate summary` El comando muestra el resumen de los certificados de CA de confianza instalados desde la cabina. Este comando es útil para realizar el `delete storageArray trustedCertificate` comando para conocer los alias de los certificados que se desea eliminar.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+show storageArray trustedCertificate [all | allUserInstalled|
+ aliases=pass:quotes[("_alias1_" ... "_aliasN_")]] summary
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`all`
+ a| 
+Permite especificar la recuperación de todos los certificados, incluso los certificados instalados previamente y aquellos instalados por el usuario.
+
+
+
+ a| 
+`allUserInstalled`
+ a| 
+Permite especificar la recuperación de todos los certificados instalados por el usuario. Esta es la opción predeterminada.
+
+
+
+ a| 
+`aliases`
+ a| 
+Permite al usuario especificar qué certificados instalados previamente o instalados por el usuario recuperar mediante el alias. Todos los alias se deben escribir entre paréntesis. Si se introducen varios alias, se deben separar con un espacio.
+
+|===
+
+
+== Ejemplos
+
+La salida de la muestra puede ser diferente de la que se muestra a continuación.
+
+[listing, subs="+macros"]
+----
+
+SMcli -n Array1 -c "show storageArray trustedCertificate allUserInstalled summary;"
+============================
+Trusted Certificates
+============================
+Alias:        19527b38-8d26-44e5-8c7f-5bf2ca9db7cf
+Type:         Pre-installed | User installed
+Subject DN:   CN=Corp Issuing CA 1
+Issuer DN:    CN=Corp Root CA
+pass:quotes[Start:        _date_]
+pass:quotes[Expire:       _date_]
+---------------------
+Alias:        myAliasName
+Type:         Pre-installed | User installed
+Subject DN:   CN=Corp Issuing CA 1
+Issuer DN:    CN=Corp Root CA
+pass:quotes[Start:        _date_]
+pass:quotes[Expire:       _date_]
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/start-volumegroup-defragment.html 
+sidebar: sidebar 
+keywords: start, volume, group, defragment 
+summary: El comando start volumeGroup defragment inicia una operación de desfragmentación en el grupo de volúmenes especificado. 
+---
+= Inicie la desfragmentación de grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volumeGroup defragment` el comando inicia una operación de desfragmentación en el grupo de volúmenes especificado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+La desfragmentación de un grupo de volúmenes inicia una operación prolongada que no se puede detener.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volumeGroup [_volumeGroupName_]] defragment
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea desfragmentar. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Los errores de I/o de host pueden dar como resultado grupos de volúmenes con más de 32 volúmenes. Es posible que esta operación también tenga como resultado reinicios internos de la controladora debido a que el tiempo de espera finaliza antes de que se configure la definición del grupo de volúmenes. Si tiene este problema, desactive las operaciones de I/o del host y vuelva a intentar ejecutar el comando.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

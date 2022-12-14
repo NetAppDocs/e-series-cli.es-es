@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/start-storagearray-autosupport-deliverytest.html 
+sidebar: sidebar 
+keywords: test, autosupport, delivery, set, individual, E2800, E5700, arrays 
+summary: El comando start storageArray AutoSupport deliveryTest envía un mensaje de recogida de bundle de AutoSupport de muestra para poder realizar una prueba de la conexión con el sistema de soporte técnico de destino por medio de los parámetros de entrega especificados. 
+---
+= Probar configuración de entrega de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start storageArray autoSupport deliveryTest` El comando envía un mensaje de recogida de bundle de AutoSupport de muestra para poder realizar una prueba de la conexión al sistema de soporte técnico de destino con los parámetros de entrega especificados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start storageArray autoSupport deliveryTest pass:quotes[[replyToEmail="_address_"]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`replyToEmail`
+ a| 
+Permite al usuario especificar la dirección de correo electrónico de respuesta del mensaje de prueba de AutoSupport. Solo se utiliza o se requiere cuando el método de entrega establecido es correo electrónico.
+
+|===
+
+
+=== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "start storageArray autoSupport deliveryTest;"
+
+SMcli -n Array1 -c "start storageArray autoSupport deliveryTest replyToEmail=\"user@company.com\";"
+
+The sample AutoSupport message was successfully sent to the ASUP gateway server.
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

@@ -1,0 +1,141 @@
+---
+permalink: commands-a-z/create-volumecopy.html 
+sidebar: sidebar 
+keywords: create, volume, copy 
+summary: El comando create VolumeCopy crea una copia de volumen e inicia la operación de copia de volumen. Este comando es válido para las parejas de copias de volumen de imágenes Snapshot. 
+---
+= Crear la copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create volumeCopy` el comando crea una copia de volumen e inicia la operación de copia de volumen. Este comando es válido para las parejas de copias de volumen de imágenes Snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Al iniciar una operación de copia de volumen, se sobrescriben todos los datos existentes en el volumen objetivo, el volumen objetivo se vuelve de solo lectura para los hosts y se genera un error en todos los volúmenes de imágenes Snapshot asociados con el volumen objetivo, si existe alguno. Si el volumen objetivo se utilizó anteriormente como copia, se debe verificar que los datos ya no sean necesarios o que exista un backup.
+
+====
+Este comando crea copias de volumen de dos formas:
+
+* Copia de volumen sin imagen Snapshot, denominada _offline_ volume copy
+* Copia de volumen con imagen Snapshot, denominada _online_ copia de volumen
+
+
+Si se usa la copia de volumen sin imagen Snapshot, no se puede escribir en el volumen de origen hasta que se completa la operación de copia. Si se desea contar con la posibilidad de escribir en el volumen de origen antes de que se complete la operación de copia, se debe usar la copia de volumen con imagen Snapshot. Es posible seleccionar la copia de volumen con imagen Snapshot mediante los parámetros opcionales de la sintaxis de comandos.
+
+Una vez completada la operación de copia de volumen con imagen Snapshot, la imagen Snapshot se elimina y se deshabilita el volumen Snapshot.
+
+[NOTE]
+====
+Puede haber un máximo de ocho copias de volumen en curso al mismo tiempo. Si intenta crear más de ocho copias de volumen a la vez, las controladoras devuelven el estado Pending hasta que una de las copias de volumen en curso se complete y devuelve el estado Complete.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create volumeCopy source=pass:quotes[_"sourceName"_
+target="_targetName_"]
+[copyPriority=(highest | high | medium | low | lowest)]
+[targetReadOnlyEnabled=(TRUE | FALSE)]
+[copyType=(offline | online)]
+[repositoryPercentOfBase=(20 | 40 | 60 | 120 | default)]
+[repositoryGroupPreference=(sameAsSource | otherThanSource | default)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`source`
+ a| 
+El nombre de un volumen existente que se desea usar como volumen de origen. El nombre del volumen de origen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`target`
+ a| 
+El nombre de un volumen existente que se desea usar como volumen objetivo. El nombre del volumen objetivo debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`copyPriority`
+ a| 
+La prioridad de la copia de volumen con respecto a la actividad de I/o del host. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.
+
+
+
+ a| 
+`targetReadOnlyEnabled`
+ a| 
+El ajuste para establecer si se puede escribir en el volumen objetivo o solo leer el volumen objetivo. Para escribir en el volumen objetivo, este parámetro debe configurarse en `FALSE`. Para impedir la escritura en el volumen objetivo, este parámetro debe configurarse en `TRUE`.
+
+
+
+ a| 
+`copyType`
+ a| 
+Este parámetro permite crear una copia de volumen con una imagen Snapshot. Al crear una copia de volumen con una imagen Snapshot, es posible seguir escribiendo en el volumen de origen mientras se crea la copia de volumen. Para crear una copia de volumen con una imagen Snapshot, este parámetro debe configurarse en `online`. Para crear una copia de volumen sin imagen Snapshot, este parámetro debe configurarse en `offline`.
+
+Si no se usa este parámetro, la copia de volumen se crea sin una imagen Snapshot.
+
+
+
+ a| 
+`repositoryPercentOfBase`
+ a| 
+Este parámetro determina el tamaño del volumen de repositorios para la imagen Snapshot cuando se crea una copia de volumen con una imagen Snapshot. El tamaño del volumen de repositorios se expresa como un porcentaje del volumen de origen, también denominado volumen base. Los valores válidos para este parámetro son `20`, `40`, `60`, `120`, y. `default`. El valor predeterminado es 20. Si no se usa este parámetro, el firmware utiliza el valor 20 %.
+
+Debe utilizar el `copyType` con el `repositoryPercentOfBase` parámetro.
+
+
+
+ a| 
+`repositoryGroupPreference`
+ a| 
+Este parámetro determina el grupo de volúmenes en el que se debe escribir el volumen de repositorios de imágenes Snapshot. Se admiten las siguientes opciones:
+
+* `sameAsSource` -- el volumen de imágenes Snapshot se escribe en el mismo grupo de volúmenes que el volumen de origen, si hay espacio disponible.
+* `otherThanSource` -- parámetro obsoleto. No utilizar
+* `default` -- el volumen de repositorios de imágenes Snapshot se escribe en cualquier grupo de volúmenes que tenga espacio.
+
+
+Para obtener un mejor rendimiento, use la `sameAsSource` opción.
+
+Debe utilizar el `copyType` con el `repositoryGroupPreference` parámetro.
+
+|===
+
+
+== Notas
+
+Se puede utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+La prioridad de copia define la cantidad de recursos del sistema que se usarán para copiar los datos entre el volumen de origen y el volumen objetivo de una pareja de copias de volumen. Si se selecciona el nivel de prioridad más alto, la copia de volumen utiliza la mayor cantidad de recursos del sistema para llevar a cabo la copia de volumen, lo cual disminuye el rendimiento para las transferencias de datos del host.

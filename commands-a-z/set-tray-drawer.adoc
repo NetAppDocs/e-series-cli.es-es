@@ -1,0 +1,118 @@
+---
+permalink: commands-a-z/set-tray-drawer.html 
+sidebar: sidebar 
+keywords: set, drawer, service, action, allowed, indicator 
+summary: El comando set tray drawer enciende o apaga la luz indicadora de permiso de acción de servicio en un soporte que contiene unidades. 
+---
+= Configurar indicador de permiso de acción de servicio del cajón
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set tray drawer` El comando enciende o apaga la luz indicadora de permiso de acción de servicio en un cajón que contiene unidades.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Los cajones se usan en soportes de unidades de gran capacidad. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Este comando se usa para soportes de unidades que utilizan cajones. Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set tray pass:quotes[[_trayID_]] drawer pass:quotes[[_drawerID_]]
+serviceAllowedIndicator=(on | off | forceOnWarning)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`tray`
+ a| 
+El soporte donde reside el cajón. Los valores de ID de soporte son `0` para `99` . El valor de ID de soporte debe escribirse entre corchetes ([ ]). Si no se introduce un valor de ID de soporte, el ID de soporte de la controladora será el valor predeterminado.
+
+
+
+ a| 
+`drawer`
+ a| 
+La ubicación del cajón en el cual se desea encender o apagar la luz indicadora de permiso de acción de servicio. Los valores de ID de cajón son `1` para `5`. El valor de ID de cajón debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`serviceAllowedIndicator`
+ a| 
+La opción para encender o apagar la luz indicadora de permiso de acción de servicio. Para encenderla, configure este parámetro como `on`. Para apagarla, configure este parámetro como `off`.
+
+Para obtener información acerca de cómo utilizar `forceOnWarning`, Consulte las Notas.
+
+|===
+
+
+== Notas
+
+Para poder introducir este comando, el soporte de la unidad debe cumplir estas condiciones:
+
+* El soporte de la unidad no debe tener una temperatura excesiva.
+* Los ventiladores deben presentar el estado óptima.
+* Todos los componentes del soporte de la unidad deben estar en su lugar.
+* Los volúmenes en el cajón de la unidad no pueden estar en el estado degradado. Si quita unidades del cajón de unidades y un volumen ya está en el estado degradado, el volumen puede fallar.
+
+
+[NOTE]
+====
+No emita este comando si no puede cumplir alguna de las condiciones mencionadas.
+
+====
+Todos los volúmenes con unidades en el cajón de la unidad afectada deben comprobarse para asegurarse de que los volúmenes tengan protección contra pérdida de cajón antes de enviar el comando. Si los volúmenes tienen protección contra pérdida de cajón, el comando Set Service Action Allowed continúa sin detener la actividad de I/o del volumen.
+
+Si alguno de los volúmenes en el cajón afectado no tiene protección contra pérdida de cajón, es necesario detener la actividad de I/o de esos volúmenes. Se mostrará una advertencia para indicar que este comando no debe completarse.
+
+Para encender o apagar la luz indicadora de permiso de acción de servicio en el soporte de unidades de alta capacidad completo, use la `set tray serviceAllowedIndicator` comando.
+
+
+
+== Uso del parámetro forceOnWarning
+
+Si va a preparar un componente para quitarlo y quiere anular la advertencia de que los volúmenes no tienen protección contra pérdida de cajón, introduzca este parámetro:
+
+[listing]
+----
+serviceAllowedIndicator=forceOnWarning
+----
+La `forceOnWarning` el parámetro envía la solicitud para preparar la eliminación de un componente al firmware de la controladora y fuerza la `set drawer serviceAllowedIndicator` comando para continuar.
+
+[NOTE]
+====
+Este parámetro Marca todas las unidades en el controlador como inaccesibles, y podría provocar errores en volúmenes y una recuperación compleja, incluida la necesidad de reiniciar el host. Use este parámetro con precaución.
+
+====
+
+
+== Nivel de firmware mínimo
+
+7.60

@@ -1,0 +1,405 @@
+---
+permalink: commands-a-z/show-storagearray.html 
+sidebar: sidebar 
+keywords: show, storage, array 
+summary: El comando show storageArray muestra la información de configuración de la cabina de almacenamiento. 
+---
+= Mostrar cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray` el comando muestra la información de configuración de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+Los parámetros muestran listas de valores de los componentes y las funciones de la cabina de almacenamiento. Se puede introducir el comando con un solo parámetro o con varios parámetros. Si se introduce el comando sin especificar ningún parámetro, se muestra todo el perfil de la cabina de almacenamiento (que es la misma información que se muestra al introducir el `*profile*` parámetro).
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray
+[autoSupport| autoSupportConfig | profile |
+batteryAge | connections | defaultHostType | healthStatus |
+hostTypeTable | hotSpareCoverage | features | time |
+volumeDistribution | longRunningOperations | summary | preferredVolumeOwners |
+iscsiNegotiationDefaults | unconfiguredIscsiInitiators | autoLoadBalancingEnable |
+cacheMirrorDataAssuranceCheckEnable | hostConnectivityReporting]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`autoLoadBalancingEnable`
+ a| 
+El parámetro para obtener el estado de preparación de la función Automatic Load Balancing.
+
+[NOTE]
+====
+Cuando se habilita la función Automatic Load Balancing, también se habilita la función Host Connectivity Reporting.
+
+====
+
+
+ a| 
+`autoSupport`
+ a| 
+[NOTE]
+====
+Este parámetro solo es válido para las cabinas de almacenamiento E2800 o E5700 que se ejecutan con una `https` tipo de cliente. Para las cabinas de almacenamiento E2800 o E5700 que se ejecutan con un tipo de cliente, utilice el `autoSupportConfig` parámetro.
+
+====
+
+
+ a| 
+`autoSupportConfig`
+ a| 
+El parámetro para obtener información sobre el estado actual de la operación y recoger automáticamente datos de soporte. Se muestra la siguiente información:
+
+* Si la operación está habilitada o deshabilitada
+* La ubicación de la carpeta donde se encuentra el archivo de datos de soporte
+
+
+[NOTE]
+====
+Este parámetro solo es válido para las cabinas de almacenamiento E2800 o E5700 que se ejecutan con un `symbol` tipo de cliente. Para las cabinas de almacenamiento E2800 o E5700 que se ejecutan con una `https` utilice el tipo de cliente `*autoSupport*` parámetro.
+
+====
+
+
+ a| 
+`batteryAge`
+ a| 
+El parámetro para ver el estado, la antigüedad de la batería en días y la cantidad de días que faltan para reemplazar la batería. Se muestra la información de ambas baterías.
+
+
+
+ a| 
+`cacheMirrorDataAssuranceCheckEnable`
+ a| 
+El parámetro para obtener el estado de preparación de la función Data Assurance de datos de reflejo de la caché.
+
+
+
+ a| 
+`connections`
+ a| 
+El parámetro para ver una lista de dónde se encuentran los puertos de canal de la unidad y dónde están conectados los canales de la unidad.
+
+
+
+ a| 
+`defaultHostType`
+ a| 
+El parámetro para ver el tipo de host predeterminado y el índice de tipo de host.
+
+
+
+ a| 
+`features`
+ a| 
+El parámetro para ver la configuración de funciones de la cabina de almacenamiento.
+
+
+
+ a| 
+`healthStatus`
+ a| 
+El parámetro para ver el estado, las propiedades lógicas y las propiedades de los componentes físicos de la cabina de almacenamiento.
+
+
+
+ a| 
+`hostConnectivityReporting`
+ a| 
+El parámetro para obtener el estado de preparación de la función Host Connectivity Reporting.
+
+
+
+ a| 
+`hostTypeTable`
+ a| 
+El parámetro para ver una tabla de todos los tipos de host que reconoce la controladora. Cada fila de la tabla muestra un índice de tipo de host y la plataforma que representa el índice de tipo de host.
+
+
+
+ a| 
+`hotSpareCoverage`
+ a| 
+El parámetro para ver información acerca de qué volúmenes de la cabina de almacenamiento cubre la pieza de repuesto y qué volúmenes no.
+
+
+
+ a| 
+`iscsiNegotiationDefaults`
+ a| 
+El parámetro para obtener información acerca de la configuración a nivel de la conexión sujeta a la negociación iniciador-objetivo.
+
+
+
+ a| 
+`longRunningOperations`
+ a| 
+El parámetro para ver las operaciones de ejecución prolongada de cada grupo de volúmenes y cada volumen de la cabina de almacenamiento.
+
+La `longRunningOperation` el parámetro muestra la siguiente información:
+
+* Nombre del grupo de volúmenes o del volumen
+* Operación de ejecución prolongada
+* Estado
+* % completo
+* Tiempo restante
+
+
+
+
+ a| 
+`preferredVolumeOwners`
+ a| 
+El parámetro para ver el propietario preferido de la controladora de cada volumen de la cabina de almacenamiento.
+
+
+
+ a| 
+`profile`
+ a| 
+El parámetro para ver todas las propiedades de los componentes lógicos y físicos que conforman la cabina de almacenamiento. La información se presenta en varias pantallas.
+
+[NOTE]
+====
+El parámetro profile muestra información detallada de la cabina de almacenamiento. La información abarca varias pantallas de un monitor. Es posible que se deba aumentar el tamaño del búfer de pantalla para ver toda la información. Como esta información es tan detallada, se recomienda guardar el resultado de este parámetro en un archivo.
+
+====
+Use el siguiente comando para guardar el resultado de profile en un archivo:
+
+[listing]
+----
+c:\...\smX\client>smcli 123.45.67.88
+123.45.67.89 -c "show storagearray profile;"
+-o "c:\folder\storagearray
+profile.txt"
+----
+
+
+ a| 
+`summary`
+ a| 
+El parámetro para ver una lista concisa de información acerca de la configuración de la cabina de almacenamiento.
+
+
+
+ a| 
+`time`
+ a| 
+El parámetro para ver la hora actual establecida en ambas controladoras de la cabina de almacenamiento.
+
+
+
+ a| 
+`unconfiguredIscsiInitiators`
+ a| 
+El parámetro para obtener una lista de iniciadores detectados por la cabina de almacenamiento que todavía no se configuraron en la topología de la cabina de almacenamiento.
+
+
+
+ a| 
+`volumeDistribution`
+ a| 
+El parámetro para ver el propietario actual de la controladora de cada volumen de la cabina de almacenamiento.
+
+|===
+
+
+== Notas
+
+La `profile` el parámetro muestra información detallada acerca de la cabina de almacenamiento. La información se presenta en varias pantallas de un monitor. Es posible que se deba aumentar el tamaño del búfer de pantalla para ver toda la información. Como esta información es tan detallada, se recomienda guardar el resultado de este parámetro en un archivo. Para guardar el resultado en un archivo, ejecute el `show storageArray` comando que se parece a este ejemplo.
+
+[listing]
+----
+-c "show storageArray profile;" -o "c:\\folder\\storageArrayProfile.txt"
+----
+La sintaxis del comando anterior es para un host que ejecuta el sistema operativo Windows. La sintaxis real varía según el sistema operativo.
+
+Al guardar información en un archivo, puede usarla a modo de registro de la configuración y de ayuda durante la recuperación.
+
+[NOTE]
+====
+Si bien el perfil de la cabina de almacenamiento muestra una gran cantidad de datos claramente etiquetados, la novedad de la versión 8.41 es la información adicional de los informes de vida útil de las unidades SSD en las cabinas de almacenamiento E2800 o E5700. Aunque antes, los informes de vida útil incluían información sobre el recuento medio de borrados y los bloques de reserva restantes, ahora incluye el porcentaje de resistencia usado. El porcentaje de resistencia usado es la cantidad de datos escritos en las unidades SSD hasta la fecha, dividida por el límite teórico total de escritura de las unidades.
+
+====
+La `batteryAge` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+Battery status: Optimal
+    Age: 1 day(s)
+    Days until replacement: 718 day(s)
+----
+Los soportes de controladoras más recientes no admiten el `batteryAge` parámetro.
+
+La `defaultHostType` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+Default host type: Linux (Host type index 6)
+----
+La `healthStatus` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+Storage array health status = optimal.
+----
+La `hostTypeTable` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+NVSRAM HOST TYPE INDEX DEFINITIONS
+HOST TYPE                         ALUA/AVT STATUS   ASSOCIATED INDEXS
+AIX MPIO                          Disabled          9
+AVT_4M                            Enabled           5
+Factory Default                   Disabled          0
+HP-UX                             Enabled           15
+Linux (ATTO)                      Enabled           24
+Linux (DM-MP)                     Disabled          6
+Linux (Pathmanager)               Enabled           25
+Mac OS                            Enabled           22
+ONTAP                             Disabled          4
+SVC                               Enabled           18
+Solaris (v11 or Later)            Enabled           17
+Solaris (version 10 or earlier)   Disabled          2
+VMWare                            Enabled           10 (Default)
+Windows                           Enabled           1
+----
+La `hotSpareCoverage` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+The following volume groups are not protected: 2, 1
+Total hot spare drives: 0
+   Standby: 0
+   In use: 0
+----
+La `features` parameter devuelve información que muestra las funciones habilitadas, deshabilitadas, de evaluación y disponibles para su instalación. Este comando muestra información de funciones en un formato similar al siguiente:
+
+[listing]
+----
+PREMIUM FEATURE           STATUS
+
+asyncMirror               Trial available
+syncMirror                Trial available/Deactivated
+thinProvisioning          Trial available
+driveSlotLimit            Enabled (12 of 192 used)
+snapImage                 Enabled (0 of 512 used) - Trial version expires m/d/y
+snapshot                  Enabled (1 of 4 used)
+storagePartition          Enabled (0 of 2 used)
+volumeCopy                Enabled (1 of 511 used)
+SSDSupport                Disabled (0 of 192 used) - Feature Key required
+driveSecurity             Disabled - Feature Key required
+enterpriseSecurityKeyMgr  Disabled - Feature Key required
+highPerformanceTier       Disabled - Feature Key required
+----
+La `time` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+Controller in Slot A
+
+Date/Time: Thu Jun 03 14:54:55 MDT 2004
+Controller in Slot B
+
+Date/Time: Thu Jun 03 14:54:55 MDT 2004
+----
+La `longRunningOperations` el parámetro muestra información de la siguiente forma:
+
+[listing]
+----
+LOGICAL DEVICES  OPERATION         STATUS        TIME REMAINING
+Volume-2         Volume Disk Copy  10% COMPLETED  5 min
+----
+Los campos de información que devuelve el `longRunningOperations` el parámetro tiene los siguientes significados:
+
+* `NAME` es el nombre de un volumen actualmente involucrado en una operación de ejecución prolongada. El nombre del volumen debe tener el prefijo "Volume".
+* `OPERATION` enumera la operación que se está realizando en el grupo de volúmenes o el volumen.
+* `*% COMPLETE*` muestra la proporción de la operación de ejecución prolongada que ya se realizó.
+* `STATUS` puede tener alguno de los siguientes significados:
++
+** Pending: La operación de ejecución prolongada todavía no comenzó, pero empezará una vez que se complete la operación actual.
+** En curso: La operación de ejecución prolongada comenzó y seguirá ejecutándose hasta que se complete o se detenga por una solicitud del usuario.
+
+
+* `TIME REMAINING` indica la duración restante para completar la operación de ejecución prolongada actual. El tiempo se muestra en un formato "horas, minutos". Si queda menos de una hora, solo se mostrarán los minutos. Si queda menos de un minuto, aparecerá el mensaje "[.code]``less than a minute``" se muestra.
+
+
+La `volumeDistribution` el parámetro muestra información de la siguiente forma.
+
+[listing]
+----
+volume name: 10
+     Current owner is controller in slot: A
+
+volume name: CTL 0 Mirror Repository
+     Current owner is controller in slot: A
+
+volume name: Mirror Repository 1
+     Current owner is controller in slot:A
+
+volume name: 20
+     Current owner is controller in slot:A
+
+volume name: JCG_Remote_MirrorMenuTests
+     Current owner is controller in slot:A
+----
+
+
+== Nivel de firmware mínimo
+
+5.00 añade el `defaultHostType` parámetro.
+
+5.43 añade el `summary` parámetro.
+
+6.10 añade el `volumeDistribution` parámetro.
+
+6.14 añade el `connections` parámetro.
+
+7.10 añade el `autoSupportConfig` parámetro.
+
+7.77 añade el `longRunningOperations` parámetro.
+
+7.83 muestra información, como la compatibilidad con nuevas funciones que se lanzaron en la versión 10.83 del software de administración del almacenamiento. Además, la información que se muestra se expandió para incluir el estado de las funciones de la cabina de almacenamiento.
+
+8.30 añade el `autoLoadBalancingEnable` parámetro.
+
+8.40 añade el `autoSupport` parámetro.
+
+8.40 deja obsoleto el `autoSupportConfig` Parámetro para las cabinas de almacenamiento E2800 o E5700 que se ejecutan con una `https` tipo de cliente.
+
+8.41 agrega la supervisión de la vida útil de las unidades SSD al perfil de la cabina de almacenamiento. Esta información solo se muestra en las cabinas de almacenamiento E2800 y E5700.
+
+8.42 añade el `hostConnectivityReporting` parámetro.
+
+8.63 añade la entrada Resource-Provisioned Volumes en la `profile` resultados de parámetros.

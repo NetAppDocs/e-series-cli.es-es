@@ -1,0 +1,89 @@
+---
+permalink: commands-a-z/check-storagearray-connectivity.html 
+sidebar: sidebar 
+keywords: check, storage array, connectivity 
+summary: El comando check storageArray Connectivity verifica que la cabina de almacenamiento local tenga una ruta de comunicación y muestre los detalles de conexión entre las cabinas de almacenamiento local y remota. 
+---
+= Compruebe la conectividad de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `check storageArray connectivity` el comando verifica que la cabina de almacenamiento local y la cabina de almacenamiento remota tengan una ruta de comunicación y muestra los detalles de conexión entre las cabinas de almacenamiento local y remota.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Antes de crear un grupo de reflejos asíncronos, debe comprobar si la cabina de almacenamiento local y la cabina de almacenamiento remota pueden comunicarse entre sí. Cuando se ejecuta este comando, el sistema consulta la cabina de almacenamiento remota en todos los puertos de host elegibles para determinar qué puertos están conectados a la cabina de almacenamiento remota. El resultado de la prueba es una lista de todos los puertos en la cabina de almacenamiento local, junto con una lista de las direcciones de los puertos en la cabina de almacenamiento remota a los que se puede acceder a través de ese puerto.
+
+[NOTE]
+====
+La conectividad se prueba a través de todos los canales posibles y, si se trata de una configuración de controladora doble, se comprueba la conectividad en cada controladora. Puede tardar hasta 20 minutos comprobar la conectividad entre dos cabinas de almacenamiento.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+check storageArray connectivity
+(remoteStorageArrayName=pass:quotes[_"storageArrayName"_]|
+remoteStorageArrayWwid=<pass:quotes[_wwID_]>)
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`remoteStorageArrayName`
+ a| 
+El nombre de la cabina de almacenamiento remota en la cual se comprueba la conectividad. El nombre de la cabina de almacenamiento debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remoteStorageArrayWwid`
+ a| 
+El identificador a nivel mundial (WWID) de la cabina de almacenamiento en la cual se comprueba la conectividad. Es posible usar el WWID en lugar del nombre de la cabina de almacenamiento para identificar la cabina de almacenamiento. El WWID debe escribirse entre paréntesis angulares (< >).
+
+|===
+
+
+== Notas
+
+Para poder establecer un reflejo entre dos cabinas de almacenamiento, primero es necesario conectar las cabinas a través de una conexión Fibre Channel o iSCSI.
+
+El mirroring asíncrono de Fibre Channel debe estar activado en las dos cabinas de almacenamiento para que se puedan comunicar entre sí y realizar operaciones de mirroring o comprobación de conectividad.
+
+Si la cabina de almacenamiento local es compatible con iSCSI, se comprueba la conectividad por iSCSI. Si la cabina de almacenamiento local es compatible con Fibre Channel y se habilitó el mirroring por Fibre Channel, se comprueba la conectividad por Fibre Channel. Si la cabina de almacenamiento local no es compatible con iSCSI o Fibre Channel, se muestra un mensaje de error y se cancela la operación.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

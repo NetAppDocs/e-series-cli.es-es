@@ -1,0 +1,46 @@
+---
+permalink: commands-a-z/stop-drive-locate.html 
+sidebar: sidebar 
+keywords: stop, drive, locate 
+summary: El comando stop drive locate apaga la luz indicadora de la unidad que se encendió con el comando start drive locate. 
+---
+= Detener búsqueda de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop drive locate` el comando apaga la luz indicadora en la unidad que fue encendida por el `start drive locate` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+stop drive locate
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

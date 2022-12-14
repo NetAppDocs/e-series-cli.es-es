@@ -1,0 +1,78 @@
+---
+permalink: commands-a-z/delete-storagearray-trustedcertificate.html 
+sidebar: sidebar 
+keywords: delete, storage, array, trusted, certificate, command, remove, specified, installed, web, servers 
+summary: El comando delete storageArray trustedCertificate quita los certificados de CA instalados por el usuario especificados de los servidores web de la cabina. 
+---
+= Quite los certificados de CA de confianza instalados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete storageArray trustedCertificate` Comando quita los certificados de CA instalados por el usuario especificados de los servidores web de la cabina.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[delete storageArray trustedCertificate [(allUserInstalled |
+aliases=("_alias1_" ... "_aliasN_]"))]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allUserInstalled`
+ a| 
+Permite especificar la eliminación de todos los certificados instalados por el usuario.
+
+
+
+ a| 
+`aliases`
+ a| 
+Permite especificar uno o varios certificados de CA para quitarlos mediante nombres de alias o especificarlos todos. Los alias pueden provenir de cualquier controladora. Todos los alias se deben escribir entre paréntesis. Si se introducen varios alias, se deben separar con un espacio.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "delete storageArray trustedCertificate allUserInstalled;"
+
+SMcli -n Array1 -c "delete storageArray trustedCertificate
+   aliases=("19527b38-8d26-44e5-8c7f-5bf2ca9db7cf" "04bf744c-413a-49f1-9666-88d74189591d");"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

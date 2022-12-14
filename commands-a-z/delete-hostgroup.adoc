@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/delete-hostgroup.html 
+sidebar: sidebar 
+keywords: delete, hostgroup, command, support, role 
+summary: El comando delete hostGroup elimina un grupo de hosts. 
+---
+= Eliminar grupo de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete hostGroup` el comando elimina un grupo de hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+*Posible daño en la configuración de la matriz de almacenamiento* -- este comando elimina todas las definiciones de host del grupo de hosts.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete hostGroup [_hostGroupName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre del grupo de hosts que se desea eliminar. El nombre del grupo de hosts debe escribirse entre corchetes ([ ]). Si el nombre del grupo de hosts contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+|===
+
+
+== Notas
+
+Un grupo de hosts es un elemento topológico opcional para representar una recogida de hosts que comparten el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

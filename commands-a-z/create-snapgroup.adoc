@@ -1,0 +1,1036 @@
+---
+permalink: commands-a-z/create-snapgroup.html 
+sidebar: sidebar 
+keywords: create, snapshot, group 
+summary: El comando create snapGroup crea un nuevo grupo Snapshot y el volumen de repositorios asociado. 
+---
+= Crear grupo Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create snapGroup` el comando crea un nuevo grupo snapshot y el volumen de repositorios asociado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Un grupo Snapshot contiene una secuencia de imágenes Snapshot de un volumen base asociado. Un grupo Snapshot tiene un volumen de repositorios que se usa para guardar los datos de todas las imágenes Snapshot que forman parte del grupo Snapshot.
+
+[NOTE]
+====
+Antes de crear un grupo Snapshot, asegúrese de que haya disponible un grupo de volúmenes con capacidad libre.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create snapGroup userLabel=pass:quotes[_"snapGroupName_" sourceVolume=_"volumeName"_]
+[(repositoryVolume="repos_xxxx" |
+repositoryVolume=(pass:quotes[_volumeGroupName_] [capacity=capacityValue]) |
+repositoryVolume=(pass:quotes[_diskPoolName_] [capacity=capacityValue]))]
+[repositoryFullPolicy=(failBaseWrites | purgeSnapImages)]
+[rollbackPriority=(highest | high | medium | low | lowest)]
+[repositoryFullLimit=pass:quotes[_percentValue_]]
+[autoDeleteLimit=pass:quotes[_numberOfSnapImages_]]|
+[enableSchedule=(TRUE | FALSE)]
+[schedule (immediate | pass:quotes[_snapshotSchedule_)]]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se asignará al nuevo grupo Snapshot. El identificador del grupo Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`sourceVolume`
+ a| 
+El nombre del volumen que se usará como origen de las imágenes Snapshot. El nombre del volumen de origen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`repositoryVolume`
+ a| 
+El nombre del volumen de repositorios que contendrá los datos modificados del grupo Snapshot.
+
+Existen dos opciones para definir el nombre de un volumen de repositorios:
+
+* Usar un volumen de repositorios existente: Name
+* Crear un nuevo volumen de repositorios cuando se ejecuta este comando
+
+
+El nombre de un volumen de repositorios existente se compone de dos partes:
+
+* El término "repos"
+* Identificador numérico de cuatro dígitos que el software de administración del almacenamiento asigna al nombre del volumen de repositorios
+
+
+El nombre del volumen de repositorios existente debe escribirse entre comillas dobles (" ").
+
+Para crear un nuevo volumen de repositorios cuando se ejecuta este comando, es necesario introducir el nombre de un grupo de volúmenes o un pool de discos donde se ubicará el volumen de repositorios. Opcionalmente, también se puede definir la capacidad del volumen de repositorios. Para definir la capacidad, es posible usar los siguientes valores:
+
+* Un valor entero que representa un porcentaje de la capacidad del volumen base
+* Un valor de fracción decimal que representa un porcentaje de la capacidad del volumen base
+* Un tamaño específico para el volumen de repositorios El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+Si no se usa la opción de capacidad, el software de administración del almacenamiento establece la capacidad en 20 % de la capacidad del volumen base.
+
+Cuando se ejecuta este comando, el software de administración del almacenamiento crea el volumen de repositorios para el volumen Snapshot.
+
+
+
+ a| 
+`repositoryFullPolicy`
+ a| 
+Define la forma en que debe continuar el procesamiento de la imagen Snapshot si el volumen de repositorios del grupo Snapshot se llena. Es posible optar por conmutar las escrituras de I/o en el volumen base (`failBaseWrites`) o eliminar (purgar) las imágenes snapshot  `purgeSnapImages`) en el volumen de repositorios. La `purgeSnapImages` esta opción elimina las imágenes snapshot más antiguas para liberar espacio. La acción predeterminada es `purgeSnapImages`.
+
+
+
+ a| 
+`rollBackPriority`
+ a| 
+Determina si se deben asignar recursos del sistema a la operación de reversión aunque se reduzca el rendimiento del sistema. Valor de `high` Indica que la operación de reversión tiene prioridad sobre todas las demás operaciones de I/o del host Valor de `low` Indica que la operación de reversión debe ejecutarse con el menor impacto posible en la actividad de I/o del host El valor predeterminado es `medium`.
+
+
+
+ a| 
+`repositoryFullLimit`
+ a| 
+El porcentaje de la capacidad de repositorio que debe alcanzarse para que se envíe una advertencia de que el volumen de repositorios del grupo Snapshot está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. El valor predeterminado es 75.
+
+
+
+ a| 
+`autoDeleteLimit`
+ a| 
+Es posible configurar cada grupo Snapshot para eliminar automáticamente sus imágenes Snapshot con el fin de mantener el número total de imágenes Snapshot en el grupo Snapshot en o debajo de un nivel determinado. Cuando se habilita esta opción, cada vez que se crea una nueva imagen Snapshot en el grupo Snapshot, el sistema elimina automáticamente la imagen Snapshot más antigua del grupo a fin de cumplir el límite. Esta acción libera capacidad en el repositorio que se puede utilizar para satisfacer los requisitos continuos de copia en escritura para las imágenes Snapshot restantes.
+
+
+
+ a| 
+`enableSchedule`
+ a| 
+Este parámetro permite activar o desactivar la capacidad para programar una operación Snapshot. Para activar la programación Snapshot, este parámetro debe configurarse en `TRUE`. Para desactivar la programación Snapshot, este parámetro debe configurarse en `FALSE`.
+
+|===
+
+
+== Notas
+
+Cada nombre de grupo Snapshot debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+Para crear un grupo Snapshot, es necesario contar con un volumen de repositorios asociado donde se puedan almacenar las imágenes Snapshot. Es posible usar un volumen de repositorios existente o crear uno nuevo. Se puede crear el volumen de repositorios cuando se crea el grupo Snapshot. Un volumen de repositorios de grupo Snapshot es un volumen expandible que se estructura como un conjunto concatenado de hasta 16 entidades de volumen estándar. Inicialmente, un volumen de repositorios expandible tiene un solo elemento. La capacidad del volumen de repositorios expandible es exactamente igual a la de ese único elemento. Para aumentar la capacidad de un volumen de repositorios expandible, se deben añadir volúmenes estándar. La capacidad compuesta del volumen de repositorios expandible pasa a ser la suma de las capacidades de todos los volúmenes estándar concatenados.
+
+Un grupo Snapshot tiene un estricto orden de las imágenes Snapshot en función del momento en el que se crea cada imagen Snapshot. Una imagen Snapshot que se crea después de otra es un _sucesor_ relativo a esa otra imagen Snapshot. Una imagen Snapshot que se crea antes de otra es un _predecesora_ relativo a esa otra imagen Snapshot.
+
+Un volumen de repositorios de grupo Snapshot debe satisfacer un requisito de capacidad mínima que equivale a la suma de lo siguiente:
+
+* 32 MB para admitir la sobrecarga fija para el grupo Snapshot y el procesamiento de copia en escritura.
+* Capacidad para el procesamiento de reversiones, que es equivalente a 1/5000 de la capacidad del volumen base.
+
+
+La capacidad mínima es una imposición del firmware de la controladora y del software de administración del almacenamiento.
+
+Cuando se crea por primera vez, el grupo Snapshot no contiene ninguna imagen Snapshot. Cuando se crean imágenes Snapshot, se las añade a un grupo Snapshot. Utilice la `create snapImage` comando para crear imágenes snapshot y añadir las imágenes snapshot a un grupo snapshot.
+
+Un grupo Snapshot puede tener uno de los siguientes estados:
+
+* *Óptima* -- el grupo de instantáneas funciona con normalidad.
+* *Full* -- el repositorio del grupo de instantáneas está lleno. No se pueden ejecutar operaciones adicionales de copia en escritura. Este estado solo es posible en los grupos Snapshot que tienen la política Repository Full establecida en Fail base Writes. Cualquier grupo Snapshot con el estado completo genera una condición Needs-Attention para la cabina de almacenamiento.
+* *Por encima del umbral* -- el uso del volumen de repositorio del grupo de instantáneas está en o más allá de su umbral de alerta. Cualquier grupo Snapshot con este estado genera una condición Needs-Attention para la cabina de almacenamiento.
+* *Error* -- el grupo de instantáneas ha encontrado un problema que ha hecho que todas las imágenes de instantánea del grupo de instantáneas no sean utilizables. Por ejemplo, ciertos tipos de errores en el volumen de repositorios pueden generar el estado con errores. Para recuperar desde un estado fallido, utilice `revive snapGroup` comando.
+
+
+Puede configurar cada grupo Snapshot para eliminar automáticamente las imágenes Snapshot mediante la `autoDeleteLimit` parámetro. Al eliminar automáticamente las imágenes Snapshot, no es necesario eliminar de forma periódica y manual las imágenes no deseadas que pueden impedir la creación de nuevas imágenes Snapshot cuando el volumen de repositorios está completo. Cuando utilice la `autoDeleteLimit` parámetro que hace que el software de administración del almacenamiento elimine automáticamente imágenes snapshot, comenzando por la más antigua. El software de administración del almacenamiento elimina las imágenes Snapshot hasta que alcanza una cantidad de imágenes Snapshot igual al número introducido `autoDeleteLimit` parámetro. Cuando se añaden nuevas imágenes Snapshot al volumen de repositorios, el software de administración del almacenamiento elimina las imágenes Snapshot más antiguas hasta el `autoDeleteLimit` se ha alcanzado el número de parámetro.
+
+La `enableSchedule` y la `schedule` el parámetro permite programar la creación de imágenes snapshot para un grupo snapshot. Con estos parámetros, puede programar Snapshot diariamente, semanalmente o mensualmente (por día o por fecha). La `enableSchedule` el parámetro activa o desactiva la capacidad para programar snapshot. Cuando se habilita la programación, se debe usar el `schedule` parámetro para definir cuándo deben producirse las snapshot.
+
+En esta tabla se explica cómo utilizar las opciones de `schedule` parámetro:
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`schedule`
+ a| 
+Se requiere para especificar parámetros de programación.
+
+
+
+ a| 
+`immediate`
+ a| 
+Se inicia la operación de inmediato. Este elemento es mutuamente exclusivo con los demás parámetros de programación.
+
+
+
+ a| 
+`enableSchedule`
+ a| 
+Cuando se establece en `true`, la programación está activada. Cuando se establece en `false`, la programación está desactivada.
+
+[NOTE]
+====
+El valor predeterminado es `false`.
+
+====
+
+
+ a| 
+`startDate`
+ a| 
+Fecha específica en la que se inicia la operación. El formato para introducir la fecha es MM:DD:AA. El valor predeterminado es la fecha actual. Un ejemplo de esta opción es `startDate=06:27:11`.
+
+
+
+ a| 
+`scheduleDay`
+ a| 
+Día de la semana en el que se inicia la operación. Puede ser uno o varios de los siguientes valores, o incluso todos:
+
+* `monday`
+* `tuesday`
+* `wednesday`
+* `thursday`
+* `friday`
+* `saturday`
+* `sunday`
+
+
+[NOTE]
+====
+El valor debe escribirse entre paréntesis. Por ejemplo: `scheduleDay=(wednesday)`.
+
+====
+Para especificar varios días, se deben escribir los valores separados por un espacio dentro de un solo conjunto de paréntesis. Por ejemplo: `scheduleDay=(monday wednesday friday)`.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación mensual.
+
+====
+
+
+ a| 
+`startTime`
+ a| 
+Hora del día en la que se inicia la operación. El formato para introducir la hora es HH:MM, donde HH es la hora y MM son los minutos. Se usa un reloj de 24 horas. Por ejemplo, 2:00 de la tarde es 14:00. Un ejemplo de esta opción es `startTime=14:27`.
+
+
+
+ a| 
+`scheduleInterval`
+ a| 
+La cantidad mínima de tiempo, en minutos, que debe transcurrir entre las operaciones.el intervalo de programación no debe ser superior a 1440 (24 horas) y debe ser múltiplo de 30.
+
+Un ejemplo de esta opción es `scheduleInterval=180`.
+
+
+
+ a| 
+`endDate`
+ a| 
+Fecha específica en la que se detiene la operación. El formato para introducir la fecha es MM:DD:AA. Si no se desea ninguna fecha de finalización, puede especificar `noEndDate`. Un ejemplo de esta opción es `endDate=11:26:11`.
+
+
+
+ a| 
+`timesPerDay`
+ a| 
+La cantidad de veces por día que debe ejecutarse la operación. Un ejemplo de esta opción es `timesPerDay=4`.
+
+
+
+ a| 
+`timezone`
+ a| 
+La zona horaria que se usará para la programación. Puede indicarse de dos formas:
+
+* *GMT±HH:MM*
++
+El ajuste de zona horaria con respecto a la hora GMT. Ejemplo: `timezone=GMT-06:00`.
+
+* *Cadena de texto*
++
+Una cadena de texto con la zona horaria estándar, escrita entre comillas. Ejemplo:``timezone="America/Chicago"``
+
+
+
+
+
+ a| 
+`scheduleDate`
+ a| 
+Día del mes en el que se ejecuta la operación. Para indicar los días se usan valores numéricos de 1 a 31.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación semanal.
+
+====
+Un ejemplo de `scheduleDate` la opción es `scheduleDate=("15")`.
+
+
+
+ a| 
+`month`
+ a| 
+Mes específico en el que se ejecuta la operación. Los valores de los meses son:
+
+* `jan` - Enero
+* `feb` - Febrero
+* `mar` - Marzo
+* `apr` - Abril
+* `may` - Mayo
+* `jun` - Junio
+* `jul` - Julio
+* `aug` - Agosto
+* `sep` - Septiembre
+* `oct` - Octubre
+* `nov` - Noviembre
+* `dec` - Diciembre
+
+
+[NOTE]
+====
+El valor debe escribirse entre paréntesis. Por ejemplo: `month=(jan)`.
+
+====
+Para especificar varios meses, se deben escribir los valores separados por un espacio dentro de un solo conjunto de paréntesis. Por ejemplo: `month=(jan jul dec)`.
+
+Use este parámetro con el `scheduleDate` parámetro para realizar la operación en un día específico del mes.
+
+[NOTE]
+====
+Este parámetro no es compatible con una programación semanal.
+
+====
+|===
+En esta tabla se explica cómo utilizar la `timeZone` parámetro:
+
+|===
+| Nombre de zona horaria | Diferencia con respecto a GMT 
+
+
+ a| 
+`Etc/GMT+12`
+ a| 
+`GMT-12:00`
+
+
+
+ a| 
+`Etc/GMT+11`
+ a| 
+`GMT-11:00`
+
+
+
+ a| 
+`Pacific/Honolulu`
+ a| 
+`GMT-10:00`
+
+
+
+ a| 
+`America/Anchorage`
+ a| 
+`GMT-09:00`
+
+
+
+ a| 
+`America/Santa_Isabel`
+ a| 
+`GMT-08:00`
+
+
+
+ a| 
+`America/Los_Angeles`
+ a| 
+`GMT-08:00`
+
+
+
+ a| 
+`America/Phoenix`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Chihuahua`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Denver`
+ a| 
+`GMT-07:00`
+
+
+
+ a| 
+`America/Guatemala`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Chicago`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Mexico_City`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Regina`
+ a| 
+`GMT-06:00`
+
+
+
+ a| 
+`America/Bogota`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`America/New_York`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`Etc/GMT+5`
+ a| 
+`GMT-05:00`
+
+
+
+ a| 
+`America/Caracas`
+ a| 
+`GMT-04:30`
+
+
+
+ a| 
+`America/Asuncion`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Halifax`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Cuiaba`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/La_Paz`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/Santiago`
+ a| 
+`GMT-04:00`
+
+
+
+ a| 
+`America/St_Johns`
+ a| 
+`GMT-03:30`
+
+
+
+ a| 
+`America/Sao_Paulo`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Buenos_Aires`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Cayenne`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Godthab`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`America/Montevideo`
+ a| 
+`GMT-03:00`
+
+
+
+ a| 
+`Etc/GMT+2`
+ a| 
+`GMT-02:00`
+
+
+
+ a| 
+`Atlantic/Azores`
+ a| 
+`GMT-01:00`
+
+
+
+ a| 
+`Atlantic/Cape_Verde`
+ a| 
+`GMT-01:00`
+
+
+
+ a| 
+`Africa/Casablanca`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Etc/GMT`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Europe/London`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Atlantic/Reykjavik`
+ a| 
+`GMT`
+
+
+
+ a| 
+`Europe/Berlin`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Budapest`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Paris`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Europe/Warsaw`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Africa/Lagos`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Africa/Windhoek`
+ a| 
+`GMT+01:00`
+
+
+
+ a| 
+`Asia/Anman`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Beirut`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Africa/Cairo`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Damascus`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Africa/Johannesburg`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Europe/Kiev`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Jerusalem`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Europe/Istanbul`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Europe/Minsk`
+ a| 
+`GMT+02:00`
+
+
+
+ a| 
+`Asia/Baghdad`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Asia/Riyadh`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Africa/Nairobi`
+ a| 
+`GMT+03:00`
+
+
+
+ a| 
+`Asia/Tehran`
+ a| 
+`GMT+03:30`
+
+
+
+ a| 
+`Europe/Moscow`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Dubai`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Baku`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Indian/Mauritius`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Tbilisi`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Yerevan`
+ a| 
+`GMT+04:00`
+
+
+
+ a| 
+`Asia/Kabul`
+ a| 
+`GMT+04:30`
+
+
+
+ a| 
+`Asia/Karachi`
+ a| 
+`GMT+05:00`
+
+
+
+ a| 
+`Asia//Tashkent`
+ a| 
+`GMT+05:00`
+
+
+
+ a| 
+`Asia/Calcutta`
+ a| 
+`GMT+05:30`
+
+
+
+ a| 
+`Asia/Colombo`
+ a| 
+`GMT+05:30`
+
+
+
+ a| 
+`Asia/Katmandu`
+ a| 
+`GMT+05:45`
+
+
+
+ a| 
+`Asia/Yekaterinburg`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Almaty`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Dhaka`
+ a| 
+`GMT+06:00`
+
+
+
+ a| 
+`Asia/Rangoon`
+ a| 
+`GMT+06:30`
+
+
+
+ a| 
+`Asia/Novosibirsk`
+ a| 
+`GMT+07:00`
+
+
+
+ a| 
+`Asia/Bangkok`
+ a| 
+`GMT+07:00`
+
+
+
+ a| 
+`Asia/Krasnoyarsk`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Shanghai`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Singapore`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Australia/Perth`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Taipei`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Ulaanbaatar`
+ a| 
+`GMT+08:00`
+
+
+
+ a| 
+`Asia/Irkutsk`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Asia/Tokyo`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Asia/Seoul`
+ a| 
+`GMT+09:00`
+
+
+
+ a| 
+`Australia/Adelaide`
+ a| 
+`GMT+09:30`
+
+
+
+ a| 
+`Australia/Darwin`
+ a| 
+`GMT+09:30`
+
+
+
+ a| 
+`Asia/Yakutsk`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Brisbane`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Sydney`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Pacific/Port Moresby`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Australia/Hobart`
+ a| 
+`GMT+10:00`
+
+
+
+ a| 
+`Asia/Vladivostok`
+ a| 
+`GMT+11:00`
+
+
+
+ a| 
+`Pacific/Guadalcanal`
+ a| 
+`GMT+11:00`
+
+
+
+ a| 
+`Pacific/Auckland`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Etc/GMT-12`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Pacific/Fiji`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Asia/Kamchatka`
+ a| 
+`GMT+12:00`
+
+
+
+ a| 
+`Pacific/Tongatapu`
+ a| 
+`GMT+13:00`
+
+|===
+La cadena de código para definir una programación es similar a estos ejemplos:
+
+[listing]
+----
+enableSchedule=true schedule startTime=14:27
+----
+[listing]
+----
+enableSchedule=true schedule scheduleInterval=180
+----
+[listing]
+----
+enableSchedule=true schedule timeZone=GMT-06:00
+----
+[listing]
+----
+enableSchedule=true schedule timeZone="America/Chicago"
+----
+Si también utiliza la `scheduleInterval` el firmware elige entre `timesPerDay` y la `scheduleInterval` seleccionando el valor más bajo de las dos opciones. El firmware calcula un valor de número entero para `scheduleInterval` opción dividiendo 1440 por el `scheduleInterval` valor de opción definido. Por ejemplo, 1440/180 = 8. A continuación, el firmware compara la `timesPerDay` valor entero con el calculado `scheduleInterval` valor entero y usa el valor más pequeño.
+
+Para eliminar una programación, utilice `delete volume` con el `schedule` parámetro. La `delete volume` con el `schedule` el parámetro solo elimina la programación, no el volumen snapshot.
+
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+7.86 añade el `scheduleDate` y la `month` opción.

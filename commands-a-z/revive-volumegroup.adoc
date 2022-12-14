@@ -1,0 +1,63 @@
+---
+permalink: commands-a-z/revive-volumegroup.html 
+sidebar: sidebar 
+keywords: revive, volume, group 
+summary: El comando revive volumeGroup fuerza el grupo de volúmenes especificado y sus unidades con error asociadas al estado Optimal. 
+---
+= Reactivar grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `revive volumeGroup` El comando fuerza al grupo de volúmenes especificado y sus unidades con errores asociadas al estado Optimal.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+[NOTE]
+====
+*Posible pérdida de acceso a los datos* -- el uso correcto de este comando depende de la configuración de los datos en todas las unidades del grupo de volúmenes. Jamás intente reactivar una unidad a menos que el soporte técnico lo supervise.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+revive volumeGroup pass:quotes[[_volumeGroupName_]]
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea establecer en el estado Optimal. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

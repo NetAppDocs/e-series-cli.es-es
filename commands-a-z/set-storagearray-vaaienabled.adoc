@@ -1,0 +1,75 @@
+---
+permalink: commands-a-z/set-storagearray-vaaienabled.html 
+sidebar: sidebar 
+keywords: enable, disable, vaai 
+summary: 'El comando set storageArray vaaiEnabled activa o desactiva VMware vStorage API Array Architecture (VAAI) para una cabina de almacenamiento.' 
+---
+= Habilite o deshabilite VAAI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray vaaiEnabled` El comando activa o desactiva VMware vStorage API Array Architecture (VAAI) para una cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+La cabina de almacenamiento viene con la función VAAI activada. Este comando permite desactivar la función VAAI si no se la desea ejecutar o si provoca problemas con la cabina de almacenamiento. La única cabina de almacenamiento afectada es aquella donde se ejecuta el comando.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray vaaiEnabled=(TRUE | FALSE)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`vaaiEnabled`
+ a| 
+El ajuste para activar o desactivar VAAI. Para activar VAAI, se debe establecer este parámetro en `TRUE`. Para desactivar VAAI, se debe establecer este parámetro en `FALSE`. La configuración predeterminada es VAAI activada.
+
+|===
+
+
+== Notas
+
+[NOTE]
+====
+VAAI permite quitar la carga de algunas tareas de almacenamiento del hardware de servidor a una cabina de almacenamiento. Quitar la carga de las tareas de almacenamiento a una cabina de almacenamiento aumenta el rendimiento del host, ya que reduce la cantidad de tareas que ejecuta.
+
+====
+[NOTE]
+====
+La configuración de VAAI se puede ver mediante `show storageArray odxSetting` nombre.
+
+====
+
+
+== Nivel de firmware mínimo
+
+8.20

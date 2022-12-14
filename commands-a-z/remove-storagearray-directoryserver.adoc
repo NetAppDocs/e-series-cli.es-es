@@ -1,0 +1,86 @@
+---
+permalink: commands-a-z/remove-storagearray-directoryserver.html 
+sidebar: sidebar 
+keywords: remove, storage array, directory, server, role, mapping 
+summary: El comando remove storageArray directoryServer quita del directorio especificado las asignaciones de roles definidas para el servidor. 
+---
+= Quitar asignación de roles de servidor de directorio de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `remove storageArray directoryServer` quita las asignaciones de roles definidas para el servidor de directorio especificado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+remove storageArray directoryServer pass:quotes[[_domainId_]]
+    (allGroupDNs | groupDNs=pass:quotes[(_groupDN1 ... groupDNN_))]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`directoryServer`
+ a| 
+Permite especificar el dominio, mediante un ID de dominio, en el que se quitará la asignación.
+
+
+
+ a| 
+`allGroupDNs`
+ a| 
+Permite quitar del dominio todas las asignaciones de nombre distintivo del grupo.
+
+
+
+ a| 
+`groupDNs`
+ a| 
+Permite especificar el nombre distintivo (DN) de los grupos' que se van a eliminar.
+
+[NOTE]
+====
+Si se introducen varios grupos, se deben separar los valores con un espacio.
+
+====
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "remove storageArray directoryServer ["domain1"]
+                    groupDNs=("CN=company-distlist,OU=Managed,
+                    OU=MyCompanyGroups,DC=hq,DC=mycompany,DC=com");"
+
+SMcli -n Array1 -c "remove storageArray directoryServer ["domain1"]
+                    allGroupDNs;"
+
+SMcli completed successfully.
+----

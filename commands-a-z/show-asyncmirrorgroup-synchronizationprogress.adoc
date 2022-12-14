@@ -1,0 +1,82 @@
+---
+permalink: commands-a-z/show-asyncmirrorgroup-synchronizationprogress.html 
+sidebar: sidebar 
+keywords: show, asynchronous, mirror, group, synchronization, progress 
+summary: El comando show asyncMirrorGroup synchronizationProgress muestra el progreso de la sincronización periódica del grupo de reflejos asíncronos entre la cabina de almacenamiento local y remota. 
+---
+= Muestra el progreso de sincronización del grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show asyncMirrorGroup synchronizationProgress` el comando muestra el progreso de la sincronización _periódica_ del grupo de reflejos asíncronos entre la cabina de almacenamiento local y remota.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Este comando obtiene el progreso de la sincronización de datos de todas las parejas reflejadas dentro del grupo de reflejos asíncronos. Este comando muestra el progreso como un porcentaje de la sincronización de datos que se completó.
+
+[NOTE]
+====
+Hay dos tipos de sincronización: Sincronización inicial y sincronización periódica. El progreso inicial de la sincronización del grupo de reflejos asíncronos se muestra en el cuadro de diálogo *Operaciones de larga ejecución* y ejecutando el `show storageArray longRunningOperations` comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show asyncMirrorGroup pass:quotes[[_asyncMirrorGroupName_]]
+[synchronizationProgress]
+[summary]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos para el cual se desea mostrar la sincronización del grupo de reflejos asíncronos entre la cabina de almacenamiento local y remota. El nombre del grupo de reflejos asíncronos debe escribirse entre corchetes ([ ]). Si el nombre del grupo de reflejos asíncronos contiene números o caracteres especiales, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`synchronizationProgress`
+ a| 
+Este parámetro muestra el progreso de la sincronización periódica del grupo de reflejos asíncronos.
+
+
+
+ a| 
+`summary`
+ a| 
+Este parámetro muestra una lista concisa de información sobre la sincronización del grupo de reflejos asíncronos entre la cabina de almacenamiento local y remota.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.84

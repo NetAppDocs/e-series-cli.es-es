@@ -1,0 +1,148 @@
+---
+permalink: commands-a-z/set-emailalert.html 
+sidebar: sidebar 
+keywords: configure, email, alert, set 
+summary: El comando set emailAlert configura la alerta para enviar un correo electrónico a una organización o un soporte técnico específico. La alerta de correo electrónico incluye un resumen del evento, los detalles del almacenamiento afectado y la información de contacto del cliente. 
+---
+= Configure los ajustes de alerta de correo electrónico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set emailAlert` comando configura el correo electrónico para enviar un correo electrónico a una organización o soporte técnico especificados. La alerta de correo electrónico incluye un resumen del evento, los detalles del almacenamiento afectado y la información de contacto del cliente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a las cabinas de almacenamiento E2800, E5700, EF600 y EF300. Sin embargo, es posible usar el comando como un comando de SMcli, no de script, para las cabinas E2700 o E5600. En este caso, el comando se aplica a todas las cabinas en el dominio de gestión.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+set emailAlert
+    serverAddress=pass:quotes["_serverAddress_"] |
+    serverEncryption=pass:quotes[_none_ | _smtps_ | _starttls_ |]
+    serverPort=pass:quotes[_port value_] |
+    serverUsername=pass:quotes["_username_"] |
+    serverPassword=pass:quotes["_password_"] |
+    senderAddress=pass:quotes["_emailAddress_"] |
+    additionalContactInfo=pass:quotes["_filename_"]  |
+    (recipientAddresses=pass:quotes[("_emailAddress1_" ... "_emailAddressN_")] |
+ addRecipientAddresses=pass:quotes[("_emailAddress1_" ... "_emailAddressN_"))]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`serverAddress`
+ a| 
+Permite configurar la dirección del servidor de correo electrónico. Esta dirección puede ser un nombre de dominio completo, una dirección IPv4 o una dirección IPv6.
+
+
+
+ a| 
+`serverEncryption`
+ a| 
+El cifrado que se utilizará para comunicarse con el servidor. El valor puede ser uno de los siguientes:
+
+* `_none_` - Sin cifrado
+* `_smtps_` - Crear una conexión SSL/TLS (TLS implícito)
+* `_starttls_` - Crear una conexión no cifrada y establecer una sesión SSL/TLS (TLS explícito)
+
+
+
+
+ a| 
+`serverPort`
+ a| 
+El puerto TCP que se va a utilizar para conectar con el servidor. El valor predeterminado dependerá del tipo de cifrado.
+
+* `_none_` - Valores predeterminados en el puerto 25
+* `_smtps_` - Valores predeterminados en el puerto 465
+* `_starttls_` - Valores predeterminados en el puerto 587
+
+
+
+
+ a| 
+`serverUsername`
+ a| 
+El nombre de usuario para proporcionar credenciales de autenticación al servidor. Si se especifica el nombre de usuario, también se debe especificar la contraseña.
+
+
+
+ a| 
+`serverPassword`
+ a| 
+La contraseña para proporcionar credenciales de autenticación al servidor. Si se especifica la contraseña, también se debe especificar el nombre de usuario.
+
+
+
+ a| 
+`senderAddress`
+ a| 
+Permite configurar la dirección de correo electrónico del remitente.
+
+
+
+ a| 
+`additionalContactInfo`
+ a| 
+Permite indicar el nombre del archivo que contiene la información de contacto adicional que debe usarse en la alerta de correo electrónico.
+
+
+
+ a| 
+`recipientAddresses`
+ a| 
+Permite establecer una o varias direcciones de correo electrónico como destinatarios. Cuando se usa esta opción, se borran las direcciones de correo electrónico existentes. Los nombres deben escribirse entre paréntesis. Cada nombre debe escribirse entre comillas dobles (""). Los nombres deben estar separados por un espacio.
+
+
+
+ a| 
+`addRecipientAddresses`
+ a| 
+Permite añadir una o varias direcciones de correo electrónico como destinatarios a la lista existente. Los nombres deben escribirse entre paréntesis. Cada nombre debe escribirse entre comillas dobles (""). Los nombres deben estar separados por un espacio.
+
+|===
+
+
+== Ejemplos
+
+[listing, subs="+macros"]
+----
+
+SMcli -n Array1 -c "set emailAlert
+   serverAddress="email.server.domain.com"
+    serverEncryption=pass:quotes[("_smtps_")] |
+    serverPort=pass:quotes["_smtps_"] |
+    serverUsername=pass:quotes["_username_"] |
+    serverPassword=pass:quotes["_password_"] |
+   senderAddress=\no-reply@server.domain.com
+   additionalContactInfo="C:\additionalInfo.txt"
+   recipientAddresses=("\person1@email.domain.com" "\person2@email.domain.com");"
+
+SMcli -n Array1 -c "set emailAlert addRecipientAddresses=("\person3@netapp.com");"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40
+
+11.70.1 añade el `serverEncryption`, `serverPort`, `serverUsername`, y. `serverPassword` parámetros.

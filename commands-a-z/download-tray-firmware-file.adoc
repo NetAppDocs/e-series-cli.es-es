@@ -1,0 +1,94 @@
+---
+permalink: commands-a-z/download-tray-firmware-file.html 
+sidebar: sidebar 
+keywords: download, tray, firmware, file, command, environmental, service, module, array, role, context 
+summary: 'El comando download tray firmware file descarga el firmware de módulo de servicios de entorno (ESM).' 
+---
+= Descargar el firmware de la tarjeta medioambiental
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `download tray firmware file` El comando descarga el firmware de módulo de servicios de entorno (ESM).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Contexto
+
+[IMPORTANT]
+====
+En los sistemas dúplex administrados por System Manager (por ejemplo, E2800), se ejecuta un servicio de sincronización automática del IOM en las controladoras que permite sincronizar automáticamente el firmware de IOM con la versión incluida en el paquete de sistema operativo de SANtricity que se carga en las controladoras. Si no quiere que el firmware de IOM se revierta para coincidir con la versión cargada en las controladoras, deberá deshabilitar este servicio. El servicio de sincronización automática del IOM puede suspenderse mediante System Manager o la API DE REST. Si suspende el servicio, tenga en cuenta que con la sincronización automática habilitada se garantiza que el firmware esté actualizado.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+download (allTrays | tray [trayID])
+pass:quotes[firmware file="_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allTrays`
+ a| 
+Este parámetro descarga el nuevo firmware en todos los soportes compatibles de la cabina de almacenamiento. El paquete de firmware seleccionado determina qué soportes son compatibles. Los soportes no compatibles se omiten. No se muestra ningún mensaje de error sobre los soportes incompatibles.
+
+
+
+ a| 
+`tray`
+ a| 
+El soporte de unidades que contiene la tarjeta ESM donde se desea cargar el nuevo firmware. Los valores de ID de soporte son `0` para `99`. El valor de ID de soporte debe escribirse entre corchetes ([ ]).
+
+[NOTE]
+====
+El ID de soporte no puede comenzar con cero. Por ejemplo, si el ID de soporte que se muestra es "02", el comando debe especificarse como [2], no [02].
+
+====
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo que contiene la imagen de firmware. La ruta y el nombre del archivo de la imagen de firmware deben escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\dnld\esmfrm.esm"`
+
+Los nombres de archivo válidos tienen un `.esm` extensión.
+
+|===
+
+
+== Notas
+
+La `tray` el parámetro descarga el nuevo firmware en un soporte de unidades específico Si es necesario descargar el nuevo firmware en varios soportes de unidades, pero no en todos, se debe introducir este comando para cada soporte de unidades
+
+
+
+== Nivel de firmware mínimo
+
+5.20

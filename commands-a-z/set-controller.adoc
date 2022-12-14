@@ -1,0 +1,353 @@
+---
+permalink: commands-a-z/set-controller.html 
+sidebar: sidebar 
+keywords: set, controller 
+summary: El comando set Controller define los atributos de las controladoras. 
+---
+= Configure la controladora
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set controller` el comando define los atributos de las controladoras.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set controller [(a|b)]
+[availability=(online | offline | serviceMode)]
+[ethernetPort [(1| 2)] ethernetPortOptions]
+[globalNVSRAMByte [nvsramOffset]=(nvsramByteSetting | nvsramBitSetting)]
+[hostNVSRAMByte [hostType, nvsramOffset]=(nvsramByteSetting | nvsramBitSetting)]
+[IPv4GatewayIP=ipAddress]
+[IPv6RouterAddress=ipv6Address]
+[iscsiHostPort [portLabel] iscsiHostPortOptions]
+[rloginEnabled=(TRUE | FALSE)]
+[serviceAllowedIndicator=(on | off)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+La controladora en la que desea definir propiedades. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si no se especifica una controladora, su firmware devolverá un error de sintaxis.
+
+
+
+ a| 
+`availability`
+ a| 
+El modo de la controladora, que se puede configurar en `online`, `offline`, o. `serviceMode` (servicio).
+
+
+
+ a| 
+`ethernetPort`
+ a| 
+Los atributos (opciones) para los puertos Ethernet de gestión. Las entradas para admitir este parámetro se incluyen en la tabla datos de declaraciones de elementos de sintaxis, que se muestra a continuación. Hay muchas configuraciones posibles, entre ellas la dirección IP, la dirección de la puerta de enlace y la dirección de la máscara de subred.
+
+
+
+ a| 
+`globalNVSRAMByte`
+ a| 
+Una porción de la NVSRAM de la controladora. Debe especificarse la región que se va a modificar con el desplazamiento de bytes de inicio dentro de la región y el valor del byte o el valor del bit de los nuevos datos que se almacenarán en la NVSRAM.
+
+
+
+ a| 
+`hostNVSRAMByte`
+ a| 
+La NVSRAM para la región específica del host. La configuración determina el índice del host específico, el desplazamiento inicial dentro de la región, el número de bytes, y el valor del byte o el valor del bit de los nuevos datos que se almacenarán en la NVSRAM.
+
+
+
+ a| 
+`IPv4GatewayIP`
+ a| 
+La dirección IP del nodo que ofrece la interfaz para la red. El formato de la dirección para la puerta de enlace IPv4 es *(0--255).(0--255).(0--255).(0--255)*
+
+
+
+ a| 
+`IPv6RouterAddress`
+ a| 
+La dirección IP del enrutador IPv6 que conecta dos o más subredes lógicas. El formato de la dirección para el enrutador IPv6 es `(0–FFFF):(0–FFFF):(0–FFFF):(0–FFFF): (0–FFFF):(0–FFFF):(0–FFFF):(0–FFFF)`.
+
+
+
+ a| 
+`iscsiHostPort`
+ a| 
+Este parámetro permite configurar opciones para los puertos iSCSI en la controladora. Introduzca la etiqueta o el número del puerto iSCSI y, a continuación, seleccione las opciones para ese puerto.
+
+Para obtener más información, consulte la sección _Identificación de una etiqueta_ del puerto de host iSCSI a continuación.
+
+
+
+ a| 
+`rloginEnabled`
+ a| 
+La configuración para determinar si la función de inicio de sesión remoto está activada o desactivada. Para activar la función de inicio de sesión remoto, defina este parámetro como `TRUE`. Para desactivar la función de inicio de sesión remoto, defina este parámetro como `FALSE`.
+
+
+
+ a| 
+`serviceAllowedIndicator`
+ a| 
+La configuración para determinar si la luz indicadora de permiso de acción de servicio está encendida o apagada. Para encenderla, configure este parámetro como `on`. Para apagarla, configure este parámetro como `off`.
+
+|===
+
+
+== Identificar una etiqueta de puerto de host iSCSI
+
+Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
+
+. Si no se conoce la etiqueta de puerto para el puerto de host iSCSI, ejecute el `show controller` comando.
+. En la sección interfaz de host de los resultados, busque el puerto de host que desea seleccionar.
++
+[NOTE]
+====
+La etiqueta de puerto es el valor completo que se muestra en `Port` campo.
+
+====
+. El valor entero de la etiqueta de puerto debe indicarse entre comillas y corchetes: ["portLabel"]. Por ejemplo, si la etiqueta de puerto es `Ch 2`, Especifique el puerto de host iSCSI de la siguiente manera:
++
+[listing]
+----
+iscsiHostPort[\"ch 2\"]
+----
++
+[NOTE]
+====
+Cuando se usa una línea de comandos de Windows y la etiqueta contiene una barra vertical (|), es necesario escapar el carácter (con {caret}); en caso contrario, se lo interpretará como un comando. Por ejemplo, si la etiqueta de puerto es `e0b|0b`, Especifique el puerto de host iSCSI de la siguiente manera:
+
+====
++
+[listing]
+----
+iscsiHostPort[\"e0b^|0b\"]
+----
+
+
+[NOTE]
+====
+Para obtener compatibilidad con versiones anteriores, el valor de iscsiPortNumber, escrito entre corchetes [ ] en lugar de corchetes y comillas [" "], puede usarse en las controladoras E2700, E5600 o EF560 (y generaciones anteriores de controladoras E-Series o EF-Series). Para estas controladoras, los valores válidos de iscsiPortNumber son los siguientes:
+
+* Para las controladoras con puertos de host integrados, los valores numéricos son 3, 4, 5 o 6.
+* Para las controladoras con puertos de host en una tarjeta de interfaz de host, los valores numéricos son 1, 2, 3 o 4.
+
+
+Un ejemplo de esta sintaxis es:
+
+[listing]
+----
+iscsiHostPort[3]
+----
+====
+
+
+== Opciones para el parámetro ethernetPort
+
+[listing]
+----
+enableIPv4=(TRUE | FALSE) |
+----
+[listing]
+----
+enableIPv6=(TRUE | FALSE) |
+----
+[listing]
+----
+IPv6LocalAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+----
+[listing]
+----
+IPv6RoutableAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+----
+[listing]
+----
+IPv4Address=(0-255).(0-255).(0-255).(0-255) |
+----
+[listing]
+----
+IPv4ConfigurationMethod=[(static | dhcp)] |
+----
+[listing]
+----
+IPv4SubnetMask=(0-255).(0-255).(0-255).(0-255) |
+----
+[listing]
+----
+duplexMode=(TRUE | FALSE) |
+----
+[listing]
+----
+portSpeed=[(autoNegotiate | 10 | 100 | 1000)]
+----
+
+
+== Opciones para el parámetro iSCSIHostPort
+
+[listing]
+----
+IPv4Address=(0-255).(0-255).(0-255).(0-255) |
+----
+[listing]
+----
+IPv6LocalAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+----
+[listing]
+----
+IPv6RoutableAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+----
+[listing]
+----
+IPv6RouterAddress=(0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF): (0-FFFF):(0-FFFF):(0-FFFF):(0-FFFF) |
+----
+[listing]
+----
+enableIPv4=(TRUE | FALSE) | enableIPv6=(TRUE | FALSE) |
+----
+[listing]
+----
+enableIPv4Vlan=(TRUE | FALSE) | enableIPv6Vlan=(TRUE | FALSE) |
+----
+[listing]
+----
+enableIPv4Priority=(TRUE | FALSE) | enableIPv6Priority=(TRUE | FALSE) |
+----
+[listing]
+----
+IPv4ConfigurationMethod=(static | dhcp) |
+----
+[listing]
+----
+IPv6ConfigurationMethod=(static | auto) |
+----
+[listing]
+----
+IPv4GatewayIP=(TRUE | FALSE) |
+----
+[listing]
+----
+IPv6HopLimit=[0-255] |
+----
+[listing]
+----
+IPv6NdDetectDuplicateAddress=[0-256] |
+----
+[listing]
+----
+IPv6NdReachableTime=[0-65535] |
+----
+[listing]
+----
+IPv6NdRetransmitTime=[0-65535] |
+----
+[listing]
+----
+IPv6NdTimeOut=[0-65535] |
+----
+[listing]
+----
+IPv4Priority=[0-7] | IPv6Priority=[0-7] |
+----
+[listing]
+----
+IPv4SubnetMask=(0-255).(0-255).(0-255).(0-255) |
+----
+[listing]
+----
+IPv4VlanId=[1-4094] | IPv6VlanId=[1-4094] |
+----
+[listing]
+----
+maxFramePayload=[*frameSize*] |
+----
+[listing]
+----
+tcpListeningPort=[3260, 49152-65536] |
+----
+[listing]
+----
+portSpeed=[( 10 | 25)]
+----
+
+
+== Notas
+
+[NOTE]
+====
+Antes de la versión de firmware 7.75, el `set controller` comando admitido por el `NVSRAMByte` parámetro. La `NVSRAMByte` el parámetro quedó obsoleto y debe reemplazarse por cualquiera de los dos `hostNVSRAMByte` o el `globalNVSRAMByte` parámetro.
+
+====
+Cuando se usa este comando, es posible especificar uno o varios parámetros. No es necesario que se usen todos los parámetros.
+
+Ajuste de `availability` parámetro a. `serviceMode` hace que la controladora alternativa asuma la propiedad de todos los volúmenes. La controladora especificada ya no tiene ningún volumen y rechaza asumir la propiedad de otros volúmenes. El modo de servicio es persistente entre ciclos de reinicio y de encendido/apagado hasta el `availability` el parámetro se establece en `online`.
+
+Utilice la `show controller NVSRAM` Comando para mostrar la información de NVSRAM. Antes de realizar cualquier cambio en la NVSRAM, comuníquese con el soporte técnico para saber qué regiones de la NVSRAM puede modificar.
+
+Cuando la `duplexMode` opción establecida en `TRUE`, El puerto Ethernet seleccionado se establece en dúplex completo. El valor predeterminado es medio duplex (la `duplexMode` el parámetro se establece en `FALSE`).
+
+Para asegurarse de que se aplican los ajustes de IPv4 o IPv6, debe establecer estos ajustes `iscsiHostPort` opciones:
+
+* `enableIPV4=` `TRUE`
+* `enableIPV6=` `TRUE`
+
+
+El espacio de la dirección IPv6 es 128 bits. Se representa con ocho bloques hexadecimales de 16 bits separados por dos puntos.
+
+La `maxFramePayload` La opción se comparte entre IPv4 e IPv6. La porción de carga útil de una trama Ethernet estándar se establece en `1500`, Y una trama gigante Ethernet se establece en `9000`. Cuando se utilizan tramas gigantes, todos los dispositivos que están en la ruta de red deben ser capaces de manipular un tamaño de trama más grande.
+
+La `portSpeed` La opción se expresa como megabits por segundo (Mb/s).
+
+Valores para `portSpeed` opción de `iscsiHostPort` Los parámetros están en megabits por segundo (Mb/s).
+
+Los siguientes valores son los valores predeterminados para `iscsiHostOptions`:
+
+* La `IPv6HopLimit` la opción es `64`.
+* La `IPv6NdReachableTime` la opción es `30000` milisegundos.
+* La `IPv6NdRetransmitTime` la opción es `1000` milisegundos.
+* La `IPv6NdTimeOut` la opción es `30000` milisegundos.
+* La `tcpListeningPort` la opción es `3260`.
+
+
+
+
+== Nivel de firmware mínimo
+
+7.15 elimina la `bootp` Parámetro, y añade las nuevas opciones de puerto Ethernet y las nuevas opciones de puerto de host iSCSI.
+
+7.50 mueve la `IPV4Gateway` y la `IPV6RouterAddress` Los parámetros desde las opciones de puerto de host iSCSI al comando.
+
+7.60 añade el `portSpeed` opción de `iscsiHostPort` parámetro.
+
+7.75 deja obsoleto el `NVSRAMByte` parámetro.
+
+8.10 revisa el método de identificación para los puertos de host iSCSI.

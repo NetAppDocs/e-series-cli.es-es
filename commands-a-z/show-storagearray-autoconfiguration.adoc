@@ -1,0 +1,383 @@
+---
+permalink: commands-a-z/show-storagearray-autoconfiguration.html 
+sidebar: sidebar 
+keywords: show, storage, array, auto, configuration 
+summary: El comando show storageArray autoConfiguration muestra la configuración automática predeterminada que crea la cabina de almacenamiento si se ejecuta el comando autoConfigure storageArray. 
+---
+= Mostrar configuración automática de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray autoConfiguration` el comando muestra la configuración automática predeterminada que crea la cabina de almacenamiento si se ejecuta el `autoConfigure storageArray` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+Para determinar si la cabina de almacenamiento puede admitir propiedades específicas, se debe introducir el parámetro de las propiedades al ejecutar este comando. No es necesario introducir ningún parámetro para que este comando muestre información de la configuración.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show storageArray autoConfiguration
+[driveType=(SAS | NVMe4K)
+driveMediaType=(HDD | SSD | unknown | allMedia)
+raidLevel=(0 | 1 | 3 | 5 | 6)
+pass:quotes[volumeGroupWidth=_numberOfDrives_]
+pass:quotes[volumeGroupCount=_numberOfVolumeGroups_]
+pass:quotes[volumesPerGroupCount=_numberOfVolumesPerGroup_]
+pass:quotes[hotSpareCount=_numberOfHotspares_]
+pass:quotes[segmentSize=_segmentSizeValue_]
+cacheReadPrefetch=(TRUE | FALSE)
+securityType=(none | capable | enabled)
+secureDrives=(fips | fde)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`driveType`
+ a| 
+El tipo de unidades que se desea usar en la cabina de almacenamiento.
+
+La `driveType` no es necesario parámetro si la cabina de almacenamiento contiene un solo tipo de unidad. Se debe usar este parámetro cuando existe más de un tipo de unidad en la cabina de almacenamiento.
+
+Los tipos de unidades válidos son los siguientes:
+
+* `SAS`
+* `NVMe4K`
+
+
+
+
+ a| 
+`driveMediaType`
+ a| 
+El tipo de medio de unidad que se desea usar para el grupo de volúmenes del repositorio de reflejo. Los medios de unidad válidos son los siguientes:
+
+* `HDD` -- Utilice esta opción cuando tenga unidades de disco duro en la bandeja de unidades
+* `SSD` -- esta opción se usa cuando hay unidades de estado sólido en el soporte de unidades
+* `unknown` -- Use if not sure what tipos de medios de unidad are in the drive tray
+* `allMedia` -- esta opción se usa cuando se desean utilizar todos los tipos de unidades del soporte
+
+
+Use este parámetro cuando use el `repositoryDriveCount` parámetro.
+
+Se debe usar este parámetro cuando hay más de un tipo de medio de unidad en la cabina de almacenamiento.
+
+
+
+ a| 
+`raidLevel`
+ a| 
+El nivel de RAID del grupo de volúmenes que contiene las unidades en la cabina de almacenamiento. Los niveles de RAID válidos son `0`, `1`, `3`, `5`, o. `6`.
+
+
+
+ a| 
+`volumeGroupWidth`
+ a| 
+La cantidad de unidades de un grupo de volúmenes de la cabina de almacenamiento que depende de la capacidad de las unidades. Deben usarse valores enteros.
+
+
+
+ a| 
+`volumeGroupCount`
+ a| 
+La cantidad de grupos de volúmenes en la cabina de almacenamiento. Deben usarse valores enteros.
+
+
+
+ a| 
+`volumesPerGroupCount`
+ a| 
+La cantidad de volúmenes de capacidad equivalente por grupo de volúmenes. Deben usarse valores enteros.
+
+
+
+ a| 
+`hotSpareCount`
+ a| 
+La cantidad de piezas de repuesto que se incluirán en la cabina de almacenamiento. Deben usarse valores enteros.
+
+
+
+ a| 
+`segmentSize`
+ a| 
+La cantidad de datos (en KB) que la controladora escribe en una sola unidad de un volumen antes de escribir datos en la siguiente unidad. Los valores válidos son `8`, `16`, `32`, `64`, `128`, `256`, o. `512`.
+
+
+
+ a| 
+`cacheReadPrefetch`
+ a| 
+El ajuste para activar o desactivar la captura previa de lectura de caché. Para desactivar la captura previa de lectura de caché, este parámetro debe configurarse en `FALSE`. Para activar la captura previa de lectura de caché, este parámetro debe configurarse en `TRUE`.
+
+
+
+ a| 
+`securityType`
+ a| 
+El ajuste para especificar el nivel de seguridad cuando se crean los grupos de volúmenes y todos los volúmenes asociados. Los ajustes válidos son los siguientes:
+
+* `none` -- el grupo de volúmenes y los volúmenes no están protegidos.
+* `capable` -- el grupo de volúmenes y los volúmenes pueden tener la configuración de seguridad, pero la seguridad no está habilitada.
+* `enabled` -- el grupo de volúmenes y los volúmenes tienen la seguridad habilitada.
+
+
+
+
+ a| 
+`secureDrives`
+ a| 
+El tipo de unidades seguras que se usan en el grupo de volúmenes. Los ajustes válidos son los siguientes:
+
+* `fips` -- para usar solamente unidades compatibles con FIPS.
+* `fde` -- para usar unidades compatibles con FDE.
+
+
+[NOTE]
+====
+Use este parámetro junto con el `securityType` parámetro. Si especifica `none` para la `securityType` parámetro, el valor de `secureDrives` se ignora el parámetro, ya que no es necesario especificar tipos de unidades seguras en los grupos de volúmenes no seguros.
+
+====
+|===
+
+
+== Notas
+
+Si no se especifica ninguna propiedad, este comando muestra los candidatos de nivel de RAID 5 para cada tipo de unidad. Cuando estos candidatos no están disponibles, el comando muestra los candidatos de RAID 6 de nivel 5, nivel 3, nivel 1 o nivel 0. Si se especifican las propiedades de configuración automática, las controladoras validan que el firmware admita las propiedades.
+
+
+
+== Unidades y grupos de volúmenes
+
+Un grupo de volúmenes es un conjunto de unidades agrupadas lógicamente por las controladoras de la cabina de almacenamiento. La cantidad de unidades de un grupo de volúmenes se limita según el nivel de RAID y el firmware de la controladora. Al crear un grupo de volúmenes, se deben seguir estas directrices:
+
+* A partir de la versión de firmware 7.10, es posible crear un grupo de volúmenes vacío y reservar la capacidad para un uso posterior.
+* No se pueden mezclar los tipos de unidades, como SAS y Fibre Channel, con un grupo de volúmenes único.
+* La cantidad máxima de unidades de un grupo de volúmenes depende de las siguientes condiciones:
++
+** Tipo de controladora
+** Nivel de RAID
+
+
+* Los niveles de RAID abarcan: 0, 1, 10, 3, 5 y 6 .
++
+** En una cabina de almacenamiento CDE3992 o CDE3994, un grupo de volúmenes con RAID de nivel 0 y uno con RAID de nivel 10 pueden tener como máximo 112 unidades.
+** En una cabina de almacenamiento CE6998, un grupo de volúmenes con RAID de nivel 0 y uno con RAID de nivel 10 pueden tener como máximo 224 unidades.
+** Un grupo de volúmenes con nivel de RAID 3, 5 o 6 puede tener hasta 30 unidades.
+** Un grupo de volúmenes con nivel de RAID 6 debe tener un mínimo de 5 unidades.
+** Si un grupo de volúmenes con nivel de RAID 1 tiene al menos 4 unidades, el software de administración del almacenamiento convierte automáticamente el grupo de volúmenes al nivel de RAID 10, es decir, nivel de RAID 1 + nivel de RAID 0.
+
+
+* Si un grupo de volúmenes tiene unidades con distintas capacidades, la capacidad total del grupo de volúmenes se basa en la unidad con la menor capacidad.
+* En las siguientes tablas, se presentan criterios adicionales para habilitar la protección contra pérdida de soporte o de cajón:
+
+
+[cols="3*"]
+|===
+| Nivel | Criterios para la protección contra pérdida de soporte | Cantidad mínima requerida de bandejas 
+
+
+ a| 
+`Disk Pool`
+ a| 
+El pool de discos consta de dos unidades como máximo en un solo soporte
+ a| 
+6
+
+
+
+ a| 
+`RAID 6`
+ a| 
+El grupo de volúmenes consta de dos unidades como máximo en un solo soporte
+ a| 
+3
+
+
+
+ a| 
+`RAID 3` o. `RAID 5`
+ a| 
+Cada unidad del grupo de volúmenes se encuentra en un soporte aparte
+ a| 
+3
+
+
+
+ a| 
+`RAID 1`
+ a| 
+Cada unidad de una pareja RAID 1 se debe ubicar en un soporte aparte
+ a| 
+2
+
+
+
+ a| 
+`RAID 0`
+ a| 
+No puede contar con protección contra pérdida de soporte.
+ a| 
+No aplicable
+
+|===
+[cols="3*"]
+|===
+| Nivel | Criterios para la protección contra pérdida de cajón | Cantidad mínima requerida de cajones 
+
+
+ a| 
+`Disk Pool`
+ a| 
+El pool incluye las unidades de los cinco cajones y existe la misma cantidad de unidades por cajón. Un soporte de 60 unidades puede brindar protección contra pérdida de cajón cuando el pool de discos consta de 15, 20, 25, 30, 35, 40, 45, 50, 55 o 60 unidades.
+ a| 
+5
+
+
+
+ a| 
+`RAID 6`
+ a| 
+El grupo de volúmenes consta de dos unidades como máximo en un solo cajón.
+ a| 
+3
+
+
+
+ a| 
+`RAID 3` o. `RAID 5`
+ a| 
+Cada unidad del grupo de volúmenes se encuentra en un cajón aparte.
+ a| 
+3
+
+
+
+ a| 
+`RAID 1`
+ a| 
+Cada unidad de una pareja reflejada se debe ubicar en un cajón aparte.
+ a| 
+2
+
+
+
+ a| 
+`RAID 0`
+ a| 
+No puede contar con protección contra pérdida de cajón.
+ a| 
+No aplicable
+
+|===
+
+
+== Piezas de repuesto
+
+Con los grupos de volúmenes, una estrategia útil para proteger los datos es asignar las unidades disponibles en la cabina de almacenamiento como unidades de repuesto. Una pieza de repuesto es una unidad que no contiene datos y permanece en espera en la cabina de almacenamiento en caso de que se produzca un error en alguna unidad de un grupo de volúmenes RAID 1, RAID 3, RAID 5 o RAID 6. La pieza de repuesto añade otro nivel de redundancia a la cabina de almacenamiento.
+
+En general, las unidades de repuesto deben tener una capacidad igual o mayor que la capacidad utilizada en las unidades que protegen. Las unidades de repuesto deben ser del mismo tipo de medio, el mismo tipo de interfaz y la misma capacidad que las unidades que protegen.
+
+Si se produce un error en la unidad de la cabina de almacenamiento, la pieza de repuesto normalmente sustituye automáticamente la unidad con el error sin intervención del usuario. Si existe una pieza de repuesto disponible cuando se produce un error en la unidad, la controladora usa la paridad de datos de redundancia para reconstruir los datos en la pieza de repuesto. La compatibilidad con la evacuación de datos también permite copiar los datos en una pieza de repuesto antes de que el software marque la unidad como "con error".
+
+Una vez que se sustituye físicamente la unidad con el error, existen diferentes opciones para restaurar los datos:
+
+Tras la sustitución de la unidad con el error, los datos de la pieza de repuesto se vuelven a copiar en la unidad de reemplazo. Esta acción se denomina "copia posterior".
+
+Si se designa la unidad de repuesto como miembro permanente de un grupo de volúmenes, no se necesita la operación de copia posterior.
+
+La disponibilidad de la protección contra pérdida de soporte y la protección contra pérdida de cajón en un grupo de volúmenes dependen de la ubicación de las unidades que incluye ese grupo de volúmenes. La protección contra pérdida de soporte o cajón puede perderse debido a una unidad con error y a la ubicación de la unidad de repuesto. Para asegurarse de que la protección contra pérdida de soporte y la protección contra pérdida de cajón no se vean afectadas, debe reemplazar una unidad con error para iniciar el proceso de copyback.
+
+La cabina de almacenamiento selecciona automáticamente unidades compatibles con la función Garantía de datos (DA) para brindar cobertura de piezas de repuesto a los volúmenes con la función DA habilitada.
+
+Siempre debe haber unidades compatibles con DA en la cabina de almacenamiento si se desea contar con cobertura de piezas de repuesto para los volúmenes con la función DA habilitada. Para obtener más información sobre las unidades compatibles con DA, consulte la función Garantía de datos.
+
+Las unidades compatibles con la función de seguridad (FIPS y FDE) pueden usarse como piezas de repuesto para unidades compatibles y no compatibles con la función de seguridad. Las unidades no compatibles con la función de seguridad pueden brindar cobertura a otras unidades no compatibles con la función de seguridad y a unidades compatibles con la función de seguridad, siempre que el grupo de volúmenes no tenga habilitada la función de seguridad. Un grupo de volúmenes FIPS solo puede usar una unidad FIPS como pieza de repuesto. Sin embargo, es posible usar una pieza de repuesto FIPS para grupos de volúmenes no compatibles con la función de seguridad, compatibles con la función de seguridad y con la función de seguridad habilitada.
+
+Si no existe una pieza de repuesto, es igualmente posible reemplazar una unidad con error mientras la cabina de almacenamiento está en funcionamiento. Si la unidad forma parte de un grupo de volúmenes RAID 1, RAID 3, RAID 5 o RAID 6, la controladora usa la paridad de datos de redundancia para reconstruir automáticamente los datos en la unidad de reemplazo. Esta acción se denomina "reconstrucción".
+
+
+
+== Tamaño de los segmentos
+
+El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
+
+Cuando se introduce un valor para el tamaño de segmento, se controla si corresponde a los valores admitidos que indica la controladora en el tiempo de ejecución. Si el valor especificado no es válido, la controladora muestra una lista de valores válidos. Cuando se utiliza una sola unidad para una solicitud única, las demás unidades disponibles pueden atender simultáneamente otras solicitudes. Si el volumen se encuentra en un entorno en el que un único usuario transfiere grandes unidades de datos (como multimedia), el rendimiento se maximiza cuando se atiende una única solicitud de transferencia de datos con una única franja de datos. (Una franja de datos es el tamaño de segmento multiplicado por la cantidad de unidades en el grupo de volúmenes que se usan para la transferencia de datos.) En este caso, se usan varias unidades para la misma solicitud, pero se accede una sola vez a cada unidad.
+
+Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de datos multiusuario o sistema de archivos, se debe configurar un tamaño de segmento que minimice la cantidad de unidades necesarias para satisfacer una solicitud de transferencia de datos.
+
+
+
+== Captura previa de lectura de caché
+
+La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
+
+
+
+== Tipo de seguridad
+
+Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
+
+Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una clave de seguridad de la cabina de almacenamiento. Utilice la `create storageArray securityKey` comando para crear una clave de seguridad de la cabina de almacenamiento. Los siguientes comandos se relacionan con la clave de seguridad:
+
+* `create storageArray securityKey`
+* `export storageArray securityKey`
+* `import storageArray securityKey`
+* `set storageArray securityKey`
+* `enable volumeGroup [volumeGroupName] security`
+* `enable diskPool [diskPoolName] security`
+
+
+
+
+== Unidades seguras
+
+Las unidades compatibles con la función de seguridad pueden ser unidades de cifrado de disco completo (FDE) o de estándar de procesamiento de información federal (FIPS). Utilice la `secureDrives` parámetro para especificar el tipo de unidades seguras que se usarán. Los valores que puede utilizar son `fips` y.. `fde`.
+
+
+
+== Comando de ejemplo
+
+[listing]
+----
+show storageArray autoConfiguration securityType=capable secureDrives=fips;
+----
+
+
+== Nivel de firmware mínimo
+
+7.10 añade la funcionalidad de nivel de RAID 6 y quita los límites de las piezas de repuesto.
+
+7.50 añade el `securityType` parámetro.
+
+7.75 añade el `dataAssurance` parámetro.
+
+8.25 añade el `secureDrives` parámetro.

@@ -1,0 +1,639 @@
+---
+permalink: get-started/exit-status.html 
+sidebar: sidebar 
+keywords: exit, status 
+summary: En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado. 
+---
+= Estado de cierre
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado.
+
+[cols="3*"]
+|===
+| Valor de estado | Nombre del error | Significado 
+
+
+ a| 
+0
+ a| 
+EXITOSO
+ a| 
+El comando finalizó sin errores.
+
+
+
+ a| 
+1
+ a| 
+USO_NO VÁLIDO
+ a| 
+El comando finalizó con un error. También se muestra información sobre el error.
+
+
+
+ a| 
+2
+ a| 
+SCRIPT_FILE_DOES_NOT_EXISTENT
+ a| 
+El archivo de script no existe.
+
+
+
+ a| 
+3
+ a| 
+ERROR_APERTURA_SALIDA_ARCHIVO
+ a| 
+Se produjo un error al abrir un archivo de resultado.
+
+
+
+ a| 
+4
+ a| 
+NO_STORAGE_ARRAY_AT_ADDRESS
+ a| 
+No se encontró una cabina de almacenamiento en la dirección especificada.
+
+
+
+ a| 
+5
+ a| 
+DIRECCIONES_SPECIFY_DIFERENT_ARRAYS
+ a| 
+Las direcciones especifican diferentes cabinas de almacenamiento.
+
+
+
+ a| 
+6
+ a| 
+NO_SANAME_FOR_HOST_AGENT_CONNECT
+ a| 
+No hay un nombre de cabina de almacenamiento para el agente de host conectado.
+
+
+
+ a| 
+7
+ a| 
+SANAME_NOT_AT_ADDRESS
+ a| 
+No se encontró el nombre de cabina de almacenamiento en la dirección especificada.
+
+
+
+ a| 
+8
+ a| 
+SANAME_NOT_UNIQUE
+ a| 
+El nombre de cabina de almacenamiento no era exclusivo.
+
+
+
+ a| 
+9
+ a| 
+SANAME_NOT_IN_CONFIG_FILES
+ a| 
+No se encontró el nombre de cabina de almacenamiento en el archivo de configuración.
+
+
+
+ a| 
+10
+ a| 
+NO_MANAGEMENT_CLASS_FOR_SA
+ a| 
+No hay una clase de gestión para la cabina de almacenamiento.
+
+
+
+ a| 
+11
+ a| 
+NO_SA_IN_CONFIG_FILE_FOUND
+ a| 
+No se encontró una cabina de almacenamiento en el archivo de configuración.
+
+
+
+ a| 
+12
+ a| 
+ERROR_INTERNO
+ a| 
+Se produjo un error interno. El estado de cierre indica que no se cuenta con privilegios para ejecutar un comando de la CLI desde la línea de comandos. Es necesario contar con privilegios de administrador para ejecutar todos los comandos de la CLI desde una línea de comandos.
+
+
+
+ a| 
+13
+ a| 
+SINTAXIS_SCRIPT_NO VÁLIDO
+ a| 
+Se encontró una sintaxis de script no válida.
+
+
+
+ a| 
+14
+ a| 
+NO_SE_PUEDE_COMUNICAR
+ a| 
+La controladora no pudo comunicarse con la cabina de almacenamiento.
+
+
+
+ a| 
+15
+ a| 
+ARGUMENTO_DUPLICADO
+ a| 
+Se introdujo un argumento duplicado.
+
+
+
+ a| 
+16
+ a| 
+ERROR_EJECUCIÓN
+ a| 
+Se produjo un error de ejecución.
+
+
+
+ a| 
+17
+ a| 
+NO_HOST_AT_ADDRESS
+ a| 
+No se encontró un host en la dirección especificada.
+
+
+
+ a| 
+18
+ a| 
+WWNAME_NOT_IN_CONFIG_FILES
+ a| 
+No se encontró el WWID en el archivo de configuración.
+
+
+
+ a| 
+19
+ a| 
+NOMBRE_WWNAME_NOT_AT_ADDRESS
+ a| 
+No se encontró el WWID en la dirección.
+
+
+
+ a| 
+20
+ a| 
+IP_DESCONOCIDA
+ a| 
+Se especificó una dirección IP desconocida.
+
+
+
+ a| 
+21
+ a| 
+PM_CONFIG_FILE_CORROMPED
+ a| 
+El archivo de configuración del monitor de eventos estaba dañado.
+
+
+
+ a| 
+22
+ a| 
+NO_SE_PUEDE_COMUNICAR_A_PM
+ a| 
+La cabina de almacenamiento no pudo comunicarse con el monitor de eventos.
+
+
+
+ a| 
+23
+ a| 
+UNEXIST_ALERT
+ a| 
+La controladora no pudo escribir la configuración de alerta.
+
+
+
+ a| 
+24
+ a| 
+MAL_ORGANIZER_NODE
+ a| 
+Se especificó un nodo de organizador incorrecto.
+
+
+
+ a| 
+25
+ a| 
+CMD_NOT_AVAILABLE
+ a| 
+El comando no estaba disponible.
+
+
+
+ a| 
+26
+ a| 
+DEVICE_NOT_IN_CONFIG_FILE
+ a| 
+No se encontró el dispositivo en el archivo de configuración.
+
+
+
+ a| 
+27
+ a| 
+ERROR_ACTUALIZANDO_ARCHIVO_CONFIG
+ a| 
+Se produjo un error al actualizar el archivo de configuración.
+
+
+
+ a| 
+28
+ a| 
+ERROR_HOST_DESCONOCIDO
+ a| 
+Se produjo un error de host desconocido.
+
+
+
+ a| 
+29
+ a| 
+SENDER_CONTACT_FILE_NOT_FOUND
+ a| 
+No se encontró el archivo de información de contacto del remitente.
+
+
+
+ a| 
+30
+ a| 
+READ_SENDER_CONTACT_FILE_FAILED
+ a| 
+No se pudo leer el archivo de información de contacto del remitente.
+
+
+
+ a| 
+31
+ a| 
+USERDATA_FILE_EXISTS
+ a| 
+La `userdata.txt` el archivo existe.
+
+
+
+ a| 
+32
+ a| 
+BAD_EMAIL_INFORMATION_TO_INCLUDE
+ a| 
+No válido `-I` se especificó el valor de la notificación de alertas por correo electrónico.
+
+
+
+ a| 
+33
+ a| 
+BAD_EMAIL_FREQUENCY
+ a| 
+No válido `-f` se especificó el valor de la notificación de alertas por correo electrónico.
+
+
+
+ a| 
+34
+ a| 
+OPCIÓN_ELIMINADA
+ a| 
+La `-r` la opción ya no se admite.
+
+
+
+ a| 
+35
+ a| 
+PRIORIDAD_ALERTA_DESCONOCIDA
+ a| 
+Se especificó una gravedad de alerta no válida.
+
+
+
+ a| 
+36
+ a| 
+PASSWORD_REQUIRED
+ a| 
+Para la operación se necesita configurar la contraseña de administrador o de monitor.
+
+
+
+ a| 
+37
+ a| 
+CONTRASEÑA_MONITOR_NO VÁLIDO
+ a| 
+No es posible completar la operación porque se introdujo una contraseña de monitor no válida.
+
+
+
+ a| 
+38
+ a| 
+CONTRASEÑA_ADMINISTRADOR_NO VÁLIDA
+ a| 
+No es posible completar la operación porque se introdujo una contraseña de administrador no válida.
+
+
+
+ a| 
+39
+ a| 
+EXCEEDED_MAX_CHARS_FOR_PASSWORD
+ a| 
+La contraseña introducida supera el límite de caracteres.
+
+
+
+ a| 
+40
+ a| 
+MONITOR_TOKEN_NO VÁLIDO
+ a| 
+La `-R` el monitor no es compatible con esta matriz. Se debe usar un rol válido y volver a intentar la operación.
+
+
+
+ a| 
+41
+ a| 
+ASUP_CONFIG_ERROR
+ a| 
+Se produjo un error al escribir o leer el archivo de configuración de AutoSupport. Se debe volver a intentar esta operación.
+
+
+
+ a| 
+42
+ a| 
+MAIL_SERVER_UNKNOWN
+ a| 
+La dirección del host o del servidor de correo es incorrecta.
+
+
+
+ a| 
+43
+ a| 
+ASUP_SMTP_REPLY_ADDRESS_REQUIRED
+ a| 
+No se detectó ninguna cabina con la función ASUP habilitada en buen estado durante la prueba de configuración de ASUP.
+
+
+
+ a| 
+44
+ a| 
+NO_ASUP_ARRAYS_DETECTADOS
+ a| 
+Se requiere una solicitud de respuesta de correo electrónico si el tipo de entrega de ASUP es SMTP.
+
+
+
+ a| 
+45
+ a| 
+ASUP_INVÁLIDO_MAIL_RELAY_SERVER
+ a| 
+No se pudo validar el servidor de retransmisión de correo ASUP.
+
+
+
+ a| 
+46
+ a| 
+ASUP_INVALID_SENDER_EMAIL
+ a| 
+La dirección de correo electrónico del remitente especificada no tiene un formato válido.
+
+
+
+ a| 
+47
+ a| 
+ASUP_NO VÁLIDO_PAC_SCRIPT
+ a| 
+El archivo de script de configuración automática de proxy (PAC) no es una URL válida.
+
+
+
+ a| 
+48
+ a| 
+ASUP_INVÁLIDO_PROXY_SERVER_HOST_ADDRESS
+ a| 
+No se encuentra la dirección de host especificada, o tiene un formato incorrecto.
+
+
+
+ a| 
+49
+ a| 
+ASUP_NO VÁLIDO_PROXY_SERVER_PORT_NUMBER
+ a| 
+El número de puerto especificado tiene un formato no válido.
+
+
+
+ a| 
+50
+ a| 
+PARÁMETRO_ASUP_NO VÁLIDO_AUTENTICACIÓN
+ a| 
+El nombre de usuario o la contraseña especificados no son válidos.
+
+
+
+ a| 
+51
+ a| 
+ASUP_INVÁLIDO_PARÁMETRO_DAILY_TIME
+ a| 
+El parámetro de tiempo diario especificado no es válido.
+
+
+
+ a| 
+52
+ a| 
+ASUP_INVÁLIDO_DÍA_DE_PARÁMETRO_SEMANA
+ a| 
+La `-dayOfWeek` los parámetros introducidos no son válidos.
+
+
+
+ a| 
+53
+ a| 
+ASUP_NO VÁLIDO_SEMANAL_TIME_PARÁMETRO
+ a| 
+El parámetro de tiempo semanal no es válido.
+
+
+
+ a| 
+54
+ a| 
+ASUP_INVALID_SCHEDULE_ANALIZAR
+ a| 
+No se pudo analizar correctamente la información de programación suministrada.
+
+
+
+ a| 
+55
+ a| 
+ASUP_NO VÁLIDO_SA_ESPECIFICADO
+ a| 
+Se suministró un especificador de cabina de almacenamiento no válido.
+
+
+
+ a| 
+56
+ a| 
+ASUP_INVALID_INPUT_ARCHIVE
+ a| 
+El archivo de entrada que se introdujo no es válido. El parámetro del archivo de entrada debe tener el formato de ``-inputArchive=<n>``donde es un entero de 0 a 5.
+
+
+
+ a| 
+57
+ a| 
+ASUP_INVALID_OUTPUT_LOG
+ a| 
+No se especificó un registro de salida válido.
+
+
+
+ a| 
+58
+ a| 
+ASUP_TRANSMISSION_FILE_COPY_ERROR
+ a| 
+Se produjo un error al intentar copiar el archivo de registro de transmisión de AutoSupport. El registro de transmisión no existe o se produjo un error de I/o al intentar copiar los datos.
+
+
+
+ a| 
+59
+ a| 
+ASUP_DUPLICATE_NAMED_ARRAYS
+ a| 
+Se encontró más de una cabina de almacenamiento con el mismo nombre. Se debe volver a intentar el comando con el parámetro de nombre a nivel mundial: `-w <WWID>`.
+
+
+
+ a| 
+60
+ a| 
+ASUP_NO_SPECIFIED_ARRAY_FOUND
+ a| 
+La cabina de almacenamiento especificada con el parámetro -n <storage-system-name> no se encuentra o no es compatible con este comando.
+
+
+
+ a| 
+61
+ a| 
+ASUP_NO_SPECIFIED_WWID_FOUND
+ a| 
+La cabina de almacenamiento especificada con `-w <WWID>` el parámetro no se encuentra o no es compatible con este comando.
+
+
+
+ a| 
+62
+ a| 
+ASUP_FILTERED_TRANSMISSION_LOG_ERROR
+ a| 
+Se produjo un error desconocido al intentar obtener el registro de transmisión filtrado.
+
+
+
+ a| 
+63
+ a| 
+ASUP_TRANSMISSION_ARCHIVE_DOES_NOT_EXISTIR
+ a| 
+El registro de transmisión del archivo de entrada de AutoSupport especificado con el``-inputArchive=<n>`` el parámetro no existe.
+
+
+
+ a| 
+64
+ a| 
+NO_VALID_REST_CLIENT_DISCOVERED
+ a| 
+No es posible establecer la comunicación con la cabina de almacenamiento mediante el protocolo de transferencia de hipertexto.
+
+
+
+ a| 
+65
+ a| 
+VERSIÓN_CLI_NO VÁLIDA
+ a| 
+La versión de CLI del cliente no es compatible con la versión que se ejecuta en la cabina de almacenamiento.
+
+
+
+ a| 
+66
+ a| 
+NOMBRE_USUARIO_O_CONTRASEÑA NO VÁLIDOS
+ a| 
+El nombre de usuario o la contraseña introducidos no son válidos.
+
+
+
+ a| 
+67
+ a| 
+CONEXIÓN_NO CONFIABLE
+ a| 
+No se pudo establecer una conexión segura con la cabina de almacenamiento.
+
+
+
+ a| 
+68
+ a| 
+ARCHIVO_CONTRASEÑA_NO VÁLIDO
+ a| 
+No se encontró el archivo de contraseña o no es posible leerlo.
+
+|===

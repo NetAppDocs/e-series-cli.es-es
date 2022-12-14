@@ -1,0 +1,107 @@
+---
+permalink: commands-a-z/create-ssdcache.html 
+sidebar: sidebar 
+keywords: create, ssd, cache 
+summary: 'El comando create ssdCache crea una caché de lectura para una cabina de almacenamiento mediante discos de estado sólido (SSD).' 
+---
+= Cree una caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create ssdCache` El comando crea una caché de lectura para una cabina de almacenamiento mediante discos de estado sólido (SSD).
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Contexto
+
+Usar SSD de alto rendimiento para la lectura de datos de caché mejora el rendimiento de I/o de las aplicaciones y los tiempos de respuesta, además de proporcionar una mejora sostenida del rendimiento con diferentes cargas de trabajo, especialmente aquellas con IOP elevado. La caché SSD maximiza el uso de los costosos SSD rápidos. La caché SSD funciona junto con la caché primaria de DRAM de la controladora. Con la caché de la controladora, los datos se almacenan en DRAM después de la lectura en el host. Con la caché SSD, los datos se copian de los volúmenes base especificados por el usuario y luego se almacenan en la caché SSD.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create ssdCache userLabel=pass:quotes[_"ssdCacheName"_]
+drives=pass:quotes[_(trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1 ... trayIDn,[drawerIDn,_]]pass:quotes[_slotIDn_)]
+[updateExistingVolumes=(TRUE|FALSE)]
+[securityType=(none|capable|enabled)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se desea otorgar a la nueva caché SSD. El nombre de la caché SSD debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`drives`
+ a| 
+Las unidades que se usarán para crear la caché SSD. En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`updateExistingVolumes`
+ a| 
+Este parámetro opcional especifica si la caché SSD debe estar habilitada para todos los volúmenes existentes de la cabina de almacenamiento. Para habilitar la caché SSD en todos los volúmenes existentes, se debe configurar este parámetro en `TRUE`. Si se desea habilitar la caché SSD en volúmenes individuales más tarde, se debe configurar este parámetro en `FALSE`. El valor predeterminado es `TRUE`.
+
+
+
+ a| 
+`securityType`
+ a| 
+Este parámetro opcional especifica el nivel de seguridad al crear una caché SSD. Los ajustes válidos son los siguientes:
+
+* `none` - La caché SSD no es segura.
+* `capable` - La caché SSD admite la configuración de seguridad, pero la seguridad no está habilitada.
+* `enabled` - La caché SSD tiene la seguridad habilitada.
+
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para el nombre. Los nombres pueden tener hasta 30 caracteres.
+
+Una cabina de almacenamiento solo puede tener una caché SSD.
+
+Solo los volúmenes creados con unidades de disco duro pueden usar la caché SSD. No se puede habilitar la caché SSD en imágenes Snapshot.
+
+Si todos los discos SSD de la caché SSD son compatibles con la función Data Assurance (DA) y la función DA está habilitada, LA función DA se habilita automáticamente para la caché SSD y no se puede deshabilitar. Además, no es posible añadir SSD no compatibles con DA en una caché SSD con la función DA habilitada.
+
+
+
+== Nivel de firmware mínimo
+
+7.84
+
+8.20 _M3: Ahora se admiten unidades FDE. Se añadió el `securityType` parámetro.

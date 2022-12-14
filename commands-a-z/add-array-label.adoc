@@ -1,0 +1,66 @@
+---
+permalink: commands-a-z/add-array-label.html 
+sidebar: sidebar 
+keywords: add array label, supported, syntax, parameters, minimum firmware level 
+summary: El comando Add array label permite añadir una cabina de almacenamiento a la configuración con una etiqueta definida por el usuario. Esto permite que los comandos posteriores accedan a la cabina de almacenamiento mediante la etiqueta definida por el usuario en lugar de la dirección IP o el nombre de host. 
+---
+= Añadir etiqueta de cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `Add array label` el comando permite añadir una cabina de almacenamiento a la configuración con una etiqueta definida por el usuario. Esto permite que los comandos posteriores accedan a la cabina de almacenamiento mediante la etiqueta definida por el usuario en lugar de la dirección IP o el nombre de host.
+
+
+
+== Cabinas compatibles
+
+[NOTE]
+====
+No es necesario que la etiqueta definida por el usuario que se proporciona coincida con el nombre de la cabina de almacenamiento que se muestra en System Manager. Esta es una etiqueta local que solo se utiliza para hacer referencia a la cabina de almacenamiento desde la CLI.
+
+====
+Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[ _Address1 Address2_ add storageArrayLabel label _userDefinedString_]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`Address`
+ a| 
+Permite especificar la dirección IP (IPv4 o IPv6) o el nombre de host completo para la cabina de almacenamiento.
+
+[NOTE]
+====
+La `Address2` el valor es opcional.
+
+====
+
+
+ a| 
+`userDefinedString`
+ a| 
+Permite especificar una etiqueta para la cabina de almacenamiento.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.60

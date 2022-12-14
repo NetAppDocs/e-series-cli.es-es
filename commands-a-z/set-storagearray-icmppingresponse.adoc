@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/set-storagearray-icmppingresponse.html 
+sidebar: sidebar 
+keywords: set, storage, array, icmp, response 
+summary: El comando set storageArray icmpPingResponse restaura los valores predeterminados para la configuración negociable de sesiones y conexiones, que representan el punto de partida para las negociaciones de la cabina de almacenamiento. 
+---
+= Configurar respuesta ICMP de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray icmpPingResponse` el comando devuelve los valores predeterminados para la configuración negociable de sesiones y conexiones, que representan el punto de partida para las negociaciones de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray icmpPingResponse=(TRUE | FALSE)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`icmpPingResponse`
+ a| 
+Este parámetro activa o desactiva los mensajes de Echo Request. Establezca el parámetro en `TRUE` Para activar los mensajes de Echo Request. Establezca el parámetro en `FALSE` Para desactivar los mensajes de Echo Request.
+
+|===
+
+
+== Notas
+
+Los sistemas operativos usan el protocolo de mensajes de control de Internet (ICMP) en una red para enviar mensajes de error, paquetes de prueba y mensajes informativos relacionados con la IP, como que un servicio solicitado no está disponible o que no pudo establecerse conexión con un host o un enrutador. El comando ICMP response envía mensajes de ICMP Echo Request y recibe mensajes ICMP Echo Response para determinar si puede establecerse conexión con un host y el tiempo que tardan los paquetes desde y hacia ese host.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

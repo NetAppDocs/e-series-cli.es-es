@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/show-syncmirror-candidates.html 
+sidebar: sidebar 
+keywords: show, synchronous, mirror, volume, candidates 
+summary: El comando show SyncMirror candidates muestra información acerca de los volúmenes candidatos de una cabina de almacenamiento remota que se pueden usar como volúmenes secundarios en una configuración de mirroring síncrono. 
+---
+= Mostrar candidatos de volumen para mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show syncMirror candidates` El comando muestra información acerca de los volúmenes candidatos en una cabina de almacenamiento remota que se pueden usar como volúmenes secundarios en una configuración de mirroring síncrono.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin o Storage Monitor.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[show syncMirror candidates primary="_volumeName_"
+remoteStorageArrayName="_storageArrayName_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`primary`
+ a| 
+El nombre del volumen local para el volumen primario de la pareja reflejada remota. El nombre del volumen primario debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remoteStorageArrayName`
+ a| 
+La cabina de almacenamiento remota que contiene los volúmenes posibles para un volumen secundario. Si el nombre de la cabina de almacenamiento remota tiene caracteres especiales, el nombre de la cabina de almacenamiento remota también debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Nivel de firmware mínimo
+
+5.40

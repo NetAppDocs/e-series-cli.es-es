@@ -1,0 +1,142 @@
+---
+permalink: commands-a-z/smcli-autosupportconfig-show.html 
+sidebar: sidebar 
+keywords: display, autosupport, bundle, collection, set 
+summary: El comando SMcli -autoSupportConfig show muestra la configuración de recogida de bundle de AutoSupport para el dominio de gestión. Esta configuración se aplica a todas las cabinas de almacenamiento del dominio de gestión para el cual se habilitó AutoSupport. 
+---
+= Mostrar configuración de recogida de bundle de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli -autoSupportConfig show` Comando muestra la configuración de recogida de bundle de AutoSupport del dominio de gestión. Esta configuración se aplica a todas las cabinas de almacenamiento del dominio de gestión para el cual se habilitó AutoSupport.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+El resultado de este comando muestra la siguiente información sobre la configuración:
+
+* El estado de activación en este dominio de gestión de la función AutoSupport, la función AutoSupport OnDemand y la función AutoSupport Remote Diagnostics
+* Parámetros de entrega que dependen del método de entrega configurado:
++
+** El método de entrega es SMTP: Se muestran la dirección de correo electrónico de destino, el servidor de retransmisión de correo y la dirección de correo electrónico del remitente
+** Cuando el método de entrega es HTTP o HTTPS:
++
+*** Conexión directa: Se muestra la dirección IP de destino
+*** Conexión por servidor del proxy: Se muestran la dirección del host, el número de puerto y los detalles de autenticación
+*** Conexión por script de configuración automática de proxy (PAC): Se muestra la ubicación del script
+
+
+
+
+* Una tabla donde se indica, para cada cabina de almacenamiento, el nombre de la cabina, la compatibilidad con ASUP, los números de serie del chasis y las direcciones IP de las controladoras de la cabina
+
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+[NOTE]
+====
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+====
+
+
+== Sintaxis
+
+[listing]
+----
+SMcli -autoSupportConfig show
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplo de resultado de los Estados de activación
+
+[listing]
+----
+The AutoSupport feature is activated on this storage management station.
+The AutoSupport OnDemand feature is de-activated on this storage management station.
+The AutoSupport Remote Diagnostics feature is de-activated on this storage management station.
+----
+
+
+== Ejemplo de resultado del método de entrega SMTP
+
+[listing]
+----
+Delivery method: SMTP
+Destination email address:  http://asupserver.corp.netapp.com/put/AsupPut/
+Mail relay server: server.eng.netapp.com
+Sender email address:  user@netapp.com
+----
+
+
+== Ejemplo de resultado del método de entrega HTTP o HTTPS con conexión directa
+
+[listing]
+----
+Delivery method:  HTTP
+Destination IP address:  http://asupserver.corp.netapp.com/put/AsupPut/
+Connection:  Direct
+----
+
+
+== Ejemplo de resultado del método de entrega HTTP con conexión por proxy
+
+[listing]
+----
+Connection:  Proxy server
+Host Address:  10.227.76.123
+Port number: 8080
+Authentication required: Yes
+User name: admin
+Password: **********
+----
+
+
+== Ejemplo de resultado del método de entrega HTTP con un script de configuración automática de proxy (PAC)
+
+[listing]
+----
+Connection: Automatic proxy configuration script (PAC)
+Script location: http://esgweb.eng.netapp.com/~user/proxy.pac
+----
+
+
+== Ejemplo de resultado de la tabla de cabina (todos los métodos de entrega)
+
+[listing]
+----
+
+Name  AutoSupport Capable   Chassis Serial Number   IP Address
+SA_1  Yes (enabled)         SX94500434              10.113.173.123, 10.113.173.456
+SA_2  Yes (disabled)        SX94607107              10.113.174.789, 10.113.174.345
+SA_3  No                    Not available           10.113.59.58, 10.113.59.59
+----

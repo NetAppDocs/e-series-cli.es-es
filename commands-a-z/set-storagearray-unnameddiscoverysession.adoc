@@ -1,0 +1,63 @@
+---
+permalink: commands-a-z/set-storagearray-unnameddiscoverysession.html 
+sidebar: sidebar 
+keywords: set, storage, array, unnamed, discovery, session 
+summary: El comando set storageArray unnamedDiscoverySession permite que la cabina de almacenamiento participe en sesiones de detección sin nombre. 
+---
+= Configure la sesión de detección sin nombre de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray unnamedDiscoverySession` el comando permite que la cabina de almacenamiento participe en sesiones de detección sin nombre.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray unnamedDiscoverySession=(TRUE | FALSE)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`unnamedDiscoverySession`
+ a| 
+Este parámetro activa o desactiva las sesiones de detección sin nombre. Establezca el parámetro en `TRUE` para activar sesiones de detección sin nombre. Establezca el parámetro en `FALSE` para desactivar las sesiones de detección sin nombre.
+
+|===
+
+
+== Notas
+
+La detección es el proceso en el cual los iniciadores determinan los destinos disponibles. La detección se realiza en el punto de encendido/inicialización y también si se cambia la topología del bus, por ejemplo, si se añade un dispositivo extra.
+
+Una sesión de detección sin nombre es una sesión de detección que se establece sin especificar un ID objetivo en la solicitud de inicio de sesión. En las sesiones de detección sin nombre, ni el ID objetivo ni el ID de grupo de portales objetivo están disponibles para los destinos.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

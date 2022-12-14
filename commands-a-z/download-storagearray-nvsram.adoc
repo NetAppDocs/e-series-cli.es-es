@@ -1,0 +1,73 @@
+---
+permalink: commands-a-z/download-storagearray-nvsram.html 
+sidebar: sidebar 
+keywords: download, storagearray, down, values, controller, support, role, command, array 
+summary: El comando download storageArray NVSRAM descarga los valores de NVSRAM para la controladora de la cabina de almacenamiento. 
+---
+= Descargue NVSRAM de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `download storageArray NVSRAM` El comando descarga los valores de NVSRAM para la controladora de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[download storageArray NVSRAM file="_filename_"]
+[healthCheckMelOverride=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo que contiene los valores de NVSRAM. El nombre del archivo de NVSRAM debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\dnld\afrm.dlp"`
+
+Los nombres de archivo válidos tienen un `.dlp` extensión.
+
+
+
+ a| 
+`healthCheckMelOverride`
+ a| 
+El ajuste para anular los resultados de la comprobación de estado del registro de eventos serios (MEL). La validación DE MEL se ejecuta de todos modos, no se omite. Si se produce un error en la comprobación de MEL, es posible omitir el error mediante el uso de este parámetro cuando se ejecuta el comando.
+
+Antes de cualquier descarga, la controladora comprueba el registro de eventos para determinar si se produjo algún evento que pudiera impedir la correcta descarga de la nueva memoria NVSRAM. Si se produjo algún evento de este tipo, la controladora normalmente no descarga la nueva NVSRAM.
+
+El parámetro fuerza a la controladora a descargar la nueva NVSRAM. El valor predeterminado es `FALSE`. Establezca este valor en `TRUE` Si desea forzar la controladora a descargar la nueva NVSRAM.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+8.10 añade el `healthCheckMelOverride` parámetro.

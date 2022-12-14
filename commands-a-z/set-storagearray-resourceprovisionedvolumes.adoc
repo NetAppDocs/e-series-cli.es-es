@@ -1,0 +1,70 @@
+---
+permalink: commands-a-z/set-storagearray-resourceprovisionedvolumes.html 
+sidebar: sidebar 
+keywords: set, storage, array, resource, provisioned, volumes 
+summary: El comando set storageArray resourceProvisionedVolumes deshabilita la función DULBE. 
+---
+= Establezca los volúmenes aprovisionados de los recursos de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray resourceProvisionedVolumes` El comando deshabilita la función DULBE.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+El aprovisionamiento de recursos es una función disponible que permite inicializar de forma rápida los grandes volúmenes.
+
+Un volumen aprovisionado es un volumen grueso de un grupo de volúmenes SSD o pool, donde se asigna capacidad de la unidad (asignada al volumen) cuando se crea el volumen, pero los bloques de la unidad no se asignan (desasignan). Con un volumen aprovisionado, no existe una inicialización en segundo plano vinculada al tiempo. En su lugar, cada franja RAID se inicializa con la primera escritura en un bloque de volumen en la franja
+
+Los volúmenes aprovisionados de recursos solo se admiten en pools y grupos de volúmenes SSD, donde todas las unidades del grupo o pool admiten la funcionalidad de recuperación de error de bloque lógico no escrito o desasignado (DULBE). Cuando se crea un volumen aprovisionado, todos los bloques de unidades asignados al volumen se desasignan (anula la asignación). Si se desasignan bloques, es posible mejorar la vida útil de las unidades de estado sólido y aumentar el rendimiento de escritura máximo. La mejora varía en función del modelo y la capacidad de cada unidad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray resourceProvisionedVolumes=(enable|disable)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`resourceProvisionedVolumes`
+ a| 
+El ajuste para especificar si las capacidades de aprovisionamiento de recursos están habilitadas. Para deshabilitar el aprovisionamiento de recursos, establezca este parámetro en `disable`. El valor predeterminado es `enable`.
+
+[NOTE]
+====
+Cuando se modifica este valor, solo se aplica a los grupos de volúmenes y pools que se crean en el futuro. No cambia el valor de ningún pool o grupo de volúmenes existente.
+
+====
+|===
+
+
+== Nivel de firmware mínimo
+
+8.63

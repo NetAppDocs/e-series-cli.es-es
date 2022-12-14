@@ -1,0 +1,71 @@
+---
+permalink: commands-a-z/set-drivechannel.html 
+sidebar: sidebar 
+keywords: set, drive, channel, status 
+summary: El comando set driveChannel define el rendimiento del canal de la unidad. 
+---
+= Configurar el estado de canal de unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set driveChannel` el comando define el rendimiento del canal de la unidad.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)]
+status=(optimal | degraded)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`driveChannel`
+ a| 
+El número de identificador del canal de la unidad en el que desea configurar el estado. Los valores de canal de unidad válidos son los siguientes `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`. El número de canal de la unidad debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`status`
+ a| 
+La condición del canal de la unidad. Puede configurarse el estado del canal de la unidad como `optimal` o. `degraded`.
+
+|===
+
+
+== Notas
+
+Utilice la `optimal` Opción para mover un canal de unidad degradado nuevamente al estado Optimal. Utilice la `degraded` opción cuando el canal de la unidad está experimentando problemas y la cabina de almacenamiento requiere más tiempo para las transferencias de datos.
+
+
+
+== Nivel de firmware mínimo
+
+6.10
+
+en la versión 7.15, se añade la actualización del identificador del canal de la unidad.

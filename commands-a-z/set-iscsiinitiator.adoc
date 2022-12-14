@@ -1,0 +1,351 @@
+---
+permalink: commands-a-z/set-iscsiinitiator.html 
+sidebar: sidebar 
+keywords: set, iscsi, initiator 
+summary: El comando set iscsiInitiator configura los atributos de un iniciador de iSCSI. 
+---
+= Configure el iniciador de iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set iscsiInitiator` El comando configura los atributos para un iniciador de iSCSI.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+[NOTE]
+====
+Este comando quedó obsoleto y fue sustituido por el xref:set-initiator.adoc[Configure el iniciador] comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set iscsiInitiator (pass:quotes[["_initiatorUserLabel_"]] | <"_iscsiInitiatorName_">)
+(userLabel=pass:quotes["_newName_"] |
+host=pass:quotes["_newHostName_"] |
+chapSecret=pass:quotes["_newSecurityKey_"])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`initiatorUserLabel`
+ a| 
+La etiqueta de usuario del iniciador de iscsi para el cual desea configurar atributos. Esta etiqueta debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+[NOTE]
+====
+Debe comenzar con el nombre de host al cual está conectado el puerto de host. Debido a que puede haber más de un identificador de puerto de host en un host, utilice un sufijo único para el identificador de puerto de host. Si el nombre del host es `ICTM1590S02H1` la etiqueta del iniciador aparece de la siguiente manera:
+
+====
+[listing]
+----
+set iscsiInitiator ["ICTM1590S02H1_AA"]
+----
+
+
+ a| 
+`iscsiInitiatorName`
+ a| 
+El nombre del iniciador para el que desea configurar atributos. Escriba el `iscsiInitiatorName` entre comillas dobles (" ") dentro de paréntesis angulares (< >).
+
+[NOTE]
+====
+La `iscsiInitiatorName` Es el nombre completo de iSCSI (IQN). Un ejemplo:
+
+====
+[listing]
+----
+set iscsiInitiator <"iqn.2016-11.com.vmware.iscsi:ictm1509s02h1">
+----
+
+
+ a| 
+`userLabel`
+ a| 
+La nueva etiqueta de usuario que se desea usar para el iniciador de iSCSI. La nueva etiqueta de usuario debe escribirse entre comillas dobles (" ").
+
+[NOTE]
+====
+Una práctica recomendada es que la etiqueta de usuario del iniciador comience con el nombre de host al cual está conectado el puerto de host. Debido a que puede haber más de un identificador de puerto de host en un host, utilice un sufijo único para el identificador de puerto de host. Si el nombre del host es `ICTM1590S02H1` a continuación se muestra un ejemplo de etiqueta de usuario del iniciador:
+
+====
+[listing]
+----
+set iscsiInitiator ["ICTM1590S02H1_AA"]
+----
+
+
+ a| 
+`host`
+ a| 
+El nombre del nuevo host al que está conectado el puerto de host. El nombre de host debe escribirse entre comillas dobles (" "). A continuación se muestra un ejemplo:
+
+[listing]
+----
+["ICTM1590S02H2"]
+----
+
+
+ a| 
+`chapSecret`
+ a| 
+La clave de seguridad que se desea usar para autenticar una conexión entre iguales. La clave de seguridad debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+
+El protocolo de autenticación por desafío mutuo (CHAP) es un protocolo que autentica los iguales de una conexión. EL FUNCIONAMIENTO DE CHAP se basa en que los iguales compartan un _secret_. Un secreto es una clave de seguridad similar a una contraseña.
+
+Utilice la `chapSecret` parámetro para configurar claves de seguridad para los iniciadores que requieren autenticación mutua. El secreto CHAP debe tener entre 12 y 57 caracteres. En esta tabla, se indican los caracteres válidos.
+
+[cols="1a,1a,1a,1a,1a,1a,1a,1a,1a,1a,1a,1a"]
+|===
+
+
+ a| 
+Espacio
+ a| 
+!
+ a| 
+"
+ a| 
+#
+ a| 
+$
+ a| 
+%
+ a| 
+&
+ a| 
+'
+ a| 
+(
+ a| 
+)
+ a| 
+*
+ a| 
+
+
+
+ a| 
+,
+ a| 
+-
+ a| 
+.
+ a| 
+/
+ a| 
+0
+ a| 
+1
+ a| 
+2
+ a| 
+3
+ a| 
+4
+ a| 
+5
+ a| 
+6
+ a| 
+7
+
+
+
+ a| 
+8
+ a| 
+9
+ a| 
+:
+ a| 
+;
+ a| 
+<
+ a| 
+=
+ a| 
+>
+ a| 
+?
+ a| 
+@
+ a| 
+A.
+ a| 
+B
+ a| 
+C
+
+
+
+ a| 
+D
+ a| 
+E
+ a| 
+F
+ a| 
+G
+ a| 
+H
+ a| 
+YO
+ a| 
+J
+ a| 
+K
+ a| 
+L
+ a| 
+M
+ a| 
+N
+ a| 
+O
+
+
+
+ a| 
+P
+ a| 
+P
+ a| 
+R
+ a| 
+S
+ a| 
+T
+ a| 
+U
+ a| 
+V
+ a| 
+W
+ a| 
+X
+ a| 
+Y
+ a| 
+Z
+ a| 
+[
+
+
+
+ a| 
+\
+ a| 
+]
+ a| 
+#
+ a| 
+_
+ a| 
+'
+ a| 
+a.
+ a| 
+b
+ a| 
+c
+ a| 
+d
+ a| 
+e
+ a| 
+f
+ a| 
+g
+
+
+
+ a| 
+h
+ a| 
+yo
+ a| 
+j
+ a| 
+k
+ a| 
+l
+ a| 
+m
+ a| 
+n
+ a| 
+o
+ a| 
+p
+ a| 
+p
+ a| 
+r
+ a| 
+s
+
+
+
+ a| 
+t
+ a| 
+u
+ a| 
+v
+ a| 
+w
+ a| 
+x
+ a| 
+y
+ a| 
+z
+ a| 
+{
+ a| 
+|
+ a| 
+}
+ a| 
+~
+ a| 
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.10
+
+8.41 este comando quedó obsoleto.

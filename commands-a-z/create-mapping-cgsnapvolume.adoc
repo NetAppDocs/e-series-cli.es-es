@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/create-mapping-cgsnapvolume.html 
+sidebar: sidebar 
+keywords: create, consistency, group, snapshot, volume, map 
+summary: El comando create mapping cgSnapVolume crea una asignación lógica entre un volumen Snapshot del grupo de coherencia y un host o un grupo de hosts. 
+---
+= Crear asignación de volumen Snapshot de grupo de coherencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create mapping cgSnapVolume` el comando crea una asignación lógica de un volumen snapshot de un grupo de coherencia a un host o un grupo de hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create mapping cgSnapVolume=pass:quotes[_"snapVolumeName"_
+(host="_hostName_" | hostGroup=("_hostGroupName_" | defaultGroup))]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`cgSnapVolume`
+ a| 
+El nombre del volumen Snapshot del grupo de coherencia para el cual se creará la asignación lógica. El nombre del volumen Snapshot del grupo de coherencia debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+El nombre del host para el cual se creará la asignación lógica. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre del grupo de hosts para el cual se creará la asignación lógica. El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). Si utiliza la `defaultGroup` palabra clave, no la incluya entre comillas.
+
+|===
+
+
+== Notas
+
+Un host es un equipo conectado a la cabina de almacenamiento y que tiene acceso a los volúmenes de esa cabina a través de puertos de host. Es posible definir asignaciones específicas para un host individual. También es posible asignar el host a un grupo de hosts que comparte el acceso a un volumen o a varios.
+
+Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

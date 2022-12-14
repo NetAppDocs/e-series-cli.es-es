@@ -1,0 +1,17 @@
+---
+permalink: get-started/interactive-mode.html 
+sidebar: sidebar 
+keywords: interactive mode 
+summary: 'Si introduce `SMcli` Y el nombre de una cabina de almacenamiento, pero no especifica parámetros de interfaz de línea de comandos, comandos de script ni un archivo de script, la interfaz de línea de comandos se ejecuta en modo interactivo.' 
+---
+= Modo interactivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Si introduce `SMcli` Y el nombre de una cabina de almacenamiento, pero no especifica parámetros de interfaz de línea de comandos, comandos de script ni un archivo de script, la interfaz de línea de comandos se ejecuta en modo interactivo. El modo interactivo permite ejecutar comandos individuales sin colocar el prefijo para los comandos `SMcli`.
+
+En el modo interactivo, se puede introducir un solo comando, ver los resultados e introducir el siguiente comando sin escribir el completo `SMcli` cadena. El modo interactivo es útil para determinar errores de configuración y probar cambios de configuración rápidamente.
+
+Para finalizar una sesión en modo interactivo, se debe escribir el comando específico del sistema operativo. Para Linux, esta combinación de teclas es *Control-D*. Para Windows, esta combinación de teclas es *Control-Z + ENTRAR*.

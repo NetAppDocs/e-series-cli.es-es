@@ -1,0 +1,46 @@
+---
+permalink: commands-a-z/stop-ssdcache-locate.html 
+sidebar: sidebar 
+keywords: stop, ssd, cache, locate 
+summary: 'El comando stop ssdCache locate apaga las luces indicadoras de los discos de estado sólido (SSD) que se encendieron con el comando start ssdCache locate.' 
+---
+= Detener la búsqueda de caché SSD
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop ssdCache locate` El comando apaga las luces indicadoras de los discos de estado sólido (SSD) que había encendido el `start ssdCache locate` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Support Admin.
+
+
+
+== Sintaxis
+
+[listing]
+----
+stop ssdCache locate
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+7.84

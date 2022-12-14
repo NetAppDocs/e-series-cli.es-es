@@ -1,0 +1,91 @@
+---
+permalink: commands-a-z/reduce-disk-pool-capacity.html 
+sidebar: sidebar 
+keywords: reduce, disk pool, capacity 
+summary: El comando set DISKPOOL quita unidades del pool de discos de forma lógica para reducir la capacidad del pool. 
+---
+= Reducir capacidad de pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set diskPool` el comando reduce la capacidad del pool de discos mediante la eliminación lógica de las unidades del pool.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Este comando utiliza la función de reducción dinámica de capacidad (DCR), la que permite quitar unidades selectas de un pool de discos y volver a utilizar las unidades que se quitaron según sea necesario.
+
+La cantidad máxima de unidades que se pueden quitar de un pool de discos en una única operación de DCR es 60. El pool de discos no se puede reducir a un tamaño inferior que el tamaño mínimo del pool de discos.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set diskPool pass:quotes[[_diskPoolName_]]
+removeDrives=pass:quotes[(_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1
+... trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_])
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+Nombre del pool de discos en el que se desea reducir la capacidad. El nombre del pool de discos debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`removeDrives`
+ a| 
+En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Cada nombre de pool de discos debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+Se recomienda quitar unidades selectas de un pool de discos cuando es necesario crear un grupo separado o quitar capacidad que no se necesita de la cabina de almacenamiento. Las unidades que se quitan se convierten en unidades sin asignar y los datos incluidos en esas unidades se redistribuyen entre las unidades restantes del pool de discos. La capacidad del pool de discos disminuye según la capacidad de las unidades que se quitan. La eliminación de unidades de un pool de discos siempre se realiza como una tarea en segundo plano y, durante esta operación, se puede acceder a los volúmenes de forma total. El progreso de la operación de eliminación se informa como parte del estado de las operaciones de ejecución prolongada.
+
+Se produce un error en este comando si la capacidad libre de las unidades que se conservan en el pool de discos no es suficiente para almacenar todos los datos incluidos en las unidades que se quitan del pool de discos. Es posible utilizar la capacidad de reserva del pool de discos para almacenar los datos incluidos en las unidades que se quitan del pool de discos. Sin embargo, si la capacidad de reserva es inferior al umbral crítico, se escribe un evento crítico en el registro de eventos serios.
+
+Si se reduce el tamaño del pool de discos, es probable que la capacidad de reserva necesaria sea menor. En algunos casos, para disminuir la probabilidad de que este comando falle, reduzca la capacidad de reserva antes de ejecutar este comando para aumentar la cantidad de espacio disponible para los datos del pool de discos.
+
+El firmware de la controladora determina cuántas unidades se pueden quitar y, a continuación, se pueden seleccionar las unidades específicas que se quitarán. El firmware de la controladora se basa en la cantidad de espacio libre necesario para redistribuir los datos entre las unidades restantes sin consumir la capacidad reservada para las reconstrucciones. Si la capacidad libre del pool de discos ya es inferior que la cantidad reservada de unidades de reconstrucción, la controladora no permite que se inicie la operación de DCR.
+
+La operación de DCR puede hacer que la capacidad configurada supere uno de los umbrales de utilización del pool o los dos. En ese caso, se activan alertas de umbral normales.
+
+
+
+== Nivel de firmware mínimo
+
+8.10

@@ -1,0 +1,203 @@
+---
+permalink: commands-a-z/set-disk-pool.html 
+sidebar: sidebar 
+keywords: set, disk pool 
+summary: El comando set DISKPOOL configura los atributos asociados con un pool de discos a partir de los parámetros especificados. 
+---
+= Configure el pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set diskPool` el comando configura los atributos asociados con un pool de discos de acuerdo con los parámetros especificados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set (diskPool pass:quotes[[_diskPoolName_]] |
+diskPools pass:quotes[[_diskPoolName1_ ... _diskPoolNameN_]] | allDiskPools)
+[reservedDriveCount=pass:quotes[_reservedDriveCountValue_]]
+[warningThreshold=(warningThresholdValue | default)]
+[criticalThreshold=(criticalThresholdValue | default)]
+[criticalPriority=(highest | high | medium |low |lowest)]
+[degradedPriority=(highest |high |medium |low |lowest)]
+[backgroundPriority=(highest | high | medium |low |lowest)]
+[userLabel=pass:quotes[_diskPoolName_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPool`
+ a| 
+El nombre del pool de discos para el que va a configurar atributos. El nombre del pool de discos debe escribirse entre corchetes ([ ]). Si el nombre del pool de discos contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`diskPools`
+ a| 
+Los nombres de varios pools de discos para los que desea configurar atributos. Introduzca los nombres de los pools de discos de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres del pool de discos tienen caracteres especiales o números, introduzca los nombres de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`allDiskPools`
+ a| 
+Este parámetro configura atributos para todos los pools de discos en la cabina de almacenamiento.
+
+
+
+ a| 
+`reservedDriveCount`
+ a| 
+Este parámetro reserva espacio en cada unidad del pool de discos, y debe usarse exclusivamente para la reconstrucción de unidades con error. Cada unidad en este número representa la capacidad de reconstruir una unidad con error para el resto del pool de discos.
+
+
+
+ a| 
+`warningThreshold`
+ a| 
+El porcentaje de la capacidad del pool de discos en la cual recibe una alerta de advertencia para señalar que el pool de discos está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. Para lograr un funcionamiento óptimo, el valor de este parámetro debe ser menor que el valor de `criticalThreshold` parámetro.
+
+Los valores válidos son del 0 al 100.
+
+El valor predeterminado es 50.
+
+Configurar este parámetro como `0` deshabilita las alertas de advertencia.
+
+Si establece esta opción en `default`, el valor del umbral de alerta de advertencia viene determinado por el firmware del controlador.
+
+
+
+ a| 
+`criticalThreshold`
+ a| 
+El porcentaje de la capacidad del pool de discos en la cual recibe una alerta crucial para señalar que el pool de discos está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. Para lograr un funcionamiento óptimo, el valor de este parámetro debe ser mayor que el valor de `warningThreshold` parámetro.
+
+Los valores válidos son del 0 al 100.
+
+El valor predeterminado es 85 %.
+
+Configurar este parámetro como `0` deshabilita las alertas de advertencia y las alertas cruciales.
+
+Si establece esta opción en `default`, el valor del umbral de alerta crítica viene determinado por el firmware del controlador.
+
+
+
+ a| 
+`criticalPriority`
+ a| 
+La prioridad en las operaciones de reconstrucción para eventos críticos en el pool de discos. Por ejemplo, la reconstrucción del pool de discos después de al menos dos fallos de unidad.
+
+Los valores válidos son `highest`, `high`, `medium`, `low`, y. `lowest`. El valor predeterminado es `highest`.
+
+
+
+ a| 
+`degradedPriority`
+ a| 
+La prioridad en las operaciones de reconstrucción para eventos degradados en el pool de discos. Por ejemplo, la reconstrucción del pool de discos después de un fallo de la unidad.
+
+Los valores válidos son `highest`, `high`, `medium`, `low`, y. `lowest`. El valor predeterminado es `high`.
+
+
+
+ a| 
+`backgroundPriority`
+ a| 
+La prioridad de las operaciones en segundo plano en el pool de discos.
+
+Los valores válidos son `highest`, `high`, `medium`, `low`, y. `lowest`. El valor predeterminado es `low`.
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre nuevo que desea asignarle al pool de discos. El nombre del pool de discos debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+Cada nombre de pool de discos debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+Es posible especificar un conjunto de pools de discos arbitrario. Si selecciona varios pools de discos, configure un valor para `userLabel` provoca un error.
+
+Si no se especifica un valor para un parámetro opcional, se asigna un valor predeterminado.
+
+
+
+== Umbrales de alerta del pool de discos
+
+Cada pool de discos tiene dos niveles de gravedad para las alertas que informan a los usuarios cuando la capacidad de almacenamiento está por agotarse. El umbral de alerta es un porcentaje de la capacidad utilizada respecto de la capacidad utilizable total del pool de discos. Las alertas son las siguientes:
+
+* Advertencia -- este es el primer nivel de alerta para señalar que la capacidad utilizada en un pool de discos está casi completa. Cuando se llega al umbral de la alerta de advertencia, se genera una condición necesita atención y se publica un evento en el software de administración del almacenamiento. El umbral de alerta es sustituido por el umbral crucial. El umbral de alerta predeterminado es de 50 %.
+* Crucial: Este es el nivel de alerta más grave para señalar que la capacidad utilizada en un pool de discos está casi completa. Cuando se llega al umbral de la alerta crucial, se genera una condición necesita atención y se publica un evento en el software de administración del almacenamiento. El umbral de alerta es sustituido por el umbral crucial. El umbral predeterminado para la alerta crucial es de 85 %.
+
+
+Para que sea eficaz, el valor de una alerta de advertencia siempre debe ser menor que el valor de alerta crucial. Si el valor de la alerta de advertencia es igual al de la alerta crucial, solo se envía la alerta crucial.
+
+
+
+== Operaciones en segundo plano en el pool de discos
+
+Los pools de discos admiten las siguientes operaciones en segundo plano:
+
+* Reconstrucción
+* Formato de disponibilidad instantánea (IAF)
+* Formato
+* Ampliación de capacidad dinámica (DCE)
+* Reducción de capacidad dinámica (DCR)
+* Expansión de volumen dinámica (DVE) (para los pools de discos, la DVE no es una operación en segundo plano, sino que se admite como una operación síncrona)
+
+
+Los pools de discos no tienen cola para comandos en segundo plano. Es posible iniciar secuencialmente varios comandos en segundo plano, pero iniciar más de una operación en segundo plano a la vez retrasa la ejecución de los comandos iniciados previamente. Los niveles de prioridad relativos para las operaciones en segundo plano admitidas son los siguientes:
+
+. Reconstrucción
+. Formato
+. IAF
+. DCE/DCR
+
+
+
+
+== Nivel de firmware mínimo
+
+7.83

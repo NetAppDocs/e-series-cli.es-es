@@ -1,0 +1,374 @@
+---
+permalink: get-started/command-line-parameters.html 
+sidebar: sidebar 
+keywords: legacy, command line, parameters 
+summary: El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E2800 y E5700 con servicios web integrados, la capacidad para interactuar en la línea de comandos con un protocolo HTTPS seguro. De forma opcional, estas controladoras pueden utilizar el protocolo Symbol para interacciones en la línea de comandos. 
+---
+= Parámetros de la línea de comandos heredados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+
+
+== 11.53 y parámetros de línea de comandos más antiguos
+
+El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E2800 y E5700 con servicios web integrados, la capacidad para interactuar en la línea de comandos con un protocolo HTTPS seguro. De forma opcional, estas controladoras pueden utilizar el protocolo Symbol para interacciones en la línea de comandos. El protocolo Symbol es el único admitido por las controladoras E2700 y E5600. A fin de conservar los scripts existentes y minimizar el tiempo de transición, la gramática y las opciones de la CLI se conservan en la mayor medida posible. No obstante, existen algunas diferencias en las funcionalidades de las controladoras E2800 y E5700 con respecto a la seguridad, la autenticación, AutoSupport y la mensajería de alertas por las cuales cierta gramática de la CLI se torna obsoleta para dichas controladoras. Sin embargo, en algunos casos, la gramática solo es obsoleta en E2800 o E5700 cuando se utiliza el protocolo https nuevo.
+
+Para los nuevos parámetros que solo se aplican a la `*https*` Tipo de cliente, se sigue que también se aplican solo a las controladoras E2800 o E5700.
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`-clientType`
+ a| 
+Este argumento fuerza la creación de un motor de scripts adecuado. Este parámetro opcional se utiliza con uno de los valores siguientes:
+
+* `*auto*` - La detección de dispositivos se realiza automáticamente a fin de detectar el tipo de motor de scripts adecuado.
+* `*https*` - Se crea un motor de scripts basado en REST.
+* `*symbol*` - Se crea un motor de scripts basado en símbolos.
+
+
+
+
+ a| 
+`-u`
+ a| 
+Siga este parámetro con el `_username_` variable. El nombre de usuario sólo es necesario para `*https*` tipo de cliente. Este argumento no se aplica a la `*symbol*` tipo de cliente y se ignorará silenciosamente.
+
+Si se especifica el argumento de nombre de usuario, se realiza la detección de dispositivos para determinar el tipo de cliente correcto (`*https*` vs `*symbol*`).
+
+
+
+ a| 
+`-P`
+ a| 
+Este argumento requiere uno de estos dos argumentos:
+
+* `_password_file_` - Contiene la contraseña que se debe utilizar para la autenticación.
+* `-` (Un guion) - Lea la contraseña desde `stdin`.
+
+
+Tenga en cuenta que la adición de este argumento se aplica a todos los controladores, independientemente de si `*https*` tipo de cliente o. `*symbol*` se utiliza el tipo de cliente.
+
+
+
+ a| 
+`-k`
+ a| 
+Este argumento opcional permite a. `*https*` para que el cliente funcione en modo no seguro. Esto significa que el certificado de la cabina de almacenamiento no se valida. De forma predeterminada, si se omite, se realiza la autenticación adecuada. Este argumento no se aplica a la `*symbol*` tipo de cliente y se ignorará silenciosamente.
+
+|===
+
+
+== Parámetros de línea de comandos que solo se aplican a las controladoras E2700 o E5600
+
+Dado que las controladoras E2700 y E5600 no cuentan con funcionalidades de gestión de alerta integradas, estos parámetros de línea de comandos son aplicables. No lo son en las controladoras E2800 o E5700.
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`-a`
+ a| 
+Añade un destino de captura de protocolo simple de gestión de redes (SNMP) o un destino de alertas de correo electrónico.
+
+* Cuando se añade un destino de captura SNMP, la comunidad SNMP se define automáticamente como el nombre de la comunidad de la captura, y la `*host*` Es la dirección IP o el nombre de host del servidor de nombres de dominio (DNS) del sistema al que se debe enviar la captura.
+* Cuando se añade una dirección de correo electrónico como destino de alertas, el `*email-address*` es la dirección de correo electrónico a la cual desea que se envíe el mensaje de alerta.
+
+
+[NOTE]
+====
+Esta opción de línea de comandos es obsoleta para las cabinas de almacenamiento E2800 y E5700. Use la API de RESTful, la instancia de SANtricity System Manager o comandos curl.
+
+====
+
+
+ a| 
+`-m`
+ a| 
+Especifica el nombre de host o la dirección IP del servidor de correo electrónico desde el cual se envían las notificaciones de alertas por correo electrónico.
+
+[NOTE]
+====
+Esta opción de línea de comandos es obsoleta para las cabinas de almacenamiento E2800 y E5700. Use la API de RESTful, la instancia de SANtricity System Manager o comandos curl.
+
+====
+
+
+ a| 
+`-s` (minúscula)
+ a| 
+Muestra la configuración de alerta en el archivo de configuración cuando se utiliza con el `-d` parámetro.
+
+[NOTE]
+====
+Esta opción de línea de comandos es obsoleta para las cabinas de almacenamiento E2800 y E5700. Use la API de RESTful, la instancia de SANtricity System Manager o comandos curl.
+
+====
+
+
+ a| 
+`-x` (minúscula)
+ a| 
+Quita un destino de captura SNMP o un destino de alertas por correo electrónico. La `_community_` Es el nombre de comunidad SNMP de la captura y la `_host_` Es la dirección IP o el nombre de host DNS del sistema a los que se desea enviar la captura.
+
+[NOTE]
+====
+Esta opción de línea de comandos es obsoleta para las cabinas de almacenamiento E2800 y E5700. Use la API de RESTful, la instancia de SANtricity System Manager o comandos curl.
+
+====
+|===
+
+
+== Parámetros de línea de comandos que se aplican a todas las controladoras que se ejecutan con el tipo de cliente symbol
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`-R` (mayúscula)
+ a| 
+Define el rol de usuario para la contraseña. Los roles pueden ser los siguientes:
+
+* `*admin*` -- el usuario posee privilegios para cambiar la configuración de la cabina de almacenamiento.
+* `*monitor*` -- el usuario posee privilegios para visualizar la configuración de la cabina de almacenamiento, pero no puede realizar cambios.
+
+
+La `*-R*` el parámetro solo es válido cuando se utiliza con `*–p*` parámetro, que especifica la definición de una contraseña para una cabina de almacenamiento.
+
+La `*-R*` solo es obligatorio si la función de doble contraseña está habilitada en la cabina de almacenamiento. La `*-R*` no es necesario el parámetro en las siguientes condiciones:
+
+* No está habilitada la función de doble contraseña en la cabina de almacenamiento.
+* Solo hay configurado un rol de administrador, y el rol de supervisor no está configurado en la cabina de almacenamiento.
+
+
+|===
+
+
+== Parámetros de línea de comandos aplicables a todas las controladoras y todos los tipos de cliente
+
+[cols="2*"]
+|===
+| Parámetro | Definición 
+
+
+ a| 
+`_host-name-or-IP-address_`
+ a| 
+Especifica el nombre de host o la dirección del protocolo de Internet (IP) (`_xxx.xxx.xxx.xxx_`) de una cabina de almacenamiento gestionada en banda o una cabina de almacenamiento gestionada fuera de banda.
+
+* Si se va a gestionar una cabina de almacenamiento con un host a través de administración del almacenamiento en banda, se debe utilizar el `-n` o el `-w` parámetro si se conecta más de una cabina de almacenamiento al host.
+* Si se va a gestionar una cabina de almacenamiento con administración del almacenamiento fuera de banda a través de la conexión Ethernet de cada controladora, se debe especificar el `_host-name-or-IP-address_` de las controladoras.
+* Si previamente se configuró una cabina de almacenamiento en Enterprise Management Window, es posible especificar la cabina de almacenamiento por el nombre proporcionado por el usuario mediante el `-n` parámetro.
+* Si previamente se configuró una cabina de almacenamiento en Enterprise Management Window, es posible especificar la cabina de almacenamiento por su identificador a nivel mundial (WWID) mediante el `-w` parámetro.
+
+
+
+
+ a| 
+`-A`
+ a| 
+Añade una cabina de almacenamiento al archivo de configuración. Si no sigue la `-A` parámetro con a `_host-name-or-IP-address_`, la detección automática busca matrices de almacenamiento en la subred local.
+
+
+
+ a| 
+`-c`
+ a| 
+Indica que se introducirán uno o más comandos de script para ejecutarlos en la cabina de almacenamiento especificada. Cada comando debe finalizar con punto y coma (`;`). No puede colocar más de uno `-c` en la misma línea de comandos. Es posible incluir más de un comando de script después del `-c` parámetro.
+
+
+
+ a| 
+`-d`
+ a| 
+Muestra el contenido del archivo de configuración de script. El contenido del archivo tiene el siguiente formato: `_storage-system-name host-name1 host-name2_`
+
+
+
+ a| 
+`-e`
+ a| 
+Ejecuta los comandos sin realizar primero una comprobación de la sintaxis.
+
+
+
+ a| 
+`-F` (mayúscula)
+ a| 
+Especifica la dirección de correo electrónico desde la cual se enviarán las alertas.
+
+
+
+ a| 
+`-f` (minúscula)
+ a| 
+Especifica el nombre de un archivo que contiene comandos de script que se desean ejecutar en la cabina de almacenamiento especificada. La `-f` el parámetro es similar al `-c` parámetro en que ambos parámetros están pensados para ejecutar comandos de script. La `-c` el parámetro ejecuta comandos de script individuales. La `-f` parámetro ejecuta un archivo de comandos de script. De manera predeterminada, se ignoran todos los errores que surgen durante la ejecución de los comandos de script en un archivo, y el archivo se sigue ejecutando. Para anular este comportamiento, utilice `set session errorAction=stop` en el archivo de script.
+
+
+
+ a| 
+`-g`
+ a| 
+Especifica un archivo ASCII que contiene la información de contacto del remitente del correo electrónico que se incluirá en las notificaciones de alertas por correo electrónico. La CLI asume que el archivo ASCII es de solo texto, sin delimitadores ni ningún tipo de formato. No utilice la `-g` parámetro si a `userdata.txt` el archivo existe.
+
+
+
+ a| 
+`-h`
+ a| 
+Especifica el nombre de host que ejecuta el agente SNMP al cual está conectada la cabina de almacenamiento. Utilice la `-h` parámetro con estos parámetros:
+
+* `-a`
+* `-x`
+
+
+
+
+ a| 
+`-I` (mayúscula)
+ a| 
+Especifica el tipo de información que se incluirá en las notificaciones de alertas por correo electrónico. Se pueden seleccionar estos valores:
+
+* `eventOnly` -- sólo la información del evento está incluida en el correo electrónico.
+* `profile` -- la información de perfil de eventos y matrices está incluida en el correo electrónico.
+
+
+Puede especificar la frecuencia de las entregas de correo electrónico con el `-q` parámetro.
+
+
+
+ a| 
+`-i` (minúscula)
+ a| 
+Muestra la dirección IP de las cabinas de almacenamiento conocidas. Utilice la `-i` con el `-d` parámetro. El contenido del archivo tiene el siguiente formato: `_storage-system-name IP-address1 IPaddress2_`
+
+
+
+ a| 
+`-n`
+ a| 
+Especifica el nombre de la cabina de almacenamiento en la que se desean ejecutar los comandos de script. Este nombre es opcional cuando se utiliza un `_host-name-or-IP-address_`. Si se utiliza un método en banda para la gestión de la cabina de almacenamiento, se debe utilizar el `-n` parámetro si hay más de una cabina de almacenamiento conectada al host en la dirección especificada. El nombre de cabina de almacenamiento se requiere cuando el `_host-name-or-IP-address_` no se utiliza. El nombre de la cabina de almacenamiento configurado para utilizar en Enterprise Management Window (es decir, el nombre que está en el archivo de configuración) no debe ser un nombre duplicado de ninguna otra cabina de almacenamiento configurada.
+
+
+
+ a| 
+`-o`
+ a| 
+Especifica un nombre de archivo para todo el texto de salida que se genera como resultado de la ejecución de los comandos de script. Utilice la `-o` parámetro con estos parámetros:
+
+* `-c`
+* `-f`
+
+
+Si no se especifica un archivo de resultados, el texto de salida va a los resultados estándar (stdout). Todos los resultados de los comandos que no sean comandos de script se envían a stdout, independientemente de si este parámetro está establecido.
+
+
+
+ a| 
+`-p`
+ a| 
+Define la contraseña de la cabina de almacenamiento en la cual se desean ejecutar comandos. No es necesaria una contraseña en las siguientes condiciones:
+
+* No se estableció una contraseña en la cabina de almacenamiento.
+* La contraseña está especificada en un archivo de script en ejecución.
+* La contraseña se especifica con el `-c` parámetro y este comando:
+
+
+[listing]
+----
+set session password=password
+----
+
+
+ a| 
+`-P`
+ a| 
+Este argumento requiere uno de estos dos argumentos:
+
+* `_password_file_` - contiene la contraseña que se debe utilizar para la autenticación.
+* `-`(guion): lee la contraseña de `stdin`.
+
+
+Tenga en cuenta que la adición de este argumento se aplica a todos los controladores, independientemente de si `*https*` tipo de cliente o. `*symbol*` se utiliza el tipo de cliente.
+
+
+
+ a| 
+`-q`
+ a| 
+Especifica la frecuencia con la que se desean recibir notificaciones de eventos y el tipo de información que contienen estas notificaciones. Siempre se genera para cada evento de nivel crucial elevado una notificación de alertas por correo electrónico que contiene al menos la información básica del evento. Estos valores son válidos para la `-q` parámetro:
+
+* `everyEvent` -- se devuelve información con cada notificación de alerta por correo electrónico.
+* `2` -- la información se devuelve no más de una vez cada dos horas.
+* `4` -- la información se devuelve no más de una vez cada cuatro horas.
+* `8` -- la información se devuelve no más de una vez cada ocho horas.
+* `12` -- la información se devuelve no más de una vez cada 12 horas.
+* `24` -- la información se devuelve no más de una vez cada 24 horas.
+
+
+Con el `-I` parámetro puede especificar el tipo de información en las notificaciones de alertas por correo electrónico.
+
+* Si establece la `-I` parámetro a. `eventOnly` , el único valor válido para `-q` el parámetro es `everyEvent`.
+* Si establece la `-I` para la `profile` o el `supportBundle` valor, esta información se incluye con los correos electrónicos con la frecuencia especificada por `-q` parámetro.
+
+
+
+
+ a| 
+`-quick`
+ a| 
+Disminuye la cantidad de tiempo necesaria para ejecutar una operación de línea única. Un ejemplo de operación de una sola línea es el `recreate snapshot volume` comando. Este parámetro reduce la cantidad de tiempo, ya que no ejecuta procesos en segundo plano durante la ejecución del comando. No se debe utilizar este parámetro para operaciones que involucran varias operaciones de línea única. El uso excesivo de este comando puede sobrecargar la controladora con más comandos de los que puede procesar, lo que provoca un fallo operativo. Además, las actualizaciones de estado y de configuración que generalmente se recogen de procesos en segundo plano, no están disponibles para la CLI. Este parámetro hace que las operaciones que dependen de la información en segundo plano fallen.
+
+
+
+ a| 
+`-S` (mayúscula)
+ a| 
+Suprime los mensajes informativos sobre el progreso de los comandos que aparecen cuando se ejecutan comandos de script. (La supresión de los mensajes informativos también se denomina modo silencioso). Este parámetro suprime los mensajes que indican lo siguiente:
+
+* `Performing syntax check`
+* `Syntax check complete`
+* `Executing script`
+* `Script execution complete`
+* `SMcli completed successfully`
+
+
+
+
+ a| 
+`-v`
+ a| 
+Muestra el estado general actual de los dispositivos conocidos en un archivo de configuración cuando se utiliza con el `-d` parámetro.
+
+
+
+ a| 
+`-w`
+ a| 
+Especifica el WWID de la cabina de almacenamiento. Este parámetro es una alternativa a `-n` parámetro. Utilice la `-w` con el `-d` Parámetro para ver los WWID de las cabinas de almacenamiento conocidas. El contenido del archivo tiene el siguiente formato: `_storage-system-name world-wide-ID IP-address1 IP-address2_`
+
+
+
+ a| 
+`-X` (mayúscula)
+ a| 
+Elimina una cabina de almacenamiento de una configuración.
+
+
+
+ a| 
+`-?`
+ a| 
+Muestra la información de uso de los comandos de la CLI.
+
+|===

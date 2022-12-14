@@ -1,0 +1,58 @@
+---
+permalink: commands-a-z/stop-volumecopy-target-source.html 
+sidebar: sidebar 
+keywords: stop, volume, copy 
+summary: El comando stop VolumeCopy target source detiene una operación de copia de volumen. Este comando es válido para las parejas de copias de volumen Snapshot. 
+---
+= Detener la copia de volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop volumeCopy target source` el comando detiene una operación de copia de volumen. Este comando es válido para las parejas de copias de volumen Snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[stop volumeCopy target [_targetName_]] source pass:quotes[[_sourceName_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`target`
+ a| 
+El nombre del volumen objetivo en el cual se desea detener una operación de copia de volumen. El nombre del volumen objetivo se debe escribir entre corchetes ([ ]). Si el nombre del volumen objetivo contiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`source`
+ a| 
+El nombre del volumen de origen en el cual se desea detener una operación de copia de volumen. El nombre del volumen de origen se debe escribir entre corchetes ([ ]). Si el nombre del volumen de origen contiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes
+
+|===

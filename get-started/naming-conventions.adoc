@@ -1,0 +1,59 @@
+---
+permalink: get-started/naming-conventions.html 
+sidebar: sidebar 
+keywords: name, conventions 
+summary: Los nombres pueden tener hasta 30 caracteres. 
+---
+= Convenciones de nomenclatura
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+* Los nombres pueden tener hasta 30 caracteres.
+* Se puede utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres de los siguientes componentes:
++
+** Cabinas de almacenamiento
+** Grupos de hosts
+** Hosts
+** Grupos de volúmenes
+** Pools de discos dinámicos
+** Volúmenes
+** Puertos de host de adaptador de bus de host
+
+
+* Se deben utilizan nombres únicos. Si no se utilizan nombres únicos, el firmware de la controladora muestra un error.
+* Si el nombre contiene más de una palabra, guiones o guiones bajos, escríbala entre comillas dobles ("' '). En algunos usos, también se debe escribir el nombre entre corchetes ([ ]). La descripción de cada parámetro indica si es necesario escribirlo entre comillas dobles, corchetes o ambos.
+* La cadena de caracteres del nombre no puede contener una línea nueva.
+* En los sistemas operativos Windows, el nombre se debe escribir entre dos barras diagonales inversas (\\), además de los otros delimitadores. Por ejemplo, el siguiente nombre se utiliza en un comando que se ejecuta en un sistema operativo Windows:
++
+[listing]
+----
+[\“Engineering\”]
+----
+* En el caso de un sistema operativo UNIX y, cuando se utiliza en un archivo de script, el nombre se muestra como en el siguiente ejemplo:
++
+[listing]
+----
+[“Engineering”]
+----
+* Cuando se introduce un identificador a nivel mundial (WWID) de un puerto de host de adaptador de bus de host, se requiere escribir el WWID entre comillas dobles para algunos usos. En otros usos, se debe escribir el WWID entre paréntesis angulares (<>). La descripción del parámetro WWID indica si es necesario escribirlo entre comillas dobles o paréntesis angulares.
+
+
+
+
+== Introducir nombres numéricos
+
+Cuando el software de administración del almacenamiento configura automáticamente una cabina de almacenamiento, asigna nombres compuestos por caracteres numéricos. Los nombres compuestos únicamente por caracteres numéricos son nombres válidos. Sin embargo, los nombres de caracteres numéricos deben recibir un tratamiento distinto del que reciben los nombres que comienzan con caracteres alfabéticos.
+
+* Nombres que son sólo números, como 1 o 2
+* Nombres que comienzan con un número, como 1Disk o 32Volume
+* `[\“1\”]`
+* `[\“1Disk\”]`
+
+
+[NOTE]
+====
+Cuando la validez de un nombre se encuentre en duda, se deben usar comillas dobles y corchetes. Si se utilizan los dos símbolos, el nombre funcionará con seguridad y no generará problemas de procesamiento.
+
+====

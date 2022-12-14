@@ -1,0 +1,64 @@
+---
+permalink: commands-a-z/delete-volumegroup.html 
+sidebar: sidebar 
+keywords: delete, volume, group, command, entire, associated, support, role 
+summary: El comando delete volumeGroup elimina un grupo de volúmenes completo y sus volúmenes asociados. 
+---
+= Elimine un grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete volumeGroup` el comando elimina un grupo de volúmenes completo y sus volúmenes asociados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[IMPORTANT]
+====
+*Posible daño a la configuración de la cabina de almacenamiento* -- todos los datos del grupo de volúmenes se pierden tan pronto como se ejecuta este comando.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[delete volumeGroup [_volumeGroupName_]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea eliminar. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

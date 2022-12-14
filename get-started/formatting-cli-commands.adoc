@@ -1,0 +1,61 @@
+---
+permalink: get-started/formatting-cli-commands.html 
+sidebar: sidebar 
+keywords: format, rules, cli, commands 
+summary: Las comillas dobles que se usan como parte de un nombre o una etiqueta requieren consideración especial cuando se ejecutan comandos de la CLI y comandos de script en un sistema operativo Windows, Linux o Solaris. 
+---
+= Reglas de formato para los comandos de la CLI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+Las comillas dobles (" ") que se usan como parte de un nombre o una etiqueta requieren consideración especial cuando se ejecutan comandos de la CLI y comandos de script en un sistema operativo Windows, Linux o Solaris.
+
+Cuando las comillas dobles (" ") forman parte de un nombre o valor, se debe insertar una barra diagonal inversa (\) antes de cada carácter de comillas dobles.
+
+Por ejemplo:
+
+[listing]
+----
+-c "set storageArray userLabel=\"Engineering\";"
+----
+En este ejemplo, "Engineering" es el nombre de la cabina de almacenamiento.
+
+Un segundo ejemplo es:
+
+[listing]
+----
+-n \"My\"_Array
+----
+En este ejemplo, "My"_Array es el nombre de la cabina de almacenamiento.
+
+No es posible usar comillas dobles (" ") como parte de una cadena de caracteres (también denominada cadena literal) dentro de un comando de script. Por ejemplo, no es posible introducir la siguiente cadena para establecer el nombre de la cabina de almacenamiento en "Finance" Array:
+
+[listing]
+----
+-c "set storageArray userLabel=\"\"Finance\"Array\";"
+----
+En un sistema operativo Windows, si no se incluyen comillas dobles (" ") alrededor de un nombre, es necesario introducir un signo de intercalación ( {caret} ) antes de cada carácter especial de script. Los caracteres especiales son {caret}, | , < y >.
+
+Introduzca un signo de intercalación antes de cada carácter especial cuando se usa con los terminales `-n`, `-o`, `-f`, y. `-p`. Por ejemplo, para especificar la cabina de almacenamiento CLI>CLIENT, se introduce la siguiente cadena:
+
+[listing]
+----
+-n CLI^>CLIENT
+----
+Se debe insertar un signo de intercalación ({caret}) antes de cada carácter especial cuando se usa una cadena literal en un comando de script. Por ejemplo, para cambiar el nombre de una cabina de almacenamiento a FINANCE_|_PAYROLL, se debe introducir la siguiente cadena:
+
+[listing]
+----
+-c "set storageArray userLabel=\"FINANCE_^|_PAYROLL\";"
+----
+[NOTE]
+====
+Al emitir un comando SMcli en el símbolo del sistema, una barra diagonal inversa adicional (`\`) Se requiere un carácter de escape en el nombre de la ruta de acceso de un archivo de entrada o de salida cuando se utiliza el sistema operativo Windows. La barra invertida adicional (`\`) Se debe incluir cuando se usa SMcli en el modo seguro, https, proporcionando la opción -u para especificar un usuario de gestión de acceso basado en roles. *Ejemplo:*
+
+[listing]
+----
+C:\\dir\\subdir\\filename
+----
+====

@@ -1,0 +1,86 @@
+---
+permalink: commands-a-z/repair-volume-parity.html 
+sidebar: sidebar 
+keywords: repair, volume, parity 
+summary: El comando repair volume parity repara los errores de paridad de un volumen. 
+---
+= Repare la paridad de un volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `repair volume parity` comando repara los errores de paridad en un volumen.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[CAUTION]
+====
+Si la paridad del volumen y los datos del volumen no coinciden, es posible que los datos del volumen presenten defectos en lugar de paridad. La reparación de la paridad del volumen anula la posibilidad de reparar los datos de volumen que tienen defectos, de ser necesario.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+repair volume pass:quotes[[_volumeName_]] parity
+parityErrorFile=pass:quotes[_"filename"_]
+[verbose=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+Nombre del volumen para el cual se repara la paridad. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`parityErrorFile`
+ a| 
+Ruta de acceso y nombre del archivo que contiene la información de error de paridad que se utiliza para reparar los errores. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\sup\parfile.txt"`
+
+[NOTE]
+====
+A. `parityErrorFile` es el resultado de un anterior `check volume parity` funcionamiento.
+
+====
+
+
+ a| 
+`verbose`
+ a| 
+La configuración para capturar los detalles del progreso, como el porcentaje completado, y para mostrar información, como la paridad del volumen que se está reparando. Para capturar los detalles del progreso, este parámetro se debe establecer en `TRUE`. Para evitar la captura de detalles del progreso, este parámetro se debe establecer en `FALSE`.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+6.10

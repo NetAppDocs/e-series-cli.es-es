@@ -1,0 +1,113 @@
+---
+permalink: commands-a-z/save-storagearray-configuration.html 
+sidebar: sidebar 
+keywords: save, storage, array, configuration 
+summary: El comando save storageArray Configuration crea un archivo de script que se puede utilizar para volver a crear la configuración de volúmenes de la cabina de almacenamiento actual. 
+---
+= Guarde la configuración de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save storageArray configuration` el comando crea un archivo de script que se puede utilizar para volver a crear la configuración de volúmenes de la cabina de almacenamiento actual.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento. Sin embargo, el uso de este comando junto con el parámetro LDAP está restringido a aquellos con el rol Security Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando no guarda en un archivo los datos de configuración de mirroring remoto o copia de volumen en la cabina de almacenamiento actual.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save storageArray configuration file=pass:quotes["_filename_"]
+(allconfig|[globalSettings=(TRUE | FALSE)]
+[volumeConfigAndSettings=(TRUE | FALSE)]
+[hostTopology=(TRUE | FALSE)]
+[lunMappings=(TRUE | FALSE)])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo donde se guardarán las opciones de configuración. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\logs\saconf.cfg"`
+
+El nombre predeterminado del archivo que contiene las opciones de configuración es `storage-array-configuration.cfg`. Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+
+
+ a| 
+`allConfig`
+ a| 
+La opción para guardar todos los valores de configuración en el archivo. (Si se selecciona este parámetro, todos los parámetros de configuración se establecerán en `TRUE` .)
+
+
+
+ a| 
+`globalSettings`
+ a| 
+La opción para guardar la configuración global en el archivo. Para guardar la configuración global, establezca este parámetro en `TRUE`. Para evitar que se guarde la configuración global, establezca este parámetro en `FALSE`. El valor predeterminado es `TRUE`.
+
+
+
+ a| 
+`volumeConfigAndSettings`
+ a| 
+La opción para guardar las opciones de configuración de volúmenes y toda la configuración global en el archivo. Para guardar las opciones de configuración de volúmenes y la configuración global, establezca este parámetro en `TRUE`. Para evitar que se guarden las opciones de configuración volúmenes y la configuración global, establezca este parámetro en `FALSE`. El valor predeterminado es `TRUE`.
+
+
+
+ a| 
+`hostTopology`
+ a| 
+La opción para guardar la topología de host en el archivo. Para guardar la topología de host, establezca este parámetro en `TRUE`. Para evitar que se guarde la topología de host, establezca este parámetro en `FALSE`. El valor predeterminado es `FALSE`.
+
+
+
+ a| 
+`lunMappings`
+ a| 
+La opción para guardar el mapa de LUN o NSID en el archivo. Para guardar el mapa de LUN o NSID, establezca este parámetro en `TRUE`. Para evitar que se guarde el mapa de LUN o NSID, establezca este parámetro en `FALSE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+Cuando se utiliza este comando, es posible especificar cualquier combinación de parámetros de la configuración global, opciones de configuración de volúmenes, topología de host o mapa de LUN. Si desea introducir todas las opciones, use el `allConfig` parámetro. Debe usar el `allConfig` parámetro, o uno o varios de los otros cuatro parámetros.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

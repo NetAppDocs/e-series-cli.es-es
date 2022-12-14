@@ -1,0 +1,124 @@
+---
+permalink: commands-a-z/show-snapimage.html 
+sidebar: sidebar 
+keywords: show, snapshot, image 
+summary: El comando show snapImage muestra información acerca de las imágenes Snapshot que un usuario creó previamente. 
+---
+= Mostrar imagen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show snapImage` comando muestra información acerca de las imágenes snapshot que un usuario creó anteriormente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis que muestra una imagen Snapshot específica
+
+[listing, subs="+macros"]
+----
+show (allSnapImages | snapImage pass:quotes[["_snapImageName_"]] |
+snapImages pass:quotes[["_snapImageName1_" ... "_snapImageNamen_"]])
+[summary]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allSnapImages`
+ a| 
+El parámetro que muestra información acerca de todas las imágenes Snapshot de la cabina de almacenamiento.
+
+
+
+ a| 
+`snapImage`
+ a| 
+El nombre de una imagen Snapshot de la cual se desea recuperar información. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` -- esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` -- esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`snapImages`
+ a| 
+Los nombres de varias imágenes Snapshot de las que se desea recuperar información. Introduzca los nombres de las imágenes Snapshot de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`summary`
+ a| 
+Este parámetro muestra una lista concisa de información acerca de las imágenes Snapshot.
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, para ver la imagen Snapshot 12345 de un grupo Snapshot que tiene el nombre snapGroup1, se debe usar el siguiente comando:
+
+[listing]
+----
+show snapImage ["snapGroup1:12345"];
+----
+Para ver la última imagen Snapshot de un grupo Snapshot que tiene el nombre snapGroup1, se debe usar este comando:
+
+[listing]
+----
+show snapImage ["snapGroup1:newest"];
+----
+Para ver las imágenes Snapshot de varios grupos de coherencia Snapshot con los nombres snapGroup1, snapGroup2 y snapGroup3, se debe usar este comando:
+
+[listing]
+----
+show snapImages ["snapGroup1:12345 snapGroup2:newest snapGroup3:oldest"];
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

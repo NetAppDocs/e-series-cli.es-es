@@ -1,0 +1,146 @@
+---
+permalink: commands-a-z/show-volume.html 
+sidebar: sidebar 
+keywords: show, thin, volume 
+summary: El comando show volume muestra el historial de expansión o la capacidad consumida de los volúmenes finos especificados. 
+---
+= Mostrar volumen fino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show volume` el comando muestra el historial de expansión o la capacidad usada de los volúmenes finos especificados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show (allVolumes | volume pass:quotes[[_volumeName_]] |
+volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]])
+(consumedCapacity |
+(expansionHistory pass:quotes[[file=_fileName_]]))
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+Este parámetro muestra información acerca de todos los volúmenes finos de la cabina de almacenamiento.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen fino del que se va a recuperar información. El nombre del volumen fino debe escribirse entre corchetes ([ ]). Si el nombre del volumen fino tiene caracteres especiales o números, debe escribirse entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes finos de los cuales se desea recuperar información. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes tienen caracteres especiales o números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`consumedCapacity`
+ a| 
+La configuración para ver una lista concisa de información acerca de la capacidad usada de los volúmenes finos.
+
+
+
+ a| 
+`expansionHistory`
+ a| 
+La configuración para ver una lista concisa de información acerca del historial de ampliación de volúmenes finos.
+
+
+
+ a| 
+`file`
+ a| 
+La `file` parámetro especifica un archivo para registrar la salida del `expansionHistory` parámetro. La `file` es válido sólo cuando se utiliza con `expansionHistory` parámetro. Si el nombre del archivo no es válido, el comando no funciona.
+
+|===
+
+
+== Notas
+
+Con la `expansionHistory` parámetro, el comando muestra información similar al ejemplo que se muestra a continuación.
+
+`Thin volume name: volume-nameRepository volume Name: REPOS_NNNN`
+
+[cols="4*"]
+|===
+| Tiempo registrado | Tipo de expansión | Comience la capacidad | Capacidad final 
+
+
+ a| 
+MM/DD/AAAA HH:MM:SS
+ a| 
+Manual|automático
+ a| 
+NNNNNNNN bytes
+ a| 
+NNNNNNNN bytes
+
+|===
+Con la `consumedCapacity` parámetro, el comando muestra información similar al ejemplo que se muestra a continuación.
+
+[cols="5*"]
+|===
+| Volumen | Capacidad aprovisionada | La capacidad consumida | Cuota | % Prov. Consumido 
+
+
+ a| 
+`volumeName`
+ a| 
+500.000 GB
+ a| 
+230.000 GB
+ a| 
+700.000 GB
+ a| 
+46 %
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83

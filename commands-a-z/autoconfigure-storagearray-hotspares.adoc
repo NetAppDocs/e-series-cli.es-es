@@ -1,0 +1,52 @@
+---
+permalink: commands-a-z/autoconfigure-storagearray-hotspares.html 
+sidebar: sidebar 
+keywords: autoconfigure, storage, array, hot spares, supported, roles, syntax, parameters, minimum firmware level 
+summary: El comando autoConfigure storageArray hotSpares define y configura automáticamente las piezas de repuesto de una cabina de almacenamiento. Este comando puede ejecutarse en cualquier momento. Este comando proporciona la mejor cobertura de piezas de repuesto para una cabina de almacenamiento. 
+---
+= Configurar automáticamente las piezas de repuesto de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `autoConfigure storageArray hotSpares` el comando define y configura automáticamente las piezas de repuesto en una cabina de almacenamiento. Este comando puede ejecutarse en cualquier momento. Este comando proporciona la mejor cobertura de piezas de repuesto para una cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+autoConfigure storageArray hotSpares
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Cuando ejecute el `autoconfigure storageArray hotSpares` comando, el firmware de la controladora determina la cantidad de piezas de repuesto que se crearán según la cantidad total y el tipo de unidades de la cabina de almacenamiento. Para las unidades SAS, el firmware de la controladora crea una pieza de repuesto para la cabina de almacenamiento y una pieza de repuesto adicional por cada 60 unidades de la cabina de almacenamiento.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

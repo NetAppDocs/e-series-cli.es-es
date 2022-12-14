@@ -1,0 +1,96 @@
+---
+permalink: commands-a-z/resume-snapvolume.html 
+sidebar: sidebar 
+keywords: resume, snapshot, volume 
+summary: El comando resume snapVolume reanuda una operación de volumen Snapshot que estaba detenida. 
+---
+= Reanudar volumen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `resume snapVolume` el comando reanuda una operación de volumen snapshot que se ha detenido.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+resume snapVolume pass:quotes[[_"snapVolumeName"_]] snapImage=pass:quotes[_"snapCGID:imageID"_]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapVolume`
+ a| 
+Nombre del volumen Snapshot para el que se desean reanudar las operaciones. El nombre del volumen Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`snapImage`
+ a| 
+Nombre de la imagen Snapshot para la que se desean reanudar las operaciones de volumen Snapshot. El nombre de la imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` - Esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` - Esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ").
+
+|===
+
+
+== Notas
+
+El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El identificador del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desean reanudar las operaciones de volumen Snapshot para una imagen Snapshot 12345 que se encuentra en un grupo Snapshot denominado snapGroup1, se debe usar este comando:
+
+[listing]
+----
+resume snapVolume ["snapVol1"] snapImage="snapGroup1:12345";
+----
+Para reanudar las operaciones de volumen Snapshot de la imagen Snapshot más reciente en un grupo Snapshot con el nombre snapGroup1, se debería usar el siguiente comando:
+
+[listing]
+----
+resume snapVolume ["snapVol1"] snapImage="snapGroup1:newest";
+----
+
+
+== Nivel de firmware mínimo
+
+7.83

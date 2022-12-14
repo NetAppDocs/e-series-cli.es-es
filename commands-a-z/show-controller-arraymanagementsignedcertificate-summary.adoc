@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/show-controller-arraymanagementsignedcertificate-summary.html 
+sidebar: sidebar 
+keywords: show, signed, certificate 
+summary: El comando show Controller arrayManagementSignedCertificate summary muestra un resumen de los certificados actuales firmados de una controladora específica. 
+---
+= Mostrar certificado firmado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show controller arrayManagementSignedCertificate summary` el comando muestra un resumen de los certificados firmados actualmente de la controladora especificada.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+show controller [(a|b)] arrayManagementSignedCertificate summary
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora en la cual se desean recuperar certificados raíz/intermedios. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Ejemplo
+
+La salida de la muestra puede ser diferente de la que se muestra a continuación.
+
+[listing]
+----
+
+SMcli -n Array1 -c "show controller[a] arrayManagementSignedCertificate all summary;"
+
+============================
+Controller A Signed Certificate
+============================
+Subject DN:   CN=Corp Issuing CA 1
+Issuer DN:    CN=Corp Root CA
+Start:        <date>
+Expire:       <date>
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

@@ -1,0 +1,104 @@
+---
+permalink: get-started/learn-about-volume-group-migration.html 
+sidebar: sidebar 
+keywords: volume, group, migration, learn, data, access, export, import, component 
+summary: Información sobre la migración de grupos de volúmenes 
+---
+= Información sobre la migración de grupos de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[CAUTION]
+====
+Si el grupo de volúmenes consta de unidades compatibles con NVMe o FIPS, la clave de seguridad y la frase de contraseña deberán registrarse o guardarse desde la cabina de origen para desbloquear las unidades antes de iniciar la migración a la cabina objetivo. Si no se conoce la clave de seguridad ni la frase de contraseña, o si no se necesita integridad de los datos, puede realizarse un borrado de seguridad. No es posible mezclar distintas unidades de seguridad de cifrado en los sistemas de almacenamiento E-Series. Para obtener más información sobre cómo desbloquear unidades mediante una clave de seguridad, borrar unidades FIPS y desbloquear o restablecer unidades NVMe bloqueadas, consulte la ayuda en línea de SANtricity System Manager.
+
+====
+La migración de grupos de volúmenes permite exportar un grupo de volúmenes de forma tal que se lo pueda importar a otra cabina de almacenamiento. También se puede exportar un grupo de volúmenes para almacenar los datos sin conexión.
+
+[NOTE]
+====
+*Posible pérdida de acceso a los datos* -- debe exportar un grupo de volúmenes antes de mover o importar el grupo de volúmenes.
+
+====
+
+
+== Exportar un grupo de volúmenes
+
+La operación de exportación de un grupo de volúmenes prepara las unidades en el grupo de volúmenes para su retirada. Es posible quitar las unidades para almacenarlas sin conexión o importar el grupo de volúmenes a una cabina de almacenamiento diferente. Una vez completada la operación de exportación de un grupo de volúmenes, todas las unidades quedan sin conexión. Los volúmenes asociados y los nodos de capacidad libre ya no se muestran en el software de administración del almacenamiento.
+
+
+
+== Componentes que no se pueden exportar
+
+Es necesario quitar todos los componentes que no se pueden exportar antes de completar el procedimiento de exportación de un grupo de volúmenes. Se deben quitar los siguientes componentes:
+
+* Reservas persistentes
+* Asignaciones
+* Parejas de copias de volumen
+* Parejas reflejadas remotas
+* Repositorios de reflejos
+
+
+
+
+== Pasos básicos para la exportación de un grupo de volúmenes
+
+Para exportar un grupo de volúmenes, es necesario realizar estos pasos en la cabina de almacenamiento _source_.
+
+. Guarde la configuración de la cabina de almacenamiento.
+. Detenga todas las operaciones de I/O.
+. Realice un backup de los datos de los volúmenes en el grupo de volúmenes.
+. Desmonte o desconecte los sistemas de archivos de los volúmenes en el grupo de volúmenes.
+. Busque el grupo de volúmenes y etiquete las unidades con los nombres de las cabinas de almacenamiento de origen y de destino, el nombre del grupo de volúmenes y la cantidad total de unidades en el grupo de volúmenes.
+. Coloque el grupo de volúmenes en estado sin conexión.
+. Para mantener el flujo de aire adecuado dentro del soporte, obtenga contenedores de unidades vacíos o unidades nuevas de modo que se puedan reemplazar las unidades después de quitar las unidades asociadas con el grupo de volúmenes que se exporta.
+
+
+Para exportar un grupo de volúmenes, es necesario realizar estos pasos en la cabina de almacenamiento _target_.
+
+. Asegúrese de que la cabina de almacenamiento objetivo contenga ranuras disponibles para las unidades.
+. Asegúrese de que la cabina de almacenamiento objetivo sea compatible con las unidades que se importarán.
+. Asegúrese de que la cabina de almacenamiento objetivo sea compatible con los volúmenes nuevos.
+. Asegúrese de que la versión más reciente del firmware esté instalada en la controladora.
+. Asegúrese de que la cabina de almacenamiento objetivo sea compatible con el nivel de RAID 6, si desea exportar un grupo de volúmenes de nivel de RAID 6.
+. Asegúrese de que la versión más reciente del software de administración del almacenamiento esté instalada en la cabina de almacenamiento objetivo.
+. En caso de exportar un grupo de volúmenes con Drive Security habilitado, asegúrese de que esa función esté habilitada en la cabina de almacenamiento objetivo.
+
+
+
+
+== Importar un grupo de volúmenes
+
+La operación de importación de un grupo de volúmenes añade el grupo de volúmenes importado a la cabina de almacenamiento objetivo. Una vez completada la operación de importación de un grupo de volúmenes, todas las unidades quedan en estado óptimo. Todos los volúmenes asociados o los nodos de capacidad libre ahora aparecen en el software de administración del almacenamiento que se instala en la cabina de almacenamiento objetivo.
+
+
+
+== Pasos básicos para la importación de un grupo de volúmenes
+
+[NOTE]
+====
+Para poder importar un grupo de volúmenes, es necesario insertar todas las unidades del grupo de volúmenes en el soporte.
+
+====
+Para importar un grupo de volúmenes, es necesario realizar estos pasos en la cabina de almacenamiento _target_:
+
+. Inserte las unidades exportadas en las ranuras disponibles para las unidades.
+. Revise el informe de importación para ver información general sobre el grupo de volúmenes que se está importando.
+. Controle si existen componentes que no se pueden importar.
+. Confirme que desea proceder con el procedimiento de importación.
+
+
+
+
+== Componentes que no se pueden importar
+
+Algunos componentes no se pueden importar durante el procedimiento de importación de un grupo de volúmenes. Estos componentes se quitan durante el procedimiento:
+
+* Reservas persistentes
+* Asignaciones
+* Parejas de copias de volumen
+* Parejas reflejadas remotas
+* Repositorios de reflejos
+

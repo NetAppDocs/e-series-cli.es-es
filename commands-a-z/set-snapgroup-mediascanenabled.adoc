@@ -1,0 +1,77 @@
+---
+permalink: commands-a-z/set-snapgroup-mediascanenabled.html 
+sidebar: sidebar 
+keywords: set, snapshot, group, media, scan 
+summary: El comando set snapGroup mediaScanEnabled ejecuta un análisis de medios en un grupo Snapshot. 
+---
+= Configurar análisis de medios de grupo Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set snapGroup mediaScanEnabled` el comando ejecuta un análisis de medios en un grupo snapshot.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set snapGroup pass:quotes[["_snapGroupName_"]]
+mediaScanEnabled=(TRUE | FALSE)
+redundancyCheckEnabled=(TRUE | FALSE)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`snapGroup`
+ a| 
+El nombre del grupo Snapshot en el que desea ejecutar un análisis de medios. El nombre del grupo Snapshot debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`mediaScanEnabled`
+ a| 
+La opción para activar o desactivar el análisis de medios en el volumen. Para activar el análisis de medios, establezca este parámetro en `TRUE`. Para desactivar el análisis de medios, establezca este parámetro en `FALSE`. (Si se deshabilita el análisis de medios en el nivel de la cabina de almacenamiento, este parámetro queda sin efecto).
+
+
+
+ a| 
+`redundancyCheckEnabled`
+ a| 
+La opción para activar o desactivar la comprobación de redundancia durante un análisis de medios. Para activar la comprobación de redundancia, establezca este parámetro en `TRUE`. Para desactivar la comprobación de redundancia, establezca este parámetro en `FALSE`.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

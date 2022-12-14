@@ -1,0 +1,79 @@
+---
+permalink: commands-a-z/delete-diskpool.html 
+sidebar: sidebar 
+keywords: delete, disk pool 
+summary: El comando delete DISKPOOL elimina un pool de discos. 
+---
+= Eliminar pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete diskPool` este comando elimina un pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+*Posible daño en la configuración de la matriz de almacenamiento* -- todos los datos del pool de discos se pierden tan pronto como ejecute este comando.
+
+====
+Según la versión del software de administración del almacenamiento, este comando también elimina todos los volúmenes del pool de discos. Si la versión del software de administración del almacenamiento no admite la eliminación automática de volúmenes, es posible forzar la eliminación del pool de discos y los volúmenes.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+delete diskPool pass:quotes[[_diskPoolName_]]
+[force=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`diskPoolName`
+ a| 
+El nombre del pool de discos que se desea eliminar. El nombre del pool de discos debe escribirse entre corchetes ([ ]). Si el nombre del pool de discos contiene caracteres especiales o está compuesto solo por números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`force`
+ a| 
+Este parámetro fuerza la eliminación de volúmenes si el software de administración del almacenamiento no admite la eliminación automática de los volúmenes del pool de discos. Para forzar la eliminación de un pool de discos y los volúmenes que contiene, este parámetro debe configurarse en `TRUE`. El valor predeterminado es `FALSE`.
+
+|===
+
+
+== Notas
+
+Cada nombre de pool de discos debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión(-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

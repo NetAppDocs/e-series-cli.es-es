@@ -1,0 +1,119 @@
+---
+permalink: commands-a-z/show-allsnmpusers.html 
+sidebar: sidebar 
+keywords: show, snmpv3, usm, user 
+summary: 'El comando show allsnmpUsers muestra información acerca de los usuarios USM de simple Network Management (SNMP) definidos para la cabina de almacenamiento.' 
+---
+= Muestra el usuario USM de SNMPv3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show allsnmpUsers` El comando muestra información acerca de los usuarios USM en simple Network Management (SNMP) definidos para la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show (allSnmpUsers |
+    snmpUser userName="snmpUsername" |
+    snmpUsers [snmpUserName1 ... snmpUserNameN])
+    [summary]
+----
+[NOTE]
+====
+Este comando muestra información del usuario SNMP que se asemeja al siguiente
+
+[listing]
+----
+SNMP USERS------------------------------
+
+SUMMARY
+
+   Total SNMP Users: 2
+   Total SNMP Trap Destinations: 1
+
+DETAILS
+
+   SNMP User: TestUser1
+   SNMP Engine ID: local
+   SNMP Permission: Read Only
+   SNMP Authentication Protocol: sha
+   SNMP Privacy Protocol: aes128
+
+      Associated Trap Destination:
+
+      Trap Receiver IP Address  Send Authentication Failure Traps
+      10.113.173.133            false
+
+   SNMP User: TestUser2
+   SNMP Engine ID: local
+   SNMP Permission: Read Only
+   SNMP Authentication Protocol: sha256
+   SNMP Privacy Protocol: none
+
+      Associated Trap Destination:
+----
+====
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allSnmpUsers`
+ a| 
+Este parámetro muestra información acerca de todos los usuarios SNMP de la cabina de almacenamiento.
+
+
+
+ a| 
+`userName`
+ a| 
+El nombre del usuario SNMP del que se desea recuperar información. El nombre de usuario SNMP debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`snmpUsers`
+ a| 
+Los nombres de varios usuarios SNMP de los que se desea recuperar información. Introduzca los nombres de los usuarios de SNMP de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`summary`
+ a| 
+Este parámetro muestra una lista de la cantidad total de usuarios SNMP y la cantidad total de destinos de capturas SNMP. Cuando se usa este parámetro, se omite toda la información detallada.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8.72

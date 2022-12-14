@@ -1,0 +1,153 @@
+---
+permalink: commands-a-z/save-controller-arraymanagementcsr.html 
+sidebar: sidebar 
+keywords: generate, web server, certificate, sign, request, csr 
+summary: 'El comando save Controller arrayManagementCSR genera una solicitud de firma de certificación (CSR) para la controladora.' 
+---
+= Generar solicitud de firma de certificación (CSR) para servidor web
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save controller arrayManagementCSR` El comando genera una solicitud de firma de certificación (CSR) para la controladora.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Una entidad de certificación (CA) debe firmar la CSR. El certificado firmado resultante se debe instalar en el servidor web de la controladora para que los exploradores sepan automáticamente que se trata de un servidor de confianza al intentar gestionar la cabina. Esta acción debe ejecutarse en cada controladora.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+save controller [(a|b)] arrayManagementCSR
+     commonName=pass:quotes["_ipOrDnsName_"]
+     [alternateIPAddresses=pass:quotes[(_ipvX1_..._ipvXN_)]]
+     [alternateDnsNames=pass:quotes[("_dnsName1_"..."_dnsNameN_")]]
+     organization=pass:quotes["_organizationName_"]
+     [organizationalUnit=pass:quotes["_organizationalUnitName_"]]
+     locality=pass:quotes["_cityOrLocality_"]
+     [stateProvince=pass:quotes["_stateOrRegion_"]]
+     country=pass:quotes["_string_"]
+     file=pass:quotes["_filename_"]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`controller`
+ a| 
+Permite especificar la controladora para la cual se desea crear la CSR. Los identificadores de controladora válidos son a o b, donde a es la controladora en la ranura A y b es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`commonName`
+ a| 
+Permite especificar la dirección IP o el nombre DNS de la controladora. Esto debe coincidir exactamente con el texto que se escribe en el explorador para acceder a System Manager (sin incluir http:// o https://); en caso contrario, se genera un error de incongruencia de nombres.
+
+
+
+ a| 
+`alternateIPAddresses`
+ a| 
+Permite especificar direcciones IP o alias adicionales para la controladora. Las direcciones IP deben escribirse entre paréntesis. Si se introducen varias direcciones IP, se deben separar con un espacio.
+
+
+
+ a| 
+`alternateDnsNames`
+ a| 
+Permite especificar nombres DNS adicionales para la controladora. Los nombres DNS deben escribirse entre paréntesis. Si se introducen varios nombres, se deben separar con un espacio.
+
+
+
+ a| 
+`organization`
+ a| 
+Permite especificar el nombre legal completo de la organización a la que pertenece la cabina de almacenamiento. No se debe abreviar y se deben incluir todos los sufijos correspondientes, como Inc, Corp o LLC.
+
+
+
+ a| 
+`organizationalUnit`
+ a| 
+Permite que el usuario especifique la división de la organización que maneja el certificado.
+
+
+
+ a| 
+`locality`
+ a| 
+Permite especificar la ciudad o localidad donde se encuentra la cabina de almacenamiento.
+
+
+
+ a| 
+`stateProvince`
+ a| 
+Permite especificar el estado o la región donde se encuentra la cabina de almacenamiento. No se debe abreviar.
+
+
+
+ a| 
+`country`
+ a| 
+Permite especificar el código ISO (Organización Internacional de Normalización) de dos dígitos, como US.
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar el archivo para el cual se guarda el archivo de CSR de la controladora.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "save controller [a] arrayManagementCSR
+   commonName="ictd0702s05c01-a.ict.englab.xyz.com"
+   alternateIPAddresses=(10.113.174.190 10.113.174.191)
+   alternateDnsNames=("ictd0702s05c01-b.ict.englab.xyz.com")
+   organization="Company"
+   locality="Wichita"
+   stateProvince="Kansas"
+   country="US"
+   file="C:\storage_array_csr.csr";"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

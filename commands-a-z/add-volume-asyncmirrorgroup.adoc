@@ -1,0 +1,124 @@
+---
+permalink: commands-a-z/add-volume-asyncmirrorgroup.html 
+sidebar: sidebar 
+keywords: add volume, asynchronous, mirror group, supported arrays, roles, context, syntax, parameter, minimum firmware level 
+summary: El comando add volume asyncMirrorGroup añade un volumen primario al grupo de reflejos asíncronos. 
+---
+= Añada un volumen a un grupo de reflejos asíncronos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `add volume asyncMirrorGroup` el comando añade un volumen primario a un grupo de reflejos asíncronos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
+
+[NOTE]
+====
+Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+
+====
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+Este comando solo es válido en la cabina de almacenamiento local que contiene el grupo de reflejos asíncronos en el que se desea añadir el volumen primario. Un grupo de reflejos asíncronos tiene un volumen de repositorios que se utiliza para guardar los datos de todas las imágenes de un momento específico que forman parte del grupo de reflejos asíncronos. Cada volumen primario del grupo de reflejos asíncronos cuenta con un volumen de reflejos correspondiente en una cabina de almacenamiento remota.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[add volume="_volumeName_" asyncMirrorGroup="_asyncMirrorGroupName_"
+remotePassword="_password_"
+(repositoryVolume="repos_xxxx" |
+repositoryVolume=(_volumeGroupName_ ]pass:quotes[[capacity=_capacityValue_])]
+repositoryVolume=pass:quotes[(_diskPoolName_] pass:quotes[[capacity=_capacityValue_]))
+----
+
+
+== Parámetro
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen primario que se desea añadir al grupo de reflejos asíncronos. El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`asyncMirrorGroup`
+ a| 
+El nombre del grupo de reflejos asíncronos que contendrá el volumen primario que se desea añadir. El nombre del grupo de reflejos asíncronos debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`remotePassword`
+ a| 
+Este parámetro es opcional. Se debe usar este parámetro cuando la cabina de almacenamiento remota está protegida por contraseña. La contraseña debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`repositoryVolume`
+ a| 
+El nombre del volumen de repositorios que contendrá los datos modificados del volumen primario.
+
+Existen dos opciones para definir el nombre de un volumen de repositorios:
+
+* Usar un volumen de repositorios existente: Name
+* Crear un nuevo volumen de repositorios cuando se ejecuta este comando
+
+
+El nombre de un volumen de repositorios existente se compone de dos partes:
+
+* El término "repos".
+* Identificador numérico de cuatro dígitos que el software de administración del almacenamiento asigna al nombre del volumen de repositorios.
+
+
+El nombre del volumen de repositorios existente debe escribirse entre comillas dobles (" ").
+
+Para crear un nuevo volumen de repositorios cuando se ejecuta este comando, es necesario introducir el nombre de un grupo de volúmenes o un pool de discos donde se ubicará el volumen de repositorios. Opcionalmente, también se puede definir la capacidad del volumen de repositorios. Para definir la capacidad, es posible usar los siguientes valores:
+
+* Un valor entero que representa un porcentaje de la capacidad del volumen base.
+* Un valor de fracción decimal que representa un porcentaje de la capacidad del volumen base.
+* Un tamaño específico para el volumen de repositorios El tamaño se define en unidades de `bytes` , `KB` , `MB` , `GB` , o. `TB` .
+
+
+Si no se define la capacidad, el software de administración del almacenamiento establece la capacidad en 20 % de la capacidad del volumen primario.
+
+El software de administración del almacenamiento crea el volumen de repositorios y lo enlaza al volumen primario.
+
+|===
+
+
+== Notas
+
+* La función de mirroring asíncrono debe estar habilitada y activada en las cabinas de almacenamiento locales y remotas que se usarán para las actividades de mirroring.
+* Las cabinas de almacenamiento remota y local deben estar conectadas a través de una estructura Fibre Channel o una interfaz iSCSI adecuadas.
+* La cabina de almacenamiento remota debe tener un volumen con una capacidad igual o mayor que la del volumen primario en la cabina de almacenamiento local. El volumen en la cabina de almacenamiento remota se utilizará como volumen de reflejos.
+
+
+
+
+== Nivel de firmware mínimo
+
+7.84

@@ -1,0 +1,104 @@
+---
+permalink: commands-a-z/set-storagearray-pqvalidateonreconstruct.html 
+sidebar: sidebar 
+keywords: set, storage, array, pq validation, reconstruct 
+summary: El comando set storageArray pqValidateOnReconstruct configura el estado de validación P/Q de la cabina de almacenamiento en reconstrucción. Cuando se habilita esta funcionalidad, los datos se reconstruyen mediante datos+P y datos+Q, y los resultados comprobaron la consistencia antes de determinar cómo proceder. 
+---
+= Configurar validación PQ de la cabina de almacenamiento en la reconstrucción
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray pqValidateOnReconstruct` El comando configura el estado de validación P/Q de la cabina de almacenamiento en la reconstrucción. Cuando se habilita esta funcionalidad, los datos se reconstruyen mediante datos+P y datos+Q, y los resultados comprobaron la consistencia antes de determinar cómo proceder.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Esta función se aplica a pools de discos y grupos de volúmenes RAID 6 con doble paridad. En este caso, se mantiene la redundancia en el grupo de volúmenes o el pool de discos cuando se produce un error en una unidad, de modo que sea posible verificar la coherencia de paridad y datos durante la reconstrucción. Si se detecta una incoherencia durante la reconstrucción y el volumen tiene la función Garantía de datos habilitada, se puede identificar el origen de la incoherencia para que los datos puedan reconstruirse mediante las unidades restantes. Si se habilita esta función, y el volumen no tiene la función Garantía de datos habilitada, o si no se puede aislar la incoherencia en una sola unidad, el bloque en reconstrucción se Marca como ilegible.
+
+La validación puede aumentar los tiempos de reconstrucción de las unidades SSD, de modo que esta función puede habilitarse o deshabilitarse según el tipo de medio. Si se habilita para un tipo de medio determinado, la función se aplica a todos los pools y los grupos de volúmenes RAID 6 en los que se utiliza ese tipo de medio.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray pqValidateOnReconstruct (enable | disable) driveMediaType=(hdd | ssd | allMedia)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`pqValidateOnReconstruct`
+ a| 
+Modifica la validación P/Q en la funcionalidad de reconstrucción.
+
+
+
+ a| 
+`enable` o. `disable`
+ a| 
+Habilita o deshabilita la validación P/Q en la reconstrucción.
+
+
+
+ a| 
+`driveMediaType`
+ a| 
+El tipo de medio de unidad donde se debe configurar la validación P/Q en la funcionalidad de reconstrucción. Se admiten los siguientes tipos de medios de unidad:
+
+* `hdd` indica que desea configurar el estado de validación en unidades de disco duro
+* `ssd` indica que desea configurar el estado de validación en discos de estado sólido
+* `allMedia` indica que desea configurar el estado de validación en todos los medios de la cabina de almacenamiento.
+
+
+|===
+
+
+== Ejemplo con tipo de medio de unidad especificado como unidades de disco duro
+
+[listing]
+----
+
+SMcli -n Array1 -c "set storageArray pqValidateOnReconstruct enable driveMediaType=hdd;"
+
+SMcli completed successfully.
+----
+
+
+== Ejemplo con tipo de medio de unidad especificado como unidades de estado sólido
+
+[listing]
+----
+
+SMcli -n Array1 -c "set storageArray pqValidateOnReconstruct disable driveMediaType=ssd;"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.42

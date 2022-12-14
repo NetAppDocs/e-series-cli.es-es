@@ -1,0 +1,74 @@
+---
+permalink: commands-a-z/start-volumegroup-import.html 
+sidebar: sidebar 
+keywords: start, volume, group, import 
+summary: El comando start volumeGroup import cambia el estado de un grupo de volúmenes a Complete para que un grupo de volúmenes recién introducido esté disponible para su cabina de almacenamiento nueva. 
+---
+= Inicie la importación de grupo de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start volumeGroup import` El comando mueve un grupo de volúmenes al estado Complete para que un grupo de volúmenes recién introducido esté disponible para su nueva cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+El grupo de volúmenes debe tener el estado exportado o forzado para poder ejecutar este comando. Una vez que se complete correctamente la ejecución del comando, el grupo de volúmenes estará operativo.
+
+[NOTE]
+====
+Dentro del grupo de volúmenes, no es posible transferir volúmenes asociados con las funciones de una cabina de almacenamiento a otra.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[start volumeGroup [_volumeGroupName_]] import
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`volumeGroup`
+ a| 
+El nombre del grupo de volúmenes que se desea importar. El nombre del grupo de volúmenes debe escribirse entre corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Como parte de la operación de importación, se quitan los volúmenes de niveles más altos específicamente relacionados con funciones (mirroring síncrono, copia de volumen, asignación y reservas persistentes).
+
+Debe ejecutar el `show volumeGroup importDependencies` antes de ejecutar el `start volumeGroup import` comando.
+
+
+
+== Nivel de firmware mínimo
+
+7.10

@@ -1,0 +1,107 @@
+---
+permalink: commands-a-z/set-storagearray-autoloadbalancingenable.html 
+sidebar: sidebar 
+keywords: set, storage, array, enable, disable, automatic, load, balance 
+summary: El comando set storageArray autoLoadBalancingEnable habilita o deshabilita la función Automatic Load Balancing. 
+---
+= Configure la cabina de almacenamiento para habilitar o deshabilitar el equilibrio de carga automático
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set storageArray autoLoadBalancingEnable` El comando habilita o deshabilita la función Automatic Load Balancing.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+set storageArray autoLoadBalancingEnable=(TRUE | FALSE)
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`storageArray`
+ a| 
+Indica que este parámetro funciona en una cabina de almacenamiento.
+
+
+
+ a| 
+`autoLoadBalancingEnable`
+ a| 
+Activa o desactiva la función Automatic Load Balancing en la controladora. Establezca el parámetro en `TRUE` Para activar Automatic Load Balancing. Establezca el parámetro en `FALSE` Para desactivar el equilibrio de carga automático.
+
+|===
+
+
+== ¿Qué es el equilibrio de carga automático?
+
+La función Automatic Load Balancing ofrece una gestión de recursos de I/o mejorada, ya que reacciona dinámicamente a los cambios de carga con el tiempo y ajusta automáticamente la propiedad de la controladora de volumen para corregir cualquier problema de desequilibrio de carga cuando las cargas de trabajo son distintas de una controladora a otra.
+
+La carga de trabajo de cada controladora se supervisa continuamente y, con la colaboración de los controladores multivía instalados en los hosts, es posible establecer automáticamente el equilibrio cada vez que sea necesario. Una vez que la carga de trabajo se vuelve a equilibrar de forma automática en todas las controladoras, el administrador de almacenamiento queda liberado de la carga que supone ajustar manualmente la propiedad de la controladora de volumen para admitir cambios de carga en la cabina de almacenamiento.
+
+Cuando la función Automatic Load Balancing está habilitada, ejecuta las siguientes funciones:
+
+* Supervisa y equilibra automáticamente la utilización de recursos de la controladora.
+* Ajusta automáticamente la propiedad de la controladora de volumen cuando es necesario y así, optimiza el ancho de banda de I/o entre los hosts y la cabina de almacenamiento.
+
+
+
+
+== Habilitar y deshabilitar Automatic Load Balancing
+
+La función Automatic Load Balancing está habilitada de forma predeterminada en todas las cabinas de almacenamiento que se suministran con el sistema operativo SANtricity (software de la controladora) 8.30 o una versión posterior. Linux, Windows y los controladores multivía de VMware pueden usar la función Automatic Load Balancing. Si actualiza la controladora del sistema operativo SANtricity (software de la controladora) 8.25 o anterior a la versión 8.30 o posterior, la función Automatic Load Balancing queda deshabilitada de manera predeterminada en la cabina de almacenamiento.
+
+Puede ser conveniente deshabilitar Automatic Load Balancing en la cabina de almacenamiento por las siguientes razones:
+
+* No se desea cambiar automáticamente la propiedad de una controladora de volumen para equilibrar la carga de trabajo.
+* Se trabaja en un entorno altamente optimizado donde la distribución de carga se configura intencionalmente para lograr una distribución específica entre las controladoras.
+
+
+En el Administrador de almacenamiento de SANtricity, seleccione la opción de menú *matriz de almacenamiento* > *Configuración* > *equilibrio de carga automático* para activar o desactivar la función equilibrio de carga automático para una matriz de almacenamiento individual.
+
+En el Administrador del sistema de SANtricity, seleccione *Configuración* > *sistema*, desplácese hacia abajo hasta la sección *Configuración adicional*, haga clic en el enlace E**nable/Disable Automatic Load Balancing** y seleccione la casilla de verificación**Habilitar/deshabilitar equilibrio de carga automático** para habilitar o deshabilitar la función para una matriz de almacenamiento individual.
+
+
+
+== Ejemplos
+
+[listing]
+----
+SMcli -n Array1 -c "set storageArray autoLoadBalancingEnable=true;"
+
+SMcli completed successfully.
+----
+[NOTE]
+====
+Si la condición "la unidad perdió la ruta primaria" está activa, provocará que el equilibrio de carga automático no pueda equilibrar las cargas de trabajo. Esta condición debe estar inactiva para garantizar que las cargas de trabajo se equilibren mediante la función de equilibrio de carga automático.
+
+====
+
+
+== Nivel de firmware mínimo
+
+8.30

@@ -1,0 +1,54 @@
+---
+permalink: commands-a-z/reset-storagearray-volumedistribution.html 
+sidebar: sidebar 
+keywords: reset, storage array, volume, distribution 
+summary: 'El comando reset storageArray volumeDistribution reasigna (mueve) todos los volúmenes a su controladora preferida.' 
+---
+= Restablezca la distribución de volúmenes de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `reset storageArray volumeDistribution` el comando reasigna (mueve) todos los volúmenes a su controladora preferida.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+reset storageArray volumeDistribution
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+Si este comando se utiliza en un host sin un controlador de rutas múltiples, se deben detener las operaciones de I/o hacia los volúmenes hasta que este comando se haya completado para evitar que se produzcan errores en la aplicación.
+
+En los entornos del sistema operativo de determinados hosts es posible que sea necesario volver a configurar el controlador del host de rutas múltiples. También es posible que se deban realizar modificaciones en el sistema operativo para reconocer la nueva ruta de I/o hacia los volúmenes.
+
+
+
+== Nivel de firmware mínimo
+
+5.20

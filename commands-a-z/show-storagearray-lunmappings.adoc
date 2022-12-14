@@ -1,0 +1,83 @@
+---
+permalink: commands-a-z/show-storagearray-lunmappings.html 
+sidebar: sidebar 
+keywords: show, storage, array, lun, map 
+summary: 'El comando show storageArray lunMappings muestra información del perfil de la cabina de almacenamiento acerca del mapa de número de unidad lógica (LUN) o ID de espacio de nombres (NSID) de la cabina de almacenamiento.' 
+---
+= Mostrar mapa de LUN de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray lunMappings` El comando muestra información del perfil de la cabina de almacenamiento acerca del mapa de número de unidad lógica (LUN) o ID de espacio de nombres (NSID) de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+Siempre se muestran los mapas de LUN o NSID del grupo predeterminado. Si este comando se ejecuta sin especificar ningún parámetro, muestra todos los mapas de LUN o NSID.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show storageArray lunMappings (host pass:quotes[["_hostName_"]] |
+hostgroup pass:quotes[["_hostGroupName_"]])
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`host`
+ a| 
+El nombre de un host específico del que se desea ver los mapas de LUN o NSID. El nombre de host debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre de un grupo de hosts específico del que se desea ver los mapas de LUN o NSID. El nombre del grupo de hosts debe escribirse entre comillas dobles (" ") dentro de corchetes ([ ]).
+
+|===
+
+
+== Notas
+
+Este comando muestra información de topología del host que se asemeja al siguiente ejemplo.
+
+[listing]
+----
+MAPPINGS (Storage Partitioning - Enabled (0 of 16 used))
+VOLUME NAME  LUN  CONTROLLER  ACCESSIBLE BY  VOLUME STATUS
+Access Volume 7   A,B         Default Group  Optimal
+21           21   B           Default Group  Optimal
+22           22   B           Default Group  Optimal
+----
+
+
+== Nivel de firmware mínimo
+
+6.10

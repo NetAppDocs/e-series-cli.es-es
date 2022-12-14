@@ -1,0 +1,27 @@
+---
+permalink: commands-a-z/getting-started-with-authentication.html 
+sidebar: sidebar 
+keywords: authentication, users, access, system, assign, login credentials, associated, profile, include, specific, role, access, permissions, start 
+summary: Para la autenticación, los usuarios deben acceder al sistema con las credenciales de inicio de sesión asignadas. Cada credencial de usuario está asociada a un perfil de usuario que incluye roles y permisos de acceso específicos. 
+---
+= Introducción a la autenticación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Para la autenticación, los usuarios deben acceder al sistema con las credenciales de inicio de sesión asignadas. Cada credencial de usuario está asociada a un perfil de usuario que incluye roles y permisos de acceso específicos.
+
+Los administradores pueden implementar la autenticación del sistema de las siguientes formas:
+
+* Mediante las capacidades de RBAC (control de acceso basado en roles) presentes en la cabina de almacenamiento, que incluyen roles y usuarios predefinidos.
+* Conectarse con un servidor de protocolo ligero de acceso a directorios (LDAP) y un servicio de directorio, como Active Directory de Microsoft, y luego asignar los usuarios LDAP a los roles integrados de la cabina de almacenamiento.
+* Mediante la conexión con un proveedor de identidades (IDP) con el lenguaje de marcado de aserción de seguridad (SAML) 2.0 y la posterior asignación de usuarios a los roles integrados de la cabina de almacenamiento.
++
+[NOTE]
+====
+SAML es una función integrada en la cabina de almacenamiento (a partir del nivel de firmware 8.42) y solo puede configurarse desde la interfaz de usuario de SANtricity System Manager.
+
+====
+

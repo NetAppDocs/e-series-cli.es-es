@@ -1,0 +1,117 @@
+---
+permalink: commands-a-z/load-storagearray-dbmdatabase.html 
+sidebar: sidebar 
+keywords: load, storage array, database, command, management 
+summary: 'El comando load storageArray dbmDatabase restaura una imagen de base de datos de gestión de bases de datos (DBM) mediante la recuperación de la imagen de un archivo o de la memoria caché.' 
+---
+= Cargar base de datos DBM de cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `load storageArray dbmDatabase` Comando restaura una imagen de base de datos de gestión de bases de datos (DBM) mediante la recuperación de la imagen de un archivo o de la memoria caché.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Este comando restaura una base de datos DBM de la cabina de almacenamiento a la configuración exacta que se utilizó cuando se capturó la imagen de base de datos mediante la `save storageArray dbmDatabase` comando. Los datos en un archivo incluyen datos para la configuración de RAID, grupos de volúmenes y pools de discos.
+
+Antes de usar este comando con la `file` opción, primero se debe solicitar una cadena de validador (un código de seguridad) al soporte técnico. Para obtener un validador, utilice el `save storageArray dbmValidatorInfo` Comando para generar un archivo XML que contiene información de validador. El soporte técnico utiliza el archivo XML para generar la cadena de validador requerida para este comando.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+load storageArray dbmDatabase
+pass:quotes[((file="_filename_" validator="_validatorValue_") | sourceLocation=onboard)]
+[controller [(a|b)]]
+[contentType= all]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+Ruta del archivo y nombre del archivo de la base de datos DBM que se desea cargar. El nombre del archivo debe escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Array Backups\DBMbackup_03302010.dbm"` Este comando no anexa automáticamente ninguna extensión de archivo al archivo guardado. Se debe especificar una extensión de archivo al introducir el nombre del archivo.
+
+
+
+ a| 
+`validator`
+ a| 
+Código de seguridad alfanumérico que se requiere para restaurar una cabina de almacenamiento a una configuración existente.
+
+Se debe solicitar el validador al soporte técnico. Para obtener el validador, ejecute el para generar el archivo XML de información de validación requerido `save storageArray dbmValidatorInfo` comando. Una vez disponible el archivo XML de información de validación, se debe contactar al soporte técnico para obtener el validador.
+
+El validador se debe escribir entre comillas dobles (" ").
+
+
+
+ a| 
+`sourceLocation`
+ a| 
+Este parámetro especifica la ubicación de la cual se puede recuperar la información sobre la base de datos de backup. Se debe incluir el parámetro para mantener la coherencia, pero el único valor permitido es `onboard`.
+
+
+
+ a| 
+`controller`
+ a| 
+Este parámetro especifica la controladora de la cual se pueden recuperar datos de manera exclusiva. El identificador de la controladora debe escribirse entre corchetes ([ ]). Si la `controller` no se especifica el parámetro, es posible que se recuperen datos de cualquiera de las controladoras.
+
+Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B.
+
+
+
+ a| 
+`contentType`
+ a| 
+Este parámetro especifica el tipo de contenido de los datos que se recuperarán.
+
+Este parámetro se establece en `all` de forma predeterminada, se recuperan todos los datos, incluidos los datos de configuración del pool de discos.
+
+|===
+
+
+== Notas
+
+Según el tamaño de la imagen de base de datos, la restauración de la base de datos puede demorar hasta 30 minutos. El software del host no mostrará las controladoras en estado óptimo hasta que se completen todas las acciones para cargar la imagen de base de datos a las controladoras.
+
+
+
+== Nivel de firmware mínimo
+
+7.75
+
+en la versión 7.83, se añaden estos parámetros:
+
+* `sourceLocation`
+* `controller`
+* `contentType`
+

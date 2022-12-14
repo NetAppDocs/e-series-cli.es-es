@@ -1,0 +1,75 @@
+---
+permalink: commands-a-z/download-storagearray-drivefirmware-file.html 
+sidebar: sidebar 
+keywords: download, storage, array, drive, firmware, command, images, roles, supported 
+summary: El comando download storageArray driveFirmware file descarga imágenes de firmware en todas las unidades de la cabina de almacenamiento. 
+---
+= Descargue el firmware de la unidad de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `download storageArray driveFirmware file` el comando descarga las imágenes de firmware en todas las unidades de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+pass:quotes[download storageArray driveFirmware file="_filename_"]
+pass:quotes[[file="_filename2_"... file="_filenameN_"]]
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`file`
+ a| 
+La ruta y el nombre del archivo que contiene la imagen de firmware. La ruta y el nombre del archivo de la imagen de firmware deben escribirse entre comillas dobles (" "). Por ejemplo:
+
+`file="C:\Program Files\CLI\dnld\sadrvfrm.dlp"`
+
+Los nombres de archivo válidos tienen un `.dlp` extensión.
+
+|===
+
+
+== Notas
+
+Cuando se ejecuta este comando, es posible descargar más de un archivo de imagen de firmware en las unidades de una cabina de almacenamiento. La cantidad de archivos de imagen de firmware que se puede descargar depende de la cabina de almacenamiento. El software de administración del almacenamiento devuelve un error si se intentan descargar más archivos de imagen de firmware que los admitidos por la cabina de almacenamiento.
+
+Es posible programar descargas para varias unidades a la vez, incluso para varias unidades de un grupo de volúmenes redundante. Cada archivo de imagen de firmware contiene información sobre los tipos de unidad donde se ejecuta la imagen de firmware. Las imágenes de firmware especificadas pueden descargarse únicamente en una unidad compatible. Utilice la `download drive firmware` comando para descargar una imagen de firmware en una unidad específica.
+
+La `download storageArray driveFirmware` El comando bloquea toda la actividad de I/o hasta que se intenta la descarga para cada unidad candidata o se ejecuta `stop storageArray downloadDriveFirmware` comando. Cuando la `download storageArray driveFirmware` el comando finaliza la descarga de la imagen de firmware; cada unidad candidata muestra el estado de descarga de cada unidad. Se devuelve uno de los siguientes Estados:
+
+* Exitoso
+* No se ha podido establecer la razón
+* Nunca se intentó con razón
+
+
+
+
+== Nivel de firmware mínimo
+
+5.20

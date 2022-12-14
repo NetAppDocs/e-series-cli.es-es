@@ -1,0 +1,149 @@
+---
+permalink: commands-a-z/create-snapshot-volume.html 
+sidebar: sidebar 
+keywords: create, snapshot, volume 
+summary: El comando create snapVolume crea un volumen Snapshot con funcionalidades de escritura y lectura para las imágenes Snapshot de un volumen base. 
+---
+= Crear un volumen Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create snapVolume` comando crea un volumen snapshot con funcionalidades de lectura y escritura para las imágenes snapshot de un volumen base.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+Es posible asignar el volumen Snapshot a un host para que todas las escrituras del host residan en el volumen de repositorios asociado con el volumen Snapshot. Es posible asignar el nuevo volumen Snapshot a un volumen de repositorios existente, o se puede crear un nuevo volumen de repositorios en un grupo de volúmenes o un pool de discos.
+
+[NOTE]
+====
+No es posible usar este comando para una imagen Snapshot que se utilice en una copia de volumen en línea.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create snapVolume userLabel=pass:quotes[_"snapVolumeName_" snapImageID="_snapCGID:imageID_"]
+[(repositoryVolume="repos_xxxx"]
+[repositoryVolume=pass:quotes[_(volumeGroupName_]pass:quotes[[capacity=_capacityValue_]]]
+[repositoryVolume=pass:quotes[(_diskPoolName_]pass:quotes[[capacity=_capacityValue_])]]
+[repositoryFullLimit=pass:quotes[_percentValue_]]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre que se asignará a un volumen Snapshot. El nombre del volumen Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`snapImageID`
+ a| 
+El identificador alfanumérico de la imagen Snapshot que se desea añadir al nuevo volumen Snapshot. El identificador de una imagen Snapshot consta de dos partes:
+
+* El nombre del grupo Snapshot
+* Un identificador de la imagen Snapshot en el grupo Snapshot
+
+
+El identificador de la imagen Snapshot puede ser una de las siguientes opciones:
+
+* Un valor entero que corresponde al número de secuencia de la Snapshot en el grupo Snapshot.
+* `NEWEST` - Esta opción debe usarse para mostrar la imagen Snapshot más reciente creada en el grupo Snapshot.
+* `OLDEST` - Esta opción debe usarse para mostrar la imagen Snapshot más antigua creada en el grupo Snapshot.
+
+
+El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`repositoryVolume`
+ a| 
+El nombre del volumen de repositorios que contiene los datos modificados de la imagen Snapshot.
+
+Existen dos opciones para definir el nombre de un volumen de repositorios:
+
+* Usar un nombre de volumen de repositorios existente
+* Crear un nuevo volumen de repositorios cuando se ejecuta este comando
+
+
+El nombre de un volumen de repositorios existente se compone de dos partes:
+
+* El término "repos"
+* Identificador numérico de cuatro dígitos que el software de administración del almacenamiento asigna al nombre del volumen de repositorios
+
+
+El nombre del volumen de repositorios existente debe escribirse entre comillas dobles (" ").
+
+Para crear un nuevo volumen de repositorios cuando se ejecuta este comando, es necesario introducir el nombre de un grupo de volúmenes o un pool de discos donde se ubicará el volumen de repositorios. Opcionalmente, también se puede definir la capacidad del volumen de repositorios. Para definir la capacidad, es posible usar los siguientes valores:
+
+* Un valor entero que representa un porcentaje de la capacidad del volumen base
+* Un valor de fracción decimal que representa un porcentaje de la capacidad del volumen base
+* Un tamaño específico para el volumen de repositorios El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`.
+
+
+Si no se usa la opción de capacidad, el software de administración del almacenamiento establece la capacidad en 20 % de la capacidad del volumen base.
+
+Cuando se ejecuta este comando, el software de administración del almacenamiento crea el volumen de repositorios para el volumen Snapshot.
+
+
+
+ a| 
+`repositoryFullLimit`
+ a| 
+El porcentaje de la capacidad del repositorio que debe alcanzarse para que se envíe una advertencia de que el volumen de repositorio Snapshot está casi completo. Deben usarse valores enteros. Por ejemplo, el valor 70 significa 70 %. El valor predeterminado es 75.
+
+|===
+
+
+== Notas
+
+Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+
+El identificador de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
+
+* El nombre del grupo Snapshot
+* El identificador de la imagen Snapshot
+
+
+Por ejemplo, si se desea crear un volumen Snapshot denominado snapData1 mediante la imagen Snapshot más reciente en un grupo Snapshot denominado snapGroup1 con un límite de llenado máximo de 80 % para el volumen de repositorios, se usaría este comando:
+
+[listing]
+----
+create snapVolume userLabel="snapData1" snapImageID="snapGroup1:newest"
+repositoryVolume="repos_1234" repositoryFullLimit=80;
+----
+El identificador del volumen de repositorios lo crea automáticamente por el software de administración del almacenamiento y el firmware cuando se crea un nuevo grupo Snapshot. No se puede cambiar el nombre del volumen de repositorios, ya que se interrumpiría el enlace con las imágenes Snapshot.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

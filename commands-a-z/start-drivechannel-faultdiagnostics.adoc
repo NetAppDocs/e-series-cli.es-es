@@ -1,0 +1,145 @@
+---
+permalink: commands-a-z/start-drivechannel-faultdiagnostics.html 
+sidebar: sidebar 
+keywords: start, drive channel, fault, isolation, diagnostics 
+summary: El comando start driveChannel faultDiagnostics ejecuta el diagnóstico de aislamiento de fallos del canal de la unidad y almacena los resultados. 
+---
+= Inicie el diagnóstico de aislamiento de fallos de canal de la unidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `start driveChannel faultDiagnostics` el comando ejecuta el diagnóstico de aislamiento de fallos del canal de la unidad y almacena los resultados.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Con la versión de firmware 8.10, el `start driveChannel faultDiagnostics` el comando queda obsoleto.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+start driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)]
+controller [(a|b)] faultDiagnostics
+testDevices=[all |
+controller=(a|b) |
+esms=pass:quotes[[_trayID1_ (left | right), ... , _trayIDN_] (left | right)] |
+drivespass:quotes[[_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]]
+|[dataPattern=(fixed | pseudoRandom) |
+patternNumber=[pass:quotes[(_0xhexadecimal_ | _number_)]] |
+pass:quotes[maxErrorCount=_integer_] |
+pass:quotes[testIterations=_integer_] |
+pass:quotes[timeout=_timeInterval_]]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`driveChannel`
+ a| 
+El número identificador del canal de la unidad que se desea localizar. Los siguientes son valores válidos para el número identificador del canal de la unidad `1`, `2`, `3`, `4`, `5`, `6`, `7`, o. `8`. El número identificador del canal de la unidad debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`controller`
+ a| 
+La letra identificadora de la controladora que se desea probar. Los valores válidos para los identificadores de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. El identificador de la controladora debe escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`testDevices`
+ a| 
+Los identificadores de los dispositivos (controladoras, módulo de servicios para el entorno [ESM] o unidades) que se desean probar. Puede especificar `all` O introduzca los identificadores específicos de los dispositivos de los cuales se desea realizar un diagnóstico.the `controller` los identificadores son `a` o. `b`, donde `a` Es el módulo de la controladora RAID de la ranura A, y. `b` Es el módulo de la controladora RAID de la ranura B.
+
+La `esms` Los identificadores son el ID de soporte y la derecha o izquierda, donde el ID de soporte es un valor de 0 a 99, y la derecha o izquierda se determinan cuando se ve el soporte de unidades desde la parte posterior.
+
+La `drive` los identificadores incluyen un identificador de soporte, un identificador de cajón cuando el soporte posee cajones y un identificador de ranura.
+
+En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
+
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+
+Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+
+
+
+ a| 
+`dataPattern`
+ a| 
+El método de repetición que se desea probar.
+
+
+
+ a| 
+`patternNumber`
+ a| 
+El patrón de datos hexadecimales que se desea utilizar para ejecutar la prueba. Este número puede ser cualquier número hexadecimal entre `0000` para `FFFF`. Debe colocar `0x` delante para indicar un número hexadecimal.
+
+
+
+ a| 
+`maxErrorCount`
+ a| 
+La cantidad de errores que se desea aceptar antes de terminar la prueba.
+
+
+
+ a| 
+`testIterations`
+ a| 
+La cantidad de veces que se desea repetir la prueba.
+
+
+
+ a| 
+`timeout`
+ a| 
+El tiempo, en minutos, por el que se desea ejecutar la prueba.
+
+|===
+
+
+== Notas
+
+Es posible introducir más de un tipo de dispositivo para probar, al igual que más de un tipo de prueba para ejecutar.
+
+Utilice la `save driveChannel faultDiagnostics` y la `stop driveChannel faultDiagnostics` con el `start driveChannel faultDiagnostics` comando. Estos comandos se necesitan para almacenar los resultados de la prueba de diagnóstico en un archivo y para detener la prueba de diagnóstico.
+
+Ejemplos de válido `patternNumber` las entradas se `0xA5A5`, `0x3C3C`, `8787`, y. `1234`.
+
+También es posible detener este comando en cualquier momento con la tecla `Ctrl+C`.
+
+
+
+== Nivel de firmware mínimo
+
+7.15

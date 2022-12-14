@@ -1,0 +1,64 @@
+---
+permalink: commands-a-z/show-storagearray-unreadablesectors.html 
+sidebar: sidebar 
+keywords: show, storage, array, unreadable, sectors 
+summary: El comando show storageArray unreadableSectors muestra una tabla de las direcciones de todos los sectores de la cabina de almacenamiento que no se pueden leer. 
+---
+= Mostrar sectores ilegibles de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show storageArray unreadableSectors` el comando muestra una tabla de las direcciones de todos los sectores de la cabina de almacenamiento que no se pueden leer.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+
+
+
+== Contexto
+
+La tabla que se muestra está organizada con encabezados de columnas con la siguiente información:
+
+* Etiqueta de usuario de volumen
+* Número de unidad lógica (LUN)
+* Accesible para (host o grupo de hosts);
+* Fecha/hora
+* Dirección de bloque lógico relativo al volumen (formato hexadecimal: 0xnnnnnnnn);
+* Ubicación de la unidad (soporte t, ranura s);
+* Dirección de bloque lógico relativo a la unidad (formato hexadecimal: 0xnnnnnnnn);
+* Tipo de fallo
+
+
+Los datos se ordenan primero por la etiqueta de usuario de volumen y después por las direcciones de bloque lógico (LBA). Cada entrada de la tabla corresponde a un único sector.
+
+
+
+== Sintaxis
+
+[listing]
+----
+show storageArray unreadableSectors
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

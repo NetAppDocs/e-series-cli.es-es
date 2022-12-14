@@ -1,0 +1,405 @@
+---
+permalink: commands-category/array-configuration-commands.html 
+sidebar: sidebar 
+keywords: configuration, commands, array, controller, health, image, hostport, feature, management 
+summary: Comandos de configuración de la cabina 
+---
+= Comandos de configuración de la cabina
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+
+
+== Comandos de garantía de datos del reflejo de caché
+
+link:../commands-a-z/set-storagearray-cachemirrordataassurancecheckenable.html["Configurar cabina de almacenamiento para habilitar o deshabilitar los datos de reflejo de la caché"]
+
+link:../commands-a-z/show-storagearray-cachemirrordataassurancecheckenable.html["Muestre el estado de comprobación de garantía de datos de reflejo de la caché de la cabina de almacenamiento"]
+
+
+
+== Comandos de controladora
+
+link:../commands-a-z/clear-alldrivechannels-stats.html["Borrar estadísticas de canal de unidad"]
+
+link:../commands-a-z/diagnose-controller.html["Diagnosticar controladora"]
+
+link:../commands-a-z/diagnose-controller-iscsihostport.html["Diagnosticar cable de host iSCSI de controladora"]
+
+link:../commands-a-z/enable-controller-datatransfer.html["Habilite la transferencia de datos de controladora"]
+
+link:../commands-a-z/reset-controller.html["Restablezca la controladora"]
+
+link:../commands-a-z/save-controller-nvsram-file.html["Guarde NVSRAM de controladora"]
+
+link:../commands-a-z/save-drivechannel-faultdiagnostics-file.html["Guarde el estado de diagnóstico de aislamiento de fallos de un canal de unidad"]
+
+link:../commands-a-z/set-controller.html["Configure la controladora"]
+
+link:../commands-a-z/set-controller-dnsservers.html["Configure los ajustes de DNS de la controladora"]
+
+link:../commands-a-z/set-controller-ntpservers.html["Configure los ajustes de NTP de la controladora"]
+
+link:../commands-a-z/set-controller-service-action-allowed-indicator.html["Configurar indicador de permiso de acción de servicio de la controladora"]
+
+link:../commands-a-z/set-drivechannel.html["Configurar el estado de canal de unidad"]
+
+link:../commands-a-z/set-hostchannel.html["Configurar el canal del host"]
+
+link:../commands-a-z/show-controller.html["Mostrar controladora"]
+
+link:../commands-a-z/show-controller-diagnostic-status.html["Muestra el estado de diagnóstico de la controladora"]
+
+link:../commands-a-z/show-controller-nvsram.html["Mostrar NVSRAM de controladora"]
+
+link:../commands-a-z/show-drivechannel-stats.html["Mostrar estadísticas de canal de unidad"]
+
+link:../commands-a-z/start-controller.html["Inicie el seguimiento de la controladora"]
+
+link:../commands-a-z/start-drivechannel-faultdiagnostics.html["Inicie el diagnóstico de aislamiento de fallos de canal de la unidad"]
+
+link:../commands-a-z/start-drivechannel-locate.html["Inicie la búsqueda de canal de unidad"]
+
+link:../commands-a-z/start-controller-iscsihostport-dhcprefresh.html["Inicie la actualización de DHCP de iSCSI"]
+
+link:../commands-a-z/stop-drivechannel-faultdiagnostics.html["Detenga el diagnóstico de aislamiento de fallos de un canal de unidad"]
+
+link:../commands-a-z/stop-drivechannel-locate.html["Detenga la búsqueda de canal de unidad"]
+
+
+
+== Comandos de imagen de estado de la controladora
+
+link:../commands-a-z/save-storagearray-controllerhealthimage.html["Guarde la imagen de estado de controladora de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-controllerhealthimageallowoverwrite.html["Configurar el permiso de sobrescritura de imagen de estado de controladora de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-controllerhealthimage.html["Mostrar imagen de estado de controladora de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-controllerhealthimage-controller.html["Inicie la imagen de estado de controladora de la cabina de almacenamiento"]
+
+
+
+== Comandos de configuración del puerto de host de la controladora
+
+link:../commands-a-z/create-hostport.html["Crear puerto de host"]
+
+link:../commands-a-z/create-initiator.html["Cree el iniciador"]
+
+link:../commands-a-z/delete-initiator.html["Elimine el iniciador"]
+
+link:../commands-a-z/set-initiator.html["Configure el iniciador"]
+
+link:../commands-a-z/reset-storagearray-hostportstatisticsbaseline.html["Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-hostportstatistics.html["Guarde estadísticas de puertos de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-controller-hostport.html["Configure las propiedades de los puertos de host de la controladora"]
+
+link:../commands-a-z/set-target.html["Configurar propiedades objetivo"]
+
+link:../commands-a-z/set-controller-iscsihostport.html["Establezca propiedades de red de los puertos de host iSCSI"]
+
+link:../commands-a-z/set-iscsiinitiator.html["Configure el iniciador de iSCSI"]
+
+link:../commands-a-z/show-storagearray-unconfigurediscsiinitiators.html["Muestra iniciadores de iSCSI sin configurar de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-unconfiguredinitiators.html["Muestra iniciadores sin configurar"]
+
+
+
+== Comandos de unidad
+
+link:../commands-a-z/download-drive-firmware.html["Descargue el firmware de la unidad"]
+
+link:../commands-a-z/recover-disabled-driveports.html["Recuperar puertos de unidad deshabilitados"]
+
+link:../commands-a-z/replace-drive-replacementdrive.html["Sustituya la unidad"]
+
+link:../commands-a-z/revive-drive.html["Reactivar unidad"]
+
+link:../commands-a-z/save-drivechannel-faultdiagnostics-file.html["Guarde el estado de diagnóstico de aislamiento de fallos de un canal de unidad"]
+
+link:../commands-a-z/save-alldrives-logfile.html["Guarde el registro de unidad"]
+
+link:../commands-a-z/set-drive-hotspare.html["Configurar pieza de repuesto de unidad"]
+
+link:../commands-a-z/set-drive-serviceallowedindicator.html["Configurar indicador de permiso de acción de servicio de la unidad"]
+
+link:../commands-a-z/set-drive-operationalstate.html["Configurar el estado de la unidad"]
+
+link:../commands-a-z/set-drive-securityid.html["Configure el identificador de seguridad de la unidad FIPS"]
+
+link:../commands-a-z/set-drive-nativestate.html["Configure la unidad externa como nativa"]
+
+link:../commands-a-z/show-alldrives.html["Mostrar unidad"]
+
+link:../commands-a-z/show-alldrives-downloadprogress.html["Muestra progreso de descarga de la unidad"]
+
+link:../commands-a-z/show-alldrives-performancestats.html["Mostrar estadísticas de rendimiento de la unidad"]
+
+link:../commands-a-z/show-replaceabledrives.html["Muestra las unidades reemplazables"]
+
+link:../commands-a-z/start-drivechannel-faultdiagnostics.html["Inicie el diagnóstico de aislamiento de fallos de canal de la unidad"]
+
+link:../commands-a-z/start-drive-initialize.html["Iniciar inicialización de unidad"]
+
+link:../commands-a-z/start-drive-locate.html["Inicie la búsqueda de unidad"]
+
+link:../commands-a-z/start-drive-reconstruct.html["Inicie la reconstrucción de la unidad"]
+
+link:../commands-a-z/start-secureerase-drive.html["Inicie un borrado seguro de unidad"]
+
+link:../commands-a-z/stop-drivechannel-faultdiagnostics.html["Detenga el diagnóstico de aislamiento de fallos de un canal de unidad"]
+
+link:../commands-a-z/stop-drive-locate.html["Detener búsqueda de unidad"]
+
+
+
+== Comandos de gestión de funciones
+
+link:../commands-a-z/disable-storagearray.html["Deshabilite la función de cabina de almacenamiento"]
+
+link:../commands-a-z/enable-storagearray-feature-file.html["Habilite la función de cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-autoloadbalancingenable.html["Configurar la cabina de almacenamiento para habilitar o deshabilitar el equilibrio de carga automático..."]
+
+link:../commands-a-z/show-storagearray.html["Mostrar cabina de almacenamiento"]
+
+
+
+== Comandos de volcado de una controladora de entrada/salida (IOC)
+
+link:../commands-a-z/save-ioclog.html["Guarde el volcado de una controladora de entrada/salida (IOC)"]
+
+link:../commands-a-z/start-ioclog.html["Inicie el volcado de controladora de entrada/salida (IOC)"]
+
+
+
+== Comandos de unidades con comportamiento erróneo (MBD)
+
+link:../commands-a-z/replace-drive-replacementdrive.html["Sustituya la unidad"]
+
+link:../commands-a-z/reset-drive.html["Restablezca una unidad"]
+
+link:../commands-a-z/set-drive-operationalstate.html["Configurar el estado de la unidad"]
+
+link:../commands-a-z/stop-drive-replace.html["Detener reemplazo de unidad"]
+
+
+
+== Comandos de transferencia de datos descargados (ODX)
+
+link:../commands-a-z/set-storagearray-odxenabled.html["Habilite o deshabilite ODX"]
+
+link:../commands-a-z/set-storagearray-vaaienabled.html["Habilite o deshabilite VAAI"]
+
+link:../commands-a-z/show-storagearray-odxsetting.html["Mostrar configuración ODX de la cabina de almacenamiento"]
+
+
+
+== Comandos de análisis de volúmenes de repositorios
+
+link:../commands-a-z/check-repositoryconsistency.html["Comprobar la coherencia de un repositorio"]
+
+
+
+== Comandos de sesión
+
+link:../commands-a-z/set-session-erroraction.html["Configurar la sesión"]
+
+
+
+== Comandos de la cabina de almacenamiento
+
+link:../commands-a-z/activate-storagearray-firmware.html["Activar el firmware de cabina de almacenamiento"]
+
+link:../commands-a-z/add-certificate-from-array.html["Añadir certificado desde cabina"]
+
+link:../commands-a-z/add-certificate-from-file.html["Añadir certificado desde archivo"]
+
+link:../commands-a-z/autoconfigure-storagearray.html["Configurar automáticamente la cabina de almacenamiento"]
+
+link:../commands-a-z/autoconfigure-storagearray-hotspares.html["Configurar automáticamente las piezas de repuesto de la cabina de almacenamiento"]
+
+link:../commands-a-z/clear-storagearray-configuration.html["Borrar la configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/clear-storagearray-eventlog.html["Borrar registro de eventos de la cabina de almacenamiento"]
+
+link:../commands-a-z/clear-storagearray-firmwarependingarea.html["Borrar el área pendiente de firmware de la cabina de almacenamiento"]
+
+link:../commands-a-z/clear-storagearray-recoverymode.html["Borrar el modo de recuperación de la cabina de almacenamiento"]
+
+link:../commands-a-z/create-storagearray-securitykey.html["Cree una clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/delete-certificates.html["Eliminar certificados"]
+
+link:../commands-a-z/disable-storagearray-externalkeymanagement-file.html["Deshabilite la gestión de claves de seguridad externas"]
+
+link:../commands-a-z/disable-storagearray.html["Deshabilite la función de cabina de almacenamiento"]
+
+link:../commands-a-z/download-storagearray-drivefirmware-file.html["Descargue el firmware de la unidad de la cabina de almacenamiento"]
+
+link:../commands-a-z/download-storagearray-firmware.html["Descargue el firmware/NVSRAM de la cabina de almacenamiento"]
+
+link:../commands-a-z/download-storagearray-nvsram.html["Descargue NVSRAM de la cabina de almacenamiento"]
+
+link:../commands-a-z/enable-storagearray-externalkeymanagement-file.html["Habilite la gestión de claves de seguridad externas"]
+
+link:../commands-a-z/set-storagearray-hostconnectivityreporting.html["Habilitar o deshabilitar la generación de informes de conectividad de host"]
+
+link:../commands-a-z/enable-storagearray-feature-file.html["Habilite la función de cabina de almacenamiento"]
+
+link:../commands-a-z/export-storagearray-securitykey.html["Exporte clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/import-storagearray-securitykey-file.html["Importe la clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/load-storagearray-dbmdatabase.html["Cargar base de datos DBM de cabina de almacenamiento"]
+
+link:../commands-a-z/recreate-storagearray-securitykey.html["Vuelva a crear una clave de seguridad externa"]
+
+link:../commands-a-z/reset-storagearray-diagnosticdata.html["Restablezca los datos de diagnóstico de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-ibstatsbaseline.html["Restablezca la línea de base para las estadísticas InfiniBand de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-iscsistatsbaseline.html["Restablezca la línea de base iSCSI de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-rlsbaseline.html["Restablezca la línea de base RLS de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-sasphybaseline.html["Restablezca la línea de base SAS PHY de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-socbaseline.html["Restablezca la línea de base SOC de la cabina de almacenamiento"]
+
+link:../commands-a-z/reset-storagearray-volumedistribution.html["Restablezca la distribución de volúmenes de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-configuration.html["Guarde la configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-dbmdatabase.html["Guarde base de datos DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-dbmvalidatorinfo.html["Guarde el archivo de información de validador de DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storage-array-diagnostic-data.html["Guarde los datos de diagnóstico de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-warningevents.html["Guarde eventos de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-firmwareinventory.html["Guarde el inventario de firmware de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-ibstats.html["Guarde las estadísticas InfiniBand de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-iscsistatistics.html["Guarde estadísticas de iSCSI de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-performancestats.html["Guarde estadísticas de rendimiento de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-rlscounts.html["Guarde números de RLS de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-sasphycounts.html["Guarde los números de PHY SAS de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-soccounts.html["Guardar números de SOC de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-statecapture.html["Guarde la captura de estado de la cabina de almacenamiento"]
+
+link:../commands-a-z/save-storagearray-supportdata.html["Guarde datos de soporte de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray.html["Configure la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-icmppingresponse.html["Configurar respuesta ICMP de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-isnsipv4configurationmethod.html["Configure la dirección IPv4 de servidor iSNS de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-isnsipv6address.html["Configure la dirección IPv6 de servidor iSNS de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-isnslisteningport.html["Configure el puerto de escucha de servidor iSNS de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-isnsserverrefresh.html["Configure la actualización de servidor iSNS de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-learncycledate-controller.html["Configure el ciclo de aprendizaje de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-pqvalidateonreconstruct.html["Configurar validación PQ de la cabina de almacenamiento en la reconstrucción"]
+
+link:../commands-a-z/set-storagearray-redundancymode.html["Configure el modo de redundancia de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-resourceprovisionedvolumes.html["Establezca los volúmenes aprovisionados de los recursos de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-securitykey.html["Configure la clave de seguridad de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-time.html["Configure la hora de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-traypositions.html["Configure posiciones de soporte de la cabina de almacenamiento"]
+
+link:../commands-a-z/set-storagearray-unnameddiscoverysession.html["Configure la sesión de detección sin nombre de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-certificates.html["Mostrar certificados"]
+
+link:../commands-a-z/show-storagearray.html["Mostrar cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-autoconfiguration.html["Mostrar configuración automática de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-dbmdatabase.html["Mostrar base de datos DBM de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-hostconnectivityreporting.html["Mostrar informes de conectividad de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-hosttopology.html["Mostrar topología de host de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-lunmappings.html["Mostrar mapa de LUN de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-iscsinegotiationdefaults.html["Mostrar valores predeterminados de negociación de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-odxsetting.html["Mostrar configuración ODX de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-powerinfo.html["Muestra información de alimentación de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-unconfigurediscsiinitiators.html["Muestra iniciadores de iSCSI sin configurar de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storagearray-unreadablesectors.html["Mostrar sectores ilegibles de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-textstring.html["Mostrar cadena"]
+
+link:../commands-a-z/start-storagearray-autosupport-manualdispatch.html["Inicie el envío manual de la AutoSupport de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-configdbdiagnostic.html["Iniciar diagnóstico de base de datos de configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-isnsserverrefresh.html["Inicie la actualización del servidor iSNS de la cabina de almacenamiento"]
+
+link:../commands-a-z/start-storagearray-locate.html["Inicie la búsqueda de cabina de almacenamiento"]
+
+link:../commands-a-z/stop-storagearray-configdbdiagnostic.html["Detener diagnóstico de base de datos de configuración de la cabina de almacenamiento"]
+
+link:../commands-a-z/stop-storagearray-drivefirmwaredownload.html["Detenga la descarga de firmware de la unidad de cabina de almacenamiento"]
+
+link:../commands-a-z/stop-storagearray-iscsisession.html["Detenga la sesión iSCSI de la cabina de almacenamiento"]
+
+link:../commands-a-z/stop-storagearray-locate.html["Detenga la búsqueda de cabina de almacenamiento"]
+
+link:../commands-a-z/validate-storagearray-securitykey.html["Validar clave de seguridad de la cabina de almacenamiento"]
+
+
+
+== Comandos de soporte
+
+link:../commands-a-z/download-tray-firmware-file.html["Descargar el firmware de la tarjeta medioambiental"]
+
+link:../commands-a-z/download-tray-configurationsettings.html["Descargue los ajustes de configuración de soporte"]
+
+link:../commands-a-z/save-alltrays-logfile.html["Guarde el registro de soporte"]
+
+link:../commands-a-z/set-tray-drawer.html["Configurar indicador de permiso de acción de servicio del cajón"]
+
+link:../commands-a-z/set-tray-attribute.html["Configure atributo de soporte"]
+
+link:../commands-a-z/set-tray-identification.html["Configure la identificación de soporte"]
+
+link:../commands-a-z/set-tray-serviceallowedindicator.html["Configure indicador de permiso de acción de servicio del soporte"]
+
+link:../commands-a-z/start-tray-locate.html["Inicie la búsqueda de soporte"]
+
+link:../commands-a-z/stop-tray-locate.html["Detenga la búsqueda de soporte"]
+
+
+
+== Comandos sin categorizar
+
+link:../commands-a-z/recover-sasport-miswire.html["Recupere una conexión incorrecta de puerto SAS"]
+
+link:../commands-a-z/show-textstring.html["Mostrar cadena"]

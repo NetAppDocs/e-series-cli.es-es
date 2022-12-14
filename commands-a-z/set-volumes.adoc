@@ -1,0 +1,377 @@
+---
+permalink: commands-a-z/set-volumes.html 
+sidebar: sidebar 
+keywords: set, volume, attributes, disk pool 
+summary: El comando set volumes define las propiedades de un volumen en un pool de discos. 
+---
+= Configure atributos de volumen en un pool de discos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set volumes` el comando define las propiedades de un volumen en un pool de discos.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En configuraciones donde los pools de discos comprenden más de 32 volúmenes, la operación puede generar errores de I/o del host o reinicios internos de la controladora por agotarse el tiempo de espera antes de que se complete la operación. Si se producen errores de I/o del host o reinicios internos de la controladora, coloque el host en un estado inactivo y vuelva a intentar la operación.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set (allVolumes | volume pass:quotes[[_volumeName_]] |
+volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
+pass:quotes[addCapacity = _capacityValue_][KB|MB|GB|TB|Bytes] |
+pass:quotes[cacheFlushModifier=_cacheFlushModifierValue_] |
+cacheReadPrefetch = (TRUE | FALSE) |
+cacheWithoutBatteryEnabled=(TRUE | FALSE) |
+mediaScanEnabled=(TRUE | FALSE) |
+mirrorCacheEnabled=(TRUE | FALSE) |
+preReadRedundancyCheck = (TRUE | FALSE) |
+readCacheEnabled=(TRUE | FALSE) |
+redundancyCheckEnabled = (TRUE | FALSE) |
+pass:quotes[segmentSize = _segmentSizeValue_]
+pass:quotes[userLabel = _userlabelValue_]
+writeCacheEnabled=(TRUE | FALSE) |
+dataAssuranceDisabled=(TRUE | FALSE)
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`allVolumes`
+ a| 
+Este parámetro configura las propiedades de todos los volúmenes en la cabina de almacenamiento.
+
+
+
+ a| 
+`volume`
+ a| 
+El nombre del volumen para el cual se desean definir propiedades. El nombre del volumen debe escribirse entre corchetes ([ ]). Si el nombre del volumen tiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`volume`
+ a| 
+El identificador a nivel mundial (WWID) del volumen para el cual se desean definir propiedades. El nombre del WWID debe escribirse entre comillas dobles (" ") entre paréntesis angulares (< >).
+
+[NOTE]
+====
+Cuando ejecute este comando, no use punto y coma como separador en el WWID.
+
+====
+
+
+ a| 
+`volumes`
+ a| 
+Los nombres de varios volúmenes para los cuales se desean definir propiedades. Todos los volúmenes tendrán las mismas propiedades. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes tienen caracteres especiales o números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`addCapacity`
+ a| 
+La configuración para aumentar el tamaño de almacenamiento (capacidad) del volumen para el cual se desean definir propiedades. El tamaño se define en unidades de `bytes`, `KB`, `MB`, `GB`, o. `TB`. El valor predeterminado es `bytes`.
+
+Este parámetro no es válido para volúmenes finos.
+
+
+
+ a| 
+`cacheFlushModifier`
+ a| 
+La cantidad máxima de tiempo que los datos del volumen permanecen en la caché antes de que los datos se vacíen en el almacenamiento físico. Los valores válidos se enumeran en la sección Notas.
+
+
+
+ a| 
+`cacheReadPrefetch`
+ a| 
+El ajuste para activar o desactivar la captura previa de lectura de caché. Para desactivar la captura previa de lectura de caché, este parámetro debe configurarse en `FALSE`. Para activar la captura previa de lectura de caché, este parámetro debe configurarse en `TRUE`.
+
+
+
+ a| 
+`cacheWithoutBatteryEnabled`
+ a| 
+La configuración para activar o desactivar el almacenamiento en caché sin baterías. Para activar el almacenamiento en caché sin baterías, configure este parámetro en `TRUE`. Para desactivar el almacenamiento en caché sin baterías, configure este parámetro en `FALSE`.
+
+
+
+ a| 
+`mediaScanEnabled`
+ a| 
+La opción para activar o desactivar el análisis de medios en el volumen. Para activar el análisis de medios, establezca este parámetro en `TRUE`. Para desactivar el análisis de medios, establezca este parámetro en `FALSE`. (Si se deshabilita el análisis de medios en el nivel de la cabina de almacenamiento, este parámetro queda sin efecto).
+
+
+
+ a| 
+`mirrorCacheEnabled`
+ a| 
+La configuración para activar o desactivar la caché de reflejos. Para activar la caché de reflejos, configure este parámetro en `TRUE`. Para desactivar la caché de reflejos, configure este parámetro en `FALSE`.
+
+
+
+ a| 
+`owner`
+ a| 
+La controladora propietaria del volumen. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es el controlador en slob, y. `b` Es la controladora en la ranura B. Use este parámetro únicamente si desea cambiar el propietario del volumen.
+
+
+
+ a| 
+`preReadRedundancyCheck`
+ a| 
+La configuración para activar o desactivar la verificación de redundancia de lectura previa. Al activar la verificación de redundancia de lectura previa, se verifica la coherencia de los datos de redundancia RAID para las franjas que contienen los datos de lectura. La verificación de redundancia de lectura previa se realiza únicamente en operaciones de lectura. Para activar la verificación de redundancia de lectura previa, configure este parámetro en `TRUE`. Para desactivar la verificación de redundancia de lectura previa, configure este parámetro en `FALSE`.
+
+[NOTE]
+====
+No use este parámetro en volúmenes no redundantes, como volúmenes RAID 0.
+
+====
+
+
+ a| 
+`readCacheEnabled`
+ a| 
+La configuración para activar o desactivar la caché de lectura. Para activar la caché de lectura, configure este parámetro en `TRUE`. Para desactivar la caché de lectura, configure este parámetro en `FALSE`.
+
+
+
+ a| 
+`redundancyCheckEnabled`
+ a| 
+La opción para activar o desactivar la comprobación de redundancia durante un análisis de medios. Para activar la comprobación de redundancia, establezca este parámetro en `TRUE`. Para desactivar la comprobación de redundancia, establezca este parámetro en `FALSE`.
+
+
+
+ a| 
+`userLabel`
+ a| 
+El nombre nuevo que se desea otorgar a un volumen existente. El nombre del nuevo volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`writeCacheEnabled`
+ a| 
+La configuración para activar la funcionalidad de caché de escritura.
+
+|===
+
+
+== Notas
+
+Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
+
+Es posible aplicar estos parámetros únicamente en un volumen a la vez:
+
+* `addCapacity`
+* `segmentSize`
+* `userLabel`
+
+
+
+
+== Añadir capacidad y tamaño de segmentos
+
+Ajuste de `addCapacity` o el `segmentSize` parámetro inicia una operación de ejecución prolongada que no se puede detener. Estas operaciones de ejecución prolongada se realizan en segundo plano y no impiden la ejecución de otros comandos. Para mostrar el progreso de las operaciones de ejecución prolongada, use la `show volume actionProgress` comando.
+
+
+
+== Modificador de vaciado de caché
+
+En esta tabla, se enumeran los valores válidos para el modificador de vaciado de caché.
+
+[cols="2*"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+`Immediate`
+ a| 
+Los datos se vacían tan pronto como se colocan en la caché.
+
+
+
+ a| 
+`.25`
+ a| 
+Los datos se vacían después de 250 ms.
+
+
+
+ a| 
+`.5`
+ a| 
+Los datos se vacían después de 500 ms.
+
+
+
+ a| 
+`.75`
+ a| 
+Los datos se vacían después de 750 ms.
+
+
+
+ a| 
+`1`
+ a| 
+Los datos se vacían después de 1 s.
+
+
+
+ a| 
+`1.5`
+ a| 
+Los datos se vacían después de 1500 ms.
+
+
+
+ a| 
+`2`
+ a| 
+Los datos se vacían después de 2 s.
+
+
+
+ a| 
+`5`
+ a| 
+Los datos se vacían después de 5 s.
+
+
+
+ a| 
+`10`
+ a| 
+Los datos se vacían después de 10 s.
+
+
+
+ a| 
+`20`
+ a| 
+Los datos se vacían después de 20 s.
+
+
+
+ a| 
+`60`
+ a| 
+Los datos se vacían después de 60 s (1 min).
+
+
+
+ a| 
+`120`
+ a| 
+Los datos se vacían después de 120 s (2 min).
+
+
+
+ a| 
+`300`
+ a| 
+Los datos se vacían después de 300 s (5 min).
+
+
+
+ a| 
+`1200`
+ a| 
+Los datos se vacían después de 1200 s (20 min).
+
+
+
+ a| 
+`3600`
+ a| 
+Los datos se vacían después de 3600 s (1 h).
+
+
+
+ a| 
+`Infinite`
+ a| 
+Los datos de la caché no están sujetos a ningún límite de antigüedad o tiempo. Los datos se vacían sobre la base de otros criterios que gestiona la controladora.
+
+|===
+
+
+== Caché sin batería habilitada
+
+El almacenamiento en caché de escritura sin baterías permite que el almacenamiento en caché continúe aunque las baterías de la controladora estén completamente descargadas, no estén totalmente cargadas o no existan. Si establece este parámetro en `TRUE` Sin un sistema de alimentación ininterrumpida (UPS) u otra fuente de alimentación de respaldo, se pueden perder datos si se interrumpe la alimentación hacia la cabina de almacenamiento. Este parámetro no tiene efecto si el almacenamiento en caché de escritura está deshabilitado.
+
+
+
+== Prioridad de modificación
+
+La prioridad de modificación define la cantidad de recursos del sistema que se usan cuando se modifican propiedades del volumen. Si se selecciona el nivel de prioridad más alto, la modificación del volumen usa la mayoría de los recursos del sistema, lo que reduce el rendimiento para las transferencias de datos del host.
+
+
+
+== Captura previa de lectura de caché
+
+La `cacheReadPrefetch` parámetro permite que la controladora copie bloques de datos adicionales en la caché mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. La configuración de la cabina de almacenamiento que se utiliza determina la cantidad de bloques de datos adicionales que la controladora lee en caché. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`.
+
+
+
+== Tamaño de los segmentos
+
+El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
+
+Cuando se introduce un valor para el tamaño de segmento, se controla si corresponde a los valores admitidos que indica la controladora en el tiempo de ejecución. Si el valor especificado no es válido, la controladora muestra una lista de valores válidos. Cuando se utiliza una sola unidad para una solicitud única, las demás unidades disponibles pueden atender simultáneamente otras solicitudes.
+
+Si el volumen se encuentra en un entorno en el que un único usuario transfiere grandes unidades de datos (como multimedia), el rendimiento se maximiza cuando se atiende una única solicitud de transferencia de datos con una única franja de datos. (Una franja de datos es el tamaño de segmento multiplicado por la cantidad de unidades en el grupo de volúmenes que se usan para la transferencia de datos.) En este caso, se usan varias unidades para la misma solicitud, pero se accede una sola vez a cada unidad.
+
+Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de datos multiusuario o sistema de archivos, se debe configurar un tamaño de segmento que minimice la cantidad de unidades necesarias para satisfacer una solicitud de transferencia de datos.
+
+
+
+== Nivel de firmware mínimo
+
+7.83

@@ -1,0 +1,82 @@
+---
+permalink: commands-a-z/download-controller-trustedcertificate.html 
+sidebar: sidebar 
+keywords: download, controller, trusted, certificate, command, install, web, servers, validate, array, roles, context 
+summary: El comando download Controller trustedCertificate instala los certificados de CA de confianza en los servidores web de las controladoras para validar el certificado firmado de servidor LDAP. 
+---
+= Instale certificados de CA de confianza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `download controller trustedCertificate` El comando instala los certificados de CA de confianza en los servidores web de las controladoras para validar el certificado firmado de servidor LDAP.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+Esta acción se debe realizar solo si la CA que firmó los certificados no es conocida o no es de confianza habitualmente. El comando instala el certificado de CA en ambas controladoras.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[download storageArray trustedCertificate [alias=_string_]] pass:quotes[file="_filename_"]
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`alias`
+ a| 
+Permite especificar un alias para representar el certificado de CA de confianza. Este alias se utiliza para buscar información sobre los certificados de CA de confianza o para eliminarlos. Cada alias se asocia a un certificado de confianza y debe ser único.
+
+
+
+ a| 
+`file`
+ a| 
+Permite especificar el archivo que contiene el certificado de CA de confianza. Las extensiones que se aceptan son .pem, .cer, .crt y .der.
+
+|===
+
+
+== Ejemplos
+
+[listing]
+----
+
+SMcli -n Array1 -c "download storageArray trustedCertificate alias="myAlias"
+   file="C:\rootCA1.cer";"
+SMcli -n Array1 -c "download storageArray trustedCertificate
+   file="C:\rootCA1.cer";"
+
+SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

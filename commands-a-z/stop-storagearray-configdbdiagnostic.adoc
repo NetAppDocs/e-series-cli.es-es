@@ -1,0 +1,58 @@
+---
+permalink: commands-a-z/stop-storagearray-configdbdiagnostic.html 
+sidebar: sidebar 
+keywords: stop, storage, array, configuration, database, diagnostic 
+summary: El comando stop storageArray configDbDiagnostic detiene la prueba de diagnóstico para validar la base de datos de configuración en el firmware de la controladora que se inició con el comando start storageArray configDbDiagnostic. 
+---
+= Detener diagnóstico de base de datos de configuración de la cabina de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `stop storageArray configDbDiagnostic` el comando detiene la prueba de diagnóstico para validar la base de datos de configuración en el firmware de la controladora que inició el `start storageArray configDbDiagnostic` comando.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+stop storageArray configDbDiagnostic
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Notas
+
+El firmware de la controladora devuelve una confirmación de la cancelación de la prueba de diagnóstico.
+
+Además, es posible iniciar la prueba de diagnóstico de configuración de la base de datos mediante la GUI del software de administración del almacenamiento. Sin embargo, no es posible detener la prueba por este mismo medio. Si desea detener una prueba de diagnóstico en ejecución, debe utilizar el `stop storageArray configDbDiagnostic` comando.
+
+Si intenta utilizar el `stop storageArray configDbDiagnostic` comando después de finalizar la validación de la configuración de la cabina de almacenamiento, no se recibe ningún mensaje de que finalizó la validación. Este es el comportamiento esperado.
+
+
+
+== Nivel de firmware mínimo
+
+7.75
+
+7.77 refina el uso.

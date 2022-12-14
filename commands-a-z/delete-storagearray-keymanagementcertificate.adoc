@@ -1,0 +1,75 @@
+---
+permalink: commands-a-z/delete-storagearray-keymanagementcertificate.html 
+sidebar: sidebar 
+keywords: delete, storage, array, key, management, certificate, command, remove, install, external 
+summary: El comando delete storageArray keyManagementCertificate quita el certificado de gestión de claves externas instalado en la cabina de almacenamiento. 
+---
+= Quite el certificado de gestión de claves externas instalado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `delete storageArray keyManagementCertificate` el comando quita el certificado de gestión de claves externas instalado de la cabina de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este comando se aplica solo a la gestión de claves externas.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+
+pass:quotes[delete storageArray keyManagementCertificate certificateType=_certificate_type_]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`certificateType`
+ a| 
+Permite especificar el tipo de certificado que se quitará. Las opciones válidas son: `client` o. `server`.
+
+|===
+
+
+== Ejemplo
+
+[listing]
+----
+ SMcli -n Array1 -c "delete storageArray keyManagementCertificate certificateType="client";"
+
+   SMcli completed successfully.
+----
+
+
+== Nivel de firmware mínimo
+
+8.40

@@ -1,0 +1,92 @@
+---
+permalink: commands-a-z/create-mapping-volume.html 
+sidebar: sidebar 
+keywords: create, volume, map 
+summary: El comando create mapping volume crea una asignación lógica entre un volumen y un host o un grupo de hosts. 
+---
+= Cree la asignación de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `create mapping volume` el comando crea una asignación lógica de un volumen a un host o un grupo de hosts.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+create mapping volume=pass:quotes[_"VolumeName"_
+(host="_hostName_" | hostGroup=("_hostGroupName_"] | defaultGroup))
+logicalUnitNumber=lun
+mapWaitPeriod=mapWaitPeriodValue
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`Volume`
+ a| 
+El nombre del volumen para el cual se creará la asignación lógica. El nombre del volumen debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`host`
+ a| 
+El nombre del host para el cual se creará la asignación lógica. El nombre de host debe escribirse entre comillas dobles (" ").
+
+
+
+ a| 
+`hostGroup`
+ a| 
+El nombre del grupo de hosts para el cual se creará la asignación lógica. El nombre del grupo de hosts debe escribirse entre comillas dobles (" "). Si utiliza la `defaultGroup` palabra clave, no la incluya entre comillas.
+
+
+
+ a| 
+`logicalUnitNumber`
+ a| 
+El número lógico o el ID de espacio de nombres que se desean usar para asignar un host específico. Este parámetro también asigna el host a un grupo de hosts.
+
+[NOTE]
+====
+El número de unidad lógica o el ID de espacio de nombres que se especifican no deben estar en uso y deben encontrarse dentro del rango compatible con el sistema operativo del host. No ocurrirá ningún error si se asigna el volumen a un número de unidad lógica o ID de espacio de nombres que no sean compatibles con el host, pero el host no podrá acceder al volumen.
+
+====
+
+
+ a| 
+`mapWaitPeriod`
+ a| 
+Bloquea la asignación hasta que es capaz de completar el comando o se agota el tiempo de espera para no afectar a la interacción. Si no se introduce un valor, el comportamiento predeterminado es conmutar la acción si el volumen no se puede asignar inmediatamente.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+7.83
+
+8.63 añade el parámetro mapWaitPeriod.

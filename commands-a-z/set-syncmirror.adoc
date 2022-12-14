@@ -1,0 +1,150 @@
+---
+permalink: commands-a-z/set-syncmirror.html 
+sidebar: sidebar 
+keywords: set, synchronous, mirror 
+summary: El comando set SyncMirror define las propiedades de una pareja reflejada remota. 
+---
+= Configure el mirroring síncrono
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `set syncMirror` el comando define las propiedades de una pareja reflejada remota.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+
+
+
+== Contexto
+
+[NOTE]
+====
+En las versiones anteriores de este comando, el identificador de función era `remoteMirror`. Este identificador de función ya no es válido y lo reemplaza `syncMirror`.
+
+====
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+set syncMirror (localVolume pass:quotes[[_volumeName_]] |
+localVolumes pass:quotes[[_volumeName1 ... volumeNameN_]])
+[role=(primary | secondary)]
+[syncPriority=(highest | high | medium | low | lowest)]
+[autoResync=(enabled | disabled)]
+[writeOrder=(preserved | notPreserved)]
+[writeMode=(synchronous | asynchronous)]
+[force=(TRUE | FALSE)]
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`localVolume`
+ a| 
+El nombre del volumen local para el cual se desean definir propiedades. El nombre del volumen primario debe escribirse entre corchetes ([ ]). Si el nombre del volumen primario contiene caracteres especiales o números, se debe escribir entre comillas dobles (" ") dentro de corchetes.
+
+
+
+ a| 
+`localVolumes`
+ a| 
+Los nombres de varios volúmenes locales para los cuales se desean definir propiedades. Los nombres de los volúmenes deben escribirse de acuerdo con estas reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Los nombres deben estar separados por un espacio.
+
+
+Si los nombres de los volúmenes contienen caracteres especiales o están compuestos solo por números, se deben introducir de acuerdo con las siguientes reglas:
+
+* Todos los nombres deben escribirse entre corchetes ([ ]).
+* Cada nombre debe escribirse entre comillas dobles (" ").
+* Los nombres deben estar separados por un espacio.
+
+
+
+
+ a| 
+`role`
+ a| 
+La configuración para que el volumen local actúe como el volumen primario o el volumen secundario. Para definir el volumen como primario, configure este parámetro en `primary`. Para definir el volumen como secundario, configure este parámetro en `secondary`. Este parámetro se aplica únicamente cuando el volumen forma parte de una relación de reflejo.
+
+
+
+ a| 
+`syncPriority`
+ a| 
+La prioridad de la sincronización completa con respecto a la actividad de I/o del host. Los valores válidos son `highest`, `high`, `medium`, `low`, o. `lowest`.
+
+
+
+ a| 
+`autoResync`
+ a| 
+La configuración para volver a realizar la sincronización automática entre los volúmenes primario y secundario de una pareja reflejada remota. Este parámetro admite los siguientes valores:
+
+* `enabled` -- se activa la resincronización automática. No es necesaria ninguna acción adicional para volver a sincronizar el volumen primario y el secundario.
+* `disabled` -- la resincronización automática está desactivada. Para volver a sincronizar los volúmenes primarios y el volumen secundario, se debe ejecutar el `resume syncMirror` comando.
+
+
+
+
+ a| 
+`writeOrder`
+ a| 
+Este parámetro define el orden de escritura para la transmisión de datos entre el volumen primario y el volumen secundario. Los valores válidos son `preserved` o. `notPreserved`.
+
+
+
+ a| 
+`writeMode`
+ a| 
+Este parámetro define de qué manera el volumen primario escribe en el volumen secundario. Los valores válidos son `synchronous` o. `asynchronous`.
+
+
+
+ a| 
+`force`
+ a| 
+La reversión de roles se fuerza cuando el enlace de comunicación entre las cabinas de almacenamiento no funciona, y la promoción o la degradación en el lado local generan una condición de rol primario o secundario duplicado. Para aplicar la reversión de roles, se debe configurar este parámetro en `TRUE`. El valor predeterminado es `FALSE`.
+
+[NOTE]
+====
+Utilice la `force` parámetro sólo cuando se utiliza `role` parámetro.
+
+====
+|===
+
+
+== Notas
+
+Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
+
+La prioridad de sincronización define la cantidad de recursos del sistema que se usan para sincronizar los datos entre los volúmenes primarios y los volúmenes secundarios de una relación de reflejos. Si se selecciona el nivel de prioridad más alto, la sincronización de datos utiliza la mayor cantidad de recursos del sistema para realizar la sincronización completa, lo que reduce el rendimiento para las transferencias de datos del host.
+
+La `writeOrder` el parámetro se aplica únicamente a modos de escritura asíncrona y hace que formen parte de un grupo de coherencia. Ajuste de `writeOrder` parámetro a. `preserved` hace que la pareja reflejada remota transmita datos del volumen primario al volumen secundario en el mismo orden que las escrituras del host en el volumen primario. Si el enlace de transmisión falla, los datos se guardan en búfer hasta que se puede realizar una sincronización completa. Esta acción puede implicar una sobrecarga adicional en el sistema para mantener los datos en búfer, lo cual ralentiza las operaciones. Ajuste de `writeOrder` parámetro a. `notPreserved` libera al sistema de tener que mantener datos en un búfer, pero requiere forzar una sincronización completa para garantizar que el volumen secundario tenga los mismos datos que el volumen primario.
+
+
+
+== Nivel de firmware mínimo
+
+6.10

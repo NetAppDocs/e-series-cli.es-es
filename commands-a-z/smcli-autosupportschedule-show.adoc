@@ -1,0 +1,81 @@
+---
+permalink: commands-a-z/smcli-autosupportschedule-show.html 
+sidebar: sidebar 
+keywords: display, autosupport, message, collection, schedule 
+summary: El comando SMcli -autoSupportSchedule show muestra la programación de recogida y procesamiento de mensajes de AutoSupport diarios y semanales. 
+---
+= Mostrar programación de recogida de mensajes de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `SMcli -autoSupportSchedule show` El comando muestra la programación de recogida y procesamiento de mensajes de AutoSupport diarios y semanales.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+
+
+
+== Contexto
+
+[NOTE]
+====
+Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de comandos. No es posible ejecutar este comando desde el editor de secuencia de comandos del software de administración del almacenamiento.
+
+====
+Se debe tener en cuenta lo siguiente con respecto a la programación de recogida automática de bundle de soporte:
+
+* Si AutoSupport está habilitado, el software de gestión envía mensajes diarios y semanales AutoSupport de AutoSupport.
+* El software de gestión selecciona de forma aleatoria una hora del día para los mensajes diarios y semanales, y un día de la semana para los mensajes semanales.
+* El software de gestión se asegura por todos los medios que no haya dos cabinas de almacenamiento dentro de un dominio de gestión que envíen mensajes programados de AutoSupport al mismo tiempo.
+* Con el `SMcli -autoSupportSchedule reset` comando, se puede especificar un rango (granularidad hora-nivel) de horas preferidas para el envío de mensajes diarios y semanales para las cabinas de almacenamiento en el dominio de gestión. Para la programación de mensajes semanales, se usa el comando para seleccionar el día de la semana preferido.
+
+
+
+
+== Sintaxis
+
+[listing]
+----
+SMcli -autoSupportSchedule show
+----
+
+
+== Parámetros
+
+Ninguno.
+
+
+
+== Nivel de firmware mínimo
+
+8.25
+
+
+
+== Ejemplo
+
+El resultado muestra los rangos de horas preferidos, seguidos por la programación diaria y semanal.
+
+[NOTE]
+====
+Si no se indican preferencias para los rangos de horas y los días de la semana en ambas programaciones, el comando muestra la programación diaria y la programación semanal que el software de administración del almacenamiento eligió aleatoriamente.
+
+====
+[listing]
+----
+SMcli -autoSupportSchedule show
+The AutoSupport daily schedule preferred time range is from 12:00 AM to 01:00 AM.
+The AutoSupport weekly schedule preferred time range is from 10:00 PM to 11:00 PM on Thursday, Saturday.
+
+Name           Daily Schedule         Weekly Schedule
+Accounting     12:55 AM               10:08 PM on Thursdays
+Finance        12:02 AM               10:30 PM on Saturdays
+
+SMcli completed successfully.
+----
