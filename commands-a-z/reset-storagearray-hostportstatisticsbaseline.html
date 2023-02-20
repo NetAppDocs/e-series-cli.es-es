@@ -1,0 +1,5634 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" />
+	<meta property="og:description" content="El comando reset storageArray hostPortStatisticsBaseline restablece la base de estadística del puerto de host de la cabina de almacenamiento." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/e-series-cli/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="El comando reset storageArray hostPortStatisticsBaseline restablece la base de estadística del puerto de host de la cabina de almacenamiento.">
+  <meta name="keywords" content=" reset, storage array, host, port, statistics, baseline"><!-- Icons -->
+  <link rel="icon" href="/es-es/e-series-cli/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/e-series-cli/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/e-series-cli/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/e-series-cli/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/e-series-cli/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/e-series-cli/js/na-search.js'></script><script src='/es-es/e-series-cli/js/na-pagenav.js'></script><script src='/es-es/e-series-cli/js/na-utility.js'></script>
+  <script src='/es-es/e-series-cli/js/clouddocs.js'></script>
+  <script src='/es-es/e-series-cli/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/e-series-cli/js/toc.js'></script>
+  <script src='/es-es/e-series-cli/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/e-series-cli"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/e-series-cli/js/custom-dropdown.js'></script>
+  <script src='/es-es/e-series-cli/js/FileSaver.min.js'></script>
+  <script src='/es-es/e-series-cli/js/jszip-utils.min.js'></script>
+  <script src='/es-es/e-series-cli/js/jszip.min.js'></script>
+  <script src='/es-es/e-series-cli/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/e-series-cli/issues/new?body=Page%3A%20[Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento](https://docs.netapp.com/es-es/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/e-series-cli/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/e-series-cli/blob/main/commands-a-z/reset-storagearray-hostportstatisticsbaseline.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/e-series-cli/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/e-series-cli/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/e-series-cli/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/e-series-cli/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/e-series-cli/pdfs/fullsite-sidebar/Comandos_de_administrador_del_sistema_de_SANtricity.pdf" >
+          <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Formato_de_comandos.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Formato de comandos
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Estructura_de_la_CLI.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Estructura de la CLI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Estructura_de_comandos_de_script.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Estructura de comandos de script
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Reglas_de_formato.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Reglas de formato
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Comandos_por_categoría.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Comandos por categoría
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/Comandos_A_Z.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            Comandos A-Z
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/A_.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            A.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/C.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            C
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/D.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            D
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/E.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            E
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/G.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            G
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/YO.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            YO
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/L.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            L
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/R.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            R
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/S.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            S
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/guardar___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            guardar...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/establecer___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            establecer...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/mostrar___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            mostrar...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/smcli___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            smcli...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/iniciar___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            iniciar...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/detener___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            detener...
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/suspender___.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            suspender...
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/e-series-cli/pdfs/sidebar/V.pdf" 
+            
+          >
+            <img src="/es-es/e-series-cli/images/pdf.png" alt="" width="16" height="16"/>
+            V
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/e-series-cli/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de la CLI de SANtricity"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/index.html">
+        Documentos de la CLI de SANtricity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Novedades"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/whats-new.html">
+        Novedades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Formato de comandos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Formato de comandos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/overview-format-commands.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Estructura de la CLI"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Estructura de la CLI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Estructura de los comandos de la CLI"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/structure-of-a-cli-command.html">
+        Estructura de los comandos de la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modo interactivo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/interactive-mode.html">
+        Modo interactivo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sintaxis de contenedores de la CLI"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/cli-command-wrapper-syntax.html">
+        Sintaxis de contenedores de la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descarga de parámetros SMcli"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/downloadable-smcli-parameters.html">
+        Descarga de parámetros SMcli
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros de la CLI heredada"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/command-line-parameters.html">
+        Parámetros de la CLI heredada
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Estructura de comandos de script"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Estructura de comandos de script</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Estructura de un comando de script"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/structure-of-a-script-command.html">
+        Estructura de un comando de script
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sinopsis de comandos de script"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/synopsis-of-the-script-commands.html">
+        Sinopsis de comandos de script
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Elementos de sintaxis recurrente"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/recurring-syntax-elements.html">
+        Elementos de sintaxis recurrente
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Convenciones de nomenclatura"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/naming-conventions.html">
+        Convenciones de nomenclatura
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reglas de formato"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Reglas de formato</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de la CLI"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/formatting-cli-commands.html">
+        Comandos de la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de script"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/formatting-rules-for-script-commands.html">
+        Comandos de script
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Windows PowerShell"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/formatting-cli-commands-in-windows-powershell.html">
+        Windows PowerShell
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Informes de error detallados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/detailed-error-reporting.html">
+        Informes de error detallados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Estado de cierre"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/exit-status.html">
+        Estado de cierre
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agregar comentarios a un archivo de script"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/adding-comments-to-a-script-file.html">
+        Agregar comentarios a un archivo de script
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Directrices de comandos de script"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/usage-guidelines.html">
+        Directrices de comandos de script
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Niveles de compatibilidad de firmware"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/firmware-compatibility-levels.html">
+        Niveles de compatibilidad de firmware
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modo https de SMcli"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/new-https-mode.html">
+        Modo https de SMcli
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migración de grupo de volúmenes"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/get-started/learn-about-volume-group-migration.html">
+        Migración de grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos por categoría"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Comandos por categoría</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos para administradores"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/administrator-commands.html">
+        Comandos para administradores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de configuración de alertas"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/alert-configuration-commands.html">
+        Comandos de configuración de alertas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de configuración de la cabina"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/array-configuration-commands.html">
+        Comandos de configuración de la cabina
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de Auto Support"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/auto-support-commands.html">
+        Comandos de Auto Support
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de mirroring"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/mirroring-commands.html">
+        Comandos de mirroring
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de ajuste del rendimiento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/performance-tuning-commands.html">
+        Comandos de ajuste del rendimiento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de replicación"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/replication-commands.html">
+        Comandos de replicación
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de seguridad"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/security-commands.html">
+        Comandos de seguridad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos para personal de supervisión de almacenamiento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/storage-monitor-personal-commands.html">
+        Comandos para personal de supervisión de almacenamiento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de configuración del volumen"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-category/volume-configuration-commands.html">
+        Comandos de configuración del volumen
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos A-Z"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Comandos A-Z</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="A."
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> A.</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="active el mirroring asíncrono"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/activate-asynchronous-mirroring.html">
+        active el mirroring asíncrono
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="activar storagearray firmware"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/activate-storagearray-firmware.html">
+        activar storagearray firmware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="activar el mirroring síncrono"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/activate-synchronous-mirroring.html">
+        activar el mirroring síncrono
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="añadir etiqueta de cabina"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/add-array-label.html">
+        añadir etiqueta de cabina
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="añadir certificado desde cabina"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/add-certificate-from-array.html">
+        añadir certificado desde cabina
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="añadir certificado desde archivo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/add-certificate-from-file.html">
+        añadir certificado desde archivo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="añada unidades a la caché ssd"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/add-drives-to-ssd-cache.html">
+        añada unidades a la caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="añadir espejo de grupos de trabajo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/add-volume-asyncmirrorgroup.html">
+        añadir espejo de grupos de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="autoconfigure storagearray hotspares"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/autoconfigure-storagearray-hotspares.html">
+        autoconfigure storagearray hotspares
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="autoconfigure storagearray"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/autoconfigure-storagearray.html">
+        autoconfigure storagearray
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="C"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> C</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cambie el tipo de aplicación de la caché ssd"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/change-ssd-cache-application-type.html">
+        cambie el tipo de aplicación de la caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="compruebe la coherencia de la réplica del grupo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/check-asyncmirrorgroup-repositoryconsistency.html">
+        compruebe la coherencia de la réplica del grupo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="compruebe la coherencia repository"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/check-repositoryconsistency.html">
+        compruebe la coherencia repository
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="comprobar storagearray connectivity"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/check-storagearray-connectivity.html">
+        comprobar storagearray connectivity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="compruebe SyncMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/check-syncmirror.html">
+        compruebe SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="comprobar la paridad de un volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/check-volume-parity.html">
+        comprobar la paridad de un volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borre las estadísticas de aldrivechannels"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-alldrivechannels-stats.html">
+        borre las estadísticas de aldrivechannels
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar réplica de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-asyncmirrorfault.html">
+        borrar réplica de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar configuración de alerta de correo electrónico"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-emailalert-configuration.html">
+        borrar configuración de alerta de correo electrónico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar configuración storagearray"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-storagearray-configuration.html">
+        borrar configuración storagearray
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar storagearray eventlog"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-storagearray-eventlog.html">
+        borrar storagearray eventlog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="clear storagearray firmwarependingarea"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-storagearray-firmwarependingarea.html">
+        clear storagearray firmwarependingarea
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borre storagearray recoverymode"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-storagearray-recoverymode.html">
+        borre storagearray recoverymode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar configuración de syslog"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-syslog-configuration.html">
+        borrar configuración de syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar reservas de volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-volume-reservations.html">
+        borrar reservas de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borre los deslectores de volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/clear-volume-unreadablesectors.html">
+        borre los deslectores de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree un grupo de trabajo de establish asyncmirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-asyncmirrorgroup.html">
+        cree un grupo de trabajo de establish asyncmirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear cgsnapimage consistencygroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-cgsnapimage-consistencygroup.html">
+        crear cgsnapimage consistencygroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree cgsnapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-cgsnapvolume.html">
+        cree cgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear consistencygroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-consistencygroup.html">
+        crear consistencygroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree diskpool"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-diskpool.html">
+        cree diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear host"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-host.html">
+        crear host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear grupo de hostgroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-hostgroup.html">
+        crear grupo de hostgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree un puerto de host"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-hostport.html">
+        cree un puerto de host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree el iniciador"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-initiator.html">
+        cree el iniciador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree el iniciador iscsi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-iscsiinitiator.html">
+        cree el iniciador iscsi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree la asignación cgsnapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-mapping-cgsnapvolume.html">
+        cree la asignación cgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear volumen de asignación"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-mapping-volume.html">
+        crear volumen de asignación
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear selección automática de volumen raid"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-raid-volume-automatic-drive-select.html">
+        crear selección automática de volumen raid
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree un volumen raid de extensión libre basado en extensiones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-raid-volume-free-extent-based-select.html">
+        cree un volumen raid de extensión libre basado en extensiones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear la selección manual de volumen raid"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-raid-volume-manual-drive-select.html">
+        crear la selección manual de volumen raid
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear volumen snapshot de solo lectura"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-read-only-snapshot-volume.html">
+        crear volumen snapshot de solo lectura
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree snapgroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snapgroup.html">
+        cree snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree imágenes snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snapimage.html">
+        cree imágenes snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear un volumen snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snapshot-volume.html">
+        crear un volumen snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree la comunidad snmpcommunity"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snmpcommunity.html">
+        cree la comunidad snmpcommunity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree snmptrapdestination"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snmptrapdestination.html">
+        cree snmptrapdestination
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree el nombre de usuario snmpuser"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-snmpuser-username.html">
+        cree el nombre de usuario snmpuser
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear ssdcache"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-ssdcache.html">
+        crear ssdcache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree storagearray directoryserver"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-storagearray-directoryserver.html">
+        cree storagearray directoryserver
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree storagearray securitykey"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-storagearray-securitykey.html">
+        cree storagearray securitykey
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree storagearray syslog"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-storagearray-syslog.html">
+        cree storagearray syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree SyncMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-syncmirror.html">
+        cree SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree un volumen diskpool"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-volume-diskpool.html">
+        cree un volumen diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cree volumecopy"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-volumecopy.html">
+        cree volumecopy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="crear grupo de volúmenes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/create-volumegroup.html">
+        crear grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="D"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> D</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="desactivar storagearray feature"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/deactivate-storagearray-feature.html">
+        desactivar storagearray feature
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="desactivar storagearray"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/deactivate-storagearray.html">
+        desactivar storagearray
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar grupos de mirroring de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-asyncmirrorgroup.html">
+        eliminar grupos de mirroring de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar registro de auditoría"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-auditlog.html">
+        eliminar registro de auditoría
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar certificados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-certificates.html">
+        eliminar certificados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="borrar cgsnapimage consistencygroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-cgsnapimage-consistencygroup.html">
+        borrar cgsnapimage consistencygroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar consistencygroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-consistencygroup.html">
+        eliminar consistencygroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el cacotertificado del controlador"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-controller-cacertificate.html">
+        elimine el cacotertificado del controlador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar diskpool"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-diskpool.html">
+        eliminar diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar alerta de correo electrónico"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-emailalert.html">
+        eliminar alerta de correo electrónico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar host"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-host.html">
+        eliminar host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el grupo de hosts"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-hostgroup.html">
+        elimine el grupo de hosts
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el puerto de host"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-hostport.html">
+        elimine el puerto de host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el iniciador"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-initiator.html">
+        elimine el iniciador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el iniciador iscsi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-iscsiinitiator.html">
+        elimine el iniciador iscsi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine sgsnapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-sgsnapvolume.html">
+        elimine sgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar grupo de snapgroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snapgroup.html">
+        eliminar grupo de snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar imagen instantánea"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snapimage.html">
+        eliminar imagen instantánea
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el volumen snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snapvolume.html">
+        elimine el volumen snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine la comunidad snmpcommunity"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snmpcommunity.html">
+        elimine la comunidad snmpcommunity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar snmptrapdestination"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snmptrapdestination.html">
+        eliminar snmptrapdestination
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el nombre de usuario snmpuser"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-snmpuser-username.html">
+        elimine el nombre de usuario snmpuser
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar ssdcache"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-ssdcache.html">
+        eliminar ssdcache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine servidores storagearray directory"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-storagearray-directoryservers.html">
+        elimine servidores storagearray directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine storagearray keymanagementcertificate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-storagearray-keymanagementcertificate.html">
+        elimine storagearray keymanagementcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="delete storagearray loginbanner"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-storagearray-loginbanner.html">
+        delete storagearray loginbanner
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine storagearray syslog"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-storagearray-syslog.html">
+        elimine storagearray syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine storagearray trustedcertificate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-storagearray-trustedcertificate.html">
+        elimine storagearray trustedcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine syslog"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-syslog.html">
+        elimine syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el volumen del pool de discos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-volume-from-disk-pool.html">
+        elimine el volumen del pool de discos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine el volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-volume.html">
+        elimine el volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="elimine un grupo de volúmenes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/delete-volumegroup.html">
+        elimine un grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="diagnosticar el espejo de grupo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/diagnose-asyncmirrorgroup.html">
+        diagnosticar el espejo de grupo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="diagnosticar el puerto de host de iscside la controladora"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/diagnose-controller-iscsihostport.html">
+        diagnosticar el puerto de host de iscside la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="diagnosticar controladora"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/diagnose-controller.html">
+        diagnosticar controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="diagnosticar SyncMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/diagnose-syncmirror.html">
+        diagnosticar SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="deshabilite el archivo de gestión de claves storagearray external2"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/disable-storagearray-externalkeymanagement-file.html">
+        deshabilite el archivo de gestión de claves storagearray external2
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="deshabilitar storagearray"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/disable-storagearray.html">
+        deshabilitar storagearray
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargar el certificado controller arraymanagementservercertificate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-controller-arraymanagementservercertificate.html">
+        descargar el certificado controller arraymanagementservercertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue el cacoertificado del controlador"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-controller-cacertificate.html">
+        descargue el cacoertificado del controlador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue el certificado de confianza del controlador"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-controller-trustedcertificate.html">
+        descargue el certificado de confianza del controlador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue el firmware de la unidad"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-drive-firmware.html">
+        descargue el firmware de la unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue el archivo storagearray drivefirmware"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-storagearray-drivefirmware-file.html">
+        descargue el archivo storagearray drivefirmware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue storagearray firmware"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-storagearray-firmware.html">
+        descargue storagearray firmware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue storagearray keymanagementcertificate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-storagearray-keymanagementcertificate.html">
+        descargue storagearray keymanagementcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue storagearray nvsram"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-storagearray-nvsram.html">
+        descargue storagearray nvsram
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue los ajustes de configuración de la bandeja"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-tray-configurationsettings.html">
+        descargue los ajustes de configuración de la bandeja
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="descargue el archivo de firmware del soporte"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/download-tray-firmware-file.html">
+        descargue el archivo de firmware del soporte
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="E"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> E</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite la transferencia de datos de la controladora"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-controller-datatransfer.html">
+        habilite la transferencia de datos de la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite la seguridad de diskpool"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-diskpool-security.html">
+        habilite la seguridad de diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite o deshabilite cabinas individuales de AutoSupport"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-or-disable-autosupport-individual-arrays.html">
+        habilite o deshabilite cabinas individuales de AutoSupport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite el archivo de gestión de claves storagearray external"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-storagearray-externalkeymanagement-file.html">
+        habilite el archivo de gestión de claves storagearray external
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite el archivo storagearray feature"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-storagearray-feature-file.html">
+        habilite el archivo storagearray feature
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="habilite la seguridad de grupo de volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/enable-volumegroup-security.html">
+        habilite la seguridad de grupo de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establecer el volumen de reflejos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/establish-asyncmirror-volume.html">
+        establecer el volumen de reflejos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="export storagearray securitykey"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/export-storagearray-securitykey.html">
+        export storagearray securitykey
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="G"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> G</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="introducción a la autenticación"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/getting-started-with-authentication.html">
+        introducción a la autenticación
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="introducción a la gestión de claves externas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/getting-started-with-external-key-management.html">
+        introducción a la gestión de claves externas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="introducción a la gestión de claves internas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/getting-started-with-internal-key-management.html">
+        introducción a la gestión de claves internas
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="YO"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> YO</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="importe el archivo de claves securitykey"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/import-storagearray-securitykey-file.html">
+        importe el archivo de claves securitykey
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="L"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> L</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="load storagearray dbmdatabase"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/load-storagearray-dbmdatabase.html">
+        load storagearray dbmdatabase
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="R"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> R</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="volver a copiar objetivo de copia de volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recopy-volumecopy-target.html">
+        volver a copiar objetivo de copia de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="recupere unidades deshabilitadas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recover-disabled-driveports.html">
+        recupere unidades deshabilitadas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="recupere el cableado incorrecto de sasport"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recover-sasport-miswire.html">
+        recupere el cableado incorrecto de sasport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="recuperar volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recover-volume.html">
+        recuperar volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vuelva a crear storagearray mirrorrepository"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recreate-storagearray-mirrorrepository.html">
+        vuelva a crear storagearray mirrorrepository
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vuelva a crear storagearray securitykey"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/recreate-storagearray-securitykey.html">
+        vuelva a crear storagearray securitykey
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reducir capacidad de pool de discos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reduce-disk-pool-capacity.html">
+        reducir capacidad de pool de discos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite la etiqueta de cabina"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-array-label.html">
+        quite la etiqueta de cabina
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar grupos de trabajo de la cuenta de trabajo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-asyncmirrorgroup.html">
+        eliminar grupos de trabajo de la cuenta de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite las unidades de caché ssd"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-drives-from-ssd-cache.html">
+        quite las unidades de caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="eliminar lunmapping"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-lunmapping.html">
+        eliminar lunmapping
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite el volumen miembro del grupo de coherencia"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-member-volume-from-consistency-group.html">
+        quite el volumen miembro del grupo de coherencia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite el servidor storagearray directory"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-storagearray-directoryserver.html">
+        quite el servidor storagearray directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite SyncMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-syncmirror.html">
+        quite SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite el espejo de grupos de trabajo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-volume-asyncmirrorgroup.html">
+        quite el espejo de grupos de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="quite volumecopy target"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/remove-volumecopy-target.html">
+        quite volumecopy target
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="cambie el nombre de la caché ssd"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/rename-ssd-cache.html">
+        cambie el nombre de la caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="repare la paridad de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/repair-data-parity.html">
+        repare la paridad de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="repare la paridad de un volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/repair-volume-parity.html">
+        repare la paridad de un volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="sustituya la unidad replacementdrive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/replace-drive-replacementdrive.html">
+        sustituya la unidad replacementdrive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer certificado controller arraymanagementedenedcertificate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-controller-arraymanagementsignedcertificate.html">
+        restablecer certificado controller arraymanagementedenedcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablezca la controladora"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-controller.html">
+        restablezca la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablezca una unidad"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-drive.html">
+        restablezca una unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer iscsiipaddress"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-iscsiipaddress.html">
+        restablecer iscsiipaddress
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reset storagearray arvmstats mirrorgroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-arvmstats-asyncmirrorgroup.html">
+        reset storagearray arvmstats mirrorgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer storagearray AutoSupport schedule"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-autosupport-schedule.html">
+        restablecer storagearray AutoSupport schedule
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer storagearray diagnosticdata"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-diagnosticdata.html">
+        restablecer storagearray diagnosticdata
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reset storagearray hostportestadístico sbaseline"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-hostportstatisticsbaseline.html">
+        reset storagearray hostportestadístico sbaseline
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablece la base storagearray ibstatsbaseline"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-ibstatsbaseline.html">
+        restablece la base storagearray ibstatsbaseline
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reset storagearray iscsistatsbase"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-iscsistatsbaseline.html">
+        reset storagearray iscsistatsbase
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablece la línea de base storagearray iserstatsbaseline"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-iserstatsbaseline.html">
+        restablece la línea de base storagearray iserstatsbaseline
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer la línea de base para storagearray rlsbaseline"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-rlsbaseline.html">
+        restablecer la línea de base para storagearray rlsbaseline
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablece storagearray sasfixia"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-sasphybaseline.html">
+        restablece storagearray sasfixia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablece la base storagearray socbaseline"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-socbaseline.html">
+        restablece la base storagearray socbaseline
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecer storagearray volumedistribution"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/reset-storagearray-volumedistribution.html">
+        restablecer storagearray volumedistribution
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanudar grupos de trabajo de la comunidad"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-asyncmirrorgroup.html">
+        reanudar grupos de trabajo de la comunidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanude el cgsnapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-cgsnapvolume.html">
+        reanude el cgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanudar reversión de imágenes snapimage"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-snapimage-rollback.html">
+        reanudar reversión de imágenes snapimage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanudar el snapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-snapvolume.html">
+        reanudar el snapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanudar la ssdcache"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-ssdcache.html">
+        reanudar la ssdcache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reanudar SyncMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/resume-syncmirror.html">
+        reanudar SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reactivar unidad"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/revive-drive.html">
+        reactivar unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reactivar el grupo de snapgroup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/revive-snapgroup.html">
+        reactivar el grupo de snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="recupere snapvolume"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/revive-snapvolume.html">
+        recupere snapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="reactivar grupo de volúmenes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/revive-volumegroup.html">
+        reactivar grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="S"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> S</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> guardar...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el archivo de registro de todas las unidades"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-alldrives-logfile.html">
+        guarde el archivo de registro de todas las unidades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar archivo de registro de allcays"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-alltrays-logfile.html">
+        guardar archivo de registro de allcays
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde auditlog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-auditlog.html">
+        guarde auditlog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar controller arraymanagementcsr"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-controller-arraymanagementcsr.html">
+        guardar controller arraymanagementcsr
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el certificado controller arraymanagementedenedcertificate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-controller-arraymanagementsignedcertificate.html">
+        guarde el certificado controller arraymanagementedenedcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el cacao del controlador"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-controller-cacertificate.html">
+        guarde el cacao del controlador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el archivo nvsram de la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-controller-nvsram-file.html">
+        guarde el archivo nvsram de la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el archivo de comandos de drivechannel"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-drivechannel-faultdiagnostics-file.html">
+        guarde el archivo de comandos de drivechannel
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar ioclog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-ioclog.html">
+        guardar ioclog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde los datos de diagnóstico de la cabina de almacenamiento"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storage-array-diagnostic-data.html">
+        guarde los datos de diagnóstico de la cabina de almacenamiento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray arvmstats mirrorgroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-arvmstats-asyncmirrorgroup.html">
+        save storagearray arvmstats mirrorgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el archivo storagearray autoloadbalancestatistics"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-autoloadbalancestatistics-file.html">
+        guarde el archivo storagearray autoloadbalancestatistics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar storagearray AutoSupport log"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-autosupport-log.html">
+        guardar storagearray AutoSupport log
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar storagearray configuration"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-configuration.html">
+        guardar storagearray configuration
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray healthcontroller image"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-controllerhealthimage.html">
+        guarde storagearray healthcontroller image
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray dbmdatabase"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-dbmdatabase.html">
+        save storagearray dbmdatabase
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray dbmvalidatdatorinfo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-dbmvalidatorinfo.html">
+        save storagearray dbmvalidatdatorinfo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray firmwareinventory"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-firmwareinventory.html">
+        guarde storagearray firmwareinventory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray hostportstatistics"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-hostportstatistics.html">
+        save storagearray hostportstatistics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray ibstats"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-ibstats.html">
+        guarde storagearray ibstats
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray iscsistatistics"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-iscsistatistics.html">
+        guarde storagearray iscsistatistics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray iserstatistics"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-iserstatistics.html">
+        guarde storagearray iserstatistics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar storagearray keymanagementcertificate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-keymanagementcertificate.html">
+        guardar storagearray keymanagementcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray keymanagementclientcsr"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-keymanagementclientcsr.html">
+        save storagearray keymanagementclientcsr
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray loginbanner"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-loginbanner.html">
+        guarde storagearray loginbanner
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="save storagearray performancestats"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-performancestats.html">
+        save storagearray performancestats
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray rlscounts"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-rlscounts.html">
+        guarde storagearray rlscounts
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar storagearray sasfixiados"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-sasphycounts.html">
+        guardar storagearray sasfixiados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guardar storagearray soccounts"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-soccounts.html">
+        guardar storagearray soccounts
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray statecapture"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-statecapture.html">
+        guarde storagearray statecapture
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray supportdata"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-supportdata.html">
+        guarde storagearray supportdata
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde el certificado storagearray trustedcertificate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-trustedcertificate.html">
+        guarde el certificado storagearray trustedcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="guarde storagearray warningevents"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/save-storagearray-warningevents.html">
+        guarde storagearray warningevents
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establecer..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> establecer...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca el grupos de trabajo de la cuenta de trabajo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-asyncmirrorgroup.html">
+        establezca el grupos de trabajo de la cuenta de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure auditlog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-auditlog.html">
+        configure auditlog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el método de entrega https de AutoSupport e2800 o e5700"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-autosupport-https-delivery-method-e2800-e5700.html">
+        configure el método de entrega https de AutoSupport e2800 o e5700
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ajustar cgsnapvolume"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-cgsnapvolume.html">
+        ajustar cgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure los atributos del grupo de coherencia"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-consistency-group-attributes.html">
+        configure los atributos del grupo de coherencia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set consistencygroup addcgagervolume"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-consistencygroup-addcgmembervolume.html">
+        set consistencygroup addcgagervolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca los servidores dnscontroller"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller-dnsservers.html">
+        establezca los servidores dnscontroller
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el puerto de host de la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller-hostport.html">
+        configure el puerto de host de la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure controller iscsihostport"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller-iscsihostport.html">
+        configure controller iscsihostport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca controller ntpservers"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller-ntpservers.html">
+        establezca controller ntpservers
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar indicador de permiso de acción de servicio de la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller-service-action-allowed-indicator.html">
+        configurar indicador de permiso de acción de servicio de la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-controller.html">
+        configure la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar pool de discos modificar pool de discos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-disk-pool-modify-disk-pool.html">
+        configurar pool de discos modificar pool de discos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el pool de discos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-disk-pool.html">
+        configure el pool de discos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar pieza de repuesto de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drive-hotspare.html">
+        configurar pieza de repuesto de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establecer unidad nativestate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drive-nativestate.html">
+        establecer unidad nativestate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar el estado de funcionamiento de la unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drive-operationalstate.html">
+        configurar el estado de funcionamiento de la unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure drive securityid"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drive-securityid.html">
+        configure drive securityid
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el indicador de servicio de la unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drive-serviceallowedindicator.html">
+        configure el indicador de servicio de la unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ajuste la transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-drivechannel.html">
+        ajuste la transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca el método de entrega de correo electrónico smtp e2800 o e5700"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-email-smtp-delivery-method-e2800-e5700.html">
+        establezca el método de entrega de correo electrónico smtp e2800 o e5700
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establecer alerta de correo electrónico"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-emailalert.html">
+        establecer alerta de correo electrónico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure la alerta de evento"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-event-alert.html">
+        configure la alerta de evento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el host"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-host.html">
+        configure el host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure hostchannel"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-hostchannel.html">
+        configure hostchannel
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el grupo de hostgroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-hostgroup.html">
+        configure el grupo de hostgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el puerto de host"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-hostport.html">
+        configure el puerto de host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el iniciador"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-initiator.html">
+        configure el iniciador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure iscsiinitiator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-iscsiinitiator.html">
+        configure iscsiinitiator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set issitarget"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-iscsitarget.html">
+        set issitarget
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca isertarget"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-isertarget.html">
+        establezca isertarget
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure session erroraction"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-session-erroraction.html">
+        configure session erroraction
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ajuste la programación de la habilitación del grupo de snapgroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapgroup-enableschedule.html">
+        ajuste la programación de la habilitación del grupo de snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set snapgroup increase decreaseepoywatercapacity"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapgroup-increase-decreaserepositorycapacity.html">
+        set snapgroup increase decreaseepoywatercapacity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca el grupo de snapgroup mediascanenabled"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapgroup-mediascanenabled.html">
+        establezca el grupo de snapgroup mediascanenabled
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el grupo de snapgroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapgroup.html">
+        configure el grupo de snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure snapvolume converttoreadwrite"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapvolume-converttoreadwrite.html">
+        configure snapvolume converttoreadwrite
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set snapvolume increase decreaseepoywatercapacity"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapvolume-increase-decreaserepositorycapacity.html">
+        set snapvolume increase decreaseepoywatercapacity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ajuste el volumen mediascanenabled"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapvolume-mediascanenabled.html">
+        ajuste el volumen mediascanenabled
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el volumen de snapshots"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snapvolume.html">
+        configure el volumen de snapshots
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca snmpcommunity"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snmpcommunity.html">
+        establezca snmpcommunity
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca snmpsystemvariables"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snmpsystemvariables.html">
+        establezca snmpsystemvariables
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca snmptraprecdestination trapreceiverip"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snmptrapdestination-trapreceiverip.html">
+        establezca snmptraprecdestination trapreceiverip
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca el nombre de usuario snmpuser"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-snmpuser-username.html">
+        establezca el nombre de usuario snmpuser
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray autoloadbalancingenable"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-autoloadbalancingenable.html">
+        configure storagearray autoloadbalancingenable
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray AutoSupport schedule"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-autosupport-schedule.html">
+        configurar storagearray AutoSupport schedule
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray autosupportmaenancewindow"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-autosupportmaintenancewindow.html">
+        set storagearray autosupportmaenancewindow
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray autosupportondemand"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-autosupportondemand.html">
+        configure storagearray autosupportondemand
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray autosupportremotediag"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-autosupportremotediag.html">
+        configure storagearray autosupportremotediag
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray cachemirrordatananceckenable"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-cachemirrordataassurancecheckenable.html">
+        set storagearray cachemirrordatananceckenable
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray healthimagecontrolallowoverwrite"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-controllerhealthimageallowoverwrite.html">
+        set storagearray healthimagecontrolallowoverwrite
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure los roles del servidor storagearray directory"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-directoryserver-roles.html">
+        configure los roles del servidor storagearray directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray directoryserver"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-directoryserver.html">
+        set storagearray directoryserver
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray externalkeymanagement"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-externalkeymanagement.html">
+        set storagearray externalkeymanagement
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca storagearray hostconnectivtireporting"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-hostconnectivityreporting.html">
+        establezca storagearray hostconnectivtireporting
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray icmpppingresponse"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-icmppingresponse.html">
+        set storagearray icmpppingresponse
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray isnsipv4configurationmethod"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-isnsipv4configurationmethod.html">
+        set storagearray isnsipv4configurationmethod
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray isnsipv6address"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-isnsipv6address.html">
+        set storagearray isnsipv6address
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca storagearray isnslisteningport"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-isnslisteningport.html">
+        establezca storagearray isnslisteningport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca storagearray isnsregistration"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-isnsregistration.html">
+        establezca storagearray isnsregistration
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca storagearray isnsserverrefresh"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-isnsserverrefresh.html">
+        establezca storagearray isnsserverrefresh
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray learncycledate controller"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-learncycledate-controller.html">
+        set storagearray learncycledate controller
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray localusername"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-localusername.html">
+        configurar storagearray localusername
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray loginbanner"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-loginbanner.html">
+        set storagearray loginbanner
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray managementinterfaz"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-managementinterface.html">
+        set storagearray managementinterfaz
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray odxenabled"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-odxenabled.html">
+        configure storagearray odxenabled
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray passwordlength"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-passwordlength.html">
+        configurar storagearray passwordlength
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray pqvalidateonreconstruct"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-pqvalidateonreconstruct.html">
+        configure storagearray pqvalidateonreconstruct
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray redundancymode"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-redundancymode.html">
+        configure storagearray redundancymode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray resourceaprovisionedvolumes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-resourceprovisionedvolumes.html">
+        configure storagearray resourceaprovisionedvolumes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray revocationchecksettings"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-revocationchecksettings.html">
+        configure storagearray revocationchecksettings
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray securitykey"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-securitykey.html">
+        configure storagearray securitykey
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray syslog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-syslog.html">
+        configurar storagearray syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray time"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-time.html">
+        configurar storagearray time
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray trayposiciones"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-traypositions.html">
+        configurar storagearray trayposiciones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure storagearray unnameddiscoverysession"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-unnameddiscoverysession.html">
+        configure storagearray unnameddiscoverysession
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configurar storagearray usersession"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-usersession.html">
+        configurar storagearray usersession
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray vaaienabled"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray-vaaienabled.html">
+        set storagearray vaaienabled
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="set storagearray"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-storagearray.html">
+        set storagearray
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establezca SyncMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-syncmirror.html">
+        establezca SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure syslog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-syslog.html">
+        configure syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="establecer objetivo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-target.html">
+        establecer objetivo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure atributos de volumen fino"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-thin-volume-attributes.html">
+        configure atributos de volumen fino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure atributo de soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-tray-attribute.html">
+        configure atributo de soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el cajón de soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-tray-drawer.html">
+        configure el cajón de soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure la identificación de soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-tray-identification.html">
+        configure la identificación de soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el indicador de servicio del soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-tray-serviceallowedindicator.html">
+        configure el indicador de servicio del soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure atributos de grupo de volúmenes para el volumen de un grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volume-group-attributes-for-volume-in-a-volume-group.html">
+        configure atributos de grupo de volúmenes para el volumen de un grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure volume logicalunitnumber"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volume-logicalunitnumber.html">
+        configure volume logicalunitnumber
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure volume ssdcacheenabled"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volume-ssdcacheenabled.html">
+        configure volume ssdcacheenabled
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure volumecopy target"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volumecopy-target.html">
+        configure volumecopy target
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure el estado forcedstate del grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volumegroup-forcedstate.html">
+        configure el estado forcedstate del grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure un grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volumegroup.html">
+        configure un grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="configure los volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/set-volumes.html">
+        configure los volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> mostrar...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra el progreso de descarga de todas las unidades"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-alldrives-downloadprogress.html">
+        muestra el progreso de descarga de todas las unidades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar allunidades performancestats"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-alldrives-performancestats.html">
+        mostrar allunidades performancestats
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar todas las unidades"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-alldrives.html">
+        mostrar todas las unidades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra allhostports"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-allhostports.html">
+        muestra allhostports
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar allsnmpcomunitarias"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-allsnmpcommunities.html">
+        mostrar allsnmpcomunitarias
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar allsnmpusers"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-allsnmpusers.html">
+        mostrar allsnmpusers
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar etiqueta de cabina"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-array-label.html">
+        mostrar etiqueta de cabina
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar resumen de grupos de trabajo de síntesis"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-asyncmirrorgroup-summary.html">
+        mostrar resumen de grupos de trabajo de síntesis
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar el progreso de sincronismo de grupos de trabajo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-asyncmirrorgroup-synchronizationprogress.html">
+        mostrar el progreso de sincronismo de grupos de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra la configuración de auditlog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-auditlog-configuration.html">
+        muestra la configuración de auditlog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar resumen de registro de auditoría"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-auditlog-summary.html">
+        mostrar resumen de registro de auditoría
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar blockedeventalertlist"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-blockedeventalertlist.html">
+        mostrar blockedeventalertlist
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar certificados"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-certificates.html">
+        mostrar certificados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra cgsnapimage"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-cgsnapimage.html">
+        muestra cgsnapimage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar consistencygroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-consistencygroup.html">
+        mostrar consistencygroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra un resumen de certificados de controller arraymanagementedenedcertificate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-controller-arraymanagementsignedcertificate-summary.html">
+        muestra un resumen de certificados de controller arraymanagementedenedcertificate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra el cacertificado del controlador"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-controller-cacertificate.html">
+        muestra el cacertificado del controlador
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra el estado de diagnóstico de la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-controller-diagnostic-status.html">
+        muestra el estado de diagnóstico de la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra nvsram de controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-controller-nvsram.html">
+        muestra nvsram de controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-controller.html">
+        mostrar controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar diskpool"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-diskpool.html">
+        mostrar diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar estadísticas de transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-drivechannel-stats.html">
+        mostrar estadísticas de transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar resumen de alerta de correo electrónico"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-emailalert-summary.html">
+        mostrar resumen de alerta de correo electrónico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar las confesiones"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-iscsisessions.html">
+        mostrar las confesiones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar unidades replaceabledrives"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-replaceabledrives.html">
+        mostrar unidades replaceabledrives
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar grupo de snapgroup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-snapgroup.html">
+        mostrar grupo de snapgroup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar imagen instantánea"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-snapimage.html">
+        mostrar imagen instantánea
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar volumen snapshot"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-snapvolume.html">
+        mostrar volumen snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra snmpsystemvariables"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-snmpsystemvariables.html">
+        muestra snmpsystemvariables
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar estadísticas de la caché ssd"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-ssd-cache-statistics.html">
+        mostrar estadísticas de la caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar caché ssd"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-ssd-cache.html">
+        mostrar caché ssd
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray autoconfiguración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-autoconfiguration.html">
+        muestra storagearray autoconfiguración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray AutoSupport"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-autosupport.html">
+        show storagearray AutoSupport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray cachemirrordatasanecheckenable"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-cachemirrordataassurancecheckenable.html">
+        show storagearray cachemirrordatasanecheckenable
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray healthcontroller image"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-controllerhealthimage.html">
+        muestra storagearray healthcontroller image
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray dbmdatabase"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-dbmdatabase.html">
+        show storagearray dbmdatabase
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra un resumen de storagearray directoryservices"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-directoryservices-summary.html">
+        muestra un resumen de storagearray directoryservices
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray hostconnectivtireporting"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-hostconnectivityreporting.html">
+        show storagearray hostconnectivtireporting
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray hosttopolog a"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-hosttopology.html">
+        show storagearray hosttopolog a
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray iscsinnegotiationdefaults"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-iscsinegotiationdefaults.html">
+        show storagearray iscsinnegotiationdefaults
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar storagearray lunmappings"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-lunmappings.html">
+        mostrar storagearray lunmappings
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray odxsetting"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-odxsetting.html">
+        muestra storagearray odxsetting
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray powerinfo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-powerinfo.html">
+        muestra storagearray powerinfo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra la configuración storagearray revocationcheckchecksettings"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-revocationchecksettings.html">
+        muestra la configuración storagearray revocationcheckchecksettings
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray syslog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-syslog.html">
+        show storagearray syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray trustedcertificate summary"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-trustedcertificate-summary.html">
+        muestra storagearray trustedcertificate summary
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray unconfiguredinitiators"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-unconfiguredinitiators.html">
+        show storagearray unconfiguredinitiators
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray unconfigurediscsiinitiators"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-unconfigurediscsiinitiators.html">
+        muestra storagearray unconfigurediscsiinitiators
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray unreadablesectors"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-unreadablesectors.html">
+        muestra storagearray unreadablesectors
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="muestra storagearray usersession"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray-usersession.html">
+        muestra storagearray usersession
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="show storagearray"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-storagearray.html">
+        show storagearray
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar candidatos de SyncMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-syncmirror-candidates.html">
+        mostrar candidatos de SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar el progreso de la sincronización SyncMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-syncmirror-synchronizationprogress.html">
+        mostrar el progreso de la sincronización SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar resumen de syslog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-syslog-summary.html">
+        mostrar resumen de syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar cadena de texto"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-textstring.html">
+        mostrar cadena de texto
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar actionprogress del volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volume-actionprogress.html">
+        mostrar actionprogress del volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar modo de visualización del volumen performancestats"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volume-performancestats.html">
+        mostrar modo de visualización del volumen performancestats
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar reservas de volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volume-reservations.html">
+        mostrar reservas de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar resumen de volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volume-summary.html">
+        mostrar resumen de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volume.html">
+        mostrar volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar candidatos a targetcandidates de origen volumecopy"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumecopy-source-targetcandidates.html">
+        mostrar candidatos a targetcandidates de origen volumecopy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar las fuentes de copia de volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumecopy-sourcecandidates.html">
+        mostrar las fuentes de copia de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar volumecopy"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumecopy.html">
+        mostrar volumecopy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar dependencias de exportación de grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumegroup-exportdependencies.html">
+        mostrar dependencias de exportación de grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar dependencias de grupos de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumegroup-importdependencies.html">
+        mostrar dependencias de grupos de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="mostrar grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/show-volumegroup.html">
+        mostrar grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> smcli...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli alerttest"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-alerttest.html">
+        smcli alerttest
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="se muestra la función smcli autosupportconfig"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportconfig-show.html">
+        se muestra la función smcli autosupportconfig
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="prueba de compatibilidad automática de smcli"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportconfig-test.html">
+        prueba de compatibilidad automática de smcli
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli autosupportconfig"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportconfig.html">
+        smcli autosupportconfig
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli autosupportlog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportlog.html">
+        smcli autosupportlog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="restablecimiento de la programación de compatibilidad automática de smcli"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportschedule-reset.html">
+        restablecimiento de la programación de compatibilidad automática de smcli
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli autosupportschedule show"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-autosupportschedule-show.html">
+        smcli autosupportschedule show
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli habilita la función de soporte automático"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-enable-autosupportfeature.html">
+        smcli habilita la función de soporte automático
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli habilita la funcionalidad de autosupportondemand"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-enable-disable-autosupportondemand.html">
+        smcli habilita la funcionalidad de autosupportondemand
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="smcli habilita la opción autosupportremotediag"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-enable-disable-autosupportremotediag.html">
+        smcli habilita la opción autosupportremotediag
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="programación de bundle de smcli compatible"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/smcli-supportbundle-schedule.html">
+        programación de bundle de smcli compatible
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="iniciar..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> iniciar...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la sincronización de grupos de trabajo de establish asyncmirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-asyncmirrorgroup-synchronize.html">
+        inicie la sincronización de grupos de trabajo de establish asyncmirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la reversión de cgsnapimage"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-cgsnapimage-rollback.html">
+        inicie la reversión de cgsnapimage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie el controlador iscsihostport dhcprefresh"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-controller-iscsihostport-dhcprefresh.html">
+        inicie el controlador iscsihostport dhcprefresh
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la controladora"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-controller.html">
+        inicie la controladora
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie diskpool fullprovisioning"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-diskpool-fullprovisioning.html">
+        inicie diskpool fullprovisioning
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie diskpool locate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-diskpool-locate.html">
+        inicie diskpool locate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie diskpool resourceprovisioning"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-diskpool-resourceprovisioning.html">
+        inicie diskpool resourceprovisioning
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="iniciar borrado de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drive-erase.html">
+        iniciar borrado de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="iniciar inicialización de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drive-initialize.html">
+        iniciar inicialización de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la búsqueda de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drive-locate.html">
+        inicie la búsqueda de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la reconstrucción de la unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drive-reconstruct.html">
+        inicie la reconstrucción de la unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie los comandos de transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drivechannel-faultdiagnostics.html">
+        inicie los comandos de transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la localización de la transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-drivechannel-locate.html">
+        inicie la localización de la transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la prueba de alerta de correo electrónico"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-emailalert-test.html">
+        inicie la prueba de alerta de correo electrónico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie increaseumecapacity volume"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-increasevolumecapacity-volume.html">
+        inicie increaseumecapacity volume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie ioclog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-ioclog.html">
+        inicie ioclog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie secureerase drive"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-secureerase-drive.html">
+        inicie secureerase drive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la reversión de imagen instantánea"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-snapimage-rollback.html">
+        inicie la reversión de imagen instantánea
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie snmptrapdestination"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-snmptrapdestination.html">
+        inicie snmptrapdestination
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la ssdcache locate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-ssdcache-locate.html">
+        inicie la ssdcache locate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la ssdrendimiento de caché con el emodeling"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-ssdcache-performancemodeling.html">
+        inicie la ssdrendimiento de caché con el emodeling
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="start storagearray AutoSupport deliverytest"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-autosupport-deliverytest.html">
+        start storagearray AutoSupport deliverytest
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie storagearray AutoSupport manualdispatch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-autosupport-manualdispatch.html">
+        inicie storagearray AutoSupport manualdispatch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="start storagearray configdbdiagnose"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-configdbdiagnostic.html">
+        start storagearray configdbdiagnose
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie storagearray healthcontroller image"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-controllerhealthimage-controller.html">
+        inicie storagearray healthcontroller image
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la prueba de storagearray directoryservices"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-directoryservices-test.html">
+        inicie la prueba de storagearray directoryservices
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie storagearray externalkeymanagement test"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-externalkeymanagement-test.html">
+        inicie storagearray externalkeymanagement test
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie storagearray isnsserverrefresh"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-isnsserverrefresh.html">
+        inicie storagearray isnsserverrefresh
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="start storagearray locate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-locate.html">
+        start storagearray locate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="start storagearray ocspresponderurl test"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-ocspresponderurl-test.html">
+        start storagearray ocspresponderurl test
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie storagearray syslog test"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-storagearray-syslog-test.html">
+        inicie storagearray syslog test
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la sincronización primaria de SyncMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-syncmirror-primary-synchronize.html">
+        inicie la sincronización primaria de SyncMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la prueba de syslog"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-syslog-test.html">
+        inicie la prueba de syslog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la búsqueda de soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-tray-locate.html">
+        inicie la búsqueda de soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la inicialización del volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volume-initialization.html">
+        inicie la inicialización del volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="iniciar inicialización de volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volume-initialize.html">
+        iniciar inicialización de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la desfragmentación de grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-defragment.html">
+        inicie la desfragmentación de grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la exportación de grupo de volumen"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-export.html">
+        inicie la exportación de grupo de volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie volumegroup fullprovisioning"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-fullprovisioning.html">
+        inicie volumegroup fullprovisioning
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la importación de grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-import.html">
+        inicie la importación de grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie la búsqueda de grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-locate.html">
+        inicie la búsqueda de grupo de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="inicie el aprovisionamiento de recursos del grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/start-volumegroup-resourceprovisioning.html">
+        inicie el aprovisionamiento de recursos del grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> detener...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener el espejo de grupo de trabajo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-asyncmirrorgroup-rolechange.html">
+        detener el espejo de grupo de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener la reversión de imagen cgsnapimage"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-cgsnapimage-rollback.html">
+        detener la reversión de imagen cgsnapimage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener cgsnapvolume"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-cgsnapvolume.html">
+        detener cgsnapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="pare consistencygroup pendingsnapimagecreation"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-consistencygroup-pendingsnapimagecreation.html">
+        pare consistencygroup pendingsnapimagecreation
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener búsqueda de diskpool"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-diskpool-locate.html">
+        detener búsqueda de diskpool
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener búsqueda de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-drive-locate.html">
+        detener búsqueda de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener reemplazo de unidad"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-drive-replace.html">
+        detener reemplazo de unidad
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detenga las operaciones de transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-drivechannel-faultdiagnostics.html">
+        detenga las operaciones de transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detenga la localización de la transmisión"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-drivechannel-locate.html">
+        detenga la localización de la transmisión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detenga la pendingsnapimagecreation"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-pendingsnapimagecreation.html">
+        detenga la pendingsnapimagecreation
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener la reversión de imagen instantánea"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-snapimage-rollback.html">
+        detener la reversión de imagen instantánea
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detenga el snapvolume"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-snapvolume.html">
+        detenga el snapvolume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener la búsqueda de ssdcache"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-ssdcache-locate.html">
+        detener la búsqueda de ssdcache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="deje de ssdrendimiento de caché con el emodeling"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-ssdcache-performancemodeling.html">
+        deje de ssdrendimiento de caché con el emodeling
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="stop storagearray configdbdiagnose"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-storagearray-configdbdiagnostic.html">
+        stop storagearray configdbdiagnose
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="stop storagearray firmwaredownload"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-storagearray-drivefirmwaredownload.html">
+        stop storagearray firmwaredownload
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener storagearray iscsisession"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-storagearray-iscsisession.html">
+        detener storagearray iscsisession
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="stop storagearray locate"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-storagearray-locate.html">
+        stop storagearray locate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detenga la búsqueda de soporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-tray-locate.html">
+        detenga la búsqueda de soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener origen de destino volumecopy"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-volumecopy-target-source.html">
+        detener origen de destino volumecopy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="detener búsqueda de grupo de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/stop-volumegroup-locate.html">
+        detener búsqueda de grupo de volúmenes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="suspender..."
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> suspender...</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="suspender el espejo de grupo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/suspend-asyncmirrorgroup.html">
+        suspender el espejo de grupo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="suspender ssdcache"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/suspend-ssdcache.html">
+        suspender ssdcache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="suspender las primarias de SyncMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/suspend-syncmirror-primaries.html">
+        suspender las primarias de SyncMirror
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="V"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> V</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="valide storagearray securitykey"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/commands-a-z/validate-storagearray-securitykey.html">
+        valide storagearray securitykey
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/e-series-cli/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/e-series-cli/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/e-series-family/">E-Series</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/e-series-cli/">SANtricity&nbsp;commands</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 17:22:42 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>La <code>reset storageArray hostPortStatisticsBaseline</code> el comando restablece la base para las estadísticas de puertos de host de la cabina de almacenamiento.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cabinas-compatibles">Cabinas compatibles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="funciones">Funciones</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contexto">Contexto</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/e-series-cli/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Este comando reemplaza a la obsoleto <a href="reset-storagearray-ibstatsbaseline.html">Restablezca la línea de base para las estadísticas InfiniBand de la cabina de almacenamiento</a>, <a href="reset-storagearray-iscsistatsbaseline.html">Restablezca la línea de base iSCSI de la cabina de almacenamiento</a>, y. <a href="reset-storagearray-iserstatsbaseline.html">Restablezca la línea de base Iser de la cabina de almacenamiento</a> comandos.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sintaxis">Sintaxis</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>reset storageArray hostPortStatisticsBaseline type=(ISCSI| ISER | SRP | NVMEOF)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="parámetros">Parámetros</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parámetro</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>type</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Permite indicar el tipo de estadísticas que se recogerán. Las opciones válidas son: <code>ISCSI</code>, <code>ISER</code>, <code>SRP</code>, y. <code>NVMEOF</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nivel-de-firmware-mínimo">Nivel de firmware mínimo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>8.41</p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/e-series-cli/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/e-series-cli/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/e-series-cli/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/e-series-cli/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/e-series-cli/js/www-ntap.js'></script>
+    <script src='/es-es/e-series-cli/js/tabbed-blocks.js'></script>
+    <script src='/es-es/e-series-cli/js/sidebar.js'></script>
+  </body></html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>e-series-cli | NetApp Documentation</title>
+    <atom:link href="https://docs.netapp.com/es-es/e-series-cli/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>https://docs.netapp.com/es-es/e-series-cli</link>
+    <description>The latest updates from NetApp Documentation</description>
+    <language>es-es</language>
+    <ttl>60</ttl>
+    <pubDate>Mon, 20 Feb 2023 17:25:08 +0000</pubDate>
+    <lastBuildDate>Mon, 20 Feb 2023 17:25:08 +0000</lastBuildDate>
+    
+    
+    
+    <item>
+      <title>Lo nuevo (20 Feb 2023)</title>
+      <pubDate>Mon, 20 Feb 2023 17:22:42 +0000</pubDate>
+      <link>https://docs.netapp.com/es-es/e-series-cli/whats-new.html?time=1676913762</link>
+      <guid isPermaLink="false">Mon, 20 Feb 2023 17:22:42 +0000</guid>
+      <description><![CDATA[ En este tema, se incluyen los cambios en las versiones más recientes de System Manager de SANtricity en cuanto a comandos de la CLI y comandos de script. ]]></description>
+    </item>
+    
+    
+  </channel>
+</rss>
