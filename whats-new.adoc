@@ -25,6 +25,12 @@ Si actualmente utiliza SANtricity 11.52 o una versión anterior, no podrá actua
 ====
 
 
+== SANtricity 11.70.5
+
+No hay cambios de comandos de script o de CLI para la versión 11.70.5.
+
+
+
 == SANtricity 11.70.4
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.4.
