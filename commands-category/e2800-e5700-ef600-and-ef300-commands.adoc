@@ -368,6 +368,8 @@ link:../commands-a-z/save-storagearray-arvmstats-asyncmirrorgroup.html["Guarde l
 
 link:../commands-a-z/save-auditlog.html["Guardar registros de auditoría"]
 
+link:../commands-a-z/save-check-vol-parity-job-errors.html["Errores de paridad de trabajos de comprobación del volumen"]
+
 link:../commands-a-z/save-controller-nvsram-file.html["Guarde NVSRAM de controladora"]
 
 link:../commands-a-z/save-drivechannel-faultdiagnostics-file.html["Guarde el estado de diagnóstico de aislamiento de fallos de un canal de unidad"]
@@ -582,6 +584,8 @@ link:../commands-a-z/show-storagearray-revocationchecksettings.html["Mostrar aju
 
 link:../commands-a-z/show-array-label.html["Mostrar etiqueta de cabina"]
 
+link:../commands-a-z/show-check-vol-parity-jobs.html["Muestra Check Volume Parity Jobs"]
+
 link:../commands-a-z/show-consistencygroup.html["Mostrar grupo de coherencia"]
 
 link:../commands-a-z/show-cgsnapimage.html["Mostrar imagen Snapshot de grupo de coherencia"]
@@ -698,6 +702,8 @@ link:../commands-a-z/set-autosupport-https-delivery-method-e2800-e5700.html["Esp
 
 link:../commands-a-z/start-storagearray-ocspresponderurl-test.html["Iniciar prueba de URL de servidor OCSP"]
 
+link:../commands-a-z/start-check-vol-parity-job.html["Inicie el trabajo de comprobación de paridad del volumen"]
+
 link:../commands-a-z/start-cgsnapimage-rollback.html["Inicie una reversión Snapshot de grupo de coherencia"]
 
 link:../commands-a-z/start-controller.html["Inicie el seguimiento de la controladora"]
@@ -755,6 +761,8 @@ link:../commands-a-z/start-volumegroup-import.html["Inicie la importación de gr
 link:../commands-a-z/start-volumegroup-locate.html["Inicie la búsqueda de grupo de volúmenes"]
 
 link:../commands-a-z/start-volume-initialization.html["Inicie la inicialización del volumen"]
+
+link:../commands-a-z/stop-check-vol-parity-job.html["Detener el trabajo de paridad de volumen"]
 
 link:../commands-a-z/stop-cgsnapimage-rollback.html["Detener reversión Snapshot de grupo de coherencia"]
 

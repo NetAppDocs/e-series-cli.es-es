@@ -108,3 +108,9 @@ La opción para capturar detalles de progreso, como el porcentaje que resta comp
 == Notas
 
 La dirección del bloque lógico inicial y la dirección del bloque lógico final son útiles para espacios de nombres o LUN de volúmenes individuales grandes. Ejecutar una comprobación de paridad de un volumen en un espacio de nombres o LUN de un volumen individual grande puede llevar mucho tiempo. Al definir la dirección inicial y final de los bloques de datos, es posible reducir el tiempo que lleva completar la comprobación de paridad de un volumen.
+
+
+
+== Nivel de firmware mínimo
+
+11,80 - Este comando quedó obsoleto.

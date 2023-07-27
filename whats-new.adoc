@@ -25,11 +25,75 @@ Si actualmente utiliza SANtricity 11.52 o una versión anterior, no podrá actua
 ====
 
 
+== SANtricity 11,80
+
+En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11,80.
+
+[cols="2*"]
+|===
+| Comando | Descripción del cambio 
+
+
+ a| 
+xref:./commands-a-z/save-check-vol-parity-job-errors.adoc[Guarde los errores de paridad de trabajos de paridad de paridad de paridad de volúmenes]
+ a| 
+Se añadió el comando
+
+
+
+ a| 
+xref:./commands-a-z/start-check-vol-parity-job.adoc[Inicie el trabajo de comprobación de paridad del volumen]
+ a| 
+Se añadió el comando
+
+
+
+ a| 
+xref:./commands-a-z/show-check-vol-parity-jobs.adoc[Muestra los trabajos de comprobación de paridad de volúmenes]
+ a| 
+Se añadió el comando
+
+
+
+ a| 
+xref:./commands-a-z/show-check-vol-parity-job.adoc[Muestra el trabajo de comprobación de paridad del volumen]
+ a| 
+Se añadió el comando
+
+
+
+ a| 
+xref:./commands-a-z/stop-check-vol-parity-job.adoc[Detenga la comprobación del trabajo de paridad del volumen]
+ a| 
+Se añadió el comando
+
+
+
+ a| 
+xref:./get-started/command-line-parameters.adoc[Parámetros de la línea de comandos heredados]
+ a| 
+Añadido `-useLegacyTransferPort` parámetro.
+
+
+
+ a| 
+xref:./commands-a-z/autoconfigure-storagearray.adoc[Configurar automáticamente la cabina de almacenamiento]
+ a| 
+Añadido `blockSize` parámetro.
+
+
+
+ a| 
+xref:./commands-a-z/check-volume-parity.adoc[Comprobar la paridad de un volumen]
+ a| 
+Comando obsoleto.
+
+|===
+[]
+====
 == SANtricity 11.70.5
 
 No hay cambios de comandos de script o de CLI para la versión 11.70.5.
-
-
 
 == SANtricity 11.70.4
 
@@ -46,8 +110,6 @@ xref:./get-started/downloadable-smcli-parameters.adoc[Descarga de parámetros de
 Añadido `-t` y.. `-T` descripciones de parámetros de token de acceso para la autenticación multifactor.
 
 |===
-
-
 == SANtricity 11.70.3
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.3.
@@ -98,8 +160,6 @@ xref:./commands-a-z/create-diskpool.html[Crear pool de discos]
 Actualizado `driveCount` descripción del parámetro.
 
 |===
-
-
 == SANtricity 11.70.2
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.2.
@@ -157,8 +217,6 @@ xref:./commands-a-z/start-snmptrapdestination.adoc[Probar destino de captura SNM
 Añadido `userName` y.. `engineid` parámetros.
 
 |===
-
-
 == SANtricity 11.70.1
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.1.
@@ -223,9 +281,7 @@ xref:./commands-a-z/recover-volume.adoc[Recuperar volumen RAID]
 Añadido `blockSize` parámetro.
 
 |===
-
-
-== SANtricity 11.70
+== SANtricity 11,70
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.
 
@@ -268,258 +324,4 @@ xref:./commands-a-z/recover-volume.adoc[Recuperar volumen RAID]
 Añadido `hostUnmapEnabled` parámetro.
 
 |===
-
-
-== SANtricity 11.63
-
-En las siguientes tablas, se enumeran los cambios de comandos de la CLI y de script para la versión 11.63.
-
-[cols="2*"]
-|===
-| Comando | Descripción del cambio 
-
-
- a| 
-xref:./commands-a-z/start-storagearray-autosupport-manualdispatch.adoc[Inicie el envío manual de la AutoSupport de la cabina de almacenamiento]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/start-volumegroup-fullprovisioning.adoc[Inicie el aprovisionamiento completo del grupo de volúmenes]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/start-diskpool-fullprovisioning.adoc[Inicie el aprovisionamiento completo del pool de discos]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/repair-data-parity.adoc[Repare la paridad de datos]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/set-storagearray-resourceprovisionedvolumes.adoc[Establezca los volúmenes aprovisionados de los recursos de la cabina de almacenamiento]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/create-mapping-volume.adoc[Cree la asignación de volúmenes]
- a| 
-Añadido `mapWaitPeriod` parámetro.
-
-
-
- a| 
-xref:./commands-a-z/show-storagearray.adoc[Mostrar cabina de almacenamiento]
- a| 
-Añadido `Resource-Provisioned Volumes` entrada debajo de `profile` resultados de parámetros.
-
-
-
- a| 
-xref:./commands-a-z/create-diskpool.adoc[Crear pool de discos]
- a| 
-Añadido `resourceProvisioningCapable` parámetro.
-
-
-
- a| 
-xref:./commands-a-z/create-volumegroup.adoc[Crear un grupo de volúmenes]
- a| 
-Añadido `resourceProvisioningCapable` parámetro.
-
-
-
- a| 
-xref:./commands-a-z/show-volumegroup.adoc[Mostrar grupo de volúmenes]
- a| 
-Añadido `resource-provisioned` información en los resultados del comando.
-
-
-
- a| 
-xref:./commands-a-z/create-raid-volume-automatic-drive-select.adoc[Crear volumen RAID (selección automática de unidad)]
- a| 
-Añadido `resourceProvisioningCapable` parámetro.
-
-
-
- a| 
-xref:./commands-a-z/create-raid-volume-manual-drive-select.adoc[Crear volumen RAID (selección manual de unidad)]
- a| 
-Añadido `resourceProvisioningCapable` parámetro.
-
-
-
- a| 
-xref:./commands-a-z/show-diskpool.adoc[Mostrar pool de discos]
- a| 
-Añadido `resource-provisioned` información en los resultados del comando.
-
-|===
-
-
-== SANtricity 11.62
-
-En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.62.
-
-[cols="2*"]
-|===
-| Comando | Descripción del cambio 
-
-
- a| 
-xref:./commands-a-z/set-controller-hostport.adoc[Configure las propiedades de los puertos de host de la controladora]
- a| 
-Añadido `Physical` y.. `Virtual` valores para `host Port` parámetro.
-
-|===
-
-
-== SANtricity 11.61 y versiones anteriores
-
-* Se añadió la plataforma EF600 como cabina compatible para los comandos aplicables.
-
-
-[cols="2*"]
-|===
-| Comando | Descripción del cambio 
-
-
- a| 
-xref:./commands-a-z/save-storagearray-supportdata.adoc[Guarde datos de soporte de la cabina de almacenamiento]
- a| 
-Añadido `object-bundle.json` tipo de datos.
-
-
-
- a| 
-xref:./commands-a-z/show-alldrives.adoc[Mostrar unidad]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/activate-synchronous-mirroring.adoc[Activar el mirroring síncrono]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/recreate-storagearray-mirrorrepository.adoc[Volver a crear volumen de repositorios de mirroring síncrono]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/create-raid-volume-automatic-drive-select.adoc[Crear volumen RAID (selección automática de unidad)]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/show-storagearray-autoconfiguration.adoc[Mostrar configuración automática de la cabina de almacenamiento]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/autoconfigure-storagearray.adoc[Configurar automáticamente la cabina de almacenamiento]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/create-diskpool.adoc[Crear pool de discos]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/create-volumegroup.adoc[Crear un grupo de volúmenes]
- a| 
-Se añadió compatibilidad con NVMe4K.
-
-
-
- a| 
-xref:./commands-a-z/save-storagearray-autoloadbalancestatistics-file.adoc[Guarde las estadísticas de equilibrio de carga automático]
- a| 
-Se añadió la nota "la unidad perdió la ruta de acceso primaria"
-
-
-
- a| 
-xref:./commands-a-z/set-storagearray-autoloadbalancingenable.adoc[Configure la cabina de almacenamiento para habilitar o deshabilitar el equilibrio de carga automático]
- a| 
-Se añadió la nota "la unidad perdió la ruta de acceso primaria"
-
-
-
- a| 
-xref:./commands-a-z/add-certificate-from-array.adoc[Añadir certificado desde cabina]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/add-certificate-from-file.adoc[Añadir certificado desde archivo]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/delete-certificates.adoc[Eliminar certificados]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/show-certificates.adoc[Mostrar certificados]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/add-array-label.adoc[Añadir etiqueta de cabina]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/remove-array-label.adoc[Quite la etiqueta de cabina]
- a| 
-Se añadió el comando
-
-
-
- a| 
-xref:./commands-a-z/show-array-label.adoc[Mostrar etiqueta de cabina]
- a| 
-Se añadió el comando
-
-|===
+====

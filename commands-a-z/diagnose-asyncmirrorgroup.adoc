@@ -21,14 +21,14 @@ Este comando se aplica a cualquier cabina de almacenamiento individual, con algu
 
 [NOTE]
 ====
-Si ejecuta el comando en la cabina E2800 o E5700, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+Si ejecuta el comando en la cabina E2800, E5700, EF600 y EF300, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
 
 ====
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -73,3 +73,5 @@ El identificador de la prueba de diagnóstico que se desea ejecutar. El identifi
 == Nivel de firmware mínimo
 
 7.84
+
+11,80 añade compatibilidad con cabinas EF600 y EF300

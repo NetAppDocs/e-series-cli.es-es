@@ -31,7 +31,7 @@ Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o
 
 Este comando muestra la siguiente información acerca de un grupo de volúmenes.
 
-* El estado (en línea/sin conexión).
+* El estado (como Optimal, degraded, Failed, Missing).
 * La capacidad
 * El propietario actual (la controladora de la ranura A o la controladora de la ranura B ).
 * Nivel de RAID

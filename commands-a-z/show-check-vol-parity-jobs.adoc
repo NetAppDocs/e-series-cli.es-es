@@ -1,0 +1,46 @@
+---
+permalink: commands-a-z/show-check-vol-parity-jobs.html 
+sidebar: sidebar 
+keywords: show, check, volume, parity, jobs, 
+summary: El comando show check volume parity jobs muestra todos los trabajos de check volume parity y su estado. 
+---
+= Muestra Check Volume Parity Jobs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `show check volume parity jobs` el comando muestra todos los trabajos de check volume parity y su estado.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+show check volume parity jobs;
+----
+
+
+== Parámetros
+
+Ninguno
+
+
+
+== Nivel de firmware mínimo
+
+11,80

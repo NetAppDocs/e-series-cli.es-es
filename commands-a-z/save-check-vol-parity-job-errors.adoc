@@ -1,0 +1,61 @@
+---
+permalink: commands-a-z/save-check-vol-parity-job-errors.html 
+sidebar: sidebar 
+keywords: save, check, volume, parity, job, errors 
+summary: El comando save check volume parity job parity errors guarda los errores de paridad registrados por un trabajo check volume parity en el archivo especificado. 
+---
+= Guarde los errores de paridad del trabajo de paridad de un volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+La `save check volume parity job parity errors` el comando guarda los errores de paridad registrados por un trabajo de comprobación de paridad de volumen en el archivo especificado. El archivo de salida está escrito en el mismo formato que el comando check volume parity obsoleto y, por lo tanto, se puede utilizar como entrada al comando repair volume parity existente.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe contar con el rol de administrador de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing, subs="+macros"]
+----
+save check volume parity job parityErrors jobId=<job_id> parityErrorFile=<parity_error_file>;
+----
+
+
+== Parámetros
+
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`jobId`
+ a| 
+ID de trabajo para el que se recuperarán y guardarán errores de paridad registrados. Este valor es obligatorio.
+
+
+
+ a| 
+`parityErrorFile`
+ a| 
+Archivo especificado por el usuario para indicar dónde se deben guardar los errores de paridad registrados. Este valor es obligatorio.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+11,80

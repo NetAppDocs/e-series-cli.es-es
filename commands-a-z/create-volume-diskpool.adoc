@@ -67,22 +67,7 @@ capacity=_volumeCapacity_]
 [(existingRepositoryLabel=pass:quotes[_existingRepositoryName_] |
 [newRepositoryCapacity=pass:quotes[_newRepositoryCapacityValue_] (KB | MB | GB | TB | Bytes)]
 [repositoryMaxCapacity=pass:quotes[_repositoryMaxCapacityValue_](KB|MB|GB|TB|Bytes)]
-[warningThresholdPercent=pass:quotes[_warningThresholdPercentValue_]
-[repositoryExpansionPolicy=(automatic|manual)]
-[cacheReadPrefetch=(TRUE | FALSE)]
-----
-[listing, subs="+macros"]
-----
-create volume diskPool=pass:quotes[_"diskPoolName"_
-userLabel="_volumeName_"
-capacity=_volumeCapacity_]
-[thinProvisioned=(TRUE | FALSE)]
-[owner=(a|b)]
-[mapping=(none|default)]
-[(existingRepositoryLabel=pass:quotes[_existingRepositoryName_] |
-[newRepositoryCapacity=pass:quotes[_newRepositoryCapacityValue_] (KB | MB | GB | TB | Bytes)]
-[repositoryMaxCapacity=pass:quotes[_repositoryMaxCapacityValue_](KB|MB|GB|TB|Bytes)]
-[warningThresholdPercent=pass:quotes[_warningThresholdPercentValue_]]
+[warningThresholdPercent=pass:quotes][_warningThresholdPercentValue_]
 [repositoryExpansionPolicy=(automatic|manual)]
 [cacheReadPrefetch=(TRUE | FALSE)]
 ----
@@ -235,6 +220,8 @@ Para los volúmenes finos, el `capacity` el parámetro especifica la capacidad v
 Para obtener los mejores resultados al crear un volumen fino, el volumen de repositorios ya debe existir o debe crearse en un pool de discos existente. Si no se especifican algunos de los parámetros opcionales al crear volúmenes finos, el software de administración del almacenamiento intentará crear el volumen de repositorios. El volumen candidato más viable es un volumen de repositorios que ya existe y que se encuentra dentro de los requisitos de tamaño. El siguiente candidato más viable es un volumen de repositorios nuevo que se crea en la extensión libre del pool de discos.
 
 No es posible crear volúmenes de repositorios para volúmenes finos en un grupo de volúmenes.
+
+Los volúmenes con thin provisioning no se admiten en EF300 o EF600.
 
 
 

@@ -346,6 +346,13 @@ Suprime los mensajes informativos sobre el progreso de los comandos que aparecen
 
 
  a| 
+`-useLegacyTransferPort`
+ a| 
+Se utiliza para establecer el puerto de transferencia en `8443` en lugar del valor predeterminado `443`.
+
+
+
+ a| 
 `-v`
  a| 
 Muestra el estado general actual de los dispositivos conocidos en un archivo de configuración cuando se utiliza con el `-d` parámetro.

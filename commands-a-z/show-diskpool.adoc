@@ -31,7 +31,7 @@ Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o
 
 Este comando muestra la siguiente información acerca de un pool de discos:
 
-* El estado (por ejemplo, optimal, online, offline).
+* El estado (como Optimal, degraded, Failed, Missing).
 * La capacidad total
 * La capacidad de conservación, la capacidad utilizable y la capacidad inutilizable
 * La capacidad usada, la capacidad libre y el total del porcentaje

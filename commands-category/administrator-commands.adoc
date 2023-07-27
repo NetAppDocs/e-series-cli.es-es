@@ -774,6 +774,8 @@ link:../commands-a-z/recover-sasport-miswire.html["Recupere una conexión incorr
 
 link:../commands-a-z/create-snmpcommunity.html["Registre la comunidad SNMP"]
 
+link:../commands-a-z/create-snmpuser-username.html["Registre el usuario USM de SNMPv3"]
+
 link:../commands-a-z/create-snmptrapdestination.html["Registre el destino de captura SNMP"]
 
 link:../commands-a-z/reset-storagearray-autosupport-schedule.html["Restablecer programación de recogida de mensajes de AutoSupport (para cabinas E2800 o E5700 individuales)"]
@@ -816,6 +818,8 @@ link:../commands-a-z/show-allsnmpcommunities.html["Mostrar comunidades SNMP"]
 
 link:../commands-a-z/show-snmpsystemvariables.html["Muestra variables de grupo de sistemas MIB II de SNMP"]
 
+link:../commands-a-z/show-allsnmpusers.html["Muestra el usuario USM de SNMPv3"]
+
 link:../commands-a-z/show-syslog-summary.html["Mostrar configuración de syslog"]
 
 link:../commands-a-z/set-email-smtp-delivery-method-e2800-e5700.html["Especificar método de entrega de correo electrónico (SMTP) (para cabinas E2800 o E5700 individuales)"]
@@ -830,7 +834,11 @@ link:../commands-a-z/start-snmptrapdestination.html["Probar destino de captura S
 
 link:../commands-a-z/start-syslog-test.html["Probar configuración de syslog"]
 
+link:../commands-a-z/delete-snmpuser-username.html["Cancele el registro del usuario USM de SNMPv3"]
+
 link:../commands-a-z/set-snmpcommunity.html["Actualice la comunidad SNMP"]
+
+link:../commands-a-z/set-snmpuser-username.html["Actualice el usuario USM de SNMPv3"]
 
 link:../commands-a-z/set-snmpsystemvariables.html["Actualice las variables de grupo de sistemas MIB II de SNMP"]
 

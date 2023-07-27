@@ -17,13 +17,13 @@ La `resume asyncMirrorGroup` el comando reanuda la transferencia de datos entre 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que se hayan instalado todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -67,4 +67,6 @@ El parámetro para eliminar el punto de recuperación si los datos de sincroniza
 
 7.84
 
-8.10 añade el `deleteRecoveryPointIfNecessary` parámetro.
+8,10 añade el `deleteRecoveryPointIfNecessary` parámetro
+
+11,80 añade compatibilidad con cabinas EF600 y EF300

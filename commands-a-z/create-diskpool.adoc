@@ -73,9 +73,7 @@ driveType=(fibre | SATA | SAS | NVMe4K))
  a| 
 Las unidades que se desean asignar al pool de discos que se está creando. En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
 
-El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800 y E5700 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
-
-Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corchetes ([ ]).
+El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800, E5700, EF600 y EF300 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
 
 
 

@@ -516,7 +516,7 @@ Este parámetro fuerza la recogida de datos de soporte si se produce algún erro
 
 == Notas
 
-A partir del nivel de firmware 7.86, la extensión del nombre de archivo debe ser `.7z` En sistemas que ejecutan Windows. Si su versión de firmware es anterior a 7.86 en un sistema Windows, la extensión debe ser `.zip`. En los sistemas que no ejecutan Windows, es posible usar cualquier extensión que funcione.
+A partir del nivel de firmware 7.86, la extensión del nombre de archivo debe ser `.7z`. Si su versión de firmware es anterior a la 7,86, la extensión de archivos debe ser `.zip`.
 
 
 

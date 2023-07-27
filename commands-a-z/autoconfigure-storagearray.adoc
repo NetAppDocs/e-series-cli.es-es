@@ -51,6 +51,7 @@ pass:quotes[[readAheadMultiplier=_multiplierValue_]]
 [securityType=(none | capable | enabled)]
 [secureDrives=(fips | fde)]
 [dataAssurance=(none | enabled)]
+[blockSize=(512 | 4096)]
 ----
 
 
@@ -178,6 +179,13 @@ El tipo de unidades seguras que se usan en el grupo de volúmenes. Los ajustes v
 Use este parámetro junto con el `securityType` parámetro. Si especifica `none` para la `securityType` parámetro, el valor de `secureDrives` se ignora el parámetro, ya que no es necesario especificar tipos de unidades seguras en los grupos de volúmenes no seguros.
 
 ====
+
+
+ a| 
+`blockSize`
+ a| 
+El tamaño de bloque de los volúmenes creados en bytes. Los valores admitidos son `512` y.. `4096`.
+
 |===
 
 
