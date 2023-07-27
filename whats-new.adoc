@@ -89,13 +89,15 @@ xref:./commands-a-z/check-volume-parity.adoc[Comprobar la paridad de un volumen]
 Comando obsoleto.
 
 |===
-[]
-====
-== SANtricity 11.70.5
 
-No hay cambios de comandos de script o de CLI para la versión 11.70.5.
 
-== SANtricity 11.70.4
+== 4d73148eba8bbf93563afef1a810a39e
+
+No hay cambios de comandos de script ni de la CLI para la versión 11.70.5.
+
+
+
+== 06d2539958ee4762f25ee6e06e44b9f1
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.4.
 
@@ -110,7 +112,9 @@ xref:./get-started/downloadable-smcli-parameters.adoc[Descarga de parámetros de
 Añadido `-t` y.. `-T` descripciones de parámetros de token de acceso para la autenticación multifactor.
 
 |===
-== SANtricity 11.70.3
+
+
+== e5b376b9bdbfe1612d578d30462ed6ff
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.3.
 
@@ -160,7 +164,9 @@ xref:./commands-a-z/create-diskpool.html[Crear pool de discos]
 Actualizado `driveCount` descripción del parámetro.
 
 |===
-== SANtricity 11.70.2
+
+
+== 3cffe633df330392f4d88b8478c9390b
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.2.
 
@@ -217,7 +223,9 @@ xref:./commands-a-z/start-snmptrapdestination.adoc[Probar destino de captura SNM
 Añadido `userName` y.. `engineid` parámetros.
 
 |===
-== SANtricity 11.70.1
+
+
+== cfafd61e53ff8b90ff59654a31683d33
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.1.
 
@@ -281,7 +289,9 @@ xref:./commands-a-z/recover-volume.adoc[Recuperar volumen RAID]
 Añadido `blockSize` parámetro.
 
 |===
-== SANtricity 11,70
+
+
+== 474034f7e02f357e3878ae2514a2b3fd
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.
 
@@ -324,4 +334,3 @@ xref:./commands-a-z/recover-volume.adoc[Recuperar volumen RAID]
 Añadido `hostUnmapEnabled` parámetro.
 
 |===
-====
