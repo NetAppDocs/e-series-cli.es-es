@@ -35,7 +35,7 @@ En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script
 
 
  a| 
-xref:./commands-a-z/save-check-vol-parity-job-errors.adoc[Guarde los errores de paridad de trabajos de paridad de paridad de paridad de volúmenes]
+xref:./commands-a-z/save-check-vol-parity-job-errors.adoc[Guarde los errores de paridad del trabajo de paridad de un volumen]
  a| 
 Se añadió el comando
 
@@ -91,13 +91,13 @@ Comando obsoleto.
 |===
 
 
-== 4d73148eba8bbf93563afef1a810a39e
+== SANtricity 11.70.5
 
 No hay cambios de comandos de script ni de la CLI para la versión 11.70.5.
 
 
 
-== 06d2539958ee4762f25ee6e06e44b9f1
+== SANtricity 11.70.4
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.4.
 
@@ -114,7 +114,7 @@ Añadido `-t` y.. `-T` descripciones de parámetros de token de acceso para la a
 |===
 
 
-== e5b376b9bdbfe1612d578d30462ed6ff
+== SANtricity 11.70.3
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.3.
 
@@ -166,7 +166,7 @@ Actualizado `driveCount` descripción del parámetro.
 |===
 
 
-== 3cffe633df330392f4d88b8478c9390b
+== SANtricity 11.70.2
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.2.
 
@@ -225,7 +225,7 @@ Añadido `userName` y.. `engineid` parámetros.
 |===
 
 
-== cfafd61e53ff8b90ff59654a31683d33
+== SANtricity 11.70.1
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.1.
 
@@ -291,7 +291,7 @@ Añadido `blockSize` parámetro.
 |===
 
 
-== 474034f7e02f357e3878ae2514a2b3fd
+== SANtricity 11.70
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11.70.
 

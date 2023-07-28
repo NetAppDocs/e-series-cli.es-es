@@ -34,9 +34,9 @@ homepage:
     links:
     - title: Documentos de sistemas E-Series
       url: https://docs.netapp.com/us-en/e-series/index.html
-    - title: System Manager 11.7 de SANtricity
+    - title: System Manager 11,8 de SANtricity
       url: https://docs.netapp.com/us-en/e-series-santricity/system-manager/index.html
-    - title: Unified Manager 5 de SANtricity
+    - title: Unified Manager 6 de SANtricity
       url: https://docs.netapp.com/us-en/e-series-santricity/unified-manager/index.html
   - title: Soporte de herramientas
     links:
