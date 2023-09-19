@@ -54,7 +54,7 @@ start drive pass:quotes[[_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID
 
 
  a| 
-`drive` o. `drives`
+`drive`
  a| 
 En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
 
