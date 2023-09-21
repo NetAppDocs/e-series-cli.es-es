@@ -17,7 +17,7 @@ La `start drive erase` el comando borra todos los datos de una o varias unidades
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. Funciona en cabinas de almacenamiento E2700 y E5600.
+Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.
 
 
 

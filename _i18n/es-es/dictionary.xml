@@ -4615,7 +4615,6 @@
   <block id="3b129c5535bfd1b293ee522199b2647b" category="summary">El comando start drive Erase borra todos los datos de una o varias unidades.</block>
   <block id="5e1960d53d0e67e3cd307a126a8f75ac" category="doc">Iniciar borrado de unidad</block>
   <block id="5c7cd3a54ac60bada240ddcb36cb2b2f" category="paragraph">La<block ref="45dd4109bf3a4de86fc0afeae5748816" prefix=" " category="inline-code"></block> el comando borra todos los datos de una o varias unidades.</block>
-  <block id="8a6ff4179a3940cccf4dc20ba85a1162" category="paragraph">Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. Funciona en cabinas de almacenamiento E2700 y E5600.</block>
   <block id="a40cdbeba07769d11e789eb761201ae7" category="paragraph">Ejecute este comando solo si desea quitar de forma permanente todos los datos de una unidad. Si la unidad tiene la función de seguridad habilitada, el<block ref="45dd4109bf3a4de86fc0afeae5748816" prefix=" " category="inline-code"></block> la opción de comando realiza un borrado criptográfico y restablece los atributos de seguridad de la unidad de nuevo a compatible con la función de seguridad.</block>
   <block id="2531efef7e4f6d3357daf24da936c35a" category="paragraph">La operación de borrado no se puede deshacer. Asegúrese de seleccionar la unidad correcta al usar este comando.</block>
   <block id="6ae797a72c66de004194304b30f25119" category="paragraph">La lista de unidades no puede contener todas las unidades de la cabina de almacenamiento; de lo contrario, se rechazará el comando.</block>
@@ -7546,4 +7545,5 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="f31b4701e236492b39f4226355cb1d49" category="paragraph">Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.</block>
 </blocks>
