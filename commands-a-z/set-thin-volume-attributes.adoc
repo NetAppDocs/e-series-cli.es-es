@@ -93,7 +93,7 @@ Este parámetro aumenta la capacidad virtual del volumen fino. La capacidad virt
 
 La capacidad virtual mínima es 32 MB.
 
-La capacidad virtual máxima es 63 TB.
+La capacidad virtual máxima es 256 TB.
 
 
 
@@ -168,7 +168,7 @@ Capacidad virtual mínima
  a| 
 Capacidad virtual máxima
  a| 
-63 TB
+256 TB
 
 
 
@@ -182,7 +182,7 @@ Capacidad física mínima
  a| 
 Capacidad física máxima
  a| 
-64 TB
+257 TB
 
 |===
 Los volúmenes finos son compatibles con las mismas operaciones que los volúmenes estándar, con las siguientes excepciones:

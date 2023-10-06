@@ -4868,7 +4868,6 @@
   <block id="d27ee9db41cb355edea349ea7588c692" category="paragraph"><block ref="a1c3679c7d982dab6bd6f4bd43ac7dca" prefix="" category="inline-code"></block></block>
   <block id="8ec6fac1bb3dd6db9c73855881642036" category="paragraph">Este parámetro aumenta la capacidad virtual del volumen fino. La capacidad virtual es el valor que el volumen informará a un host que esté asignado al volumen. Los valores menores o iguales a la capacidad existente se producirá un error. El tamaño se define en unidades de<block ref="4b3a6218bb3e3a7303e8a171a60fcf92" prefix=" " category="inline-code"></block>,<block ref="ab57fd0432e25d5b3013133a1c910d56" prefix=" " category="inline-code"></block>,<block ref="8d8fcc1abd550c5f25dbfaa57d59cb67" prefix=" " category="inline-code"></block>,<block ref="79cba1185463850dedba31f172f1dc5b" prefix=" " category="inline-code"></block>, o.<block ref="ff88442a425c06d961f97bccb11ddf5d" prefix=" " category="inline-code"></block>.</block>
   <block id="4bd944c067cd0308263d9df1c820d71f" category="paragraph">La capacidad virtual mínima es 32 MB.</block>
-  <block id="b306bb1dc4b136b774d5f8dca7910774" category="paragraph">La capacidad virtual máxima es 63 TB.</block>
   <block id="e167788620b4089b203eb07b9e11ba76" category="paragraph"><block ref="66df1d057801aedf5dafc4d377db30bb" prefix="" category="inline-code"></block></block>
   <block id="c25c025f154c8960a89c48b38d090c3d" category="paragraph">Este parámetro configura la capacidad máxima del volumen de repositorios. El valor no debe ser inferior a la capacidad física del volumen de repositorios. Si el valor nuevo produce una reducción de la capacidad a un nivel inferior al umbral de advertencia, el comando generará un error.</block>
   <block id="6e1e474416e0564ab880c5863366af19" category="paragraph">El comando<block ref="47e69dffbac7ef9058fd468e720fc3af" prefix=" " category="inline-code"></block> trabaja con<block ref="c27b887b72654438a26b70dbc21dec11" prefix=" " category="inline-code"></block>.</block>
@@ -4888,11 +4887,9 @@
   <block id="11cf82793d844e83f9afa09e192161c5" category="paragraph">Capacidad virtual mínima</block>
   <block id="862c5cbe978e3aa8b71c1482e2a16510" category="paragraph">32 MB</block>
   <block id="379d3c9e361687b74b87ed944b4e5ea1" category="paragraph">Capacidad virtual máxima</block>
-  <block id="52157289efd480729928e4e0118c38e6" category="paragraph">63 TB</block>
   <block id="da47bd08987f2f49ae1a5ca50da79966" category="paragraph">Capacidad física mínima</block>
   <block id="974c2262615af73433567515efbb80e9" category="paragraph">4 GB</block>
   <block id="49ec733e915db077fc9903febb8c6b32" category="paragraph">Capacidad física máxima</block>
-  <block id="c1edd650c09defc6ca8d0aaf67803ddc" category="paragraph">64 TB</block>
   <block id="c6c9212089ecb807afa1ca4d2d0d4e1b" category="paragraph">Los volúmenes finos son compatibles con las mismas operaciones que los volúmenes estándar, con las siguientes excepciones:</block>
   <block id="028757467ce5df2465e7469fe24d74db" category="list-text">No se puede cambiar el tamaño de los segmentos de un volumen fino.</block>
   <block id="bbf70b3265e24f3e0ac80667124569fa" category="list-text">No se puede habilitar la comprobación de redundancia de lectura previa de un volumen fino.</block>
@@ -7546,4 +7543,5 @@
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="f31b4701e236492b39f4226355cb1d49" category="paragraph">Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.</block>
+  <block id="9c224ec894ababac5f928548e584eb45" category="paragraph">La capacidad virtual máxima es 256 TB.</block>
 </blocks>
