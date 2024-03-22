@@ -7544,4 +7544,5 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="f31b4701e236492b39f4226355cb1d49" category="paragraph">Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.</block>
   <block id="9c224ec894ababac5f928548e584eb45" category="paragraph">La capacidad virtual máxima es 256 TB.</block>
+  <block id="85e8092ad24869d134ad6af40b479c96" category="sidebar">Bienvenido a la asistencia al usuario de CLI integrada de SANtricity System Manager, donde podrá averiguar cómo configurar, supervisar y ajustar la cabina de almacenamiento con la interfaz de línea de comandos (CLI).</block>
 </blocks>
