@@ -270,7 +270,7 @@ link:../commands-a-z/recover-volume.html["Recuperar volumen RAID"]
 
 link:../commands-a-z/recover-sasport-miswire.html["Recupere una conexión incorrecta de puerto SAS"]
 
-link:../commands-a-z/recreate-storagearray-securitykey.adocV879933["Vuelva a crear una clave de seguridad externa"]
+link:../commands-a-z/recreate-storagearray-securitykey.html["Vuelva a crear una clave de seguridad externa"]
 
 link:../commands-a-z/recreate-storagearray-mirrorrepository.html["Volver a crear volumen de repositorios de mirroring síncrono"]
 

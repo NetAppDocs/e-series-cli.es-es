@@ -828,7 +828,6 @@
   <block id="78e64ecde3408fac15edfdc0ba701612" category="inline-link-macro">Generar solicitud de firma de certificación (CSR) para gestión de claves</block>
   <block id="5da63591436d4d960a386c379d115982" category="paragraph"><block ref="5da63591436d4d960a386c379d115982" category="inline-link-macro-rx"></block></block>
   <block id="8a4df40632a4ef19806a0fe552fd3c5b" category="inline-link-macro">Vuelva a crear una clave de seguridad externa</block>
-  <block id="2703ec3e21c52f00ef1fdb6211a17fb5" category="paragraph"><block ref="2703ec3e21c52f00ef1fdb6211a17fb5" category="inline-link-macro-rx"></block></block>
   <block id="998e9b165a6926dc098760ff57882265" category="inline-link-macro">Registre la comunidad SNMP</block>
   <block id="189115fcec4dd11c1e3edee24940c599" category="paragraph"><block ref="189115fcec4dd11c1e3edee24940c599" category="inline-link-macro-rx"></block></block>
   <block id="3820f77018da043fb66e4fd865a34706" category="inline-link-macro">Registre el destino de captura SNMP</block>
@@ -1012,7 +1011,6 @@
   <block id="b6c9cb32de0a61002f039efec80a465c" category="paragraph">La versión de SANtricity OS 11.60 incluye la capacidad de descargar e instalar la versión de la CLI basada en http (también conocida como "CLI segura" o SMcli) directamente a través del System Manager de SANtricity. Esta versión descargable de SMcli está disponible en EF600, EF300, E5700, EF570, E2800, Y las controladoras EF280. Para descargar la SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* &gt; *sistema* y *Complementos* &gt; *interfaz de línea de comandos* .</block>
   <block id="75842716a65060950b20cba161cbac95" category="admonition">Debe haber disponible un entorno Java Runtime Environment (JRE), versión 8 y superior en el sistema de administración en el que planea ejecutar los comandos de la CLI.</block>
   <block id="c3369045597873cd151e0a9b94edab23" category="inline-xref-macro">Parámetros de la línea de comandos heredados</block>
-  <block id="720d9a5bd635c70358cdcb41b1eaefaf" category="paragraph">Como en las versiones anteriores de SMcli, la SMcli descargable a través de System Manager de SANtricity tiene un conjunto único de parámetros. Para obtener información sobre el uso de parámetros de línea de comandos para SANtricity OS 11.53 y versiones anteriores, consulte <block ref="55493e98e602a03e07f56f1acb2fb353" category="inline-xref-macro-rx"></block></block>
   <block id="1a98f49f191845835d6fd3e13eb29812" category="section-title">Autenticación multifactor</block>
   <block id="e228e60d948488385c1b528cc75ed77d" category="paragraph">Si SAML (lenguaje de marcado de aserción de seguridad) está habilitado, solo se pueden usar tokens de acceso con la CLI. Si SAML no está habilitado, se pueden utilizar el nombre de usuario/contraseña o los tokens de acceso. Los tokens de acceso pueden generarse mediante el Administrador del sistema SANtricity.</block>
   <block id="83f499a540b1323009c200d6f8cc9396" category="cell">Parámetro</block>
@@ -5827,11 +5825,6 @@
   <block id="aa10cbdddfaa9b241492306fc663004c" category="paragraph"><block ref="dd7bf230fde8d4836917806aff6a6b27" prefix="" category="inline-code"></block></block>
   <block id="81467412741bcb83b3995cc18b1516d9" category="paragraph">"Nombre de dominio"|DirecciónIPv4|DirecciónIPv6</block>
   <block id="d0ddb28e638271963e281c74aa6164ff" category="paragraph">Si se especifica un nombre de dominio, también debe configurarse un servidor DNS para permitir que la controladora resuelva la dirección IP del servidor.</block>
-  <block id="5f13d4f79dcde55f34ef328e9338aba4" category="paragraph"><block ref="9f0dd5628b477ca3a412bd884083c065" prefix="" category="inline-code"></block><block ref="056e0360b75d77ece0ae955fe59bf15d" prefix=" " category="inline-code"></block></block>
-  <block id="764c2b587e12f15a3e09f6b9eac104d7" category="paragraph">De manera opcional, estos parámetros ofrecen las credenciales clave para habilitar la autenticación NTP:</block>
-  <block id="29bb257c3542b33e69d33ea7fc33c433" category="list-text"><block ref="333be298e4b59f81f3a3b965415c97d6" prefix="" category="inline-code"></block> es un entero de 0 a 65535.</block>
-  <block id="01e68e6855a7e29f6658f124c09009fd" category="list-text"><block ref="056e0360b75d77ece0ae955fe59bf15d" prefix="" category="inline-code"></block> es uno de los siguientes: none, sha1, sha224, sha256, sha384 o sha512.</block>
-  <block id="f6434eb840c71208dfb72ef5c786d39e" category="list-text"><block ref="c6cec8c6caa9a579644664f0575db2f5" prefix="" category="inline-code"></block> Es un dígito hexadecimal (0-9, con a-f permitido), que tiene exactamente 40 dígitos de longitud y se introduce como stringLiteral, o bien una cadena de caracteres alfanuméricos con una longitud máxima de 20 bytes.</block>
   <block id="a1f3afaef8deadb0480d323937491c5a" category="paragraph">La versión 8.42 añade los parámetros de credenciales clave para la autenticación NTP.</block>
   <block id="077f1fcae33107f6fe0ab650e3ee9998" category="summary">El comando delete storageArray directoryServers permite eliminar un servidor de directorio o varios.</block>
   <block id="149c04b247f1dca629869c200592b301" category="paragraph">La<block ref="d23c1c7638775754f1f5aba8bc961ef2" prefix=" " category="inline-code"></block> comando permite eliminar uno o varios servidores de directorio.</block>
@@ -7545,4 +7538,23 @@
   <block id="f31b4701e236492b39f4226355cb1d49" category="paragraph">Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.</block>
   <block id="9c224ec894ababac5f928548e584eb45" category="paragraph">La capacidad virtual máxima es 256 TB.</block>
   <block id="85e8092ad24869d134ad6af40b479c96" category="sidebar">Bienvenido a la asistencia al usuario de CLI integrada de SANtricity System Manager, donde podrá averiguar cómo configurar, supervisar y ajustar la cabina de almacenamiento con la interfaz de línea de comandos (CLI).</block>
+  <block id="c4f2e9f91e3e5a0d9fb8f8728ed63376" category="paragraph">Como en las versiones anteriores de SMcli, la SMcli descargable a través de System Manager de SANtricity tiene un conjunto único de parámetros. Para obtener información sobre el uso de parámetros de línea de comandos para SANtricity OS 11.53 y versiones anteriores, consulte <block ref="f6644819b412d8968161178a2ccec029" category="inline-link-macro-rx"></block>.</block>
+  <block id="2115a9072c5575f3300b4b18e5722de6" category="section-title">Identifique los dispositivos</block>
+  <block id="90f4cf9a1fcd3d43e57768f9bb55bbfb" category="paragraph">El siguiente parámetro de línea de comandos le permite mostrar información de todos los dispositivos aplicables visibles para el host.</block>
+  <block id="222ae10a38daa5038e857b83e1adb270" category="admonition">A partir de la versión SANtricity 11,81, SMcli<block ref="35d5ed698aa483d3174ea619db10c0ac" prefix=" " category="inline-code"></block> El parámetro reemplaza la funcionalidad previamente disponible a través de la herramienta SMdevices.</block>
+  <block id="64ce8fcd5ac05bd3132098b5581a2dcf" category="paragraph"><block ref="35d5ed698aa483d3174ea619db10c0ac" prefix="" category="inline-code"></block></block>
+  <block id="f53cecbe90c0e9f04dc66481adf123c6" category="paragraph">Busca todos los dispositivos de bloque nativos SCSI que están asociados con nuestras cabinas de almacenamiento. En cada dispositivo encontrado, informa diversa información, como el nombre de dispositivo específico del SO nativo, la cabina de almacenamiento asociada, el nombre del volumen, la información de LUN, etc.</block>
+  <block id="312574efd0c8e7ddeea92ab871822aed" category="paragraph">Consulte a continuación los ejemplos de la<block ref="14993f95e0d6fc04f9966b0c368a7ed6" prefix=" " category="inline-code"></block> Parámetros dentro de los sistemas operativos Linux y Windows.</block>
+  <block id="edc9f0a5a5d57797bf68e37364743831" category="listing-title">Linux</block>
+  <block id="aea23489ce3aa9b6406ebb28e0cda430" category="listing-title">Windows</block>
+  <block id="94f04537971d7a4a561c607ec55952a2" category="section-title">Notas adicionales</block>
+  <block id="ba151d8fe1acd0cb9eca1b6945962e62" category="list-text">Compatible únicamente en sistemas operativos Linux y Windows que ejecutan plataformas x86-64 con interfaces de host basadas en SCSI.</block>
+  <block id="aaeaddd5c8faa1ad9f766c53197d7ab2" category="list-text">Las interfaces de host basadas en NVMe no se admiten.</block>
+  <block id="fb52873edf9c97b7281409c640b5ed20" category="list-text">La<block ref="35d5ed698aa483d3174ea619db10c0ac" prefix=" " category="inline-code"></block> El parámetro no provoca un nuevo análisis en el nivel de SO. Itera sobre los dispositivos existentes vistos por el sistema operativo.</block>
+  <block id="9c4b22635677ff419bec86d3f3219927" category="list-text">Debe tener suficientes permisos de usuario para ejecutar el<block ref="35d5ed698aa483d3174ea619db10c0ac" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="dbb8d2fd09a59e1ab8494de138ceffdb" category="list-text">Esto incluye la capacidad de leer desde dispositivos de bloque nativos del SO y ejecutar comandos de consulta SCSI.</block>
+  <block id="5b1cc65d11915b727018c6056792dcef" category="section-title">SANtricity 11,81</block>
+  <block id="a92322756f07d387c173b27babcdad72" category="paragraph">En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11,81.</block>
+  <block id="559b1de3f22ee41aed01495562ee7836" category="paragraph"><block ref="559b1de3f22ee41aed01495562ee7836" category="inline-xref-macro-rx"></block></block>
+  <block id="5fe9c86e85a56fcbfe366c1ef482deb0" category="paragraph">Añadido<block ref="35d5ed698aa483d3174ea619db10c0ac" prefix=" " category="inline-code"></block> parámetro.</block>
 </blocks>
