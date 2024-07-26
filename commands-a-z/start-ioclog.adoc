@@ -29,7 +29,7 @@ Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o
 
 == Contexto
 
-Las controladora se identifican como "a " o "b". Cada controladora puede tener hasta cuatro canales host; y cada canal tiene un identificador único que es un número del 1 al 4.
+Las controladora se identifican como "a " o "b". Cada controladora puede tener hasta cuatro canales host; y cada canal tiene un identificador único que es un número del 1 al 8.
 
 
 
@@ -37,7 +37,7 @@ Las controladora se identifican como "a " o "b". Cada controladora puede tener h
 
 [listing]
 ----
-start IOCLog [(a1 | a2 | a3 | a4 | b1 | b2 | b3 | b4)]
+start IOCLog [(a1 | a2 | a3 | a4 | a5 | a6 | a7 | a8 | b1 | b2 | b3 | b4 | b5 | b6 | b7 | b8)]
 [overwrite=(TRUE | FALSE)]
 ----
 
@@ -54,7 +54,7 @@ start IOCLog [(a1 | a2 | a3 | a4 | b1 | b2 | b3 | b4)]
  a| 
 Este parámetro especifica la controladora y el canal host desde los cuales se generará el volcado de IOC. Los identificadores válidos de la controladora son los siguientes `a` o. `b`, donde `a` Es la controladora en la ranura A, y. `b` Es la controladora en la ranura B. Los canales host tienen identificadores numéricos. Los identificadores de la controladora y del canal host deben escribirse entre corchetes ([ ]).
 
-Los siguientes son valores válidos para el identificador de la controladora y del canal host `a1`, `a2`, `a3`, `a4`, `b1`, `b2`, `b3`, `b4`.
+Los valores del identificador de la controladora y del canal host válidos son `a1`, , `a2` `a3` `a4` `a5`, , , , `a6` `a7`, , , `a8` `b1`, , `b2`, `b3` `b4`, , , `b5` `b6`, , `b7`, `b8`o .
 
 Si no se especifica una controladora, el software de administración del almacenamiento devuelve un error de sintaxis.
 
