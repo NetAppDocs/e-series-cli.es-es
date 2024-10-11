@@ -21,7 +21,7 @@ Este comando se aplica a cualquier cabina de almacenamiento individual, con algu
 
 [NOTE]
 ====
-Si ejecuta el comando en la cabina E2800, E5700, EF600 y EF300, el tipo de cliente debe configurarse en `symbol`. Este comando no se ejecutará si el tipo de cliente está establecido en `https`.
+Este comando no se admite en las plataformas E2800, E5700, EF600 y EF300.
 
 ====
 
