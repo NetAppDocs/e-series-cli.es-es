@@ -7,7 +7,7 @@ summary: El comando set Controller activa o desactiva la luz indicadora de permi
 = Configurar indicador de permiso de acción de servicio de la controladora
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Este comando es válido solo para E2700, E5600 o EF560 (y otras generaciones ant
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 set controller [(a| b)]
 serviceAllowedIndicator=(on | off)

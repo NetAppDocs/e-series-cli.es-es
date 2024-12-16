@@ -7,7 +7,7 @@ summary: El comando activate storageArray feature activa la función Asynchronou
 = Active el mirroring asíncrono
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,7 +17,7 @@ La `activate storageArray feature` El comando activa la función Asynchronous Mi
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que se hayan instalado todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 [NOTE]
 ====
@@ -28,7 +28,7 @@ Este comando solo se aplica para mirroring asíncrono a través de Fibre Channel
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E400, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -40,7 +40,7 @@ Después de activar la función de mirroring asíncrono, debe configurar un grup
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 activate storageArray feature=asyncRemoteMirror
 ----

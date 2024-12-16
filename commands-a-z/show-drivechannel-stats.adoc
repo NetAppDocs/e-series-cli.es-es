@@ -7,7 +7,7 @@ summary: El comando show driveChannel stats muestra la transferencia de datos ac
 = Mostrar estadísticas de canal de unidad
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `show driveChannel stats` el comando muestra la transferencia de datos acumul
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ Si la controladora degradó automáticamente un canal de la unidad, este comando
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 show (driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)] |
    driveChannels [1 2 3 4 5 6 7 8] |

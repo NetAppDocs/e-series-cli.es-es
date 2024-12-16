@@ -7,7 +7,7 @@ summary: El comando set tray configura el ID de soporte de un soporte de control
 = Configure la identificación de soporte
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ Este comando es válido únicamente para soportes de controladoras, los soportes
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set tray pass:quotes[["_serialNumber_"]] pass:quotes[id=_trayID_]
 ----

@@ -7,7 +7,7 @@ summary: El comando set snapVolume cambia el nombre de un volumen Snapshot exist
 = Cambiar el nombre del volumen Snapshot
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,19 +17,19 @@ La `set snapVolume` el comando cambia el nombre de un volumen snapshot existente
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set snapVolume pass:quotes[["_snapVolumeName_"]] userLabel=pass:quotes["_snapImageVolumeName_"]
 ----

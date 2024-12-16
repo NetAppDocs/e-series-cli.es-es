@@ -7,7 +7,7 @@ summary: El comando create asyncMirrorGroup crea un nuevo grupo de reflejos así
 = Cree un grupo de reflejos asíncronos
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -21,14 +21,14 @@ Este comando se aplica a cualquier cabina de almacenamiento individual, con algu
 
 [NOTE]
 ====
-Este comando no se admite en las plataformas E2800, E5700, EF600 y EF300.
+Este comando no se admite en las plataformas E4000, E2800, E5700, EF600 y EF300.
 
 ====
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+N.A.
 
 
 
@@ -44,7 +44,7 @@ Asegúrese de ejecutar el `Create Asynchronous Mirror Group` comando en la cabin
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 create asyncMirrorGroup userLabel=pass:quotes[_"asyncMirrorGroupName"_]
 (remoteStorageArrayName=pass:quotes[_"storageArrayName"_] | remoteStorageArrayWWN=pass:quotes[_"wwID"_])

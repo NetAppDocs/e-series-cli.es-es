@@ -2,15 +2,18 @@
 permalink: get-started/firmware-compatibility-levels.html 
 sidebar: sidebar 
 keywords: firmware, compatibility, levels 
-summary: Los comandos de script y los parámetros de comandos no funcionan en todas las versiones de firmware de la controladora. 
+summary: Los comandos de script incluidos en las siguientes secciones indican el nivel de firmware mínimo necesario para su ejecución. 
 ---
 = Niveles de compatibilidad de firmware
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-Los comandos de script y los parámetros de comandos no funcionan en todas las versiones de firmware de la controladora. Los comandos de script incluidos en las siguientes secciones indican el nivel de firmware mínimo necesario para su ejecución. En los comandos de script, los niveles de firmware se muestran bajo el encabezado «nivel de firmware de Minimum». En esta lista, se describe la forma de interpretar la información sobre los niveles de firmware.
+[role="lead"]
+Los comandos de script incluidos en las siguientes secciones indican el nivel de firmware mínimo necesario para su ejecución.
+
+Los comandos de script y los parámetros de comandos no funcionan en todas las versiones de firmware de la controladora. En los comandos de script, los niveles de firmware se muestran bajo el encabezado «nivel de firmware de Minimum». En esta lista, se describe la forma de interpretar la información sobre los niveles de firmware.
 
 * Si un comando de script no indica el nivel de firmware mínimo de una controladora, es posible ejecutar ese comando y todos los parámetros asociados en cualquier nivel de firmware de la controladora.
 * Un número de firmware de la controladora sin información explicativa indica que el nivel de firmware se aplica a todo el comando de script y a todos los parámetros asociados.

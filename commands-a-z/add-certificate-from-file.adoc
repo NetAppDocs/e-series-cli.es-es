@@ -7,7 +7,7 @@ summary: El comando Add certificate from file permite tomar un certificado del a
 = Añadir certificado desde archivo
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,7 +23,7 @@ Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[trust localCertificate file _filename_ alias user _specified alias_]
 ----

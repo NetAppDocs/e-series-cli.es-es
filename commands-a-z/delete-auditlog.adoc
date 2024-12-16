@@ -7,7 +7,7 @@ summary: El comando delete auditlog elimina algunas o todas las entradas del reg
 = Eliminar registros de auditoría
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,21 +17,20 @@ La `delete auditLog` el comando elimina algunos o todos los registros de auditor
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
-
 delete auditLog (all | (endRecord=pass:quotes[_timestamp_ | endDate=_date_) |
  (retentionCount=_integer_))]
 ----

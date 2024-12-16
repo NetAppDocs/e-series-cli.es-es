@@ -7,7 +7,7 @@ summary: El comando SMcli alertTest envía un alerta de prueba a Windows Event L
 = Probar alertas
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -32,7 +32,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 SMcli -alertTest
 ----

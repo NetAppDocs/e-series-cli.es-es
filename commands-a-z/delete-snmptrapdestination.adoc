@@ -7,7 +7,7 @@ summary: 'El comando delete snmpTrapDestination elimina un destino de capturas d
 = Cancele el registro del destino de captura SNMP
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,19 +17,19 @@ La `delete snmpTrapDestination` Comando elimina un destino de captura de protoco
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[delete snmpTrapDestination trapReceiverIP=_ipAddress_]
 ----

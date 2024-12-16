@@ -2,13 +2,16 @@
 permalink: get-started/structure-of-a-script-command.html 
 sidebar: sidebar 
 keywords: structure, script command 
-summary: Todos los comandos de script presentan la siguiente estructura. 
+summary: Para garantizar una correcta ejecución, los comandos de script deben escribirse en la estructura adecuada. 
 ---
 = Estructura de un comando de script
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+Para garantizar una correcta ejecución, los comandos de script deben escribirse en la estructura adecuada.
 
 Todos los comandos de script presentan la siguiente estructura:
 

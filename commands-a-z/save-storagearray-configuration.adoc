@@ -7,7 +7,7 @@ summary: El comando save storageArray Configuration crea un archivo de script qu
 = Guarde la configuración de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `save storageArray configuration` el comando crea un archivo de script que se
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento. Sin embargo, el uso de este comando junto con el parámetro LDAP está restringido a aquellos con el rol Security Admin.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento. Sin embargo, el uso de este comando junto con el parámetro LDAP está restringido a aquellos con el rol Security Admin.
 
 
 
@@ -38,7 +38,7 @@ Este comando no guarda en un archivo los datos de configuración de mirroring re
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 save storageArray configuration file=pass:quotes["_filename_"]
 (allconfig|[globalSettings=(TRUE | FALSE)]

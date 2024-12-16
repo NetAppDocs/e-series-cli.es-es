@@ -7,7 +7,7 @@ summary: El comando set volume define las propiedades de los volúmenes en un gr
 = Configurar atributos de volumen para un volumen de un grupo de volúmenes
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set volume` el comando define las propiedades de los volúmenes de un grupo 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -40,7 +40,7 @@ En configuraciones donde los grupos de volúmenes comprenden más de 32 volúmen
 
 == Sintaxis aplicable a uno o varios volúmenes
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[[_volumeName_]] |
 volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
@@ -56,7 +56,7 @@ writeCacheEnabled=(TRUE | FALSE)
 cacheReadPrefetch=(TRUE | FALSE)
 dataAssuranceDisabled=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[[_volumeName_]] |
 volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
@@ -72,7 +72,7 @@ writeCacheEnabled=(TRUE | FALSE)
 cacheReadPrefetch=(TRUE | FALSE)
 dataAssuranceDisabled=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[["_volumeName_"]] |
 volumes pass:quotes[["_volumeName1_" ... "_volumeNameN_"]] | volume <"wwID">)
@@ -88,7 +88,7 @@ writeCacheEnabled=(TRUE | FALSE)
 cacheReadPrefetch=(TRUE | FALSE)
 dataAssuranceDisabled=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[[_volumeName_]] |
 volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
@@ -103,7 +103,7 @@ writeCacheEnabled=(TRUE | FALSE)
 cacheReadPrefetch=(TRUE | FALSE)
 dataAssuranceDisabled=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[["_volumeName_"]] |
 volumes pass:quotes[["_volumeName1_" ... "_volumeNameN_"]] | volume <"wwID">)
@@ -118,7 +118,7 @@ writeCacheEnabled=(TRUE | FALSE)
 cacheReadPrefetch=(TRUE | FALSE)
 dataAssuranceDisabled=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (allVolumes | volume pass:quotes[[_volumeName_]] |
 volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
@@ -137,7 +137,7 @@ reservedFutureOption1=(TRUE | FALSE)
 
 == Sintaxis aplicable únicamente a un volumen
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (volume pass:quotes[[_volumeName_]] | volume <wwID>)
 pass:quotes[addCapacity=_volumeCapacity_]
@@ -147,7 +147,7 @@ pass:quotes[segmentSize=_segmentSizeValue_]
 pass:quotes[userLabel=_volumeName_]
 preReadRedundancyCheck=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (volume pass:quotes[["_volumeName_"]] | volume <wwID>)
 pass:quotes[addCapacity=_volumeCapacity_]
@@ -158,7 +158,7 @@ pass:quotes[segmentSize=_segmentSizeValue_]
 pass:quotes[userLabel=_volumeName_]
 preReadRedundancyCheck=(TRUE | FALSE)
 ----
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set (volume pass:quotes[[_volumeName_]] | volume <wwID>)
 pass:quotes[addCapacity=_volumeCapacity_]

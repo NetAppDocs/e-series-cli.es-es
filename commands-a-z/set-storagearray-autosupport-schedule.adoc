@@ -7,7 +7,7 @@ summary: El comando set storageArray AutoSupport schedule establece los horarios
 = Configure la programación de recogida de mensajes de AutoSupport
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set storageArray autoSupport schedule` El comando configura la frecuencia di
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
 
 
 
@@ -38,7 +38,7 @@ Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set storageArray autoSupport schedule dailyTime=pass:quotes[_startTime-endTime_]
  [dayOfWeek=(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)]

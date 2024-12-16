@@ -7,7 +7,7 @@ summary: El comando start storageArray syslog test permite realizar pruebas de l
 = Inicie la prueba de syslog de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,19 +17,19 @@ La `start storageArray syslog test` permite probar las comunicaciones entre la c
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 start storageArray syslog test id="<id>"
 ----

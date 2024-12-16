@@ -7,9 +7,10 @@ summary: La sintaxis exclusiva de un comando de script específico se explica en
 = Reglas de formato para comandos de script
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 La sintaxis exclusiva de un comando de script específico se explica en la sección Notas al final de la descripción de cada comando de script.
 
 *Distinción entre mayúsculas y minúsculas* -- los comandos de script no distinguen entre mayúsculas y minúsculas. Es posible escribir los comandos de script en minúscula, mayúscula o ambas. (En las siguientes descripciones de comandos, se usan mayúsculas y minúsculas para facilitar la lectura de los nombres de comandos y la comprensión de su finalidad).

@@ -2,13 +2,20 @@
 permalink: get-started/formatting-cli-commands.html 
 sidebar: sidebar 
 keywords: format, rules, cli, commands 
-summary: Las comillas dobles que se usan como parte de un nombre o una etiqueta requieren consideración especial cuando se ejecutan comandos de la CLI y comandos de script en un sistema operativo Windows, Linux o Solaris. 
+summary: Según el valor o el nombre introducidos, ciertas reglas de formato se aplican para los comandos de la CLI. 
 ---
 = Reglas de formato para los comandos de la CLI
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+Según el valor o el nombre introducidos, ciertas reglas de formato se aplican para los comandos de la CLI.
+
+
+
+== Reglas de formato de la CLI
 
 Las comillas dobles (" ") que se usan como parte de un nombre o una etiqueta requieren consideración especial cuando se ejecutan comandos de la CLI y comandos de script en un sistema operativo Windows, Linux o Solaris.
 

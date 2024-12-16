@@ -7,7 +7,7 @@ summary: 'El comando save Controller arrayManagementCSR genera una solicitud de 
 = Generar solicitud de firma de certificación (CSR) para servidor web
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `save controller arrayManagementCSR` El comando genera una solicitud de firma
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
@@ -35,7 +35,7 @@ Una entidad de certificación (CA) debe firmar la CSR. El certificado firmado re
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 
 save controller [(a|b)] arrayManagementCSR
@@ -47,6 +47,7 @@ save controller [(a|b)] arrayManagementCSR
      locality=pass:quotes["_cityOrLocality_"]
      [stateProvince=pass:quotes["_stateOrRegion_"]]
      country=pass:quotes["_string_"]
+     keySize=["2048 | 3072 | 4096 "]
      file=pass:quotes["_filename_"]
 ----
 
@@ -118,6 +119,13 @@ Permite especificar el estado o la región donde se encuentra la cabina de almac
 `country`
  a| 
 Permite especificar el código ISO (Organización Internacional de Normalización) de dos dígitos, como US.
+
+
+
+ a| 
+`keySize`
+ a| 
+Permite especificar un valor de `2048`, `3072` o `4096` para el tamaño de clave del servidor. El tamaño de clave predeterminado es 3072 si no se selecciona ningún tamaño de clave.
 
 
 

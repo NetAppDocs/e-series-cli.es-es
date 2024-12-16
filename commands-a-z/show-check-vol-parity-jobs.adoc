@@ -7,7 +7,7 @@ summary: El comando show check volume parity jobs muestra todos los trabajos de 
 = Muestra Check Volume Parity Jobs
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -29,7 +29,7 @@ Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe c
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 show check volume parity jobs;
 ----

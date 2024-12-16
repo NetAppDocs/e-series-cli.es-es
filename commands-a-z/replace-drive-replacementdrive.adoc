@@ -7,7 +7,7 @@ summary: El comando replace drive replacementDrive reemplaza una unidad en un gr
 = Sustituya la unidad
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `replace drive replacementDrive` el comando reemplaza una unidad de un grupo 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ El reemplazo de una unidad en un grupo de volúmenes redefine la composición de
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 replace (drive \[trayID,[drawerID,]slotID\] \| drives\[trayID1,[drawerID1,]slotID1 ... trayIDn,[drawerIDn,]slotIDn\]
  | <"wwID">)

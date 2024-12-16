@@ -7,14 +7,17 @@ summary: El sistema operativo SANtricity versión 11.40 introdujo, en las contro
 = Parámetros de la línea de comandos heredados
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E2800 y E5700 con servicios web integrados, la capacidad para interactuar en la línea de comandos con un protocolo HTTPS seguro. De forma opcional, estas controladoras pueden utilizar el protocolo Symbol para interacciones en la línea de comandos.
 
 
 
 == 11.53 y parámetros de línea de comandos más antiguos
 
-El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E2800 y E5700 con servicios web integrados, la capacidad para interactuar en la línea de comandos con un protocolo HTTPS seguro. De forma opcional, estas controladoras pueden utilizar el protocolo Symbol para interacciones en la línea de comandos. El protocolo Symbol es el único admitido por las controladoras E2700 y E5600. A fin de conservar los scripts existentes y minimizar el tiempo de transición, la gramática y las opciones de la CLI se conservan en la mayor medida posible. No obstante, existen algunas diferencias en las funcionalidades de las controladoras E2800 y E5700 con respecto a la seguridad, la autenticación, AutoSupport y la mensajería de alertas por las cuales cierta gramática de la CLI se torna obsoleta para dichas controladoras. Sin embargo, en algunos casos, la gramática solo es obsoleta en E2800 o E5700 cuando se utiliza el protocolo https nuevo.
+El protocolo Symbol es el único admitido por las controladoras E2700 y E5600. A fin de conservar los scripts existentes y minimizar el tiempo de transición, la gramática y las opciones de la CLI se conservan en la mayor medida posible. No obstante, existen algunas diferencias en las funcionalidades de las controladoras E2800 y E5700 con respecto a la seguridad, la autenticación, AutoSupport y la mensajería de alertas por las cuales cierta gramática de la CLI se torna obsoleta para dichas controladoras. Sin embargo, en algunos casos, la gramática solo es obsoleta en E2800 o E5700 cuando se utiliza el protocolo https nuevo.
 
 Para los nuevos parámetros que solo se aplican a la `*https*` Tipo de cliente, se sigue que también se aplican solo a las controladoras E2800 o E5700.
 

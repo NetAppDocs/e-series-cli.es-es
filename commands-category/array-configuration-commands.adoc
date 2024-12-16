@@ -7,8 +7,11 @@ summary: Comandos de configuración de la cabina
 = Comandos de configuración de la cabina
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La siguiente lista de comandos de configuración de la cabina se encuentran disponibles para el sistema de almacenamiento E-Series.
 
 
 

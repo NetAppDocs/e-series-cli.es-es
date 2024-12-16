@@ -7,8 +7,11 @@ summary: Comandos de Auto Support
 = Comandos de Auto Support
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La siguiente lista de comandos de auto soporte está disponible para el sistema de almacenamiento E-Series.
 
 
 
@@ -44,24 +47,26 @@ link:../commands-a-z/save-storagearray-supportdata.html["Guarde datos de soporte
 
 
 
-== Comandos de AutoSupport para E2800, E5700
+== Comandos de AutoSupport para E4000, EF300, EF400, E2800 y E5700
 
-link:../commands-a-z/set-storagearray-autosupportmaintenancewindow.html["Habilitar o deshabilitar la ventana de mantenimiento de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-autosupport-dispatch-limit.html["Definir límite de tamaño de envío de AutoSupport"]
 
-link:../commands-a-z/set-storagearray-autosupportondemand.html["Habilitar o deshabilitar la función AutoSupport OnDemand (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-storagearray-autosupportmaintenancewindow.html["Habilite o deshabilite la ventana de mantenimiento de AutoSupport"]
 
-link:../commands-a-z/set-storagearray-autosupportremotediag.html["Habilitar o deshabilitar la función AutoSupport Remote Diagnostics (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-storagearray-autosupportondemand.html["Habilite o deshabilite la función AutoSupport OnDemand"]
 
-link:../commands-a-z/save-storagearray-autosupport-log.html["Recuperar un registro de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-storagearray-autosupportremotediag.html["Habilite o deshabilite la función AutoSupport Remote Diagnostics"]
 
-link:../commands-a-z/reset-storagearray-autosupport-schedule.html["Restablecer programación de recogida de mensajes de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/save-storagearray-autosupport-log.html["Recupere un registro de AutoSupport"]
+
+link:../commands-a-z/reset-storagearray-autosupport-schedule.html["Restablecer la programación de recogida de mensajes de AutoSupport"]
 
 link:../commands-a-z/show-storagearray-autosupport.html["Mostrar la configuración de AutoSupport (para cabinas de almacenamiento E2800 o E5700)"]
 
-link:../commands-a-z/set-storagearray-autosupport-schedule.html["Configurar programación de recogida de mensajes de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-storagearray-autosupport-schedule.html["Configure la programación de recogida de mensajes de AutoSupport"]
 
-link:../commands-a-z/set-autosupport-https-delivery-method-e2800-e5700.html["Especificar método de entrega de HTTP(S) de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-autosupport-https-delivery-method.html["Especifique método de entrega de HTTP(S) de AutoSupport"]
 
-link:../commands-a-z/set-email-smtp-delivery-method-e2800-e5700.html["Especificar método de entrega de correo electrónico (SMTP) (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/set-email-smtp-delivery-method.html["Especifique el método de entrega de correo electrónico (SMTP)"]
 
-link:../commands-a-z/start-storagearray-autosupport-deliverytest.html["Probar configuración de entrega de AutoSupport (para cabinas E2800 o E5700 individuales)"]
+link:../commands-a-z/start-storagearray-autosupport-deliverytest.html["Probar configuración de entrega de AutoSupport"]

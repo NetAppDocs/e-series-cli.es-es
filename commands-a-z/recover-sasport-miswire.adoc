@@ -7,7 +7,7 @@ summary: El comando recover sasPort miswire indica a la controladora que se llev
 = Recupere una conexión incorrecta de puerto SAS
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `recover sasPort miswire` el comando indica a la controladora que se ha tomad
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
 
 
 
@@ -43,7 +43,7 @@ Las condiciones de conexión incorrecta en el puerto SAS pueden ser las siguient
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 recover sasPort miswire
 ----

@@ -7,7 +7,7 @@ summary: El comando set storageArray localUsername y el comando set storageArray
 = Configure la contraseña de usuario local o la contraseña Symbol de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,19 +17,19 @@ La `set storageArray localUsername` y la `set storageArray symbol` El comando pe
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe tener los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set storageArray (localUsername=pass:quotes[{ _admin_ | _storage_ | _security_ | _support_ | _monitor_}]
 | symbol [userRole={admin | monitor}])

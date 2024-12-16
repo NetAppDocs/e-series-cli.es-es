@@ -7,7 +7,7 @@ summary: El comando download storageArray keyManagementCertificate instala los c
 = Instale el certificado de gestión de claves externas de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `download storageArray keyManagementCertificate` el comando instala los certi
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
@@ -38,10 +38,9 @@ Este comando se aplica solo a la gestión de claves externas.
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
-
-pass:quotes[download storageArray keyManagementClientCertificate certificateType=(client|server) file="_filename_"]
+pass:quotes[download storageArray keyManagementClientCertificate certificateType=(client|server) file="_filename_" [privateKeyFile = "keyFileName"]]
 ----
 
 
@@ -63,6 +62,13 @@ Permite especificar el tipo de archivo de certificado. Las opciones válidas son
 `file`
  a| 
 Permite especificar el certificado firmado de cliente o el certificado de CA raíz/intermedio de servidor. El formato del archivo debe ser PEM/DER.
+
+
+
+ a| 
+`privateKeyFile`
+ a| 
+Permite descargar una clave privada junto con un certificado firmado.  `privateKeyFile`El parámetro se debe utilizar con `certificateType=client` VALUE.
 
 |===
 

@@ -7,7 +7,7 @@ summary: El comando activate storageArray firmware activa el firmware que se des
 = Activar el firmware de cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,7 +17,7 @@ La `activate storageArray firmware` el comando activa el firmware que se descarg
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 activate storageArray firmware
 [healthCheckMelOverride=(TRUE | FALSE)]

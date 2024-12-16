@@ -7,10 +7,13 @@ summary: 'Como es posible utilizar comandos de script para definir y gestionar l
 = Sinopsis de los comandos de script
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-Como es posible utilizar comandos de script para definir y gestionar los diferentes aspectos de una cabina de almacenamiento (como la topología de host, la configuración de unidades, la configuración de controladoras, las definiciones de los volúmenes y las definiciones de los grupos de volúmenes), la cantidad real de comandos es bastante amplia. Sin embargo, los comandos se dividen en categorías generales que se reutilizan cuando se aplican los comandos para configurar o realizar el mantenimiento de una cabina de almacenamiento. En la siguiente tabla, se detalla el formato general de los comandos de script y se proporciona una definición de cada uno.
+[role="lead"]
+Como es posible utilizar comandos de script para definir y gestionar los diferentes aspectos de una cabina de almacenamiento (como la topología de host, la configuración de unidades, la configuración de controladoras, las definiciones de los volúmenes y las definiciones de los grupos de volúmenes), la cantidad real de comandos es bastante amplia.
+
+Los comandos se dividen en categorías generales que se reutilizan cuando se aplican los comandos para configurar o realizar el mantenimiento de una cabina de almacenamiento. En la siguiente tabla, se detalla el formato general de los comandos de script y se proporciona una definición de cada uno.
 
 [cols="2*"]
 |===

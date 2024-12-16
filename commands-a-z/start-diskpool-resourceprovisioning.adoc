@@ -7,7 +7,7 @@ summary: El comando start DISKPOOL resourceProvisioning permite el aprovisionami
 = Iniciar el aprovisionamiento de recursos de pool de discos
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ Para deshabilitar el aprovisionamiento de recursos en un pool de discos, utilice
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 start diskPoolpass:quotes[[_diskPoolName_]] resourceProvisioning
 ----

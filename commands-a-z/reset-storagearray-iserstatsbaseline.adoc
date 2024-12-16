@@ -7,7 +7,7 @@ summary: El comando reset storageArray iserStatsBaseline restablece la base de I
 = Restablezca la línea de base Iser de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `reset storageArray iserStatsBaseline` El comando restablece la base Iser en 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800 o E5700, debe contar con el rol de administrador de almacenamiento.
 
 [NOTE]
 ====
@@ -34,7 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:reset-storagearray-hos
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 reset storageArray iserStatsBaseline
 ----

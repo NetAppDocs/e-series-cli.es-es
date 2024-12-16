@@ -7,7 +7,7 @@ summary: El comando create DISKPOOL crea un nuevo pool de discos de acuerdo con 
 = Crear pool de discos
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `create diskPool` el comando crea un nuevo pool de discos de acuerdo con los 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -40,7 +40,7 @@ Cuando se introduce una lista de unidades, todas deben tener la misma capacidad.
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 create diskPool
 (drives=pass:quotes[_(trayID1_],pass:quotes[[_drawerID1,_]]pass:quotes[_slotID1 ... trayIDN_],pass:quotes[[_drawerIDN,_]]pass:quotes[_slotIDN)_]|

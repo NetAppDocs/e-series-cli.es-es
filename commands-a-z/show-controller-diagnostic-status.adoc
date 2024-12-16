@@ -7,7 +7,7 @@ summary: El comando show Controller muestra el estado del diagnóstico de la con
 = Muestra el estado de diagnóstico de la controladora
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -19,7 +19,7 @@ Si terminó el proceso de diagnóstico, se muestran todos los resultados de las 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 show controller [(a| b)] diagnosticStatus pass:quotes[[file=_filename_]]
 ----

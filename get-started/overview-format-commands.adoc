@@ -7,10 +7,13 @@ summary: 'La interfaz de línea de comandos (CLI) es una aplicación de software
 = Información general de la CLI
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-La interfaz de línea de comandos (CLI) es una aplicación de software que permite configurar y supervisar cabinas de almacenamiento. La CLI permite ejecutar comandos desde el símbolo del sistema de un sistema operativo, como dos `C:` Prompt, una ruta de sistema operativo Linux o una ruta de sistema operativo Solaris.
+[role="lead"]
+La interfaz de línea de comandos (CLI) es una aplicación de software que permite configurar y supervisar cabinas de almacenamiento.
+
+La CLI permite ejecutar comandos desde el símbolo del sistema de un sistema operativo, como en el símbolo del sistema de DOS `C:`, una ruta de sistema operativo Linux o una ruta de sistema operativo Solaris.
 
 La CLI brinda acceso directo a un motor de scripts que es una utilidad en el software de administración del almacenamiento. El motor de scripts ejecuta comandos que configuran y gestionan las cabinas de almacenamiento. El motor de scripts lee los comandos, ya sea desde un archivo de script o directamente de la línea de comandos, y ejecuta las operaciones indicadas en los comandos.
 

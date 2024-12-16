@@ -7,8 +7,11 @@ summary: Comandos de configuración del volumen
 = Comandos de configuración del volumen
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La siguiente lista de comandos de configuración de volúmenes están disponibles para el sistema de almacenamiento E-Series.
 
 
 

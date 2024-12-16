@@ -7,7 +7,7 @@ summary: El comando start Controller iscsiHostPort dhcpRefresh inicia una actual
 = Inicie la actualización de DHCP de iSCSI
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `start controller iscsiHostPort dhcpRefresh` Comando inicia una actualizació
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ Si el método de configuración de la interfaz no está establecido en DHCP, el 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 start controller [(a|b)] iscsiHostPort [portLabel] dhcpRefresh
 ----

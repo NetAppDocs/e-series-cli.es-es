@@ -7,7 +7,7 @@ summary: El comando start volumeGroup fullProvisioning inicia una operación de 
 = Inicie el aprovisionamiento completo del grupo de volúmenes
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -39,7 +39,7 @@ El formato de aprovisionamiento completo garantiza que todos los bloques necesar
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 start volumeGroup[volumeGroupName] fullProvisioning [disableResourceProvisioning=(TRUE | FALSE)]
 ----

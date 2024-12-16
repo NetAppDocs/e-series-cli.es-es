@@ -7,7 +7,7 @@ summary: Se utiliza el comando SMcli -autoSupportConfig test para realizar una p
 = Pruebe la configuración de AutoSupport
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -37,7 +37,7 @@ Persistent Monitor debe encontrarse en ejecución en la estación de gestión pa
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 SMcli -autoSupportConfig test reply-toEmail<address>
 ----

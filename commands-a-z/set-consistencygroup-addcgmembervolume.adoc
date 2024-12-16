@@ -7,7 +7,7 @@ summary: El comando set consistencyGroup addCGMemberVolume añade un volumen bas
 = Añada miembro a un grupo de coherencia
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set consistencyGroup addCGMemberVolume` el comando añade un nuevo volumen b
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ Es posible especificar un volumen de repositorios existente para el miembro nuev
 
 == Sintaxis para utilizar con un volumen de repositorios existente
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 
 set consistencyGroup ["consistencyGroupName"]
@@ -46,7 +46,7 @@ repositoryVolume=pass:quotes["_volumeGroupName_"]
 
 == Sintaxis para utilizar en la creación de un volumen de repositorios nuevo en un grupo de volúmenes
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 
 set consistencyGroup pass:quotes[["_consistencyGroupName_"]]
@@ -57,7 +57,7 @@ repositoryVolume=pass:quotes[("_volumeGroupName_"] capacity=pass:quotes[_capacit
 
 == Sintaxis para utilizar en la creación de un volumen de repositorios nuevo en un pool de discos
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 
 set consistencyGroup pass:quotes[["_consistencyGroupName_"]]

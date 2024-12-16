@@ -7,7 +7,7 @@ summary: 'El comando set ssdCache permite agregar discos de estado sólido (SSD)
 = Añada unidades a la caché SSD
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,18 +17,18 @@ La `set ssdCache` El comando aumenta la capacidad de una caché SSD existente ag
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que se hayan instalado todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 [NOTE]
 ====
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de soporte.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de soporte.
 
 ====
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[set ssdCache [_ssdCacheName_]]
 pass:quotes[addDrives=(_trayID1_,[_drawerID1_,]]pass:quotes[_slotID1 ... trayIDn_,]pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_)]

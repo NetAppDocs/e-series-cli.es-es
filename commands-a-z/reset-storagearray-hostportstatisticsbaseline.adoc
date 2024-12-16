@@ -7,7 +7,7 @@ summary: El comando reset storageArray hostPortStatisticsBaseline restablece la 
 = Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `reset storageArray hostPortStatisticsBaseline` el comando restablece la base
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o supervisor de almacenamiento.
 
 
 
@@ -38,7 +38,7 @@ Este comando reemplaza a la obsoleto xref:reset-storagearray-ibstatsbaseline.ado
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 
 reset storageArray hostPortStatisticsBaseline type=(ISCSI| ISER | SRP | NVMEOF)

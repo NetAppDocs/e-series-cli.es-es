@@ -7,7 +7,7 @@ summary: El comando start DISKPOOL fullProvisioning inicia una operación de apr
 = Inicie el aprovisionamiento completo del pool de discos
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -39,7 +39,7 @@ El formato de aprovisionamiento completo garantiza que todos los bloques necesar
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 start diskPool[diskPoolName] fullProvisioning [disableResourceProvisioning=(TRUE | FALSE)]
 ----

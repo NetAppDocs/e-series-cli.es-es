@@ -7,8 +7,11 @@ summary: Comandos para personal de supervisión de almacenamiento
 = Comandos para personal de supervisión de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La siguiente lista de comandos de personal de supervisión de almacenamiento están disponibles en el sistema de almacenamiento E-Series.
 
 link:../commands-a-z/show-storagearray-usersession.html["Mostrar sesión de usuario de la cabina de almacenamiento"]
 

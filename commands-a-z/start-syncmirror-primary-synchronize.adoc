@@ -7,7 +7,7 @@ summary: El comando start SyncMirror primary synchronize inicia la sincronizaci�
 = Inicie la sincronización de mirroring síncrono
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `start syncMirror primary synchronize` el comando inicia la sincronización d
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800 y E5700, Siempre que se hayan instalado todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800 o E5700, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -38,7 +38,7 @@ En las versiones anteriores de este comando, el identificador de función era `r
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[start syncMirror primary ["_volumeName_"]] synchronize
 ----

@@ -2,19 +2,22 @@
 permalink: get-started/downloadable-smcli-parameters.html 
 sidebar: sidebar 
 keywords: downloadable, smcli, command line, parameters, identify, devices, SAML, multifactor, authentication, https, certificate, array, 
-summary: 'La versión de SANtricity OS 11.60 incluía la capacidad de descargar e instalar la versión de la CLI basada en http (también conocida como CLI segura o SMcli) directamente a través del System Manager de SANtricity.' 
+summary: 'SANtricity OS 11,60 y las versiones más recientes incluyen la capacidad de descargar e instalar la versión basada en http de la interfaz de línea de comandos (también conocida como CLI segura o SMcli) directamente mediante SANtricity System Manager.' 
 ---
 = Parámetros de línea de comandos de SMcli descargables
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+SANtricity OS 11,60 y las versiones más recientes incluyen la capacidad de descargar e instalar la versión de CLI basada en http (también conocida como «CLI segura» o SMcli) directamente a través de SANtricity System Manager.
 
 
 
 == 11.60 y nuevos parámetros de línea de comandos de SMcli descargables
 
-La versión de SANtricity OS 11.60 incluye la capacidad de descargar e instalar la versión de la CLI basada en http (también conocida como "CLI segura" o SMcli) directamente a través del System Manager de SANtricity. Esta versión descargable de SMcli está disponible en EF600, EF300, E5700, EF570, E2800, Y las controladoras EF280. Para descargar la SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* > *sistema* y *Complementos* > *interfaz de línea de comandos* .
+La versión descargable de SMcli está disponible en las controladoras E4000, EF600, EF300, E5700, EF570, E2800 y EF280. Para descargar SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* *Sistema* y *Complementos* *Interfaz de línea de comandos* .
 
 
 NOTE: Debe haber disponible un entorno Java Runtime Environment (JRE), versión 8 y superior en el sistema de administración en el que planea ejecutar los comandos de la CLI.

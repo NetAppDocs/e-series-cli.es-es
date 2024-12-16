@@ -7,7 +7,7 @@ summary: El comando Show array label devuelve información sobre si se definió 
 = Mostrar etiqueta de cabina
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `Show array label` el comando muestra información acerca de si se definió u
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento EF600.
+Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[show storageArrayLabel label _userDefinedString_]
 show storageArrayLabel all

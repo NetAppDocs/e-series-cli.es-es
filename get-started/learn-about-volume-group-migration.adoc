@@ -2,21 +2,22 @@
 permalink: get-started/learn-about-volume-group-migration.html 
 sidebar: sidebar 
 keywords: volume, group, migration, learn, data, access, export, import, component 
-summary: Información sobre la migración de grupos de volúmenes 
+summary: La migración de grupos de volúmenes permite exportar un grupo de volúmenes de forma tal que se lo pueda importar a otra cabina de almacenamiento. También se puede exportar un grupo de volúmenes para almacenar los datos sin conexión. 
 ---
 = Información sobre la migración de grupos de volúmenes
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La migración de grupos de volúmenes permite exportar un grupo de volúmenes de forma tal que se lo pueda importar a otra cabina de almacenamiento. También se puede exportar un grupo de volúmenes para almacenar los datos sin conexión.
 
 [CAUTION]
 ====
 Si el grupo de volúmenes consta de unidades compatibles con NVMe o FIPS, la clave de seguridad y la frase de contraseña deberán registrarse o guardarse desde la cabina de origen para desbloquear las unidades antes de iniciar la migración a la cabina objetivo. Si no se conoce la clave de seguridad ni la frase de contraseña, o si no se necesita integridad de los datos, puede realizarse un borrado de seguridad. No es posible mezclar distintas unidades de seguridad de cifrado en los sistemas de almacenamiento E-Series. Para obtener más información sobre cómo desbloquear unidades mediante una clave de seguridad, borrar unidades FIPS y desbloquear o restablecer unidades NVMe bloqueadas, consulte la ayuda en línea de SANtricity System Manager.
 
 ====
-La migración de grupos de volúmenes permite exportar un grupo de volúmenes de forma tal que se lo pueda importar a otra cabina de almacenamiento. También se puede exportar un grupo de volúmenes para almacenar los datos sin conexión.
-
 [NOTE]
 ====
 *Posible pérdida de acceso a los datos* -- debe exportar un grupo de volúmenes antes de mover o importar el grupo de volúmenes.

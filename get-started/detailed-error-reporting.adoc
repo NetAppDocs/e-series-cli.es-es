@@ -7,10 +7,13 @@ summary: Los datos recogidos sobre un error que la interfaz de línea de comando
 = Informes de error detallados
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-Los datos recogidos sobre un error que la interfaz de línea de comandos ha detectado se escriben en un archivo. La generación de informes de error detallados en la interfaz de línea de comandos se realiza de la siguiente manera:
+[role="lead"]
+Los datos recogidos sobre un error que la interfaz de línea de comandos ha detectado se escriben en un archivo.
+
+La generación de informes de error detallados en la interfaz de línea de comandos se realiza de la siguiente manera:
 
 * Si la interfaz de línea de comandos debe interrumpir la ejecución de comandos de la CLI y comandos de script de forma anormal, se recogen los datos del error y se guardan antes del cierre de la CLI.
 * La interfaz de línea de comandos guarda los datos del error en un nombre de archivo estándar.

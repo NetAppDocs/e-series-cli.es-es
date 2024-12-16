@@ -7,7 +7,7 @@ summary: Una clave de seguridad es una cadena de caracteres, que se comparte ent
 = Introducción a la gestión de claves internas
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -7,7 +7,7 @@ summary: El comando set iserTarget define propiedades para un objetivo Iser.
 = Configure el objetivo Iser
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:set-target.adoc[Config
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set iserTarget pass:quotes[["_userLabel_"]]
 authenticationMethod=(none | chap) |

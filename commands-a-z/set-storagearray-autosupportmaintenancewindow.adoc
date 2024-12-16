@@ -4,10 +4,10 @@ sidebar: sidebar
 keywords: enable, disable, autosupport, maintenance, window, individual, E2800, E5700, arrays 
 summary: El comando set storageArray autoSupportMaintenanceWindow activa o desactiva la función de ventana de mantenimiento de AutoSupport. 
 ---
-= Habilitar o deshabilitar la ventana de mantenimiento de AutoSupport (para cabinas E2800 o E5700 individuales)
+= Habilite o deshabilite la ventana de mantenimiento de AutoSupport
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -19,19 +19,19 @@ Una ventana de mantenimiento permite suprimir la creación automática de incide
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
 
 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 set storageArray autoSupportMaintenanceWindow (enable | disable)
     emailAddresses=("emailAddress1" "emailAddress2" ...)

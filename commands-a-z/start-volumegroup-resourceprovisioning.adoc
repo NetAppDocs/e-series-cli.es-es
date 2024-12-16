@@ -7,7 +7,7 @@ summary: El comando start volumeGroup resourceProvisioning permite el aprovision
 = Inicie el aprovisionamiento de recursos del grupo de volúmenes
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ Para deshabilitar el aprovisionamiento de recursos en un grupo de volúmenes, se
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 pass:quotes[start volumeGroup[_volumeGroupName_]] resourceProvisioning
 ----

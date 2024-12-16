@@ -7,7 +7,7 @@ summary: El comando save check volume parity job parity errors guarda los errore
 = Guarde los errores de paridad del trabajo de paridad de un volumen
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -29,7 +29,7 @@ Para ejecutar este comando en una cabina de almacenamiento EF600 y EF300, debe c
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 save check volume parity job parityErrors jobId=<job_id> parityErrorFile=<parity_error_file>;
 ----

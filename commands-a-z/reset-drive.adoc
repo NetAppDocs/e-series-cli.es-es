@@ -7,7 +7,7 @@ summary: El comando reset drive apaga y enciende una unidad en un grupo de volú
 = Restablezca una unidad
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `reset drive` la alimentación de comandos enciende una unidad en un grupo de
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -42,7 +42,7 @@ Este comando no se puede utilizar para las unidades SSD fabricadas por Pliant. U
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 reset drive([trayID,[drawerID,]slotID] | <"wwID">)
 ----

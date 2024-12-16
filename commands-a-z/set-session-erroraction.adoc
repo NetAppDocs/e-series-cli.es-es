@@ -7,7 +7,7 @@ summary: El comando set session ErrorAction define la forma de ejecución de la 
 = Configurar la sesión
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set session errorAction` el comando define la forma en que se desea que se e
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe tener los roles de administrador de almacenamiento, administrador de soporte, administrador de seguridad o supervisor de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ A los fines de este comando, una sesión es lo que dura la ejecución de los com
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 set session errorAction=(stop | continue)
 password="storageArrayPassword"

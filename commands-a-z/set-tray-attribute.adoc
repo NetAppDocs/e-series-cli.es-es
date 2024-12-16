@@ -7,7 +7,7 @@ summary: El comando set tray configura atributos definidos por el usuario para u
 = Configure atributo de soporte
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,7 +17,7 @@ La `set tray` el comando establece atributos definidos por el usuario para un so
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set tray pass:quotes[[_trayID_]] (chassisName | assetTag)=pass:quotes["_userID_"]
 ----

@@ -1,0 +1,68 @@
+---
+permalink: commands-a-z/set-autosupport-dispatch-limit.html 
+sidebar: sidebar 
+keywords: Autosupport, bundle, dispatch, delivery type, size 
+summary: Establece el tamaño máximo de los paquetes y los mensajes de AutoSupport para diferentes tipos de entrega. 
+---
+= Definir límite de tamaño de envío de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El `set storageArray autoSupport dispatchSizeLimit` establece el tamaño máximo de los paquetes y los mensajes de AutoSupport para diferentes tipos de entrega.
+
+A través de este comando, los usuarios pueden configurar el tamaño del correo electrónico en función de lo que admite su servidor de correo electrónico. Los tamaños mayores reducen la posibilidad de que el paquete de soporte se trunque.
+
+
+NOTE: Generalmente, los usuarios no deben configurar tamaños de HTTPS a menos que lo indique el soporte de NetApp.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+
+
+
+== Sintaxis
+
+[source, cli, subs="+macros"]
+----
+
+set storageArray autoSupport dispatchSizeLimit (https=(<sizeInBytes>|unlimited)|email=(<sizeInBytes>|unlimited));
+----
+
+
+== Parámetros
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`https`
+ a| 
+El tamaño máximo del mensaje de HTTPS en bytes. Si no se configura el tamaño máximo, el valor predeterminado es 50 MiB. Un valor de “ilimitado” o 0 no permite ninguna restricción de tamaño. El tamaño mínimo permitido es de 2 MiB.
+
+
+
+ a| 
+`email`
+ a| 
+El tamaño máximo de entrega de correo electrónico (SMTP) en bytes. Si no se configura el tamaño máximo, el valor predeterminado es 5 MiB. Un valor de “ilimitado” o 0 no permite ninguna restricción de tamaño. El tamaño mínimo permitido es de 2 MiB.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+8,90

@@ -7,7 +7,7 @@ summary: El comando set storageArray autoSupportOnDemand activa o desactiva la f
 = Habilite o deshabilite la función AutoSupport OnDemand
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set storageArray autoSupportOnDemand` El comando activa o desactiva la funci
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento o administrador de soporte.
 
 
 
@@ -35,7 +35,7 @@ Antes de habilitar esta función, es necesario habilitar la función AutoSupport
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 set storageArray autoSupportOnDemand (enable | disable)
 ----

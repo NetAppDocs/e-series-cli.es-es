@@ -7,7 +7,7 @@ summary: 'El comando set DISKPOOL añade capacidad a un pool de discos (ampliaci
 = Configurar pool de discos (modificar pool de discos)
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `set diskPool` El comando añade capacidad a un pool de discos (ampliación d
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700, E5600, E2800, E5700, Cabinas EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
 
 
 
@@ -35,7 +35,7 @@ Estas dos operaciones son mutuamente excluyentes.
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 set diskPool pass:quotes[[_diskPoolName_]]
 (addDrives=pass:quotes[[_trayID1_,_drawerID1_,_slotID1_ ... _trayIDn_,_drawerIDn_,_slotIDn_]] |

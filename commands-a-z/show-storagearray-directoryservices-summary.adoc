@@ -7,7 +7,7 @@ summary: El comando show storageArray DirectoryServices summary muestra un resum
 = Mostrar resumen de servicios de directorio de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,21 +17,20 @@ La `show storageArray directoryServices summary` comando muestra el resumen de l
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
-
 show storageArray directoryServices summary
 ----
 

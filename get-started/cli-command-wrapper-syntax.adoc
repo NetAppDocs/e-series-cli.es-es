@@ -7,10 +7,15 @@ summary: En esta sección, se muestra una lista de las formas de sintaxis genera
 = Sintaxis de contenedores de comandos de la CLI
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 En esta sección, se muestra una lista de las formas de sintaxis generales de los contenedores de los comandos de la CLI. En la siguiente tabla, se enumeran las convenciones que se usan en la sintaxis de contenedores de los comandos de la CLI.
+
+
+
+== Convenciones de la sintaxis de contenedores de comandos de la CLI
 
 [cols="2*"]
 |===

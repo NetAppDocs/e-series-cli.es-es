@@ -2,15 +2,20 @@
 permalink: get-started/exit-status.html 
 sidebar: sidebar 
 keywords: exit, status 
-summary: En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado. 
+summary: Los estados de cierre se muestran en los comandos ejecutados. En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado. 
 ---
 = Estado de cierre
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado.
+[role="lead"]
+Los estados de cierre se muestran en los comandos ejecutados. En la siguiente tabla, se enumeran los estados de cierre que pueden mostrarse y su significado.
+
+
+
+== Cierre las definiciones de estado
 
 [cols="3*"]
 |===

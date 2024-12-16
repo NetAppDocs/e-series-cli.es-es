@@ -7,7 +7,7 @@ summary: El comando SMcli enable|disable autoSupportOnDemand activa o desactiva 
 = Habilitar o deshabilitar la función AutoSupport OnDemand en el nivel de dominio de gestión de EMW (solo para SMcli)
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,7 +17,7 @@ La `SMcli enable|disable autoSupportOnDemand` El comando activa o desactiva la f
 
 == Cabinas compatibles
 
-Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 
 
@@ -34,7 +34,7 @@ Antes de habilitar esta función, es necesario habilitar la función AutoSupport
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 SMcli enable|disable autoSupportOnDemand
 ----

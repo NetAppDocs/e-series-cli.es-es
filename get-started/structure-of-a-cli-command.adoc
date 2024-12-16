@@ -7,10 +7,13 @@ summary: Los comandos de la CLI tienen la forma de un contenedor de comando con 
 = Estructura de los comandos de la CLI
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
-Los comandos de la CLI tienen la forma de un contenedor de comando con elementos integrados. Un comando de la CLI se compone de los siguientes elementos:
+[role="lead"]
+Los comandos de la CLI tienen la forma de un contenedor de comando con elementos integrados.
+
+Un comando de la CLI se compone de los siguientes elementos:
 
 * Un contenedor de comando identificado por el término `SMcli`
 * El identificador de la cabina de almacenamiento

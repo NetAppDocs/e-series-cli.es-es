@@ -7,7 +7,7 @@ summary: El comando set storageArray resourceProvisionedVolumes deshabilita la f
 = Establezca los volúmenes aprovisionados de los recursos de la cabina de almacenamiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -39,7 +39,7 @@ Los volúmenes aprovisionados de recursos solo se admiten en pools y grupos de v
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 set storageArray resourceProvisionedVolumes=(enable|disable)
 ----

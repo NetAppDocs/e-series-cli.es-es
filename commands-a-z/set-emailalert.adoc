@@ -7,7 +7,7 @@ summary: El comando set emailAlert configura la alerta para enviar un correo ele
 = Configure los ajustes de alerta de correo electrónico
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,15 +17,14 @@ La `set emailAlert` comando configura el correo electrónico para enviar un corr
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento E2800, E5700, EF600 y EF300. Sin embargo, es posible usar el comando como un comando de SMcli, no de script, para las cabinas E2700 o E5600. En este caso, el comando se aplica a todas las cabinas en el dominio de gestión.
+Este comando se aplica a las cabinas de almacenamiento E4000, E2800, E5700, EF600 y EF300. Sin embargo, es posible usar el comando como un comando de SMcli, no de script, para las cabinas E2700 o E5600. En este caso, el comando se aplica a todas las cabinas en el dominio de gestión.
 
 
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
-
 set emailAlert
     serverAddress=pass:quotes["_serverAddress_"] |
     serverEncryption=pass:quotes[_none_ | _smtps_ | _starttls_ |]

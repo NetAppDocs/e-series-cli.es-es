@@ -7,7 +7,7 @@ summary: El comando start drive Erase borra todos los datos de una o varias unid
 = Iniciar borrado de unidad
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -17,13 +17,13 @@ La `start drive erase` el comando borra todos los datos de una o varias unidades
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.
+Este comando se aplica a una cabina E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
 
 
 
@@ -40,7 +40,7 @@ La operación de borrado no se puede deshacer. Asegúrese de seleccionar la unid
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 start drive pass:quotes[[_trayID_],pass:quotes[[_drawerID_,]]pass:quotes[_slotID_]] | drivespass:quotes[[_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1_] ... pass:quotes[_trayIDn_],pass:quotes[[_drawerIDn_,]]pass:quotes[_slotIDn_]] erase
 ----

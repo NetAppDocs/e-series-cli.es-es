@@ -7,7 +7,7 @@ summary: El comando SMcli -autoSupportConfig show muestra la configuración de r
 = Mostrar configuración de recogida de bundle de AutoSupport
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -52,14 +52,14 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 ====
 [NOTE]
 ====
-Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
+Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 ====
 
 
 == Sintaxis
 
-[listing]
+[source, cli]
 ----
 SMcli -autoSupportConfig show
 ----

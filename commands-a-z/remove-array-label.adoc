@@ -7,7 +7,7 @@ summary: El comando Remove array label permite quitar una etiqueta definida por 
 = Quite la etiqueta de cabina
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,7 +23,7 @@ Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
 
 == Sintaxis
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 delete storageArrayLabel label pass:quotes[_userDefinedString_]
 delete storageArrayLabel all

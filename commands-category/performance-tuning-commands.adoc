@@ -7,8 +7,11 @@ summary: Comandos de ajuste del rendimiento
 = Comandos de ajuste del rendimiento
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+La siguiente lista de comandos de ajuste del rendimiento están disponibles para el sistema de almacenamiento E-Series.
 
 
 

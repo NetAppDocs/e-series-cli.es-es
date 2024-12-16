@@ -7,7 +7,7 @@ summary: El comando SMcli -supportBundle schedule crea o elimina una programaci�
 = Programar configuración de recogida automática de bundle de soporte
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -28,7 +28,7 @@ Es posible crear dos tipos de programaciones:
 
 == Sintaxis para crear una programación diaria/semanal
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 SMcli -supportBundle schedule enable
 pass:quotes[(all | _storageArrayName_)]
@@ -42,7 +42,7 @@ pass:quotes[data=_pathName_]
 
 == Sintaxis para crear una programación mensual/anual
 
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 SMcli -supportBundle schedule enable
 pass:quotes[(all | _storageArrayName_)]
@@ -65,7 +65,7 @@ pass:quotes[data=_pathName_]
 Este comando elimina completamente la programación de la cabina de almacenamiento. Para comenzar a guardar información del bundle de soporte nuevamente, debe crear una programación nueva.
 
 ====
-[listing, subs="+macros"]
+[source, cli, subs="+macros"]
 ----
 SMcli -supportBundle schedule disable
 pass:quotes[(all|_storageArrayName_)]

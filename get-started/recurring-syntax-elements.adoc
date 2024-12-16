@@ -7,9 +7,10 @@ summary: Los elementos de sintaxis recurrente son una categoría general de par�
 = Elementos de sintaxis recurrente
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 Los elementos de sintaxis recurrente son una categoría general de parámetros y opciones que se pueden utilizar en los comandos de script. En la siguiente tabla, se enumeran las convenciones utilizadas en los elementos de sintaxis recurrente.
 
 [cols="2*"]
