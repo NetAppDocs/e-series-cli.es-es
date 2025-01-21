@@ -8,7 +8,7 @@ entries:
   url: "/commands-category/alert-configuration-commands.html"
 - title: Comandos de configuración de la cabina
   url: "/commands-category/array-configuration-commands.html"
-- title: Comandos de Auto Support
+- title: Comandos de la AutoSupport
   url: "/commands-category/auto-support-commands.html"
 - title: Comandos de mirroring
   url: "/commands-category/mirroring-commands.html"

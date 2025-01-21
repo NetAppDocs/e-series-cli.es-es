@@ -436,7 +436,7 @@ Excepto por `isnsRegistration`, cuando utilice este comando, puede especificar u
 
 
 
-== Datos de Auto Support
+== Datos de AutoSupport
 
 [NOTE]
 ====
