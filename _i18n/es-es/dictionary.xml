@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
-  <block id="75d0cfb68b71d4c1551f137d574c98e2" category="summary">Comandos de E2700 y E5600</block>
   <block id="9b5092ed8555b0c781d9270b0e5e9d75" category="inline-link-macro">Active el mirroring asíncrono</block>
   <block id="f73a1f66f53ddf0c95628bb637a54c41" category="paragraph"><block ref="f73a1f66f53ddf0c95628bb637a54c41" category="inline-link-macro-rx"></block></block>
   <block id="8530f14ba8e3bcb3452132e3bd4d090f" category="inline-link-macro">Activar mirroring síncrono</block>
@@ -7457,7 +7456,6 @@
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="9c224ec894ababac5f928548e584eb45" category="paragraph">La capacidad virtual máxima es 256 TB.</block>
-  <block id="85e8092ad24869d134ad6af40b479c96" category="sidebar">Bienvenido a la asistencia al usuario de CLI integrada de SANtricity System Manager, donde podrá averiguar cómo configurar, supervisar y ajustar la cabina de almacenamiento con la interfaz de línea de comandos (CLI).</block>
   <block id="c4f2e9f91e3e5a0d9fb8f8728ed63376" category="paragraph">Como en las versiones anteriores de SMcli, la SMcli descargable a través de System Manager de SANtricity tiene un conjunto único de parámetros. Para obtener información sobre el uso de parámetros de línea de comandos para SANtricity OS 11.53 y versiones anteriores, consulte <block ref="f6644819b412d8968161178a2ccec029" category="inline-link-macro-rx"></block>.</block>
   <block id="2115a9072c5575f3300b4b18e5722de6" category="section-title">Identifique los dispositivos</block>
   <block id="90f4cf9a1fcd3d43e57768f9bb55bbfb" category="paragraph">El siguiente parámetro de línea de comandos le permite mostrar información de todos los dispositivos aplicables visibles para el host.</block>
@@ -7480,7 +7478,6 @@
   <block id="f6d06651df499131aa8d5acf7a129e3f" category="paragraph">Los valores del identificador de la controladora y del canal host válidos son<block ref="8a8bb7cd343aa2ad99b7d762030857a2" prefix=" " category="inline-code"></block>, ,<block ref="693a9fdd4c2fd0700968fba0d07ff3c0" prefix=" " category="inline-code"></block><block ref="9d607a663f3e9b0a90c3c8d4426640dc" prefix=" " category="inline-code"></block><block ref="894f782a148b33af1e39a0efed952d69" prefix=" " category="inline-code"></block><block ref="32cfe6c19200b67afb7c3d0e1c43eadb" prefix=" " category="inline-code"></block>, , , ,<block ref="f74dd50cfec0f8549406fee6191d2f8d" prefix=" " category="inline-code"></block><block ref="c692562238d8c12c32434c50b96d56ae" prefix=" " category="inline-code"></block>, , ,<block ref="68c42382c8b93fc29c2fcb6a444aeda5" prefix=" " category="inline-code"></block><block ref="edbab45572c72a5d9440b40bcc0500c0" prefix=" " category="inline-code"></block>, ,<block ref="fbfba2e45c2045dc5cab22a5afe83d9d" prefix=" " category="inline-code"></block>,<block ref="7a6f150b83091ce20c89368641f9a137" prefix=" " category="inline-code"></block><block ref="3dfe563103ab11bec75bb5081e7a1dbe" prefix=" " category="inline-code"></block>, , ,<block ref="2283335d8d12b21001439091e74f5028" prefix=" " category="inline-code"></block><block ref="528953727ef3a4e1c441c6078534c39b" prefix=" " category="inline-code"></block>, ,<block ref="d8708ecb9a1e7ba172c83d8360c57e7d" prefix=" " category="inline-code"></block>,<block ref="75d99404a02e2bc993a6bac34c60d679" prefix=" " category="inline-code"></block>o .</block>
   <block id="2bc4f5f65d530be66960542e14f46660" category="paragraph">Este comando solo se aplica para mirroring asíncrono a través de Fibre Channel.</block>
   <block id="761f226704fa8b9a2ea64701b36a66e1" category="paragraph">Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.</block>
-  <block id="a354034e1792cd00f19c11de116a69f4" category="paragraph">Para ejecutar este comando en una cabina de almacenamiento E400, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.</block>
   <block id="4818a1577bb873e9a1bea01f94e168fb" category="paragraph">Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.</block>
   <block id="4ec343cf7b1916cb714cf2eed7cc2a56" category="paragraph">Para ejecutar este comando en una cabina de almacenamiento E4000, E2800 o E5700, debe contar con el rol de administrador de almacenamiento.</block>
   <block id="076b233b5a4449b721cbb8368f8fb958" category="paragraph">Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de soporte.</block>
@@ -7558,9 +7555,6 @@
   <block id="91791fe8747c000ea0ee9806ad0b2697" category="paragraph">A continuación, se muestra una lista completa de comandos disponibles en el sistema de almacenamiento E-Series.</block>
   <block id="c71942c4a8b171695841ba7046fc3eca" category="inline-link-macro">Habilite o deshabilite la función AutoSupport Remote Diagnostics</block>
   <block id="2fa9ab72f6f5ccc0cf969e1a230ce942" category="paragraph"><block ref="2fa9ab72f6f5ccc0cf969e1a230ce942" category="inline-link-macro-rx"></block></block>
-  <block id="fb10773226243f93cf4024b28436d09c" category="paragraph">La siguiente lista de comandos están disponibles para los sistemas E2700 y E5600.</block>
-  <block id="365f3ca0540bf35310ae0332b69b7733" category="summary">Comandos de E4000, E2800, E5700, EF600 y EF300</block>
-  <block id="d98c52acb3963aab4c26465735d8ccd1" category="paragraph">La siguiente lista de comandos están disponibles para el sistema E4000, E2800, E5700, EF600 y EF300.</block>
   <block id="a7e37cb158c978c104225254d414a1d2" category="paragraph">La siguiente lista de comandos de mirroring están disponibles para el sistema de almacenamiento E-Series.</block>
   <block id="3c987a7895df93dcf7095d41701a10a9" category="paragraph">La siguiente lista de comandos de ajuste del rendimiento están disponibles para el sistema de almacenamiento E-Series.</block>
   <block id="273c6d6b2b49f1a011b0804803e8c061" category="paragraph">La siguiente lista de comandos de replicación están disponibles para el sistema de almacenamiento E-Series.</block>
@@ -7616,4 +7610,5 @@
   <block id="f92f6d9fbe12679709b79badc45794e4" category="paragraph">La siguiente lista de comandos de AutoSupport están disponibles para el sistema de almacenamiento E-Series.</block>
   <block id="7cfe927cc93acde3fd26ff2626d6a30c" category="section-title">Comandos de AutoSupport para E4000, EF300, EF600, E2800 y E5700</block>
   <block id="4446202efb248928e4f489743b194e56" category="paragraph">La versión descargable de SMcli está disponible en las controladoras E4000, EF600, EF300, E5700, EF570, E2800, EF280, EF300C y EF600C. Para descargar SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* *Sistema* y *Complementos* *Interfaz de línea de comandos* .</block>
+  <block id="d14e73691bb33d04604da5d4d66f9630" category="sidebar">Bienvenido a la asistencia al usuario de CLI integrada de SANtricity System Manager, donde podrá averiguar cómo configurar, supervisar y ajustar la cabina de almacenamiento con la interfaz de línea de comandos (CLI).</block>
 </blocks>
