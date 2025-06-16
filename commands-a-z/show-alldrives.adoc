@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, drive 
 summary: El comando show allDrives muestra información acerca de las unidades de la cabina de almacenamiento. 
 ---
-= Mostrar unidad
+= Mostrar unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

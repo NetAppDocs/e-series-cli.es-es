@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, ssd, cache 
 summary: 'El comando create ssdCache crea una caché de lectura para una cabina de almacenamiento mediante discos de estado sólido (SSD).' 
 ---
-= Cree una caché SSD
+= Crear caché SSD - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

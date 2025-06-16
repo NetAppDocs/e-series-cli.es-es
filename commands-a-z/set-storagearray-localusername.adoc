@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, local, user, password, symbol 
 summary: El comando set storageArray localUsername y el comando set storageArray symbol permiten configurar una contraseña de nombre de usuario local o una contraseña Symbol para un rol en particular. 
 ---
-= Configure la contraseña de usuario local o la contraseña Symbol de la cabina de almacenamiento
+= Establecer la contraseña del usuario local de la matriz de almacenamiento o la contraseña de SYMbol - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

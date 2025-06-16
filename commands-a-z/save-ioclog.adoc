@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, input, output, controller, ioc, dump 
 summary: El comando save IOCLog guarda los volcados de IOC de las controladoras de una cabina de almacenamiento en un archivo en un host. 
 ---
-= Guarde el volcado de una controladora de entrada/salida (IOC)
+= Guardar el volcado del controlador de entrada y salida (IOC) - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

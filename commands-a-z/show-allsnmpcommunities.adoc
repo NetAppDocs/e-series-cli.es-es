@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, snmp, communities 
 summary: 'El comando show allSnmpCommunities muestra información acerca de las comunidades de protocolo simple de gestión de redes (SNMP) definidas para la cabina de almacenamiento. Las comunidades SNMP se recogen de dispositivos como enrutadores, switches, impresoras o dispositivos de almacenamiento, agrupados para administrar y supervisar los dispositivos.' 
 ---
-= Mostrar comunidades SNMP
+= Mostrar comunidades SNMP - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

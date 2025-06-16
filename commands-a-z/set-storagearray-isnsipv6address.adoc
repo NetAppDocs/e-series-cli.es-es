@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, isns, server, ipv6, address 
 summary: El comando set storageArray isnsIPv6Address establece la dirección IPv6 para el servidor iSNS. 
 ---
-= Configure la dirección IPv6 de servidor iSNS de la cabina de almacenamiento
+= Establecer la dirección IPv6 del servidor iSNS de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

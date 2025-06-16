@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, snapshot, image, rollback 
 summary: El comando start snapImage rollback inicia una operación de reversión para un conjunto de imágenes Snapshot. 
 ---
-= Iniciar reversión de imagen Snapshot
+= Iniciar la reversión de la imagen instantánea - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, drive, locate 
 summary: El comando start drive locate localiza una unidad mediante el encendido de una luz indicadora en dicha unidad. 
 ---
-= Inicie la búsqueda de unidad
+= Iniciar la localización de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

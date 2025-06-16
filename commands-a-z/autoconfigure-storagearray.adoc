@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autoconfigure storage array,supported, roles, syntax, parameters, minimum firmware level 
 summary: El comando autoConfigure storageArray configura automáticamente una cabina de almacenamiento. 
 ---
-= Configurar automáticamente la cabina de almacenamiento
+= Configurar automáticamente la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

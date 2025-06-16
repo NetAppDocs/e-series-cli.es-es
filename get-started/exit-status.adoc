@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: exit, status 
 summary: Los estados de cierre se muestran en los comandos ejecutados. En esta tabla, se indican los Estados de cierre que pueden mostrarse y su significado. 
 ---
-= Estado de cierre
+= Obtenga información sobre el estado de salida de SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

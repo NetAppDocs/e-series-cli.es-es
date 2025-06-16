@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, consistency, group, snapshot, rollback 
 summary: El comando start cgSnapImage rollback inicia una operación de reversión a los volúmenes base miembro en un grupo de coherencia Snapshot. 
 ---
-= Inicie una reversión Snapshot de grupo de coherencia
+= Iniciar la reversión de una instantánea del grupo de consistencia - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

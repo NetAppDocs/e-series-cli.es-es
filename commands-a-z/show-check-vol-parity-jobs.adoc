@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, check, volume, parity, jobs, 
 summary: El comando show check volume parity jobs muestra todos los trabajos de check volume parity y su estado. 
 ---
-= Muestra Check Volume Parity Jobs
+= Mostrar trabajos de paridad de volumen de verificación - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

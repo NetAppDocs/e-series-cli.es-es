@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, command, snmptrapdestination, existing, simple, network, management, protocol, trap, destination, previous, create, registered 
 summary: 'El comando delete snmpTrapDestination elimina un destino de capturas de protocolo simple de gestión de redes (SNMP) existente que se creó y registró previamente con el comando create snmpTrapDestination.' 
 ---
-= Cancele el registro del destino de captura SNMP
+= Anular el registro del destino de la trampa SNMP - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

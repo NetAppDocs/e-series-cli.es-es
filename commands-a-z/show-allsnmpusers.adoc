@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, snmpv3, usm, user 
 summary: 'El comando show allsnmpUsers muestra información acerca de los usuarios USM de simple Network Management (SNMP) definidos para la cabina de almacenamiento.' 
 ---
-= Muestra el usuario USM de SNMPv3
+= Mostrar usuario SNMPv3 USM - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

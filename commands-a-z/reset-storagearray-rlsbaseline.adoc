@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, storage array, rls, baseline 
 summary: 'El comando reset storageArray RLSBaseline restablece la base del estado de enlace de lectura (RLS) para todos los dispositivos. Para ello, establece todos los números de RLS en 0.' 
 ---
-= Restablezca la línea de base RLS de la cabina de almacenamiento
+= Restablecer la línea base RLS de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

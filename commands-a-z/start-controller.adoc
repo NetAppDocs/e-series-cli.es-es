@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, controller, trace 
 summary: El comando start Controller inicia una operación que guarda la información de rastros de depuración en un archivo comprimido. 
 ---
-= Inicie el seguimiento de la controladora
+= Iniciar el seguimiento del controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

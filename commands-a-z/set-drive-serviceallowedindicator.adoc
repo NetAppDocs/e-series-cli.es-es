@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, drive, service, action, allowed, indicator 
 summary: El comando set drive serviceAllowedIndicator enciende o apaga la luz indicadora de permiso de acción de servicio en una o varias unidades en soportes de unidades que admiten la función de luz indicadora. 
 ---
-= Configurar indicador de permiso de acción de servicio de la unidad
+= Establecer el indicador de acción de servicio de la unidad permitida - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

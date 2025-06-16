@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, volume, copy 
 summary: El comando show VolumeCopy muestra información acerca de las operaciones de copia de volumen. 
 ---
-= Mostrar copia de volumen
+= Mostrar copia de volumen - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

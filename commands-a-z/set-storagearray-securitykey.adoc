@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, internal, storage, array, security key 
 summary: El comando set storageArray securityKey define la clave de seguridad que se utiliza en toda la cabina de almacenamiento para implementar la funciones de seguridad Drive Security. 
 ---
-= Configure clave de seguridad de la cabina de almacenamiento interna
+= Establecer la clave de seguridad de la matriz de almacenamiento interna - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

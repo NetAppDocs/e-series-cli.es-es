@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, power, information 
 summary: El comando show storageArray powerInfo muestra información acerca de la cantidad de alimentación que consume toda la cabina de almacenamiento y cada soporte de la cabina de almacenamiento. 
 ---
-= Muestra información de alimentación de la cabina de almacenamiento
+= Mostrar información de energía de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

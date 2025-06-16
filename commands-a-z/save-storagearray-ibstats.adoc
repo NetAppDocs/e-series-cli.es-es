@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, infiniband, statistics 
 summary: El comando save storageArray ibStats guarda en un archivo las estadísticas de rendimiento de InfiniBand de la cabina de almacenamiento. 
 ---
-= Guarde las estadísticas InfiniBand de la cabina de almacenamiento
+= Guardar estadísticas de la matriz de almacenamiento InfiniBand - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

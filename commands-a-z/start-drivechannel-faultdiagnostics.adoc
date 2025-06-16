@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, drive channel, fault, isolation, diagnostics 
 summary: El comando start driveChannel faultDiagnostics ejecuta el diagnóstico de aislamiento de fallos del canal de la unidad y almacena los resultados. 
 ---
-= Inicie el diagnóstico de aislamiento de fallos de canal de la unidad
+= Iniciar diagnósticos de aislamiento de fallas del canal de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

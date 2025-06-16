@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename, snapshot, volume 
 summary: El comando set snapVolume cambia el nombre de un volumen Snapshot existente. 
 ---
-= Cambiar el nombre del volumen Snapshot
+= Cambiar el nombre del volumen de instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, storage, array, locate 
 summary: El comando start storageArray locate localiza una cabina de almacenamiento mediante el encendido de luces indicadoras de la cabina. 
 ---
-= Inicie la búsqueda de cabina de almacenamiento
+= Iniciar la localización de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

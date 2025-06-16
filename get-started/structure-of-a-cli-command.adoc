@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: structure, cli, commands 
 summary: Los comandos de la CLI tienen la forma de un contenedor de comando con elementos integrados. 
 ---
-= Estructura de los comandos de la CLI
+= Conozca la estructura de los comandos CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

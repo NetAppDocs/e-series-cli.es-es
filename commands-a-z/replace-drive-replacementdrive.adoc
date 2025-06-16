@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace, drive 
 summary: El comando replace drive replacementDrive reemplaza una unidad en un grupo de volúmenes. 
 ---
-= Sustituya la unidad
+= Reemplazar unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

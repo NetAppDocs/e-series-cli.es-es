@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, snapshot, volume 
 summary: El comando stop snapVolume detiene una operación de un volumen Snapshot. 
 ---
-= Detener volumen Snapshot
+= Detener el volumen de la instantánea - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

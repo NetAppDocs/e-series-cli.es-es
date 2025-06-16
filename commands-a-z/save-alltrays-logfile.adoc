@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, tray log 
 summary: El comando save allTrays logfile guarda en un archivo los datos de detección del registro. 
 ---
-= Guarde el registro de soporte
+= Guardar registro de bandeja - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

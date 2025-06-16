@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: volume, group, migration, learn, data, access, export, import, component 
 summary: La migración de grupos de volúmenes permite exportar un grupo de volúmenes de forma tal que se lo pueda importar a otra cabina de almacenamiento. También se puede exportar un grupo de volúmenes para almacenar los datos sin conexión. 
 ---
-= Información sobre la migración de grupos de volúmenes
+= Obtenga información sobre la migración de grupos de volúmenes en el software SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

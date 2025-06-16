@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, key, string, characters, shared, secure, drives, controllers, storage, array, external, management, maintain, server 
 summary: Una clave de seguridad es una cadena de caracteres, que se comparte entre las unidades y controladoras con la función de seguridad habilitada en una cabina de almacenamiento. Cuando se usa la gestión de claves externas, se crean y se mantienen claves de seguridad en un servidor de gestión de claves 
 ---
-= Introducción a la gestión de claves externas
+= Introducción a la administración de claves externas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

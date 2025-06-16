@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, volume, group 
 summary: El comando create volumeGroup permite crear un grupo de volúmenes con capacidad libre o un grupo de volúmenes con un volumen cuando se introduce un conjunto de unidades sin asignar. 
 ---
-= Crear un grupo de volúmenes
+= Crear un grupo de volúmenes - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

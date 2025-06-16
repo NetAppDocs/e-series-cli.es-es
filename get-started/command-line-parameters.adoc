@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: legacy, command line, parameters 
 summary: El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E2800 y E5700 con servicios web integrados, la capacidad para interactuar en la línea de comandos con un protocolo HTTPS seguro. De forma opcional, estas controladoras pueden utilizar el protocolo Symbol para interacciones en la línea de comandos. 
 ---
-= Parámetros de la línea de comandos heredados
+= Obtenga información sobre los parámetros de la línea de comandos CLI de SANtricity heredados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

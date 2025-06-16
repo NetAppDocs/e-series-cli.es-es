@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, asynchronous, mirror group 
 summary: El comando delete asyncMirrorGroup elimina uno o varios grupos de reflejos asíncronos tanto de la cabina de almacenamiento local como de la cabina de almacenamiento remota. 
 ---
-= Elimine el grupo de reflejos asíncronos
+= Eliminar grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

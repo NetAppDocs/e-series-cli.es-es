@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: test, autosupport, configuration 
 summary: Se utiliza el comando SMcli -autoSupportConfig test para realizar una prueba de la configuración de AutoSupport mediante el envío de un mensaje de prueba. Este comando opera en el dominio de gestión. El software de administración del almacenamiento elige una cabina compatible con AutoSupport en el dominio de gestión para tomar los datos de muestra que se incluirán en el mensaje de prueba. 
 ---
-= Pruebe la configuración de AutoSupport
+= Probar la configuración de AutoSupport - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

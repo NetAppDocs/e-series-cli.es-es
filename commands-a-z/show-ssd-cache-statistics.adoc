@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, ssd, cache, statistics 
 summary: El comando show ssdCache muestra datos acerca del uso de la caché SSD. 
 ---
-= Mostrar estadísticas de la caché SSD
+= Mostrar estadísticas de caché SSD - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

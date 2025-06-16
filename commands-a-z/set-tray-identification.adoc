@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, tray, identification 
 summary: El comando set tray configura el ID de soporte de un soporte de controladoras, un soporte de controladora-unidad o un soporte de unidades de una cabina de almacenamiento. 
 ---
-= Configure la identificación de soporte
+= Establecer identificación de bandeja - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

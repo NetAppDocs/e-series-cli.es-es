@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, certificate, revocation, check, set 
 summary: 'El comando set storageArray revocationCheckSettings permite habilitar o deshabilitar el control de revocación, así como configurar un servidor de protocolo de estado de certificado en línea (OCSP).' 
 ---
-= Configure los ajustes de control de revocación de certificados
+= Establecer la configuración de comprobación de revocación de certificados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

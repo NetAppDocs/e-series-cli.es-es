@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, state, capture 
 summary: El comando save storageArray stateCapture guarda en un archivo la captura de estado de una cabina de almacenamiento. 
 ---
-= Guarde la captura de estado de la cabina de almacenamiento
+= Guardar captura del estado de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

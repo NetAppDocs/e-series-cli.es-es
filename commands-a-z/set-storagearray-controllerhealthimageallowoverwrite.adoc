@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, controller, health, image, allow, overwrite 
 summary: El comando set storageArray controllerHealthImageAllowOverWrite establece una Marca en una cabina de almacenamiento para permitir que la imagen de estado de una nueva controladora sobrescriba la imagen de estado de una controladora existente en cabinas de almacenamiento que admiten la función de imagen de estado de controladora. 
 ---
-= Configurar el permiso de sobrescritura de imagen de estado de controladora de la cabina de almacenamiento
+= Establecer la imagen del estado del controlador de la matriz de almacenamiento para permitir la sobrescritura - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

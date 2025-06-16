@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, audit log, configuration 
 summary: El comando show auditlog Configuration muestra la configuración del registro de auditoría de la cabina de almacenamiento. 
 ---
-= Muestra la configuración del registro de auditoría
+= Mostrar la configuración del registro de auditoría - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

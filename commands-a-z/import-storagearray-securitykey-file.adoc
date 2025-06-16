@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: import, storage, array, security, file, command, unlock, disk, encryption, context, syntax, firmware level, role, context 
 summary: 'El comando import storageArray securityKey file desbloquea una o varias unidades de cifrado de disco completo (FDE) que se desplazaron de una cabina de almacenamiento a otra.' 
 ---
-= Importe la clave de seguridad de la cabina de almacenamiento
+= Importar la clave de seguridad de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

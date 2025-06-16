@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: structure, script command 
 summary: Para garantizar una correcta ejecución, los comandos de script deben escribirse en la estructura adecuada. 
 ---
-= Estructura de un comando de script
+= Conozca la estructura de los comandos de script CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

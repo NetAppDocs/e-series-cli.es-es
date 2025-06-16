@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, rls, counts 
 summary: 'El comando save storageArray RLSCounts guarda en un archivo los números de estado de lectura de enlace (RLS).' 
 ---
-= Guarde números de RLS de la cabina de almacenamiento
+= Guardar recuentos de RLS de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

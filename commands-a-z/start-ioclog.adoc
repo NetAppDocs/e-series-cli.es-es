@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, input, output, controller, ioc, dump 
 summary: El comando start IOCLog provoca el volcado del registro IOC de las transmisiones de datos entre un host y una controladora. 
 ---
-= Inicie el volcado de controladora de entrada/salida (IOC)
+= Iniciar volcado del controlador de entrada y salida (IOC) - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

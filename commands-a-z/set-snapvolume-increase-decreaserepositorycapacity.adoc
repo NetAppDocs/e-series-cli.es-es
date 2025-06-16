@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, snapshot, volume, repository, capacity 
 summary: El comando set snapVolume increase/decreaseRepositoryCapacity aumenta o reduce la capacidad de un volumen de repositorios de un volumen Snapshot. 
 ---
-= Configurar capacidad para volumen de repositorios de un volumen Snapshot
+= Establecer la capacidad del volumen del repositorio de volumen de instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

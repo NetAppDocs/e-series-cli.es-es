@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, drive, replace 
 summary: El comando stop drive replace detiene una operación de copia de datos que se inició con el comando set drive o replace drive más la entrada de usuario copyDrive. 
 ---
-= Detener reemplazo de unidad
+= Detener el reemplazo de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

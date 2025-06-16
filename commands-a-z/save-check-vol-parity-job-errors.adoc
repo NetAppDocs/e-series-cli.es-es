@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, check, volume, parity, job, errors 
 summary: El comando save check volume parity job parity errors guarda los errores de paridad registrados por un trabajo check volume parity en el archivo especificado. 
 ---
-= Guarde los errores de paridad del trabajo de paridad de un volumen
+= Errores de paridad en la verificación de volumen de trabajos de paridad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

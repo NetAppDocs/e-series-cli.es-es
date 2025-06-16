@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, iscsi, initiator 
 summary: El comando set iscsiInitiator configura los atributos de un iniciador de iSCSI. 
 ---
-= Configure el iniciador de iSCSI
+= Establecer el iniciador iSCSI - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

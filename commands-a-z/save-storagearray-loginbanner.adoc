@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, login, banner 
 summary: El comando save storageArray loginBanner permite guardar un banner de inicio de sesión en el equipo local. El texto del banner puede incluir un aviso y un mensaje de consentimiento, que se presentan a los usuarios antes de que establezcan sesiones. 
 ---
-= Guarde el banner de inicio de sesión de la cabina de almacenamiento
+= Guardar el banner de inicio de sesión de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, negotiation, defaults 
 summary: El comando show storageArray iscsiNegotiationDefaults muestra información acerca de la configuración a nivel de la conexión que está sujeta a la negociación iniciador-objetivo. 
 ---
-= Mostrar valores predeterminados de negociación de la cabina de almacenamiento
+= Mostrar valores predeterminados de negociación de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

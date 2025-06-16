@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, fips, drive, security, identifier 
 summary: El comando set drive SecurityID se utiliza para restablecer la configuración original de fábrica de una unidad FIPS. 
 ---
-= Configure el identificador de seguridad de la unidad FIPS
+= Establecer el identificador de seguridad de la unidad FIPS - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

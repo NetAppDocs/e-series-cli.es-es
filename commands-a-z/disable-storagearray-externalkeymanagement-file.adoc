@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable, storage, array, external, management, file, command, disable, security, key, full, disk, encryption, drives 
 summary: El comando disable storageArray externalKeyManagement file deshabilita la gestión de claves de seguridad externas para una cabina de almacenamiento que contiene unidades de cifrado de disco completo. 
 ---
-= Deshabilite la gestión de claves de seguridad externas
+= Deshabilitar la administración de claves de seguridad externas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

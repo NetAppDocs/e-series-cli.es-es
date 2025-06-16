@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cancel, asynchronous, mirror, group, role, reversal 
 summary: El comando stop asyncMirrorGroup rolechange cancela una operación de reversión de roles pendiente entre grupos de reflejos asíncronos. 
 ---
-= Cancelar la reversión de roles en un grupo de reflejos asíncronos
+= Cancelar la inversión de roles del grupo de espejo asincrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

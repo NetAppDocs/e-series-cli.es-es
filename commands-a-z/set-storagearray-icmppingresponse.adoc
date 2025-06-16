@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, icmp, response 
 summary: El comando set storageArray icmpPingResponse restaura los valores predeterminados para la configuración negociable de sesiones y conexiones, que representan el punto de partida para las negociaciones de la cabina de almacenamiento. 
 ---
-= Configurar respuesta ICMP de la cabina de almacenamiento
+= Establecer la respuesta ICMP de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

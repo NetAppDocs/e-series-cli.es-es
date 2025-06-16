@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: resume, snapshot, image, rollback 
 summary: El comando resume snapImage rollback reanuda una operación de reversión que se encuentra en pausa. 
 ---
-= Reanudar una reversión de imagen Snapshot
+= Reanudar la reversión de imágenes instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, storage array, iscsi, baseline 
 summary: El comando reset storageArray iscsiStatsBaseline restablece la base de iSCSI a 0 para la cabina de almacenamiento. 
 ---
-= Restablezca la línea de base iSCSI de la cabina de almacenamiento
+= Restablecer la línea base iSCSI de la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

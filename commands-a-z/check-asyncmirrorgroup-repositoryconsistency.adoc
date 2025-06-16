@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: check, asynchronous mirror group, consistency 
 summary: El comando check asyncMirrorGroup repositoryConsistency produce un informe basado en el análisis de los datos que se encuentran en el volumen de repositorios subyacente del grupo de reflejos asíncronos especificado. 
 ---
-= Compruebe la coherencia de un grupo de reflejos asíncronos
+= Comprobar la consistencia del grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

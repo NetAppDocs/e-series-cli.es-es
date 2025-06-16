@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deactivate, synchronous, mirror 
 summary: El comando Deactivate storageArray feature desactiva la función Synchronous Mirroring, desmonta el volumen de repositorios de reflejos y libera el propietario de la controladora del volumen secundario. 
 ---
-= Desactivar la función de mirroring síncrono
+= Desactivar la duplicación sincrónica - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

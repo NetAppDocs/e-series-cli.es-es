@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, support, data 
 summary: El comando save storageArray supportData guarda en un archivo la información relacionada con soporte de la cabina de almacenamiento. 
 ---
-= Guarde datos de soporte de la cabina de almacenamiento
+= Guardar datos de soporte de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

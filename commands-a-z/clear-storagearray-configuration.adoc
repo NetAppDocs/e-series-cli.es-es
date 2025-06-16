@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear, storage array, configuration 
 summary: El comando clear storageArray Configuration borra la configuración de una cabina de almacenamiento de manera total o parcial, o borra solo la configuración del grupo de volúmenes y del volumen. 
 ---
-= Borrar la configuración de la cabina de almacenamiento
+= Borrar la configuración de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

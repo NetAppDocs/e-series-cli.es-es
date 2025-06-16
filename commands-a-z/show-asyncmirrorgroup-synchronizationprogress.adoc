@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, asynchronous, mirror, group, synchronization, progress 
 summary: El comando show asyncMirrorGroup synchronizationProgress muestra el progreso de la sincronización periódica del grupo de reflejos asíncronos entre la cabina de almacenamiento local y remota. 
 ---
-= Muestra el progreso de sincronización del grupo de reflejos asíncronos
+= Mostrar el progreso de la sincronización del grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

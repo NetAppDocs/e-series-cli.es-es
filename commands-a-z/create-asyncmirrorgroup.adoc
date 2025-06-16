@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, asynchronous, mirror, group 
 summary: El comando create asyncMirrorGroup crea un nuevo grupo de reflejos asíncronos tanto en la cabina de almacenamiento local como en la cabina de almacenamiento remota. 
 ---
-= Cree un grupo de reflejos asíncronos
+= Crear un grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

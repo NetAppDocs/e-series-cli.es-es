@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, tray, locate 
 summary: El comando start tray locate localiza un soporte mediante el encendido de la luz indicadora. 
 ---
-= Inicie la búsqueda de soporte
+= Localización de la bandeja de inicio - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: export, storage, array, security, key, command, save, drive, securitykey, file, context, role 
 summary: El comando export storageArray securityKey guarda una clave de seguridad de la unidad en un archivo. 
 ---
-= Exporte clave de seguridad de la cabina de almacenamiento
+= Exportar clave de seguridad de matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

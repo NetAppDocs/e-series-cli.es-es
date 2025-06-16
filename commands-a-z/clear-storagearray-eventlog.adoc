@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear, storage array, event log 
 summary: El comando clear storageArray EventLog borra el registro de eventos en la cabina de almacenamiento eliminando los datos en el búfer del registro de eventos. 
 ---
-= Borrar registro de eventos de la cabina de almacenamiento
+= Borrar el registro de eventos de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

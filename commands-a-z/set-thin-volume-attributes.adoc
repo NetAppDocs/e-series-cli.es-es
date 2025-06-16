@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, thin, volume, attributes 
 summary: El comando set volume define las propiedades de un volumen fino. 
 ---
-= Configure atributos de volumen fino
+= Establecer atributos de volumen delgado - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

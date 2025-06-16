@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: resume, snapshot, volume 
 summary: El comando resume snapVolume reanuda una operación de volumen Snapshot que estaba detenida. 
 ---
-= Reanudar volumen Snapshot
+= Reanudar el volumen de la instantánea - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

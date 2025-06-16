@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, raid, volume, automatic, drive, select 
 summary: El comando create volume crea un grupo de volúmenes en las unidades de la cabina de almacenamiento y un nuevo volumen en el grupo de volúmenes. Las controladoras de la cabina de almacenamiento eligen las unidades que se incluirán en el volumen. 
 ---
-= Crear volumen RAID (selección automática de unidad)
+= Crear volumen RAID (selección automática de unidad) - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

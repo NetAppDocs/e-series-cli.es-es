@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, disk pool 
 summary: El comando create DISKPOOL crea un nuevo pool de discos de acuerdo con los parámetros especificados. 
 ---
-= Crear pool de discos
+= Crear grupo de discos - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

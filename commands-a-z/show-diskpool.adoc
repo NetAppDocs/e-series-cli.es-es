@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, disk pool 
 summary: El comando show DISKPOOL muestra información acerca de un pool de discos. 
 ---
-= Mostrar pool de discos
+= Mostrar pool de discos - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

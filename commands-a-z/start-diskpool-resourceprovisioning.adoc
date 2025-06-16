@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, disk pool, resource, provision 
 summary: El comando start DISKPOOL resourceProvisioning permite el aprovisionamiento de recursos en un pool de discos determinado e inicia una operación asíncrona de habilitación de aprovisionamiento de recursos en cada volumen del pool de discos. El aprovisionamiento de recursos requiere que todas las unidades del pool de discos admitan la función DULBE de NVMe. 
 ---
-= Iniciar el aprovisionamiento de recursos de pool de discos
+= Iniciar el aprovisionamiento de recursos del grupo de discos - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

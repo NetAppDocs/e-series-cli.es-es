@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: register, snmpv3 usm, user 
 summary: 'El comando create snmpUser Username crea un nuevo usuario del protocolo simple de gestión de redes (SNMP) y registra el nuevo usuario como una entidad conocida para el agente SNMP. Se rechaza cualquier intento de registrar un nuevo usuario con el mismo nombre e ID de motor que un usuario existente.' 
 ---
-= Registre el usuario USM de SNMPv3
+= Registrar usuario SNMPv3 USM - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

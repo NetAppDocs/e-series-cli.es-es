@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, storage array, volume, distribution 
 summary: 'El comando reset storageArray volumeDistribution reasigna (mueve) todos los volúmenes a su controladora preferida.' 
 ---
-= Restablezca la distribución de volúmenes de la cabina de almacenamiento
+= Restablecer la distribución del volumen de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

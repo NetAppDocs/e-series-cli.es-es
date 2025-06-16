@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, tray, service, action, allowed, indicator 
 summary: 'El comando set tray serviceAllowedIndicator enciende o apaga la luz indicadora de permiso de acción de servicio en un contenedor de alimentación-ventilador, un contenedor de interconexión-batería o un contenedor de módulo de servicios de entorno (ESM).' 
 ---
-= Configure indicador de permiso de acción de servicio del soporte
+= Establecer el indicador de acción de servicio de bandeja permitida - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

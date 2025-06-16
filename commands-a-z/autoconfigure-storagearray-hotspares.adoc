@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autoconfigure, storage, array, hot spares, supported, roles, syntax, parameters, minimum firmware level 
 summary: El comando autoConfigure storageArray hotSpares define y configura automáticamente las piezas de repuesto de una cabina de almacenamiento. Este comando puede ejecutarse en cualquier momento. Este comando proporciona la mejor cobertura de piezas de repuesto para una cabina de almacenamiento. 
 ---
-= Configurar automáticamente las piezas de repuesto de la cabina de almacenamiento
+= Configurar automáticamente los repuestos activos de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

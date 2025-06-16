@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, asynchronous, mirror, groups 
 summary: El comando show asyncMirrorGroup summary muestra información de configuración de uno o más grupos de reflejos asíncronos. 
 ---
-= Muestra grupos de reflejos asíncronos
+= Mostrar grupos de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

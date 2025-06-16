@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, volume, group, locate 
 summary: El comando stop volumeGroup locate apaga las luces indicadoras de las unidades que se encendieron con el comando start volumeGroup locate. 
 ---
-= Detener búsqueda de grupo de volúmenes
+= Detener la localización del grupo de volúmenes - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

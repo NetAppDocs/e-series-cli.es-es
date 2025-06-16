@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, disable, host, connectivity, report 
 summary: El comando set storageArray hostConnectivityReporting habilita o deshabilita la generación de informes sobre conectividad de host en la controladora. 
 ---
-= Habilitar o deshabilitar la generación de informes de conectividad de host
+= Habilitar o deshabilitar informes de conectividad del host - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

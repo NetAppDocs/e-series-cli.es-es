@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, volume, group, locate 
 summary: El comando start volumeGroup locate identifica las unidades agrupadas lógicamente para formar el grupo de volúmenes especificado mediante el parpadeo de las luces indicadoras en las unidades. 
 ---
-= Inicie la búsqueda de grupo de volúmenes
+= Iniciar la localización del grupo de volúmenes - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

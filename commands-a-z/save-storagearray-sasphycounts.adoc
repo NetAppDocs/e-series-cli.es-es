@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, sas, phy, counts 
 summary: 'El comando save storageArray SASPHYCounts guarda en un archivo los números de capa física SAS (SAS PHY).' 
 ---
-= Guarde los números de PHY SAS de la cabina de almacenamiento
+= Guardar recuentos de PHY SAS de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

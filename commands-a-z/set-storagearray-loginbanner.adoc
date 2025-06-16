@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, login, banner 
 summary: El comando set storageArray loginBanner permite cargar un archivo de texto para usar como banner de inicio de sesión. El texto de un banner puede incluir un aviso y un mensaje de consentimiento, que se presentan a los usuarios antes de que establezcan sesiones en System Manager de SANtricity o ejecuten comandos. 
 ---
-= Configure el banner de inicio de sesión de la cabina de almacenamiento
+= Establecer el banner de inicio de sesión de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

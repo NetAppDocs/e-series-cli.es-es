@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview, cli 
 summary: 'La interfaz de línea de comandos (CLI) es una aplicación de software que permite configurar y supervisar cabinas de almacenamiento.' 
 ---
-= Información general de la CLI
+= Obtenga más información sobre SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

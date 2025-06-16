@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, thin, volume 
 summary: El comando show volume muestra el historial de expansión o la capacidad consumida de los volúmenes finos especificados. 
 ---
-= Mostrar volumen fino
+= Mostrar volumen delgado - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

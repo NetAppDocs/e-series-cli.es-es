@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, drive, locate 
 summary: El comando stop drive locate apaga la luz indicadora de la unidad que se encendió con el comando start drive locate. 
 ---
-= Detener búsqueda de unidad
+= Localización de la unidad de parada - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

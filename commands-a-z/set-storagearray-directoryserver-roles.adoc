@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, directory, server, role, map 
 summary: El comando set storageArray directoryServer roles permite definir las asignaciones de roles para un servidor de directorio especificado. Estas asignaciones de roles se usan para autenticar usuarios que intentan ejecutar varios comandos de SMcli. 
 ---
-= Configure la asignación de roles de servidor de directorio de la cabina de almacenamiento
+= Establecer la asignación de roles del servidor de directorio de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

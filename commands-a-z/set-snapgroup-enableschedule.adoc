@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, snapshot, group, schedule 
 summary: El comando set snapGroup enableSchedule define la programación para tomar imágenes Snapshot en un grupo Snapshot. 
 ---
-= Configurar la programación del grupo Snapshot
+= Establecer la programación del grupo de instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

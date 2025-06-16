@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, storage, array, syslog, configuration 
 summary: El comando create storageArray syslog permite archivar registros de auditoría en un servidor de syslog externo. Una vez que se establece la conexión entre la cabina de almacenamiento y el servidor de syslog, los registros de auditoría se almacenan automáticamente en el servidor de syslog. 
 ---
-= Crear la configuración de syslog de la cabina de almacenamiento
+= Crear la configuración del syslog de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

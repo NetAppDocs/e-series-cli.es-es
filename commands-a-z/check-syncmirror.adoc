@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: check, synchronous, mirroring status 
 summary: El comando check SyncMirror muestra el estado de un volumen de reflejo remoto. Use este comando para determinar en qué momento la condición del volumen de reflejo remoto se vuelve óptima. 
 ---
-= Comprobar el estado de mirroring síncrono
+= Comprobar el estado de la duplicación sincrónica - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, storage, array, controller, health, image 
 summary: El comando start storageArray controllerHealthImage Controller genera una imagen del estado de la controladora de las cabinas de almacenamiento compatibles con esta función. 
 ---
-= Inicie la imagen de estado de controladora de la cabina de almacenamiento
+= Iniciar la imagen del estado del controlador de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

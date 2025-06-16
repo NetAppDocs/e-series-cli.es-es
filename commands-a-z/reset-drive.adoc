@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, drive 
 summary: El comando reset drive apaga y enciende una unidad en un grupo de volúmenes o un pool de discos para asistir en la recuperación de una unidad que presenta una conducta incoherente o que no es óptima. 
 ---
-= Restablezca una unidad
+= Restablecer unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

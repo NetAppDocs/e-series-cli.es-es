@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: check, repository, consistency 
 summary: El comando check repositoryConsistency produce un informe basado en el análisis de los datos en un volumen de repositorios subyacente del objeto especificado. 
 ---
-= Comprobar la coherencia de un repositorio
+= Comprobar la consistencia del repositorio - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

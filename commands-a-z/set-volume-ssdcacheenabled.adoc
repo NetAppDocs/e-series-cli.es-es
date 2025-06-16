@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, ssd, cache, volume 
 summary: El comando set volume ssdCacheEnabled activa o desactiva el almacenamiento en caché con la función de caché SSD para un volumen específico. 
 ---
-= Configure la caché SSD para un volumen
+= Establecer la caché SSD para un volumen - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

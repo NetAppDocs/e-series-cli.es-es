@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: display, storage, array, syslog, configuration 
 summary: El comando show storageArray syslog permite ver la configuración de un servidor de syslog que se usa para almacenar registros de auditoría. La información de configuración incluye el ID de servidor, así como su dirección, protocolo y número de puerto. 
 ---
-= Mostrar configuración de syslog de la cabina de almacenamiento
+= Visualización de la configuración del syslog de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

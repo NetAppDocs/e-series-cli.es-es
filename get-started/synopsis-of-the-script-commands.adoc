@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: synopsis, script commands 
 summary: 'Como es posible utilizar comandos de script para definir y gestionar los diferentes aspectos de una cabina de almacenamiento (como la topología de host, la configuración de unidades, la configuración de controladoras, las definiciones de los volúmenes y las definiciones de los grupos de volúmenes), la cantidad real de comandos es bastante amplia.' 
 ---
-= Sinopsis de los comandos de script
+= Obtenga información sobre los comandos de script CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

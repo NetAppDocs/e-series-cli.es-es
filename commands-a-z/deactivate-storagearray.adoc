@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deactivate, asynchronous, mirroring 
 summary: El comando Deactivate storageArray feature desactiva la función Asynchronous Mirroring. 
 ---
-= Desactivar las operaciones de mirroring asíncrono
+= Desactivar la duplicación asincrónica - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

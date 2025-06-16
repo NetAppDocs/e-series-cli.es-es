@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: name, conventions 
 summary: Deben respetarse las reglas específicas en los nombres usados en los comandos de la CLI. 
 ---
-= Convenciones de nomenclatura
+= Obtenga información sobre las convenciones de nomenclatura de la CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

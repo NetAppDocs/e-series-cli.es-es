@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, host, channel 
 summary: El comando set hostChannel define el identificador de bucle para el canal de host. 
 ---
-= Configurar el canal del host
+= Establecer canal de host - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, snapshot, image, rollback 
 summary: El comando stop snapImage rollback detiene una operación de reversión de imagen Snapshot iniciada con el comando start snapImage rollback. 
 ---
-= Detener reversión de imagen Snapshot
+= Detener la reversión de imágenes instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

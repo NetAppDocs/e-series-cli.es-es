@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, resource, provisioned, volumes 
 summary: El comando set storageArray resourceProvisionedVolumes deshabilita la función DULBE. 
 ---
-= Establezca los volúmenes aprovisionados de los recursos de la cabina de almacenamiento
+= Configurar volúmenes aprovisionados de recursos de matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

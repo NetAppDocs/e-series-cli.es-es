@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, drive, channel, locate 
 summary: El comando stop driveChannel locate apaga las luces indicadoras en los soportes de unidades que se encendieron con el comando start driveChannel locate. 
 ---
-= Detenga la búsqueda de canal de unidad
+= Detener la localización del canal de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

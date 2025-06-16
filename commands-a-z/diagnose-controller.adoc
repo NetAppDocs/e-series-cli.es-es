@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: diagnose, controller, command, run, diagnostic, tests, arrays, roles, context 
 summary: El comando diagnose Controller ejecuta pruebas de diagnóstico en la controladora. 
 ---
-= Diagnosticar controladora
+= Diagnosticar controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

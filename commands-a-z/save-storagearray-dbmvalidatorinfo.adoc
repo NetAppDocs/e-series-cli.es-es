@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, dbm, validator, information, file 
 summary: 'El comando save storageArray dbmValidatorInfo guarda la información de validación de gestión de bases de datos (DBM) para una cabina de almacenamiento en un archivo XML.' 
 ---
-= Guarde el archivo de información de validador de DBM de la cabina de almacenamiento
+= Guardar el archivo de información del validador de DBM de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

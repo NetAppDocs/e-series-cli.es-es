@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, initiator 
 summary: El comando create initiator crea el objeto iniciador. 
 ---
-= Cree el iniciador
+= Crear iniciador - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

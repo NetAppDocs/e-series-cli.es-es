@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, iscsi, ip address 
 summary: El comando reset iscsiIpAddress restablece la dirección IP de la cabina de almacenamiento remota para volver a establecer la conexión con la cabina de almacenamiento local. 
 ---
-= Restablecer la dirección IP de iSCSI
+= Restablecer la dirección IP iSCSI - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear, volume, reservations 
 summary: El comando clear volume reservations borra reservas de volúmenes persistentes. 
 ---
-= Borrar reservas de volumen
+= Borrar reservas de volumen - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

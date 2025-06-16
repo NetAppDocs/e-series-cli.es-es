@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, fde, secure, drive, erase 
 summary: 'El comando start secureErase drive borra todos los datos de una o más unidades de cifrado de disco completo (FDE), de modo que puedan volver a utilizarse como unidades FDE.' 
 ---
-= Inicie un borrado seguro de unidad FDE
+= Iniciar el borrado seguro de la unidad FDE - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

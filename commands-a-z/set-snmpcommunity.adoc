@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update, snmp, community 
 summary: 'El comando set snmpCommunity crea un nombre nuevo para una comunidad de protocolo simple de gestión de redes (SNMP) existente.' 
 ---
-= Actualice la comunidad SNMP
+= Actualizar la comunidad SNMP - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

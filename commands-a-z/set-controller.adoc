@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, controller 
 summary: El comando set Controller define los atributos de las controladoras. 
 ---
-= Configure la controladora
+= Configurar controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

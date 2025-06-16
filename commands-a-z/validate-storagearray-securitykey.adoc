@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: validate, storage array, security key 
 summary: El comando validate storageArray securityKey valida la clave de seguridad de una cabina de almacenamiento con unidades compatibles con la función de seguridad para garantizar que el archivo de claves de seguridad de respaldo no esté dañado. 
 ---
-= Validar clave de seguridad de la cabina de almacenamiento
+= Validar la clave de seguridad de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

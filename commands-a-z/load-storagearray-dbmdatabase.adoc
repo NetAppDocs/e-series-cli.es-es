@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load, storage array, database, command, management 
 summary: 'El comando load storageArray dbmDatabase restaura una imagen de base de datos de gestión de bases de datos (DBM) mediante la recuperación de la imagen de un archivo o de la memoria caché.' 
 ---
-= Cargar base de datos DBM de cabina de almacenamiento
+= Cargar la matriz de almacenamiento de la base de datos DBM - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

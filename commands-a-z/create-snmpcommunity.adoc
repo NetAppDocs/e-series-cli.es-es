@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: register, snmp, community 
 summary: 'El comando create snmpCommunity crea una nueva comunidad de protocolo simple de gestión de redes (SNMP), genera una cadena de nombre de comunidad y registra la nueva comunidad como una entidad conocida para el agente SNMP. Los intentos por registrar una comunidad nueva con el mismo nombre que una comunidad existente son rechazados y el firmware devuelve un mensaje de error.' 
 ---
-= Registre la comunidad SNMP
+= Registrar la comunidad SNMP - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

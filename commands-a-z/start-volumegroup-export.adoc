@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, volume, group, export 
 summary: El comando start volumeGroup export transfiere un grupo de volúmenes al estado Exported. 
 ---
-= Inicie la exportación de grupo de volúmenes
+= Iniciar la exportación del grupo de volúmenes - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

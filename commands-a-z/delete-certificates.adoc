@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, certificates 
 summary: El comando Delete certificates permite eliminar un certificado del almacén de confianza de paquetes de la CLI. 
 ---
-= Eliminar certificados
+= Eliminar certificados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

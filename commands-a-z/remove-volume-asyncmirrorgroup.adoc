@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove, volume, asynchronous, mirror, group 
 summary: El comando remove volume asyncMirrorGroup quita un volumen miembro de un grupo de reflejos asíncronos existente. 
 ---
-= Quite el volumen del grupo de reflejos asíncronos
+= Eliminar volumen de un grupo de espejo asincrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

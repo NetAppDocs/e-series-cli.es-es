@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, certificates 
 summary: El comando Show certificates permite ver los certificados instalados en el almacén de confianza de paquetes de la CLI. 
 ---
-= Mostrar certificados
+= Mostrar certificados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

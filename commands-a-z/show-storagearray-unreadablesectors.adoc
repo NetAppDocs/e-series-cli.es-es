@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, unreadable, sectors 
 summary: El comando show storageArray unreadableSectors muestra una tabla de las direcciones de todos los sectores de la cabina de almacenamiento que no se pueden leer. 
 ---
-= Mostrar sectores ilegibles de la cabina de almacenamiento
+= Mostrar sectores ilegibles de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

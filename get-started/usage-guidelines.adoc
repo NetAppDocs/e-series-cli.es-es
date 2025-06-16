@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: script command, guidelines 
 summary: Cumpla las siguientes directrices al escribir comandos de script. 
 ---
-= Directrices de comandos de script
+= Obtenga información sobre las pautas de los comandos de script CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

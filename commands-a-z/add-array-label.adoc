@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add array label, supported, syntax, parameters, minimum firmware level 
 summary: El comando Add array label permite añadir una cabina de almacenamiento a la configuración con una etiqueta definida por el usuario. Esto permite que los comandos posteriores accedan a la cabina de almacenamiento mediante la etiqueta definida por el usuario en lugar de la dirección IP o el nombre de host. 
 ---
-= Añadir etiqueta de cabina
+= Agregar etiqueta de matriz - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

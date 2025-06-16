@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, ssd, cache, locate 
 summary: 'El comando start ssdCache locate identifica los discos de estado sólido (SSD) agrupados lógicamente para formar la caché SSD mediante el parpadeo de las luces indicadoras en los SSD.' 
 ---
-= Inicie la búsqueda de caché SSD
+= Iniciar la localización de caché SSD - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

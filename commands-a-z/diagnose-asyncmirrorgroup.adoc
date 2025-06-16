@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: diagnose, command, tests, possible, communication, problems, local, storage, array, remote, asynchronous, mirror, group 
 summary: El comando diagnose asyncMirrorGroup realiza pruebas en busca de posibles problemas de comunicación entre la cabina de almacenamiento local y la cabina de almacenamiento remota asociada con un grupo de reflejos asíncronos. 
 ---
-= Probar conectividad de grupo de reflejos asíncronos
+= Prueba de la conectividad del grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

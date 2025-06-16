@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, auto, configuration 
 summary: El comando show storageArray autoConfiguration muestra la configuración automática predeterminada que crea la cabina de almacenamiento si se ejecuta el comando autoConfigure storageArray. 
 ---
-= Mostrar configuración automática de la cabina de almacenamiento
+= Mostrar la configuración automática de la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

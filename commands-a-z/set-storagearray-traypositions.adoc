@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, tray, positions 
 summary: El comando set storageArray trayPositions define la posición de los soportes en una cabina de almacenamiento. Al introducir este comando, se deben incluir todos los soportes de la cabina de almacenamiento. 
 ---
-= Configure posiciones de soporte de la cabina de almacenamiento
+= Establecer las posiciones de las bandejas de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

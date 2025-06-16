@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, audit log, records 
 summary: El comando save auditlog recupera los registros de auditoría. 
 ---
-= Guardar registros de auditoría
+= Guardar registros de auditoría - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

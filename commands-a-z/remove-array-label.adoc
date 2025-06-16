@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove, array, label 
 summary: El comando Remove array label permite quitar una etiqueta definida por el usuario para una cabina de almacenamiento. 
 ---
-= Quite la etiqueta de cabina
+= Eliminar etiqueta de matriz - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

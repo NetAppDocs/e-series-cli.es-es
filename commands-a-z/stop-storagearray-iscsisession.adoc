@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, storage, array, iscsi session 
 summary: El comando stop storageArray iscsiSession fuerza el cierre de una sesión iSCSI de la cabina de almacenamiento. 
 ---
-= Detenga la sesión iSCSI de la cabina de almacenamiento
+= Detener la sesión iSCSI de la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

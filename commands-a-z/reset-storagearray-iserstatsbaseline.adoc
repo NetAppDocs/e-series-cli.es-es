@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, storage array, iser, baseline 
 summary: El comando reset storageArray iserStatsBaseline restablece la base de Iser a 0 para la cabina de almacenamiento. 
 ---
-= Restablezca la línea de base Iser de la cabina de almacenamiento
+= Restablecer la línea base iSER de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

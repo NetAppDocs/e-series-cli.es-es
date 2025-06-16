@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, consistency, group, snapshot, rollback 
 summary: El comando stop cgSnapImage rollback detiene una operación de reversión a volúmenes base miembro en un grupo de coherencia Snapshot. 
 ---
-= Detener reversión Snapshot de grupo de coherencia
+= Detener la reversión de instantáneas del grupo de consistencia - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear email, alert, configuration 
 summary: El comando clear emailAlert Configuration borra la configuración de alertas por correo electrónico y restaura los valores predeterminados. 
 ---
-= Borrar configuración de alertas de correo electrónico
+= Borrar la configuración de alertas de correo electrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

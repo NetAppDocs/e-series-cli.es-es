@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, disable, drive ports 
 summary: El comando recover disabled drivePorts recupera puertos de unidades deshabilitados. 
 ---
-= Recuperar puertos de unidad deshabilitados
+= Recuperar puertos de unidad deshabilitados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

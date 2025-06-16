@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, event, alert, filter 
 summary: Los comandos set event alert habilitan o deshabilitan las notificaciones relacionadas con un evento específico que genera alertas. Para evitar este tipo de notificaciones sobre un evento, debe bloquearlo. Para habilitar las notificaciones sobre un evento, debe desbloquearlo. 
 ---
-= Configure filtrado de alertas de eventos
+= Configurar el filtrado de alertas de eventos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

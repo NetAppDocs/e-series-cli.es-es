@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security key, string, characters, secure enabled, drive, controllers, storage, array, internal, key, management, create, maintain, persistent, memory 
 summary: Una clave de seguridad es una cadena de caracteres, que se comparte entre las unidades y controladoras con la función de seguridad habilitada en una cabina de almacenamiento. Cuando se usa la gestión de claves internas, se crean y se mantienen claves de seguridad en la memoria persistente de la controladora. 
 ---
-= Introducción a la gestión de claves internas
+= Introducción a la gestión interna de claves - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

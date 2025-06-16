@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, asynchronous, mirror, group 
 summary: El comando set asyncMirrorGroup cambia la configuración de sincronización y los umbrales de advertencia que utiliza el propietario de la controladora en el lado primario del grupo de reflejos asíncronos al realizar una sincronización inicial o una resincronización. 
 ---
-= Configure el grupo de reflejos asíncronos
+= Establecer un grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

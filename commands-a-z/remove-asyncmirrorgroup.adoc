@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove, incomplete, asynchronous, mirror, pair, group 
 summary: El comando remove asyncMirrorGroup quita un volumen de pareja reflejada huérfano de la cabina de almacenamiento. 
 ---
-= Quite la pareja reflejada asíncrona incompleta de grupo de reflejos asíncronos
+= Eliminar un par reflejado asincrónico incompleto del grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, storage, array, directory server 
 summary: El comando create storageArray directoryServer permite añadir un nuevo servidor de directorio que se usará para autenticar y autorizar usuarios. 
 ---
-= Crear servidor de directorio de la cabina de almacenamiento
+= Crear un servidor de directorio de matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

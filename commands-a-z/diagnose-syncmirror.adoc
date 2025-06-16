@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: diagnose, syncmirror, command, test, connection, specified, primary, volumes, mirror, storage, array, synchronous, feature, enabled 
 summary: El comando diagnose SyncMirror prueba la conexión entre los volúmenes primarios especificados y los volúmenes de reflejo en una cabina de almacenamiento con la función Synchronous Mirroring habilitada. 
 ---
-= Diagnosticar mirroring síncrono
+= Diagnosticar la duplicación sincrónica - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

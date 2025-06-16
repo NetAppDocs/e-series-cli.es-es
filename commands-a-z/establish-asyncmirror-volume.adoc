@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: establish, asynmirror, volume, asynchronous, mirrored, remote, storage, array, secondary, existing 
 summary: El comando establish asyncMirror volume añade un volumen secundario a un grupo de reflejos asíncronos existente para generar una pareja reflejada asíncrona en la cabina de almacenamiento remota. 
 ---
-= Establezca la pareja reflejada asíncrona
+= Establecer un par reflejado asincrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

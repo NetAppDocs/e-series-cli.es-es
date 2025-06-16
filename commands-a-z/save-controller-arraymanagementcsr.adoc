@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: generate, web server, certificate, sign, request, csr 
 summary: 'El comando save Controller arrayManagementCSR genera una solicitud de firma de certificación (CSR) para la controladora.' 
 ---
-= Generar solicitud de firma de certificación (CSR) para servidor web
+= Generar una solicitud de firma de certificado (CSR) para el servidor web - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

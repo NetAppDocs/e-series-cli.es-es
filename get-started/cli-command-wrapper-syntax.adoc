@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cli, command, wrapper, syntax 
 summary: En esta sección, se muestra una lista de las formas de sintaxis generales de los contenedores de los comandos de la CLI. 
 ---
-= Sintaxis de contenedores de comandos de la CLI
+= Obtenga información sobre la sintaxis del contenedor de comandos CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

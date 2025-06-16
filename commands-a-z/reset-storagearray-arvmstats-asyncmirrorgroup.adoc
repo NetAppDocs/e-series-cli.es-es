@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, asynchronous, mirror group, statistics 
 summary: El comando reset storageArray arvmStats asyncMirrorGroup restablece las estadísticas de sincronización para uno o varios volúmenes miembro de un grupo de reflejos asíncronos a un 0 relativo. 
 ---
-= Restablezca las estadísticas de grupo de reflejos asíncronos
+= Restablecer las estadísticas del grupo de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

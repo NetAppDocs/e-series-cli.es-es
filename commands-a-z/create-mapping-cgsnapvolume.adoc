@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, consistency, group, snapshot, volume, map 
 summary: El comando create mapping cgSnapVolume crea una asignación lógica entre un volumen Snapshot del grupo de coherencia y un host o un grupo de hosts. 
 ---
-= Crear asignación de volumen Snapshot de grupo de coherencia
+= Crear una asignación de volumen de instantáneas de un grupo de consistencia - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

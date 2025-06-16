@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, volume, map 
 summary: El comando set volume logicalUnitNumber define el mapa de LUN o el ID de NSID entre un volumen y un host o grupo de hosts. 
 ---
-= Configurar asignación de volúmenes
+= Establecer asignación de volumen - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

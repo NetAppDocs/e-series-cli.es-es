@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: format, rules, cli, commands 
 summary: Según el valor o el nombre introducidos, ciertas reglas de formato se aplican para los comandos de la CLI. 
 ---
-= Reglas de formato para los comandos de la CLI
+= Reglas de formato para los comandos CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

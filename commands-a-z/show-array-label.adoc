@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, array, label 
 summary: El comando Show array label devuelve información sobre si se definió una etiqueta para la cabina de almacenamiento o sobre todas las etiquetas de la cabina de almacenamiento. 
 ---
-= Mostrar etiqueta de cabina
+= Mostrar etiqueta de matriz - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

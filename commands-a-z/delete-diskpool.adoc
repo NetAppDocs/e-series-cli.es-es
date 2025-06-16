@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, disk pool 
 summary: El comando delete DISKPOOL elimina un pool de discos. 
 ---
-= Eliminar pool de discos
+= Eliminar grupo de discos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

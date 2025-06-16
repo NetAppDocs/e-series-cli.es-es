@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update, storage, array, syslog, configuration 
 summary: El comando set storageArray syslog permite cambiar la dirección, el protocolo o el número de puerto del servidor de syslog. 
 ---
-= Actualice la configuración de syslog de la cabina de almacenamiento
+= Actualizar la configuración del syslog de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

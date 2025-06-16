@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, soc, counts 
 summary: El comando save storageArray SOCCounts guarda en un archivo las estadísticas de error de SOC. 
 ---
-= Guardar números de SOC de la cabina de almacenamiento
+= Guardar recuentos de SOC de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

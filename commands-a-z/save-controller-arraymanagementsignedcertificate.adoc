@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: retrieve, installed, server, certificate, sign, request, csr 
 summary: 'El comando save controller arrayManagementCSR recupera la solicitud de firma de certificación (CSR) de servidor instalado para la controladora a fin de que se puedan ver sus detalles.' 
 ---
-= Recuperar el certificado de servidor instalado
+= Recuperar el certificado del servidor instalado - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

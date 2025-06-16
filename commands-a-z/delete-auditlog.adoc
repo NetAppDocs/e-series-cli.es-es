@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, audit, log, records 
 summary: El comando delete auditlog elimina algunas o todas las entradas del registro de auditoría. 
 ---
-= Eliminar registros de auditoría
+= Eliminar registros de auditoría - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

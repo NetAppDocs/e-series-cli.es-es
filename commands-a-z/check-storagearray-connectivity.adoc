@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: check, storage array, connectivity 
 summary: El comando check storageArray Connectivity verifica que la cabina de almacenamiento local tenga una ruta de comunicación y muestre los detalles de conexión entre las cabinas de almacenamiento local y remota. 
 ---
-= Compruebe la conectividad de la cabina de almacenamiento
+= Comprobar la conectividad de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

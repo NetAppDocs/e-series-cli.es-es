@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable, storage, array, command, storage, feature 
 summary: El comando disable storageArray deshabilita una función de la cabina de almacenamiento. 
 ---
-= Deshabilite la función de cabina de almacenamiento
+= Deshabilitar la función de matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

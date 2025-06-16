@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, volume, group, resource, provision 
 summary: El comando start volumeGroup resourceProvisioning permite el aprovisionamiento de recursos en un grupo de volúmenes determinado e inicia una operación asíncrona de habilitación de aprovisionamiento de recursos en cada volumen del grupo de volúmenes. El aprovisionamiento de recursos requiere que todas las unidades del grupo de volúmenes sean compatibles con la función DULBE de NVMe. 
 ---
-= Inicie el aprovisionamiento de recursos del grupo de volúmenes
+= Iniciar el aprovisionamiento de recursos del grupo de volúmenes - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, controller, health, image 
 summary: El comando save storageArray controllerHealthImage guarda una imagen de estado de la controladora en un archivo especificado en un host para las cabinas de almacenamiento compatibles con la función de imagen de estado de controladora. 
 ---
-= Guarde la imagen de estado de controladora de la cabina de almacenamiento
+= Guardar la imagen del estado del controlador de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

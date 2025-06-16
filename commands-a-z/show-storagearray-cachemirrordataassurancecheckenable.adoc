@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, cache, mirror, data, assurance, check, enable 
 summary: El comando show storageArray cacheMirrorDataAssuranceCheckEnable devuelve el estado de preparación de la función de comprobación de garantía de datos de reflejo de la caché. 
 ---
-= Muestre el estado de comprobación de garantía de datos de reflejo de la caché de la cabina de almacenamiento
+= Mostrar la verificación de seguridad de datos del espejo de caché de la matriz de almacenamiento habilitada - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

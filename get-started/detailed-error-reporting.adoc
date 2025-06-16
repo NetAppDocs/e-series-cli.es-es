@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: detailed, error, report 
 summary: Los datos recogidos sobre un error que la interfaz de línea de comandos ha detectado se escriben en un archivo. 
 ---
-= Informes de error detallados
+= Obtenga información sobre los informes de errores detallados de SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

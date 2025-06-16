@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add drives ssd cache, supported arrays, syntax, parameters, minimum firmware level 
 summary: 'El comando set ssdCache permite agregar discos de estado sólido (SSD) para aumenta la capacidad de la caché SSD existente.' 
 ---
-= Añada unidades a la caché SSD
+= Agregar unidades a la caché SSD - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

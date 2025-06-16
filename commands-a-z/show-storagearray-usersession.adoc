@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: display, storage, array, user, session 
 summary: El comando show storageArray userSession permite ver el tiempo de espera de sesión configurado para System Manager. 
 ---
-= Mostrar sesión de usuario de la cabina de almacenamiento
+= Visualización de la sesión de usuario de la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, diagnostic, data 
 summary: 'El comando save storageArray diagnosticData guarda en un archivo datos de diagnóstico de la cabina de almacenamiento de las controladoras o los módulos de servicios de entorno (ESM).' 
 ---
-= Guarde los datos de diagnóstico de la cabina de almacenamiento
+= Guardar datos de diagnóstico de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

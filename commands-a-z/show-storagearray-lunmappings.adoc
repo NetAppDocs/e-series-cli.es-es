@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, lun, map 
 summary: 'El comando show storageArray lunMappings muestra información del perfil de la cabina de almacenamiento acerca del mapa de número de unidad lógica (LUN) o ID de espacio de nombres (NSID) de la cabina de almacenamiento.' 
 ---
-= Mostrar mapa de LUN de la cabina de almacenamiento
+= Mostrar asignaciones de LUN de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

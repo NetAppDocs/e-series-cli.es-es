@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, disable, odx 
 summary: 'El comando set storageArray odxEnabled activa o desactiva la transferencia de datos descargados (ODX) para una cabina de almacenamiento.' 
 ---
-= Habilite o deshabilite ODX
+= Habilitar o deshabilitar ODX - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

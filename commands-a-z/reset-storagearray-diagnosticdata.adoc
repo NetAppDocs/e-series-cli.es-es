@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset ,storage, array, diagnostic, data 
 summary: El comando reset storageArray diagnosticData restablece la NVSRAM que contiene los datos de diagnóstico para la cabina de almacenamiento. 
 ---
-= Restablezca los datos de diagnóstico de la cabina de almacenamiento
+= Restablecer datos de diagnóstico de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

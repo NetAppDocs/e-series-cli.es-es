@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: revive, volume, group 
 summary: El comando revive volumeGroup fuerza el grupo de volúmenes especificado y sus unidades con error asociadas al estado Optimal. 
 ---
-= Reactivar grupo de volúmenes
+= Reactivar grupo de volúmenes - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

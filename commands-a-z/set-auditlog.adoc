@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, audit log 
 summary: El comando set auditlog configura las opciones del registro de auditoría. 
 ---
-= Configurar ajustes del registro de auditoría
+= Establecer la configuración del registro de auditoría - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

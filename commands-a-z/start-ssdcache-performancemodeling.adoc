@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, ssd, cache, performance, model 
 summary: El comando start ssdCache performanceModeling inicia el modelado de rendimiento de la caché SSD. 
 ---
-= Inicie modelado de rendimiento de caché SSD
+= Iniciar el modelado del rendimiento de la caché SSD - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

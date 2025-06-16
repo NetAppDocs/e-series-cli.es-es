@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, controller, diagnostic, status 
 summary: El comando show Controller muestra el estado del diagnóstico de la controladora que se inició con el comando start Controller diagnostic. 
 ---
-= Muestra el estado de diagnóstico de la controladora
+= Mostrar el estado de diagnóstico del controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

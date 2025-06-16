@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, controller 
 summary: El comando reset Controller restablece una controladora y provoca interrupciones en las operaciones de I/O. 
 ---
-= Restablezca la controladora
+= Restablecer controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

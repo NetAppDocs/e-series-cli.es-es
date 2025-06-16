@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update, snmp, trap, destination 
 summary: El comando set snmpTrapDestination trapReceiverIP activa o desactiva el envío de mensajes de fallo de autenticación de un destino de captura SNMP. Se produce un fallo si el agente SNMP recibió un mensaje de un administrador SNMP, pero el mensaje contenía un nombre de comunidad o nombre de usuario no válidos. 
 ---
-= Actualice el destino de captura SNMP
+= Actualizar el destino de la trampa SNMP - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

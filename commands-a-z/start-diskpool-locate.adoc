@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, disk pool, locate 
 summary: El comando start DISKPOOL locate identifica las unidades agrupadas lógicamente para formar el pool de discos especificado mediante el parpadeo de las luces indicadoras en las unidades. 
 ---
-= Inicie la búsqueda de pool de discos
+= Iniciar la localización del grupo de discos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, iscsi, host, port, network, properties 
 summary: El comando set Controller iscsiHostPort cambia las propiedades de red para un puerto de host, incluidas las propiedades de IPv4 e IPv6, velocidad del puerto y carga útil de trama máxima. 
 ---
-= Establezca propiedades de red de los puertos de host iSCSI
+= Establecer las propiedades de red del puerto host iSCSI - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

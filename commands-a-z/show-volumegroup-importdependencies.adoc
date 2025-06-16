@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, volume, group, import, dependencies 
 summary: El comando show volumeGroup Dependencies muestra una lista de dependencias de las unidades de un grupo de volúmenes que se desea transferir desde una cabina de almacenamiento hacia una segunda cabina de almacenamiento. 
 ---
-= Mostrar dependencias de importación de grupo de volúmenes
+= Mostrar dependencias de importación de grupos de volúmenes - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

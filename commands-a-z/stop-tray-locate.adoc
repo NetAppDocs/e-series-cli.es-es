@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, tray, locate 
 summary: El comando stop tray locate apaga la luz indicadora del soporte que se encendió con el comando start tray locate. 
 ---
-= Detenga la búsqueda de soporte
+= Localización de bandeja de parada - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

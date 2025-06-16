@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, autosupport, message, collection, schedule 
 summary: El comando reset storageArray AutoSupport schedule restablece los horarios diarios y semanales, así como los días de la semana, en que se devuelven los mensajes de AutoSupport a los valores aleatorios generados por el software de gestión. 
 ---
-= Restablecer la programación de recogida de mensajes de AutoSupport
+= Restablecer el programa de recopilación de mensajes de AutoSupport - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

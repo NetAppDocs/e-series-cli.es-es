@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, events 
 summary: El comando save storageArray warningEvents guarda eventos del registro de eventos serios en un archivo. 
 ---
-= Guarde eventos de la cabina de almacenamiento
+= Guardar eventos de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

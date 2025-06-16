@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: revive, snapshot, group 
 summary: El comando revive snapGroup fuerza el grupo Snapshot especificado al estado Optimal. 
 ---
-= Reactivar grupo Snapshot
+= Reactivar grupo de instantáneas - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

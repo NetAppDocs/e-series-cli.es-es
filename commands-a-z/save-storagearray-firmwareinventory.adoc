@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, firmware, inventory 
 summary: El comando save storageArray firmwareInventory guarda un informe en un archivo con todo el firmware que se ejecuta actualmente en la cabina de almacenamiento. 
 ---
-= Guarde el inventario de firmware de la cabina de almacenamiento
+= Guardar el inventario de firmware de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

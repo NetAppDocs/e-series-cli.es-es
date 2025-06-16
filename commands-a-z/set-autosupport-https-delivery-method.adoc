@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 'Specify AutoSupport HTTP(S) delivery method' 
 summary: 'El comando set storageArray AutoSupport deliveryMethod configura el método de entrega para enviar mensajes de AutoSupport a HTTP(S).' 
 ---
-= Especifique método de entrega de HTTP(S) de AutoSupport
+= Especificar el método de entrega de AutoSupport http(s) - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

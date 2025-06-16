@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, snapshot, group, repository, volume, capacity 
 summary: El comando set snapGroup increase/decreaseRepositoryCapacity aumenta o reduce la capacidad de un volumen de repositorios de un grupo Snapshot. 
 ---
-= Configurar capacidad para un volumen de repositorios de grupo Snapshot
+= Establecer la capacidad del volumen del repositorio del grupo de instantáneas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

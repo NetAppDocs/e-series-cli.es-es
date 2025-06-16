@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, host, topology 
 summary: El comando show storageArray hostTopology muestra la topología de la partición de almacenamiento, las etiquetas del tipo de host y el índice del tipo de host correspondientes a la cabina de almacenamiento del host. 
 ---
-= Mostrar topología de host de la cabina de almacenamiento
+= Mostrar la topología del host de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

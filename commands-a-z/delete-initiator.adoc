@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, initiator, command, object, supported, array, role 
 summary: El comando delete initiator elimina el objeto iniciador. 
 ---
-= Elimine el iniciador
+= Eliminar iniciador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, autosupport, message, collection, schedule 
 summary: El comando SMcli autoSupportSchedule reset restablece los horarios diarios y semanales, así como los días de la semana, en que se envían los mensajes de AutoSupport. Se pueden aceptar los valores aleatorios predeterminados generados por el software de gestión o se pueden especificar valores con este comando. 
 ---
-= Restablecer la programación de recogida de mensajes de AutoSupport
+= Restablecer el programa de recopilación de mensajes de AutoSupport - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

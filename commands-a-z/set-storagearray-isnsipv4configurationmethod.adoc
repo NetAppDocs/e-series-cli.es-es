@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, isns, server, ipv4, address 
 summary: 'El comando set storageArray isnsIPv4ConfigurationMethod establece el método de configuración y la dirección para un servicio de nombres de almacenamiento de Internet (iSNS) IPv4.' 
 ---
-= Configure la dirección IPv4 de servidor iSNS de la cabina de almacenamiento
+= Establecer la dirección IPv4 del servidor iSNS de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

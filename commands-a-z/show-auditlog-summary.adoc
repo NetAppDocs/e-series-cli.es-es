@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, audit, log, summary 
 summary: El comando show auditlog summary muestra la información resumida del registro de auditoría. 
 ---
-= Muestra un resumen del registro de auditoría
+= Mostrar resumen del registro de auditoría - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

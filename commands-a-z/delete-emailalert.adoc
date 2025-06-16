@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, email, alert, recipient 
 summary: El comando delete emailAlert elimina direcciones de destinatarios de la configuración de alertas de correo electrónico. 
 ---
-= Eliminar destinatario de alertas de correo electrónico
+= Eliminar destinatario de alerta de correo electrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

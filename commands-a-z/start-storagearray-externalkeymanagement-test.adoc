@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: test, external key, management, communication 
 summary: 'El comando start storageArray externalKeyManagement test utiliza las credenciales configuradas (certificados, dirección del servidor KMIP y número de puerto KMIP) para verificar que la cabina de almacenamiento pueda comunicarse con el servidor KMIP externo.' 
 ---
-= Probar comunicación de gestión de claves externas
+= Probar la comunicación de administración de claves externas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

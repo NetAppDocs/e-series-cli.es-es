@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, host 
 summary: El comando create host crea un nuevo host. 
 ---
-= Crear host
+= Crear host - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

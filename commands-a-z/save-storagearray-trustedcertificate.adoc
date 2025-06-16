@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: retrieve, installed, trusted, ca, certificates 
 summary: El comando save storageArray trustedCertificate recupera los certificados de CA de confianza instalados para la cabina. En los archivos recuperados se incluyen todos los certificados de CA solicitados de los servidores web de la cabina. 
 ---
-= Recuperar certificados de CA de confianza instalados
+= Recuperar certificados de CA de confianza instalados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, storage, array, loginbanner, command, allow, login, banner, text, file, upload, save, role 
 summary: El comando delete storageArray loginBanner permite eliminar el archivo de texto del banner de inicio de sesión que se cargó y guardó previamente. 
 ---
-= Elimine el banner de inicio de sesión de la cabina de almacenamiento
+= Eliminar el banner de inicio de sesión de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

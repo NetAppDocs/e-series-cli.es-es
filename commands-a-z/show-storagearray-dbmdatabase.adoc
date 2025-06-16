@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, dbm, database 
 summary: El comando show storageArray dbmDatabase recupera y muestra metadatos de las ubicaciones de backup integradas de una cabina de almacenamiento. Si existen varias ubicaciones de backup, se muestran los metadatos de cada ubicación. 
 ---
-= Mostrar base de datos DBM de la cabina de almacenamiento
+= Mostrar la matriz de almacenamiento de la base de datos DBM - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

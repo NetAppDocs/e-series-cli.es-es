@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array 
 summary: El comando show storageArray muestra la información de configuración de la cabina de almacenamiento. 
 ---
-= Mostrar cabina de almacenamiento
+= Mostrar matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

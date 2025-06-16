@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, drive, channel, fault, isolation, diagnostics 
 summary: El comando stop driveChannel faultDiagnostics interrumpe el diagnóstico de aislamiento de fallos del canal de la unidad, lo cual detiene el comando start drive Channel fault isolation Diagnostics antes de que finalice. 
 ---
-= Detenga el diagnóstico de aislamiento de fallos de un canal de unidad
+= Diagnóstico de aislamiento de fallas del canal de detención de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

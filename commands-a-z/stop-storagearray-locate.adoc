@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: stop, storage, array, locate 
 summary: El comando stop storageArray locate apaga las luces indicadoras de la cabina de almacenamiento que se encendieron con el comando start storageArray locate. 
 ---
-= Detenga la búsqueda de cabina de almacenamiento
+= Detener la ubicación de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

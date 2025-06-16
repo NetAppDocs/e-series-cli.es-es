@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear, volume, unreadable, sectors 
 summary: El comando clear volume unreadableSectors borra la información de sectores ilegibles de un volumen o más. 
 ---
-= Borrar sectores de volumen ilegibles
+= Borrar sectores ilegibles del volumen - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

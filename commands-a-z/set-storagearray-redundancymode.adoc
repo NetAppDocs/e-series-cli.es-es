@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, redundancy, mode 
 summary: El comando set storageArray redundancyMode configura el modo de redundancia de la cabina de almacenamiento como simplex o duplex. 
 ---
-= Configure el modo de redundancia de la cabina de almacenamiento
+= Establecer el modo de redundancia de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

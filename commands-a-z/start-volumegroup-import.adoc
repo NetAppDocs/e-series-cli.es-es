@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, volume, group, import 
 summary: El comando start volumeGroup import cambia el estado de un grupo de volúmenes a Complete para que un grupo de volúmenes recién introducido esté disponible para su cabina de almacenamiento nueva. 
 ---
-= Inicie la importación de grupo de volúmenes
+= Iniciar la importación de un grupo de volúmenes - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

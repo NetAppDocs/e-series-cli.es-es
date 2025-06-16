@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: download, tray, configuration, settings, commands, factory, default, drive, array, specific, storage, roles, support 
 summary: El comando download tray configurationSettings descarga la configuración predeterminada de fábrica en todos los soportes de unidades de la cabina de almacenamiento o en un soporte específico de la cabina de almacenamiento. 
 ---
-= Descargue los ajustes de configuración de soporte
+= Descargar configuración de la bandeja - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

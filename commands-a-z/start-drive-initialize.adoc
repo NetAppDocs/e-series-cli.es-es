@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, drive, initialize 
 summary: El comando start drive initialize acciona la inicialización de la unidad. 
 ---
-= Iniciar inicialización de unidad
+= Inicialización de la unidad de inicio - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

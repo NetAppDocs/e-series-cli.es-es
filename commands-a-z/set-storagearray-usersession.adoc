@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, user, session 
 summary: El comando set storageArray userSession permite configurar un tiempo de espera en System Manager, de modo que las sesiones inactivas de los usuarios se desconecten después de un tiempo específico. 
 ---
-= Configure la sesión de usuario de la cabina de almacenamiento
+= Establecer la sesión de usuario de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

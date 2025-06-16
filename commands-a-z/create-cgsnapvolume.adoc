@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, consistency group, snapshot, volume 
 summary: El comando create cgSnapVolume crea un volumen Snapshot de imágenes específicas en los volúmenes base de un grupo de coherencia. 
 ---
-= Crear volumen Snapshot de grupo de coherencia
+= Crear un volumen de instantánea de grupo de consistencia - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

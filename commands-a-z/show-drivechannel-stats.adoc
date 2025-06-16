@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, drive channel, statistics 
 summary: El comando show driveChannel stats muestra la transferencia de datos acumulativa para el canal de la unidad e información de errores. 
 ---
-= Mostrar estadísticas de canal de unidad
+= Mostrar estadísticas del canal de conducción - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

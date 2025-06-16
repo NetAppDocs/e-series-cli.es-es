@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, synchronous, mirroring 
 summary: 'El comando create SyncMirror crea el volumen primario y el volumen secundario para una pareja reflejada remota síncrona. Este comando también configura el modo de escritura (modo de escritura síncrona o modo de escritura asíncrona) y la prioridad de sincronización.' 
 ---
-= Cree un mirroring síncrono
+= Crear reflejo sincrónico - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, initiator 
 summary: El comando set initiator actualiza el objeto iniciador. 
 ---
-= Configure el iniciador
+= Establecer iniciador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

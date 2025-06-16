@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, configuration 
 summary: El comando save storageArray Configuration crea un archivo de script que se puede utilizar para volver a crear la configuración de volúmenes de la cabina de almacenamiento actual. 
 ---
-= Guarde la configuración de la cabina de almacenamiento
+= Guardar la configuración de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

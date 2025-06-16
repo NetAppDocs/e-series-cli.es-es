@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, drawer, service, action, allowed, indicator 
 summary: El comando set tray drawer enciende o apaga la luz indicadora de permiso de acción de servicio en un soporte que contiene unidades. 
 ---
-= Configurar indicador de permiso de acción de servicio del cajón
+= Establecer el indicador de acción permitida del servicio del cajón - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

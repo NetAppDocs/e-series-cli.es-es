@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configuration, commands, array, controller, health, image, hostport, feature, management 
 summary: Comandos de configuración de la cabina 
 ---
-= Comandos de configuración de la cabina
+= Comandos de configuración de matriz CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

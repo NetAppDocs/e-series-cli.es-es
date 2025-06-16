@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add, comments, script file 
 summary: El motor de scripts busca ciertos caracteres o un comando para mostrar comentarios. Existen tres formas de añadir comentarios en un archivo de script. 
 ---
-= Agregar comentarios a un archivo de script
+= Agregar comentarios a un archivo de script CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

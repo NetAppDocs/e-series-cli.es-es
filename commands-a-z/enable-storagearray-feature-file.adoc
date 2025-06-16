@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, storage, array, feature, file, command, permanent, upgrade, trial period 
 summary: El comando enable storageArray feature file habilita una función para una actualización permanente a la cabina de almacenamiento o un periodo de prueba. 
 ---
-= Habilite la función de cabina de almacenamiento
+= Habilitar la función de matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

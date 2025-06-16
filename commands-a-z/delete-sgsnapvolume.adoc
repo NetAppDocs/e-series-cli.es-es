@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delte, snapvolume, command, snapshot, consistency, group, optionally, repository, members 
 summary: El comando delete sgSnapVolume elimina el volumen Snapshot de un grupo de coherencia. Opcionalmente, también es posible eliminar los miembros de repositorio. 
 ---
-= Elimine el volumen Snapshot de grupo de coherencia
+= Eliminar el volumen de instantánea del grupo de consistencia - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

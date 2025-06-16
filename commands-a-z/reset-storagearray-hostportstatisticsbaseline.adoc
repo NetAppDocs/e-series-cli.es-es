@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reset, storage array, host, port, statistics, baseline 
 summary: El comando reset storageArray hostPortStatisticsBaseline restablece la base de estadística del puerto de host de la cabina de almacenamiento. 
 ---
-= Restablecer la línea de base para las estadísticas de puertos de host de la cabina de almacenamiento
+= Restablecer la línea base de las estadísticas del puerto del host de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

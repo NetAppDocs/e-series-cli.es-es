@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, storage, array, autosupport, manual, dispatch 
 summary: El comando start storageArray AutoSupport manualDispatch inicia un paquete de soporte completo y el mensaje de ASUP para el paquete. 
 ---
-= Inicie el envío manual de la AutoSupport de la cabina de almacenamiento
+= Iniciar el envío manual de AutoSupport de la matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

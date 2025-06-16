@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, asynchronous, mirror, group, statistics 
 summary: El comando save storageArray arvmStats asyncMirrorGroup guarda las estadísticas de sincronización en un archivo para uno o varios volúmenes miembro de un grupo de reflejos asíncronos. 
 ---
-= Guarde las estadísticas de grupo de reflejos asíncronos
+= Guardar estadísticas de grupos de espejos asincrónicos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

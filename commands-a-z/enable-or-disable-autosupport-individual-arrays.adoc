@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: command, enable, disable, autosupport, feature, storage, array, possible, transit, messages, technical, support, site, capable, automatically, prepare, collect, data, remote, troubleshooting, problem, analysis 
 summary: 'Este comando habilita o deshabilita la función AutoSupport (ASUP) para la cabina de almacenamiento y permite transmitir mensajes al sitio de soporte técnico. Una vez que se habilita la función ASUP, la cabina de almacenamiento compatible con ASUP queda preparada automáticamente para recoger y enviar datos relacionados con soporte al soporte técnico. Estos datos pueden usarse para tareas remotas de solución y análisis de problemas.' 
 ---
-= Habilitar o deshabilitar AutoSupport (todas las cabinas individuales)
+= Habilitar o deshabilitar AutoSupport (todas las matrices individuales) - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

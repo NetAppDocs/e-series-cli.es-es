@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, controller, nvsram 
 summary: El comando save Controller NVSRAM file guarda en un archivo un conjunto seleccionado de regiones de NVSRAM de controladora. 
 ---
-= Guarde NVSRAM de controladora
+= Guardar NVSRAM del controlador - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, iscsi, statistics 
 summary: El comando save storageArray iscsiStatistics guarda en un archivo las estadísticas de rendimiento de iSCSI de la cabina de almacenamiento. 
 ---
-= Guarde estadísticas de iSCSI de la cabina de almacenamiento
+= Guardar estadísticas iSCSI de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

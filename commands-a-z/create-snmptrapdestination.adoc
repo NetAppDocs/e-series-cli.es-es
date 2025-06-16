@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: register, snmp, trap, destination 
 summary: 'El comando create snmpTrapDestination crea un nuevo de destino de captura de protocolo simple de gestión de redes (SNMP). Un destino de captura es el administrador SNMP que recibirá los mensajes de captura.' 
 ---
-= Registre el destino de captura SNMP
+= Registrar el destino de la trampa SNMP - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

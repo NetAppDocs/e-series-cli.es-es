@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, enable, disable, cache, mirror, data, assurance, check 
 summary: El comando set storageArray cacheMirrorDataAssuranceCheckEnable permite habilitar o deshabilitar la verificación de garantía de datos de reflejo de la caché. 
 ---
-= Configurar la cabina de almacenamiento para habilitar o deshabilitar la verificación de garantía de datos de reflejo de la caché
+= Configurar la matriz de almacenamiento para habilitar o deshabilitar la verificación de seguridad de datos del espejo de caché - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

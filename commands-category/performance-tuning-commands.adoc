@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: performance, tuning, commands, automatic, load balance, cache commands 
 summary: Comandos de ajuste del rendimiento 
 ---
-= Comandos de ajuste del rendimiento
+= Comandos de ajuste del rendimiento de la CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, storage, array, directory, servers, command, allow, directory, role 
 summary: El comando delete storageArray directoryServers permite eliminar un servidor de directorio o varios. 
 ---
-= Eliminar servidor de directorio de la cabina de almacenamiento
+= Eliminar el servidor de directorio de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

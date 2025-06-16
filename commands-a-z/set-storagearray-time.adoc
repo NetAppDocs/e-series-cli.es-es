@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, time 
 summary: El comando set storageArray time configura los relojes de ambas controladoras de una cabina de almacenamiento mediante la sincronización de los relojes de las controladoras con el reloj del host desde el que se ejecuta este comando. 
 ---
-= Configure la hora de la cabina de almacenamiento
+= Establecer el tiempo de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

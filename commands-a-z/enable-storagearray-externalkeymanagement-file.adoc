@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, storage, array, external, key, management, file, command, security, disk, encryption, initial, roles, context, support 
 summary: El comando enable storageArray externalKeyManagement file habilita la gestión de claves de seguridad externas para una cabina de almacenamiento que contiene unidades de cifrado de disco completo, y crea la clave de seguridad de la unidad inicial. 
 ---
-= Habilite la gestión de claves de seguridad externas
+= Habilitar la administración de claves de seguridad externas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

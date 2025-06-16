@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, external, key, management, set 
 summary: El comando set storageArray externalKeyManagement configura el número de puerto y la dirección del servidor de gestión de claves externo. 
 ---
-= Configure ajustes de gestión de claves externas
+= Establecer la configuración de administración de claves externas - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

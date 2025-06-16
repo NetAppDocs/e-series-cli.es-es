@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, drive, state 
 summary: El comando set drive operationalState configura una unidad en el estado Failed. 
 ---
-= Configurar el estado de la unidad
+= Establecer el estado de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

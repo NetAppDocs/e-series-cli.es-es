@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: volume, configuration, commands, diskpool, host topology, internet, storage, service, extension, group 
 summary: Comandos de configuración del volumen 
 ---
-= Comandos de configuración del volumen
+= Comandos de configuración de volumen de la CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: save, storage, array, dbm, database 
 summary: El comando save storageArray dbmDatabase realiza un backup de los datos de configuración de RAID o de todos los datos de un archivo en el host. Es posible especificar varias ubicaciones de datos y controladoras. 
 ---
-= Guarde base de datos DBM de la cabina de almacenamiento
+= Guardar la matriz de almacenamiento de la base de datos DBM - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

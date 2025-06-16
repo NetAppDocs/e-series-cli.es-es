@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array 
 summary: El comando set storageArray define las propiedades de la cabina de almacenamiento. 
 ---
-= Configure la cabina de almacenamiento
+= Establecer matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

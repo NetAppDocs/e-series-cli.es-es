@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, drive, hot spare 
 summary: El comando set drive hotSpare asigna o desasigna una o varias unidades como pieza de repuesto. 
 ---
-= Configurar pieza de repuesto de unidad
+= Configurar unidad de repuesto activo - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

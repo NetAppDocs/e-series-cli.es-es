@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, controller, battery, learn, cycle 
 summary: El comando set storageArray learnCycleDate Controller define los ciclos de aprendizaje de la batería de la controladora. 
 ---
-= Configurar ciclo de aprendizaje de batería de la controladora de la cabina de almacenamiento
+= Configurar el ciclo de aprendizaje de la batería del controlador de matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

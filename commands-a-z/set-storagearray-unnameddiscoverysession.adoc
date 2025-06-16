@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, unnamed, discovery, session 
 summary: El comando set storageArray unnamedDiscoverySession permite que la cabina de almacenamiento participe en sesiones de detección sin nombre. 
 ---
-= Configure la sesión de detección sin nombre de la cabina de almacenamiento
+= Establecer una sesión de descubrimiento sin nombre en una matriz de almacenamiento - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

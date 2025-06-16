@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reduce, disk pool, capacity 
 summary: El comando set DISKPOOL quita unidades del pool de discos de forma lógica para reducir la capacidad del pool. 
 ---
-= Reducir capacidad de pool de discos
+= Reducir la capacidad del grupo de discos - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

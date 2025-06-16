@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, controller, service, action, allowed, indicator 
 summary: El comando set Controller activa o desactiva la luz indicadora de permiso de acción de servicio en un soporte de controladoras o un soporte de controladora-unidad 
 ---
-= Configurar indicador de permiso de acción de servicio de la controladora
+= Establecer el indicador de acción de servicio del controlador permitida - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

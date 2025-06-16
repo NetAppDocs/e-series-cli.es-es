@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configuration, commands, alert, embedded 
 summary: Comandos de configuración de alertas 
 ---
-= Comandos de configuración de alertas
+= Comandos de configuración de alertas de la CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

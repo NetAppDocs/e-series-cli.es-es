@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, host, ports 
 summary: El comando show allHostPorts muestra información acerca de los puertos de host configurados. 
 ---
-= Muestra puertos de host
+= Mostrar puertos de host - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

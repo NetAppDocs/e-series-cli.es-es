@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: start, drive, channel, locate 
 summary: El comando start driveChannel locate identifica los soportes de unidades conectados a un canal de la unidad específico mediante el encendido de las luces indicadoras en el soporte de unidades conectado al canal de la unidad. 
 ---
-= Inicie la búsqueda de canal de unidad
+= Iniciar la localización del canal de la unidad - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, iser, target 
 summary: El comando set iserTarget define propiedades para un objetivo Iser. 
 ---
-= Configure el objetivo Iser
+= Establecer el objetivo iSER - CLI de SANtricity
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

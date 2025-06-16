@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: activate, storage array, firmware, syntax, parameter, minimum, level 
 summary: El comando activate storageArray firmware activa el firmware que se descargó previamente en el área de configuración pendiente de las controladoras de la cabina de almacenamiento. 
 ---
-= Activar el firmware de cabina de almacenamiento
+= Activar el firmware de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

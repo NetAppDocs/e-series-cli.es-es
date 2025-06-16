@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, unconfigured, initiators 
 summary: El comando show storageArray unconfiguredInitiators muestra una lista de iniciadores que detectó la cabina de almacenamiento, pero que todavía no se configuraron en la topología de la cabina de almacenamiento. 
 ---
-= Muestra iniciadores sin configurar
+= Mostrar iniciadores no configurados - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

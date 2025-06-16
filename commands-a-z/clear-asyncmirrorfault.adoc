@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clear, asynchronous mirroring, fault 
 summary: 'El comando clear asyncMirrorFault borra un error "tiky" de mirroring asíncrono de uno o varios grupos de reflejos asíncronos y de uno o varios volúmenes miembro de grupos de reflejos asíncronos.' 
 ---
-= Borre el error de mirroring asíncrono
+= Borrar fallo de duplicación asincrónica - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
