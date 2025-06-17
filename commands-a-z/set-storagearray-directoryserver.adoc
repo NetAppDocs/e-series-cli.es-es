@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, directory, server 
 summary: El comando set storageArray directoryServer actualiza la configuración del servidor de directorio. 
 ---
-= Configure el servidor de directorio de la cabina de almacenamiento
+= Configurar el servidor de directorio de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

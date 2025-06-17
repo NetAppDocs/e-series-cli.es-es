@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, storage, array, management, interface 
 summary: El comando set storageArray managementInterface cambia la interfaz de gestión de la controladora. Cambie el tipo de interfaz de gestión para aplicar la confidencialidad entre la cabina de almacenamiento y el software de gestión o para acceder a herramientas externas. 
 ---
-= Configure la interfaz de gestión de la cabina de almacenamiento
+= Configurar la interfaz de administración de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

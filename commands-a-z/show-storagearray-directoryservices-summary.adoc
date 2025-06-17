@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: show, storage, array, directory, services, summary 
 summary: El comando show storageArray DirectoryServices summary muestra un resumen de la configuración de los servicios del directorio. 
 ---
-= Mostrar resumen de servicios de directorio de la cabina de almacenamiento
+= Mostrar resumen de servicios de directorio de matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

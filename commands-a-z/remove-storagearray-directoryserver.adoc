@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove, storage array, directory, server, role, mapping 
 summary: El comando remove storageArray directoryServer quita del directorio especificado las asignaciones de roles definidas para el servidor. 
 ---
-= Quitar asignación de roles de servidor de directorio de la cabina de almacenamiento
+= Eliminar la asignación de roles del servidor de directorio de la matriz de almacenamiento - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

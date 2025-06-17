@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: test, storage, array, directory, server 
 summary: El comando start storageArray DirectoryServices test comprueba la comunicación con todos los servidores de directorio configurados y valida las configuraciones de dominio del servidor. 
 ---
-= Probar servidor de directorio de la cabina de almacenamiento
+= Servidor de directorio de matriz de almacenamiento de prueba - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

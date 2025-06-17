@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: set, autosupport, message, collection, schedule, individual, E2800, E5700, arrays 
 summary: El comando set storageArray AutoSupport schedule establece los horarios diarios y semanales, así como los días de la semana, en que se envían los mensajes de AutoSupport. 
 ---
-= Configure la programación de recogida de mensajes de AutoSupport
+= Establecer el programa de recopilación de mensajes de AutoSupport - SANtricity CLI
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
