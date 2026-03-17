@@ -21,7 +21,7 @@ Este comando se aplica a cualquier cabina de almacenamiento individual, con algu
 
 [NOTE]
 ====
-Este comando no se admite en las plataformas E4000, E2800, E5700, EF600 y EF300.
+Este comando no es compatible en las plataformas E4000, E2800, E5700, EF600, EF300, EF50 y EF80.
 
 ====
 

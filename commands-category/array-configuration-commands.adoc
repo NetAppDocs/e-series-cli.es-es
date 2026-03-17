@@ -99,6 +99,8 @@ link:../commands-a-z/reset-storagearray-hostportstatisticsbaseline.html["Restabl
 
 link:../commands-a-z/save-storagearray-hostportstatistics.html["Guarde estadísticas de puertos de host de la cabina de almacenamiento"]
 
+link:../commands-a-z/set-storagearray-host-io-protocol.html["Configura el protocolo de E/S del host de la matriz de almacenamiento"]
+
 link:../commands-a-z/set-controller-hostport.html["Configure las propiedades de los puertos de host de la controladora"]
 
 link:../commands-a-z/set-target.html["Configurar propiedades objetivo"]
@@ -108,6 +110,8 @@ link:../commands-a-z/set-controller-iscsihostport.html["Establezca propiedades d
 link:../commands-a-z/set-iscsiinitiator.html["Configure el iniciador de iSCSI"]
 
 link:../commands-a-z/show-storagearray-unconfigurediscsiinitiators.html["Muestra iniciadores de iSCSI sin configurar de la cabina de almacenamiento"]
+
+link:../commands-a-z/show-storage-array-host-io-protocol.html["Mostrar protocolo de E/S del host de almacenamiento"]
 
 link:../commands-a-z/show-storagearray-unconfiguredinitiators.html["Muestra iniciadores sin configurar"]
 

@@ -14,16 +14,19 @@ summary: El comando set storageArray managementInterface cambia la interfaz de g
 La `set storageArray managementInterface` el comando cambia la interfaz de gestión de la controladora. Cambie el tipo de interfaz de gestión para aplicar la confidencialidad entre la cabina de almacenamiento y el software de gestión o para acceder a herramientas externas.
 
 
+NOTE: A partir de SANtricity 12.0, este comando se elimina ya que la matriz de almacenamiento siempre funcionará en el modo `restOnly=true`.
+
+
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
@@ -63,3 +66,8 @@ SMcli -n Array1 -c "set storageArray managementInterface restOnly=true;"
 
 SMcli completed successfully.
 ----
+
+
+== Nivel de firmware mínimo
+
+No aplica.

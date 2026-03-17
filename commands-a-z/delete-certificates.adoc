@@ -17,7 +17,7 @@ La `Delete certificates` El comando permite eliminar un certificado del almacén
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
+Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 

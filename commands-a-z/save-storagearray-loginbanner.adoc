@@ -17,7 +17,7 @@ La `save storageArray loginBanner` el comando permite guardar un banner de inici
 
 == Cabinas compatibles
 
-Este comando se aplica a una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 o E5600.
+Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 o EF80 matriz de almacenamiento individual. No funciona en E2700 o E5600 matrices de almacenamiento.
 
 
 

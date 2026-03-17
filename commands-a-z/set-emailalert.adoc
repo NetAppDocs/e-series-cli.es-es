@@ -17,7 +17,7 @@ La `set emailAlert` comando configura el correo electrónico para enviar un corr
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento E4000, E2800, E5700, EF600 y EF300. Sin embargo, es posible usar el comando como un comando de SMcli, no de script, para las cabinas E2700 o E5600. En este caso, el comando se aplica a todas las cabinas en el dominio de gestión.
+Este comando se aplica a las matrices de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 y EF80. Sin embargo, puedes usar el comando como un comando SMcli, no como un comando de script, para las matrices E2700 o E5600. En este caso, el comando se aplica a todas las matrices del dominio de gestión.
 
 
 

@@ -17,7 +17,7 @@ La `Show certificates` El comando permite ver los certificados instalados en el 
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
+Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 

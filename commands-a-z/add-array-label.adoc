@@ -22,7 +22,7 @@ La `Add array label` el comando permite añadir una cabina de almacenamiento a l
 No es necesario que la etiqueta definida por el usuario que se proporciona coincida con el nombre de la cabina de almacenamiento que se muestra en System Manager. Esta es una etiqueta local que solo se utiliza para hacer referencia a la cabina de almacenamiento desde la CLI.
 
 ====
-Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
+Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 

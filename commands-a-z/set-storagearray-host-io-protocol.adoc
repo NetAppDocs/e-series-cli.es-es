@@ -1,0 +1,55 @@
+---
+permalink: commands-a-z/set-storagearray-host-io-protocol.html 
+sidebar: sidebar 
+keywords: set, storage, array, host, io, protocol 
+summary: El comando set storageArray hostIoProtocol configura el protocolo de E/S del host a nivel de la storage array 
+---
+= Configura el protocolo de E/S de host del Storage Array - SANtricity CLI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El `set storageArray hostIoProtocol` comando configura el protocolo de E/S del host a nivel de la matriz de almacenamiento.
+
+
+
+== Cabinas compatibles
+
+Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+
+
+
+== Funciones
+
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
+
+
+
+== Sintaxis
+
+[source, cli, subs="+macros"]
+----
+set storageArray hostIoProtocol={"FC" | "ISCSI" | "ISER" | "nvmeIb" | "nvmeFc" | "nvmeRoce" | "SAS" | "SRP"}
+----
+
+
+== Parámetro
+
+[cols="2*"]
+|===
+| Parámetro | Descripción 
+
+
+ a| 
+`set storageArray hostIoProtocol`
+ a| 
+Te permite especificar qué protocolo de E/S de host usar para tu matriz de almacenamiento. Las opciones válidas son: FC, ISCSI, ISER, nvmeIb, nvmeFc, nvmeRoce, SAS o SRP.
+
+|===
+
+
+== Nivel de firmware mínimo
+
+12,0

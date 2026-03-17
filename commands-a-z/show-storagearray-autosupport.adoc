@@ -17,13 +17,13 @@ La `show storageArray autoSupport` Comando muestra la configuración de recogida
 
 == Cabinas compatibles
 
-Este comando resulta operativo para las cabinas de almacenamiento E4000, E2800, E5700, EF600 y EF300.
+Este comando es operativo para las matrices de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 y EF80.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con los roles de administrador de almacenamiento, administrador de soporte o supervisor de almacenamiento.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin o Storage Monitor.
 
 
 

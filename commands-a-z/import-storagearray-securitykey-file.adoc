@@ -17,13 +17,13 @@ La `import storageArray securityKey file` El comando desbloquea una o varias uni
 
 == Cabinas compatibles
 
-Si la gestión de claves externas está habilitada, este comando solo se aplica a las cabinas E4000, E2800, E5700, EF600 o EF300. Si la gestión de claves internas está habilitada, este comando se aplica a cualquier cabina de almacenamiento individual, siempre que se hayan instalado todos los paquetes de SMcli.
+Si la gestión de claves externas está activada, entonces este comando se aplica solo a las matrices E4000, E2800, E5700, EF600, EF300, EF50 o EF80. Si la gestión de claves internas está activada, entonces el comando se aplica a cualquier matriz de almacenamiento individual, siempre que todos los paquetes SMcli estén instalados.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de seguridad.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 

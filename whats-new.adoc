@@ -25,6 +25,44 @@ Si actualmente utiliza SANtricity 11.52 o una versión anterior, no podrá actua
 ====
 
 
+== SANtricity 12.0
+
+La siguiente tabla enumera los cambios en los comandos CLI y Script para la release 12.0.
+
+[cols="2*"]
+|===
+| Comando | Descripción del cambio 
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/set-storagearray-host-io-protocol.html["Configura el protocolo de E/S del host de la matriz de almacenamiento"]
+ a| 
+Comando añadido.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/show-storage-array-host-io-protocol.html["Mostrar información del protocolo de E/S del host de almacenamiento"]
+ a| 
+Comando añadido.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/start-storagearray-externalkeymanagement-test.html["Probar comunicación de gestión de claves externas"]
+ a| 
+Se añadieron los resultados de la prueba de comunicación KMS a la salida del comando.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/set-storagearray-managementinterface.html["Configure la interfaz de gestión de la cabina de almacenamiento"]
+ a| 
+Comando eliminado.
+
+|===
+
+
 == SANtricity 11,90
 
 En la siguiente tabla, se enumeran los cambios de comandos de la CLI y de script para la versión 11,90.
@@ -214,14 +252,14 @@ Actualizado `disableResourceProvisioning` descripción del parámetro.
 
 
  a| 
-xref:./commands-a-z/recreate-storagearray-securitykey.html[Vuelva a crear una clave de seguridad externa]
+xref:./commands-a-z/recreate-storagearray-securitykey.adoc[Vuelva a crear una clave de seguridad externa]
  a| 
 Añadido `deleteOldKey` parámetro.
 
 
 
  a| 
-xref:./commands-a-z/create-diskpool.html[Crear pool de discos]
+xref:./commands-a-z/create-diskpool.adoc[Crear pool de discos]
  a| 
 Actualizado `driveCount` descripción del parámetro.
 

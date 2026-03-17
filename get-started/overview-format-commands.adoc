@@ -21,4 +21,4 @@ Los comandos de script configuran y gestionan una cabina de almacenamiento. Los 
 
 Algunas funciones de software descritas en este documento pueden no estar disponibles en ciertos sistemas de almacenamiento E-Series. Las preguntas sobre funciones disponibles deben derivarse al representante de cuenta.
 
-La CLI es una función del software SANtricity Storage Manager.
+La CLI es una función del software SANtricity System Manager.

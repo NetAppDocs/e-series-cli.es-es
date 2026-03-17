@@ -17,13 +17,13 @@ La `set storageArray autoLoadBalancingEnable` El comando habilita o deshabilita 
 
 == Cabinas compatibles
 
-Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
+Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
@@ -80,8 +80,6 @@ Puede ser conveniente deshabilitar Automatic Load Balancing en la cabina de alma
 * No se desea cambiar automáticamente la propiedad de una controladora de volumen para equilibrar la carga de trabajo.
 * Se trabaja en un entorno altamente optimizado donde la distribución de carga se configura intencionalmente para lograr una distribución específica entre las controladoras.
 
-
-En el Administrador de almacenamiento de SANtricity, seleccione la opción de menú *matriz de almacenamiento* > *Configuración* > *equilibrio de carga automático* para activar o desactivar la función equilibrio de carga automático para una matriz de almacenamiento individual.
 
 En el Administrador del sistema de SANtricity, seleccione *Configuración* > *sistema*, desplácese hacia abajo hasta la sección *Configuración adicional*, haga clic en el enlace E**nable/Disable Automatic Load Balancing** y seleccione la casilla de verificación**Habilitar/deshabilitar equilibrio de carga automático** para habilitar o deshabilitar la función para una matriz de almacenamiento individual.
 

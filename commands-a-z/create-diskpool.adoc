@@ -23,7 +23,7 @@ Este comando se aplica a cualquier cabina de almacenamiento individual, incluida
 
 == Funciones
 
-Para ejecutar este comando en una cabina de almacenamiento E4000, E2800, E5700, EF600 o EF300, debe contar con el rol de administrador de almacenamiento.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
@@ -73,7 +73,7 @@ driveType=(fibre | SATA | SAS | NVMe4K))
  a| 
 Las unidades que se desean asignar al pool de discos que se está creando. En el caso de los soportes de unidades de gran capacidad, es necesario indicar los valores de ID de soporte, ID de cajón e ID de ranura correspondientes a la unidad. En el caso de los soportes de unidades de baja capacidad, es necesario indicar los valores de ID de soporte e ID de ranura correspondientes a la unidad. Los valores de ID de soporte son `0` para `99`. Los valores de ID de cajón son `1` para `5`.
 
-El valor máximo de ID de ranura es 24. Los valores de ID de ranura comienzan con 0 o 1, según el modelo de soporte. Los soportes de unidades compatibles con controladoras E2800, E5700, EF600 y EF300 tienen números de ID de ranura que comienzan con 0. Los soportes de unidades compatibles con controladoras E2700 y E5600 tienen números de ID de ranura que comienzan con 1.
+Todos los valores máximos de ID de ranura son 24. Los valores de ID de ranura comienzan en 0 o 1, dependiendo del modelo de bandeja. Las bandejas de unidad compatibles con E2800, E5700, EF600, EF300, EF50 y EF80 tienen números de ID de ranura que comienzan en 0. Las bandejas de unidad compatibles con E2700 y E5600 tienen números de ID de ranura que comienzan en 1.
 
 
 
@@ -217,7 +217,7 @@ El firmware de la controladora no combina `hdd` y.. `ssd` unidad en el mismo poo
  a| 
 `resourceProvisioningCapable`
  a| 
-El ajuste para especificar si las capacidades de aprovisionamiento de recursos están habilitadas. Para deshabilitar el aprovisionamiento de recursos, establezca este parámetro en `FALSE`. El valor predeterminado es `TRUE`.
+Si este parámetro se establece en `TRUE`, solo se utilizarán unidades con capacidad DULBE para crear grupos de discos o grupos de volúmenes. Si el parámetro se establece en `FALSE` o no se proporciona, no se realiza ninguna comprobación de la capacidad DULBE. Si todas las unidades seleccionadas para el grupo de volúmenes o el grupo de discos tienen capacidad DULBE, entonces el indicador de nivel de la matriz de almacenamiento determina si el grupo de volúmenes o el grupo de discos se crea como aprovisionado por recursos.
 
 |===
 

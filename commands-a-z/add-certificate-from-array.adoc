@@ -17,7 +17,7 @@ La `Add certificate from array` El comando permite tomar un certificado de la ca
 
 == Cabinas compatibles
 
-Este comando se aplica a las cabinas de almacenamiento EF600 y EF300.
+Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 
