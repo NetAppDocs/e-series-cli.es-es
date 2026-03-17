@@ -52,4 +52,4 @@ Te permite especificar qué protocolo de E/S de host usar para tu matriz de alma
 
 == Nivel de firmware mínimo
 
-12,0
+12,00

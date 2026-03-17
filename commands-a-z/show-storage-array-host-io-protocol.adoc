@@ -43,4 +43,4 @@ Ninguno.
 
 == Nivel de firmware mínimo
 
-12,0
+12,00
