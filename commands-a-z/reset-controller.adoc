@@ -15,18 +15,21 @@ La `reset controller` Comando restablece una controladora y provoca interrupcion
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -41,6 +44,7 @@ Si se utiliza la gestión en banda, no se puede controlar a qué controladora se
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -49,6 +53,7 @@ reset controller [(a|b)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -63,12 +68,14 @@ La controladora que se desea restablecer. Los identificadores válidos de la con
 |===
 
 
+[[notes]]
 == Notas
 
 La controladora que recibe el comando de restablecimiento de controladora restablece la controladora especificada. Por ejemplo, si el comando de restablecimiento de controladora se envía a la controladora A para solicitar un restablecimiento de la controladora A, la controladora A se reinicia mediante un reinicio en caliente. Si el comando de restablecimiento de controladora se envía a la controladora A para solicitar un restablecimiento de la controladora B, la controladora A mantiene a la controladora B en restablecimiento y, a continuación, libera la controladora B del restablecimiento, que es un reinicio en frío. En algunos productos, el reinicio en caliente solo restablece el chip IOC. El reinicio en frío restablece tanto el IOC como los chips de expansión en la controladora.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

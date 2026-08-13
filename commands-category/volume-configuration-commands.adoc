@@ -15,6 +15,7 @@ La siguiente lista de comandos de configuración de volúmenes están disponible
 
 
 
+[[disk-pool-commands]]
 == Comandos de pool de discos
 
 link:../commands-a-z/create-diskpool.html["Crear pool de discos"]
@@ -41,6 +42,7 @@ link:../commands-a-z/stop-diskpool-locate.html["Detener búsqueda de pool de dis
 
 
 
+[[host-topology-commands]]
 == Comandos de topología de host
 
 link:../commands-a-z/create-host.html["Crear host"]
@@ -69,6 +71,7 @@ link:../commands-a-z/show-storagearray-hosttopology.html["Mostrar topología de 
 
 
 
+[[internet-storage-name-service-isns-commands]]
 == Comandos de servicio de nombres de almacenamiento de Internet (iSNS)
 
 link:../commands-a-z/set-storagearray.html["Configure la cabina de almacenamiento"]
@@ -87,6 +90,7 @@ link:../commands-a-z/start-storagearray-isnsserverrefresh.html["Inicie la actual
 
 
 
+[[iscsi-extension-for-rdma-iser-commands]]
 == Extensión ISCSI para comandos RDMA (Iser)
 
 link:../commands-a-z/reset-storagearray-iserstatsbaseline.html["Restablezca la línea de base Iser de la cabina de almacenamiento"]
@@ -97,6 +101,7 @@ link:../commands-a-z/set-isertarget.html["Configure el objetivo Iser"]
 
 
 
+[[iscsi-commands]]
 == Comandos ISCSI
 
 link:../commands-a-z/create-iscsiinitiator.html["Cree un iniciador de iSCSI"]
@@ -125,6 +130,7 @@ link:../commands-a-z/stop-storagearray-iscsisession.html["Detenga la sesión iSC
 
 
 
+[[volume-commands]]
 == Comandos de volumen
 
 link:../commands-a-z/check-volume-parity.html["Comprobar la paridad de un volumen"]
@@ -189,6 +195,7 @@ link:../commands-a-z/stop-check-vol-parity-job.html["Detener el trabajo de parid
 
 
 
+[[volume-group-commands]]
 == Comandos de grupo de volúmenes
 
 link:../commands-a-z/create-volumegroup.html["Crear un grupo de volúmenes"]

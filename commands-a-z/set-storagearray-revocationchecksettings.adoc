@@ -15,18 +15,21 @@ La `set storageArray revocationCheckSettings` El comando permite habilitar o des
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 El servidor OCSP controla todos los certificados que la entidad de certificación (CA) ha revocado antes de su fecha de vencimiento programada. Se recomienda habilitar el control de revocación en casos donde la CA emitió incorrectamente una certificación o existe una clave privada en riesgo.
@@ -40,6 +43,7 @@ Después de habilitar el control de revocación, la cabina de almacenamiento rec
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -48,6 +52,7 @@ set storageArray revocationCheckSettings ([revocationCheckEnable = boolean] &| [
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -75,6 +80,7 @@ Si se especifica una dirección de respuesta OCSP, se anula la dirección OCSP q
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.42

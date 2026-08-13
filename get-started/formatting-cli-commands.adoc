@@ -15,6 +15,7 @@ Según el valor o el nombre introducidos, ciertas reglas de formato se aplican p
 
 
 
+[[cli-format-rules]]
 == Reglas de formato de la CLI
 
 Las comillas dobles (" ") que se usan como parte de un nombre o una etiqueta requieren consideración especial cuando se ejecutan comandos de la CLI y comandos de script en un sistema operativo Windows, Linux o Solaris.

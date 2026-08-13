@@ -15,24 +15,28 @@ La `diagnose controller` el comando ejecuta pruebas de diagnóstico en la contro
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Las pruebas de diagnóstico son pruebas de bucle invertido en las que se escriben y se leen datos en las unidades.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ pass:quotes[[patternFile="_filename_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -88,6 +93,7 @@ La ruta y el nombre del archivo que contiene el patrón de datos que se desea us
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se ejecuta una prueba de bucle invertido de datos, es posible especificar un archivo que contenga un patrón de datos. Si no se especifica un archivo, el firmware de la controladora usa un patrón predeterminado.
@@ -112,6 +118,7 @@ One or more controller discrete lines failed the diagnostic test.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10 añade la prueba de lectura, la prueba de escritura y la prueba de bucle invertido de datos.

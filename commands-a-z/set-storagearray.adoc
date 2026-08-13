@@ -15,18 +15,21 @@ La `set storageArray` el comando define las propiedades de la cabina de almacena
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Con la versión de firmware 8.10 `cacheFlushStop` el parámetro quedó obsoleto 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -84,6 +88,7 @@ set storageArray
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -430,12 +435,14 @@ Activa o desactiva VMware vStorage API Array Architecture (VAAI) para una cabina
 |===
 
 
+[[notes]]
 == Notas
 
 Excepto por `isnsRegistration`, cuando utilice este comando, puede especificar uno o varios de los parámetros opcionales.
 
 
 
+[[autosupport-data]]
 == Datos de AutoSupport
 
 [NOTE]
@@ -456,6 +463,7 @@ Puede ejecutar el `set storageArray autoSupportConfig` comando en más de una ca
 
 
 
+[[cache-block-size]]
 == Tamaño del bloque de caché
 
 Cuando se definen los tamaños de bloque de caché, se debe usar el tamaño de bloque de caché de 4 KB para las cabinas de almacenamiento donde se requieren flujos de I/o, los que generalmente son pequeños y aleatorios. Use el tamaño de bloque de caché de 8 KB cuando la mayoría de los flujos de I/o sean mayores de 4 KB, pero menores de 8 KB. Use el tamaño de bloque de caché de 16 KB o 32 KB para las cabinas de almacenamiento que requieran transferencia de datos grandes, secuenciales o aplicaciones de ancho de banda elevado.
@@ -464,24 +472,28 @@ La `cacheBlockSize` el parámetro define el tamaño de bloque de caché admitido
 
 
 
+[[cache-flush-start]]
 == Inicio de vaciado de caché
 
 Cuando se definen valores para iniciar un vaciado de caché, un valor demasiado bajo aumenta la posibilidad de que los datos necesarios para una lectura de host no se encuentren en la caché. Un valor bajo también aumenta el número de escrituras de la unidad que son necesarias para conservar el nivel de caché, lo que aumenta la sobrecarga del sistema y reduce el rendimiento.
 
 
 
+[[default-host-type]]
 == Tipo de host predeterminado
 
 Cuando se definen los tipos de host, si se habilita la función Storage Partitioning, el tipo de host predeterminado únicamente afecta a los volúmenes asignados en el grupo predeterminado. Si no se habilita la función Storage Partitioning, todos los hosts asociados a la cabina de almacenamiento deben ejecutar el mismo sistema operativo y ser compatibles con el tipo de host predeterminado.
 
 
 
+[[media-scan-rate]]
 == Tasa de análisis de medios
 
 El análisis de medios se ejecuta en todos los volúmenes de la cabina de almacenamiento que tienen el estado Optimal, que no tengan operaciones de modificación en curso y que tengan el `mediaScanRate` parámetro habilitado. Utilice la `set volume` para habilitar o deshabilitar el `mediaScanRate` parámetro.
 
 
 
+[[password]]
 == Contraseña
 
 Las contraseñas se almacenan en cada cabina de almacenamiento. Para una mejor protección, la contraseña debe cumplir con los siguientes criterios:
@@ -505,6 +517,7 @@ Se debe configurar una contraseña para la cabina de almacenamiento a fin de pod
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.00 añade el `defaultHostType` parámetro.

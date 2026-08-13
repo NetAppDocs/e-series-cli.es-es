@@ -15,12 +15,14 @@ La `Show certificates` El comando permite ver los certificados instalados en el 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -29,6 +31,7 @@ show localCertificate all | alias alias
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -44,6 +47,7 @@ Permite especificar un certificado mediante el alias definido por el usuario.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.60

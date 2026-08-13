@@ -15,18 +15,21 @@ La `start diskPool fullProvisioning` el comando inicia una operación de aprovis
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La función de aprovisionamiento de recursos mejora la vida útil de las unidades SSD y aumenta el rendimiento de escritura al dejar una parte mayor de los bloques de la unidad en estado sin asignar que un volumen estándar. Un volumen aprovisionado por recursos es un volumen grueso de un grupo de volúmenes SSD o pool, en el que se asigna capacidad de las unidades (asignada al volumen), pero los bloques de las unidades se desasignan (anula la asignación) durante la creación de volúmenes. Los bloques de unidades se asignan según sea necesario para completar la I/o de escritura del host. Las operaciones de anulación de asignación de host pueden devolver los bloques de unidades al estado sin asignar . Además, el aprovisionamiento de recursos elimina la inicialización en segundo plano vinculada con el tiempo, lo que permite inicializar rápidamente grandes volúmenes.
@@ -37,6 +40,7 @@ El formato de aprovisionamiento completo garantiza que todos los bloques necesar
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -45,6 +49,7 @@ start diskPool[diskPoolName] fullProvisioning [disableResourceProvisioning=(TRUE
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -72,6 +77,7 @@ Para volver a habilitar el aprovisionamiento de recursos en un pool de almacenam
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11.72

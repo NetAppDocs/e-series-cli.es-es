@@ -15,12 +15,14 @@ La `SMcli enable|disable autoSupportRemoteDiag` El comando activa o desactiva la
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -44,6 +46,7 @@ Es necesario habilitar estas tres funciones en este orden.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -52,12 +55,14 @@ SMcli enable|disable autoSupportRemoteDiag
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[verification]]
 == Verificación
 
 Utilice la `SMcli -autoSupportConfig show` comando para ver si ha habilitado la función. Las tres líneas iniciales del resultado muestran el estado de habilitación de la función AutoSupport, seguido por la función AutoSupport OnDemand y, luego, el estado de la función AutoSupport Remote Diagnostics:
@@ -73,6 +78,7 @@ management station.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25

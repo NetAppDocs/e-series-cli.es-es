@@ -15,18 +15,21 @@ La `save allDrives logFile` el comando guarda los registros de la unidad en un a
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La cabina de almacenamiento mantiene datos de registro de unidad para cada unidad.
@@ -38,6 +41,7 @@ No ejecute este comando a menos que el soporte técnico le indique hacerlo.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ save allDrives logFile=pass:quotes["_filename_"]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -68,6 +73,7 @@ Este comando no anexa automáticamente ninguna extensión de archivo al archivo 
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

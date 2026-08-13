@@ -15,18 +15,21 @@ La `create storageArray securityKey` Comando crea o cambia una nueva clave de se
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Si la gestión de claves externas está activada, entonces este comando se aplica solo a las matrices E4000, E2800, E5700, EF600, EF300, EF50 y EF80. Si la gestión de claves internas está activada, entonces el comando se aplica a cualquier matriz de almacenamiento individual, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Para la gestión de claves internas, este comando habilita la función Internal Key Management y crea la clave de seguridad. Después de crear la clave, utilice `set storageArray securityKey` comando para poner la clave en uso. Este comando también permite modificar la clave de seguridad.
@@ -35,6 +38,7 @@ Para la gestión de claves externas, este comando crea una nueva clave que susti
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -47,6 +51,7 @@ file=_"fileName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -131,6 +136,7 @@ El valor predeterminado es FALSE. Si este parámetro está configurado en FALSE,
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.40, incluido para la gestión de claves internas

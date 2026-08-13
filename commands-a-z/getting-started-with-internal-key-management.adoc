@@ -24,6 +24,7 @@ A continuación, se muestra el flujo de trabajo básico para el uso de claves de
 
 
 
+[[workflow-steps]]
 == Pasos del flujo de trabajo
 
 Los siguientes son los comandos iniciales para usar claves de seguridad internas:

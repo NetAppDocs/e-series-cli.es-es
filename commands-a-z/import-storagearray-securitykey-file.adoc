@@ -15,18 +15,21 @@ La `import storageArray securityKey file` El comando desbloquea una o varias uni
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Si la gestión de claves externas está activada, entonces este comando se aplica solo a las matrices E4000, E2800, E5700, EF600, EF300, EF50 o EF80. Si la gestión de claves internas está activada, entonces el comando se aplica a cualquier matriz de almacenamiento individual, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Solo es posible desbloquear las unidades con una clave de seguridad coincidente. Después de desbloquearlas, se aplica la clave de seguridad de la nueva cabina de almacenamiento.
@@ -38,6 +41,7 @@ Este comando se aplica a la gestión de claves interna y externa.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -48,6 +52,7 @@ passPhrase="passPhraseString"
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -86,6 +91,7 @@ Si este parámetro se establece en `TRUE`, La importación forzará la sobrescri
 |===
 
 
+[[notes]]
 == Notas
 
 El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades FDE. Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
@@ -106,6 +112,7 @@ Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de e
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.40

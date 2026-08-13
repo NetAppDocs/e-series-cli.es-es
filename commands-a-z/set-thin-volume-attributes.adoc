@@ -15,24 +15,28 @@ La `set volume` el comando define las propiedades de un volumen fino.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Es posible usar los parámetros para definir las propiedades de uno o varios volúmenes finos.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -47,6 +51,7 @@ volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]] | volume <"wwID">)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -147,6 +152,7 @@ Este parámetro cambia la manera en que el volumen fino se informa al host. Los 
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
@@ -197,6 +203,7 @@ Para cambiar un volumen fino por un volumen estándar, se debe utilizar la opera
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

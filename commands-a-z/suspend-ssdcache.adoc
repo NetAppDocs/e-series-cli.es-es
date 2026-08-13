@@ -15,24 +15,28 @@ La `suspend ssdCache` El comando detiene temporalmente el almacenamiento en cach
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Mientras el almacenamiento en caché se encuentra detenido, se realiza el mantenimiento de las lecturas de host desde los volúmenes base, en lugar de desde la caché SSD.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ pass:quotes[suspend ssdCache [_ssdCacheName_]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,12 +61,14 @@ El nombre de la caché SSD que se desea suspender. El nombre de la caché SSD de
 |===
 
 
+[[notes]]
 == Notas
 
 Para reiniciar el almacenamiento en caché, utilice `resume ssdCache` comando.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

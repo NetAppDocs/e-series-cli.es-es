@@ -15,24 +15,28 @@ La `stop consistencyGroup pendingSnapImageCreation` el comando detiene todas las
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Si el grupo de coherencia Snapshot no tiene imágenes Snapshot pendientes, el software de administración del almacenamiento muestra un mensaje de error y no ejecuta el comando.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ stop consistencyGroup pass:quotes[[_consistencyGroupName_]]pendingSnapImageCreat
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -56,6 +61,7 @@ El nombre del grupo de coherencia para el que se desea detener cualquier operaci
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

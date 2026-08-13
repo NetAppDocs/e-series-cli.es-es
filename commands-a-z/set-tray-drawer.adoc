@@ -15,24 +15,28 @@ La `set tray drawer` El comando enciende o apaga la luz indicadora de permiso de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Los cajones se usan en soportes de unidades de gran capacidad. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Este comando se usa para soportes de unidades que utilizan cajones. Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -42,6 +46,7 @@ serviceAllowedIndicator=(on | off | forceOnWarning)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -73,6 +78,7 @@ Para obtener información acerca de cómo utilizar `forceOnWarning`, Consulte la
 |===
 
 
+[[notes]]
 == Notas
 
 Para poder introducir este comando, el soporte de la unidad debe cumplir estas condiciones:
@@ -96,6 +102,7 @@ Para encender o apagar la luz indicadora de permiso de acción de servicio en el
 
 
 
+[[use-of-the-forceonwarning-parameter]]
 == Uso del parámetro forceOnWarning
 
 Si va a preparar un componente para quitarlo y quiere anular la advertencia de que los volúmenes no tienen protección contra pérdida de cajón, introduzca este parámetro:
@@ -113,6 +120,7 @@ Este parámetro Marca todas las unidades en el controlador como inaccesibles, y 
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.60

@@ -15,18 +15,21 @@ La `create initiator` comando crea el objeto iniciador.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -41,6 +44,7 @@ Este comando solo se aplica a iSCSI, Iser, NVMe over roce, NVMe over InfiniBand 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -50,6 +54,7 @@ interfaceType=(iscsi | iser | nvmeof) [chapSecret="securityKey"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -92,6 +97,7 @@ Permite introducir la clave de seguridad que se desea usar para autenticar una c
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.41

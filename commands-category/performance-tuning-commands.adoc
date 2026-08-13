@@ -15,6 +15,7 @@ La siguiente lista de comandos de ajuste del rendimiento están disponibles para
 
 
 
+[[automatic-load-balancing-commands]]
 == Comandos de equilibrio de carga automático
 
 link:../commands-a-z/save-storagearray-autoloadbalancestatistics-file.html["Guarde las estadísticas de equilibrio de carga automático"]
@@ -23,6 +24,7 @@ link:../commands-a-z/set-storagearray-autoloadbalancingenable.html["Configure la
 
 
 
+[[ssd-cache-commands]]
 == Comandos de caché SSD
 
 link:../commands-a-z/add-drives-to-ssd-cache.html["Añada unidades a la caché SSD"]

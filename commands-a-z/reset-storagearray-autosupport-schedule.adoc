@@ -15,18 +15,21 @@ La `reset storageArray autoSupport schedule` El comando restablece la frecuencia
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 * El software de gestión selecciona de forma aleatoria una hora del día para los mensajes diarios y semanales, y un día de la semana para los mensajes semanales.
@@ -35,6 +38,7 @@ Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, 
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -43,12 +47,14 @@ reset storageArray autoSupport schedule
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -60,12 +66,14 @@ SMcli completed successfully.
 ----
 
 
+[[verification]]
 == Verificación
 
 Utilice la `show storageArray autoSupport` comando para ver el cambio resultante en la programación.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40

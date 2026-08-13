@@ -15,18 +15,21 @@ La `set controller NTPServers` El comando configura los ajustes de NTP para la c
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Cuando esta función está habilitada, la controladora consulta periódicamente al servidor NTP configurado y luego utiliza los resultados para actualizar su reloj interno. Si solamente una de las controladoras tiene NTP habilitado, la controladora alternativa sincronizará periódicamente su reloj con el de la controladora que tiene NTP habilitado. Si ninguna de las controladoras tiene NTP habilitado, sincronizarán periódicamente sus relojes entre ellas.
@@ -43,6 +46,7 @@ Si configura NTP con un nombre de dominio completo, también debe configurar DNS
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -51,6 +55,7 @@ set controller(a|b) NTPServers=(disabled|auto|(Address1 [Address2]))
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -101,6 +106,7 @@ Si se especifica un nombre de dominio, también debe configurarse un servidor DN
 |===
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -113,6 +119,7 @@ set controller[b] NTPServers=(2001:0db8:85a3:0000:0000:8a2e:0370:7334);
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25

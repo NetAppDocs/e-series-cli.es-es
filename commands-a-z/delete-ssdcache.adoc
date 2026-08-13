@@ -15,18 +15,21 @@ La `delete ssdCache` El comando elimina la caché SSD. Se depuran todos los dato
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ pass:quotes[delete ssdCache [_ssdCacheName_]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -50,6 +54,7 @@ El nombre de la caché SSD que se desea eliminar. El nombre de la caché SSD deb
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

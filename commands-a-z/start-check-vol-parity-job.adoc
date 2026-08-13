@@ -15,18 +15,21 @@ La `start check volume parity job` el comando inicia una nueva operación de com
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener el rol de Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -37,6 +40,7 @@ repairMediaErrors=<true | false>);
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -79,6 +83,7 @@ Determina si se intentan automáticamente reparar los errores de medios detectad
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11,80

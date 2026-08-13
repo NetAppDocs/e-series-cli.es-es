@@ -15,12 +15,14 @@ Utilice la `SMcli -autoSupportConfig test` Comando para probar la configuración
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -35,6 +37,7 @@ Persistent Monitor debe encontrarse en ejecución en la estación de gestión pa
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -43,6 +46,7 @@ SMcli -autoSupportConfig test reply-toEmail<address>
 ----
 
 
+[[parameters]]
 == Parámetros
 
 En la tabla siguiente, se enumeran los parámetros para enviar un mensaje de prueba de AutoSupport.
@@ -67,12 +71,14 @@ Permite al usuario especificar la dirección de correo electrónico de respuesta
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25
 
 
 
+[[example-of-testing-using-httphttps-delivery]]
 == Ejemplo de prueba con entrega HTTP/HTTPS
 
 A continuación encontrará ejemplos de uso de este comando cuando se utilizan los tipos de entrega HTTP o HTTPS, en los que no se especifica una dirección de correo electrónico para la entrega.
@@ -86,6 +92,7 @@ SMcli completed successfully.
 ----
 
 
+[[example-of-testing-using-smtp-delivery]]
 == Ejemplo de pruebas con entrega SMTP
 
 A continuación, se presentan algunos ejemplos de uso de este comando. Cuando se utiliza un método de entrega SMTP, es posible utilizar el `reply-toEmail` parámetro para especificar la dirección de destino.

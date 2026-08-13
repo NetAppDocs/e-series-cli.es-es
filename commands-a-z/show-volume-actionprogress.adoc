@@ -15,18 +15,21 @@ La `show volume actionProgress` el comando muestra información acerca de la acc
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -38,6 +41,7 @@ La cantidad de la operación de ejecución prolongada que se realizó se muestra
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ show volume pass:quotes[[_volumeName_]] actionProgress
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -61,6 +66,7 @@ El nombre de un volumen del cual se desea recuperar información acerca de una o
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.43

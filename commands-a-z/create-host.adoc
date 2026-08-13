@@ -15,24 +15,28 @@ La `create host` el comando crea un nuevo host.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Para las cabinas de almacenamiento E2700 y E5600, si no se especifica un grupo de hosts donde crear el nuevo host, este se crea en el grupo predeterminado.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +47,7 @@ create host userLabel=pass:quotes[_"hostName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -71,6 +76,7 @@ La etiqueta de índice o el número de índice que identifica el tipo de host. U
 |===
 
 
+[[notes]]
 == Notas
 
 En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
@@ -83,6 +89,7 @@ Si no se especifica un grupo de hosts donde se colocará el host que se está cr
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

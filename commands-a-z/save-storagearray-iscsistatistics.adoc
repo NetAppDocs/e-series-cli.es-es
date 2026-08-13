@@ -15,12 +15,14 @@ La `save storageArray iscsiStatistics` El comando guarda en un archivo las estad
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
@@ -32,6 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:save-storagearray-host
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -40,6 +43,7 @@ save storageArray iscsiStatistics [(raw | baseline)] file=pass:quotes["_filename
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -73,12 +77,14 @@ El nombre predeterminado del archivo que contiene las estadísticas de rendimien
 |===
 
 
+[[notes]]
 == Notas
 
 Si no se restablecieron las estadísticas de línea de base de iSCSI desde el inicio del día de la controladora, la hora de inicio del día es la línea de base predeterminada.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

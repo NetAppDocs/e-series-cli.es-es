@@ -15,12 +15,14 @@ La `SMcli autoSupportSchedule reset` El comando restablece la frecuencia diaria 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +38,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -46,6 +49,7 @@ SMcli -autoSupportSchedule reset | (dailyTime=<startTime>-<endTime>
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -82,12 +86,14 @@ Restablece y genera programaciones nuevas mediante un intervalo de días de 24 h
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25
 
 
 
+[[example]]
 == Ejemplo
 
 [listing]
@@ -99,6 +105,7 @@ dayOfWeek=[Monday Thursday Friday] weeklyTime=2:00am-3:00am
 
 
 
+[[verification]]
 == Verificación
 
 Utilice la `SMcli -autoSupportSchedule show` comando para ver el cambio resultante en la programación en el dominio de gestión.

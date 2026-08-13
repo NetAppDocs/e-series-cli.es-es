@@ -26,6 +26,7 @@ Es posible crear dos tipos de programaciones:
 
 
 
+[[syntax-for-creating-a-dailyweekly-schedule]]
 == Sintaxis para crear una programación diaria/semanal
 
 [source, cli, subs="+macros"]
@@ -40,6 +41,7 @@ pass:quotes[data=_pathName_]
 ----
 
 
+[[syntax-for-creating-a-monthlyyearly-schedule]]
 == Sintaxis para crear una programación mensual/anual
 
 [source, cli, subs="+macros"]
@@ -58,6 +60,7 @@ pass:quotes[data=_pathName_]
 ----
 
 
+[[syntax-for-removing-a-schedule]]
 == Sintaxis para eliminar una programación
 
 [NOTE]
@@ -72,6 +75,7 @@ pass:quotes[(all|_storageArrayName_)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 En la siguiente tabla, se enumeran los parámetros para una programación diaria/semanal.
@@ -332,6 +336,7 @@ El nombre de una cabina de almacenamiento específica para la cual se desea defi
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando utilice la `all` parámetro para definir una programación común para todas las cabinas de almacenamiento, se eliminan las programaciones para las cabinas de almacenamiento individuales. Si se define una programación para todas las cabinas de almacenamiento, las cabinas de almacenamiento recién detectadas seguirán la misma programación. Si se define una programación para todas las cabinas de almacenamiento y luego se define otra para una sola cabina de almacenamiento, las cabinas de almacenamiento recién detectadas no tendrán una programación definida.
@@ -383,6 +388,7 @@ weekNumber=First dayOfWeek=Friday
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

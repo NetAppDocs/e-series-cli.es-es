@@ -15,24 +15,28 @@ La `start volumeGroup resourceProvisioning` el comando habilita el aprovisionami
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener los roles Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Para deshabilitar el aprovisionamiento de recursos en un grupo de volúmenes, se debe usar el comando de aprovisionamiento completo con la opción de deshabilitar el aprovisionamiento de recursos. Un grupo de volúmenes se aprovisionará de recursos cuando se cree si todas las unidades son compatibles con DULBE y las cabinas de almacenamiento `resourceProvisionedVolumes` el ajuste es `true`.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ pass:quotes[start volumeGroup[_volumeGroupName_]] resourceProvisioning
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -56,6 +61,7 @@ El grupo de volúmenes que desea habilitar la función de aprovisionamiento de r
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11.73

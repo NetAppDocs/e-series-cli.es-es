@@ -15,18 +15,21 @@ La `save storageArray firmwareInventory` el comando guarda un informe en un arch
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 El informe incluye el firmware de estos componentes:
@@ -42,6 +45,7 @@ Es posible usar la información para identificar el firmware desactualizado o el
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -50,6 +54,7 @@ save storageArray firmwareInventory file=pass:quotes["_filename_"]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -69,6 +74,7 @@ El nombre predeterminado del archivo que contiene el inventario de firmware es `
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.70

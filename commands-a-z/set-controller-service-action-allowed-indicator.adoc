@@ -15,12 +15,14 @@ La `set controller` El comando enciende o apaga la luz indicadora de permiso de 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E2700 y E5600.
 
 
 
+[[context]]
 == Contexto
 
 Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error. (Para encender o apagar la luz indicadora en el contenedor de alimentación-ventilador o el contenedor de interconexión-batería, utilice `set tray serviceAllowedIndicator` ).
@@ -32,6 +34,7 @@ Este comando es válido solo para E2700, E5600 o EF560 (y otras generaciones ant
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,6 +44,7 @@ serviceAllowedIndicator=(on | off)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -63,6 +67,7 @@ La opción para encender o apagar la luz indicadora de permiso de acción de ser
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.14

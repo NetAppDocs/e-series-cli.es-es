@@ -15,24 +15,28 @@ La `show driveChannel stats` el comando muestra la transferencia de datos acumul
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Si la controladora degradó automáticamente un canal de la unidad, este comando también muestra las estadísticas de intervalos. Cuando se usa este comando, se puede ver información acerca de un canal de la unidad específico, de varios canales de la unidad o todos los canales de la unidad.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -43,6 +47,7 @@ show (driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)] |
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -76,12 +81,14 @@ El identificador que selecciona todos los canales de la unidad.
 |===
 
 
+[[notes]]
 == Notas
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

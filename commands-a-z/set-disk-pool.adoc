@@ -15,18 +15,21 @@ La `set diskPool` el comando configura los atributos asociados con un pool de di
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +46,7 @@ diskPools pass:quotes[[_diskPoolName1_ ... _diskPoolNameN_]] | allDiskPools)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -154,6 +158,7 @@ El nombre nuevo que desea asignarle al pool de discos. El nombre del pool de dis
 |===
 
 
+[[notes]]
 == Notas
 
 Cada nombre de pool de discos debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
@@ -164,6 +169,7 @@ Si no se especifica un valor para un parámetro opcional, se asigna un valor pre
 
 
 
+[[disk-pool-alert-thresholds]]
 == Umbrales de alerta del pool de discos
 
 Cada pool de discos tiene dos niveles de gravedad para las alertas que informan a los usuarios cuando la capacidad de almacenamiento está por agotarse. El umbral de alerta es un porcentaje de la capacidad utilizada respecto de la capacidad utilizable total del pool de discos. Las alertas son las siguientes:
@@ -176,6 +182,7 @@ Para que sea eficaz, el valor de una alerta de advertencia siempre debe ser meno
 
 
 
+[[disk-pool-background-operations]]
 == Operaciones en segundo plano en el pool de discos
 
 Los pools de discos admiten las siguientes operaciones en segundo plano:
@@ -198,6 +205,7 @@ Los pools de discos no tienen cola para comandos en segundo plano. Es posible in
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

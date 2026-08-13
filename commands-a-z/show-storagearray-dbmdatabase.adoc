@@ -15,18 +15,21 @@ La `show storageArray dbmDatabase` el comando recupera y muestra metadatos de la
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,12 +38,14 @@ show storageArray dbmDatabase
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Este comando muestra información de la base de datos de la configuración en un formato similar al del siguiente ejemplo.
@@ -104,6 +109,7 @@ AN/AN
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

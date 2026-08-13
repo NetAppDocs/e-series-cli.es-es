@@ -15,18 +15,21 @@ La `set snmpSystemVariables` Command cambia las variables del sistema para el pr
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Las siguientes variables del sistema se mantienen en una base de datos de información de gestión II (MIB-II):
@@ -38,6 +41,7 @@ Las siguientes variables del sistema se mantienen en una base de datos de inform
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -49,6 +53,7 @@ set snmpSystemVariables
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -78,6 +83,7 @@ La ubicación física del sistema, como "3er piso". Encierre la ubicación del s
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.30

@@ -15,6 +15,7 @@ La siguiente lista de comandos de administrador están disponibles en el sistema
 
 
 
+[[storage-administrators-commands]]
 == Comandos para administradores de almacenamiento
 
 link:../commands-a-z/activate-asynchronous-mirroring.html["Active el mirroring asíncrono"]
@@ -727,6 +728,7 @@ link:../commands-a-z/set-snmptrapdestination-trapreceiverip.html["Actualice el d
 
 
 
+[[support-administrators-commands]]
 == Comandos para administradores de soporte
 
 link:../commands-a-z/activate-asynchronous-mirroring.html["Active el mirroring asíncrono"]
@@ -851,6 +853,7 @@ link:../commands-a-z/set-snmptrapdestination-trapreceiverip.html["Actualice el d
 
 
 
+[[security-administrators-commands]]
 == Comandos para administradores de seguridad
 
 link:../commands-a-z/create-storagearray-directoryserver.html["Crear servidor de directorio de la cabina de almacenamiento"]

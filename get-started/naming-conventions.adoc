@@ -45,6 +45,7 @@ Deben respetarse las reglas específicas en los nombres usados en los comandos d
 
 
 
+[[entering-numerical-names]]
 == Introducir nombres numéricos
 
 Cuando el software de administración del almacenamiento configura automáticamente una cabina de almacenamiento, asigna nombres compuestos por caracteres numéricos. Los nombres compuestos únicamente por caracteres numéricos son nombres válidos. Sin embargo, los nombres de caracteres numéricos deben recibir un tratamiento distinto del que reciben los nombres que comienzan con caracteres alfabéticos.

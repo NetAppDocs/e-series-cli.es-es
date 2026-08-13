@@ -15,24 +15,28 @@ La `set storageArray vaaiEnabled` El comando activa o desactiva VMware vStorage 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La cabina de almacenamiento viene con la función VAAI activada. Este comando permite desactivar la función VAAI si no se la desea ejecutar o si provoca problemas con la cabina de almacenamiento. La única cabina de almacenamiento afectada es aquella donde se ejecuta el comando.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,6 +45,7 @@ set storageArray vaaiEnabled=(TRUE | FALSE)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,6 +61,7 @@ El ajuste para activar o desactivar VAAI. Para activar VAAI, se debe establecer 
 |===
 
 
+[[notes]]
 == Notas
 
 [NOTE]
@@ -70,6 +76,7 @@ La configuración de VAAI se puede ver mediante `show storageArray odxSetting` n
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

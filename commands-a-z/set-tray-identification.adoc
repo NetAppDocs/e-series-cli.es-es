@@ -15,24 +15,28 @@ La `set tray` El comando configura el ID de soporte de un soporte de controlador
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando es válido únicamente para soportes de controladoras, los soportes de controladora-unidad o los soportes de unidades con ID de soporte que se puedan configurar mediante el firmware de la controladora. No es posible usar este comando para los soportes de controladoras, los soportes de controladora-unidad ni los soportes de unidades con un ID de soporte que se configure con un switch.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ set tray pass:quotes[["_serialNumber_"]] pass:quotes[id=_trayID_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -78,6 +83,7 @@ Valores de soporte de `00` por `09` la controladora los rechaza. Uso `0` por `9`
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando originalmente admitía el soporte de controladoras CE6998 Los soportes de controladoras CE6998 pueden conectarse a varios soportes de unidades, incluidos los que tienen ID de soporte que se configuran con un switch. Cuando se conecte un soporte de controladoras CE6998 a soportes de unidades con ID de soporte que se configura mediante un switch, se establecen valores válidos para los ID de soporte `80` por `99`. Este rango evita conflictos con ID de soporte que se usan para soportes de unidades asociadas.

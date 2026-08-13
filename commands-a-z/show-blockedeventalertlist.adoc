@@ -15,12 +15,14 @@ La `show blockedEventAlertList` el comando devuelve una lista de eventos actualm
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica solo a las cabinas de almacenamiento E2700 y E5600.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -30,6 +32,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -38,6 +41,7 @@ show blockedEventAlertList
 ----
 
 
+[[example]]
 == Ejemplo
 
 El resultado tiene una línea para cada evento que está bloqueado, donde se enumera el tipo de evento en formato hexadecimal, seguido por una descripción del evento. A continuación se muestra un ejemplo del resultado:
@@ -51,12 +55,14 @@ Script execution complete.
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.10

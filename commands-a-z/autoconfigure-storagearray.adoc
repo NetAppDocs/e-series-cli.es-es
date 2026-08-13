@@ -15,24 +15,28 @@ La `autoConfigure storageArray` el comando configura automáticamente una cabina
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Antes de introducir la `autoConfigure storageArray` ejecute el `show storageArray autoConfiguration` comando. La `show storageArray autoConfiguration` El comando muestra información de configuración en una lista de tipos de unidad válidos, niveles de RAID, información de volumen e información sobre piezas de repuesto. (Esta lista corresponde a los parámetros de `autoConfigure storageArray` ). Las controladoras auditan la cabina de almacenamiento y luego establecen el nivel de RAID más elevado que admite la cabina de almacenamiento y la definición de volumen más eficiente para el nivel de RAID. Si la configuración descrita por la lista devuelta es aceptable, puede introducir la `autoConfigure storageArray` comando sin parámetros. Para modificar la configuración, es posible cambiar los parámetros de acuerdo con los requisitos de configuración. Es posible cambiar un solo parámetro o todos ellos. Después de introducir el `autoConfigure storageArray` comando, las controladoras configuran la cabina de almacenamiento mediante los parámetros predeterminados o los seleccionados.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -55,6 +59,7 @@ pass:quotes[[readAheadMultiplier=_multiplierValue_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -189,6 +194,7 @@ El tamaño de bloque de los volúmenes creados en bytes. Los valores admitidos s
 |===
 
 
+[[drives-and-volume-groups]]
 == Unidades y grupos de volúmenes
 
 Un grupo de volúmenes es un conjunto de unidades agrupadas lógicamente por las controladoras de la cabina de almacenamiento. La cantidad de unidades de un grupo de volúmenes se limita según el nivel de RAID y el firmware de la controladora. Al crear un grupo de volúmenes, se deben seguir estas directrices:
@@ -310,6 +316,7 @@ No aplicable
 |===
 
 
+[[hot-spares]]
 == Piezas de repuesto
 
 Con los grupos de volúmenes, una estrategia útil para proteger los datos es asignar las unidades disponibles en la cabina de almacenamiento como unidades de repuesto. Una pieza de repuesto es una unidad que no contiene datos y permanece en espera en la cabina de almacenamiento en caso de que se produzca un error en alguna unidad de un grupo de volúmenes RAID 1, RAID 3, RAID 5 o RAID 6. La pieza de repuesto añade otro nivel de redundancia a la cabina de almacenamiento.
@@ -336,6 +343,7 @@ Si no existe una pieza de repuesto, es igualmente posible reemplazar una unidad 
 
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -346,12 +354,14 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
 
 
 
+[[security-type]]
 == Tipo de seguridad
 
 Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
@@ -368,12 +378,14 @@ Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una
 
 
 
+[[secure-drives]]
 == Unidades seguras
 
 Las unidades compatibles con la función de seguridad pueden ser unidades de cifrado de disco completo (FDE) o de estándar de procesamiento de información federal (FIPS). Utilice la `secureDrives` parámetro para especificar el tipo de unidades seguras que se usarán. Los valores que puede utilizar son `fips` y.. `fde`.
 
 
 
+[[example-command]]
 == Comando de ejemplo
 
 [listing]
@@ -382,6 +394,7 @@ autoConfigure storageArray securityType=capable secureDrives=fips;
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad de nivel de RAID 6 y quita los límites de las piezas de repuesto.

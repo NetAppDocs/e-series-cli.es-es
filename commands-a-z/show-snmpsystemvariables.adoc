@@ -15,18 +15,21 @@ La `show snmpSystemVariables` Comando muestra información acerca de las variabl
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin o Storage Monitor.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,12 +38,14 @@ show snmpSystemVariables
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Este comando muestra información de variables del sistema SNMP que se asemeja al siguiente ejemplo.
@@ -54,6 +59,7 @@ SYSTEM VARIABLES
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.30

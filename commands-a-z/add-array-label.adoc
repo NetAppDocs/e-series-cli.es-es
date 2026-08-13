@@ -15,6 +15,7 @@ La `Add array label` el comando permite añadir una cabina de almacenamiento a l
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 [NOTE]
@@ -26,6 +27,7 @@ Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF8
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +37,7 @@ pass:quotes[ _Address1 Address2_ add storageArrayLabel label _userDefinedString_
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -61,6 +64,7 @@ Permite especificar una etiqueta para la cabina de almacenamiento.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.60

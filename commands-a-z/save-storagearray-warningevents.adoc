@@ -15,18 +15,21 @@ La `save storageArray warningEvents` El comando guarda eventos del registro de e
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando guarda eventos del registro de eventos serios en un archivo. Es posible guardar los siguientes eventos:
@@ -44,6 +47,7 @@ Es posible que algunas cabinas de almacenamiento no admitan los cuatro tipos de 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -56,6 +60,7 @@ file=pass:quotes["_filename_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -129,6 +134,7 @@ El uso de este parámetro guarda los eventos de depuración que se han filtrado 
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.77 añade estos parámetros:

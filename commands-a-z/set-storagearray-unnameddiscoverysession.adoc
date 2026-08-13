@@ -15,18 +15,21 @@ La `set storageArray unnamedDiscoverySession` el comando permite que la cabina d
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,6 +38,7 @@ set storageArray unnamedDiscoverySession=(TRUE | FALSE)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -50,6 +54,7 @@ Este parámetro activa o desactiva las sesiones de detección sin nombre. Establ
 |===
 
 
+[[notes]]
 == Notas
 
 La detección es el proceso en el cual los iniciadores determinan los destinos disponibles. La detección se realiza en el punto de encendido/inicialización y también si se cambia la topología del bus, por ejemplo, si se añade un dispositivo extra.
@@ -58,6 +63,7 @@ Una sesión de detección sin nombre es una sesión de detección que se estable
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

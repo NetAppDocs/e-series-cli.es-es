@@ -15,18 +15,21 @@ La `start increaseVolumeCapacity volume` aumenta la capacidad de un volumen est�
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 En este comando, el volumen estándar también se denomina volumen grueso.
@@ -38,6 +41,7 @@ No es posible usar este comando para aumentar la capacidad de un volumen fino.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -48,6 +52,7 @@ incrementalCapacity=_volumeCapacity_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -86,6 +91,7 @@ La `addDrives` el parámetro solo se puede usar para aumentar la capacidad de un
 |===
 
 
+[[notes]]
 == Notas
 
 En algunos casos a `drive` el parámetro puede aparecer como entrada válida para la sintaxis del comando. Sin embargo, no puede utilizar la `drive` parámetro con este comando.
@@ -96,6 +102,7 @@ La `addDrives` el parámetro es compatible con soportes de unidades de alta y ba
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

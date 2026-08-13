@@ -15,18 +15,21 @@ La `set storageArray trayPositions` el comando define la posición de los soport
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ set storageArray trayPositions=pass:quotes[(controller | _trayID_ ... _trayIDn_)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -50,6 +54,7 @@ Una lista de todos los ID de soporte. La secuencia de los ID de soporte de la li
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando define la posición de un soporte en una cabina de almacenamiento mediante la posición del ID de soporte en la `trayPositions` lista. Por ejemplo, si tiene un soporte de controladoras con un ID configurado en 84 y los soportes de unidades con ID configurados en 1, 12 y 50, el `trayPositions` secuencia (`84 1 12 50`) coloca la bandeja del controlador en la primera posición, la bandeja de unidades 1 en la segunda posición, la bandeja de unidades 12 en la tercera posición y la bandeja de unidades 50 en la cuarta. La `trayPositions` secuencia (`1 84 50 12`) coloca la bandeja del controlador en la segunda posición, la bandeja de unidades 1 en la primera posición, la bandeja de unidades 50 en la tercera posición y la bandeja de unidades 12 en la cuarta.
@@ -66,6 +71,7 @@ El software de gestión muestra visualmente la primera posición en primer lugar
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

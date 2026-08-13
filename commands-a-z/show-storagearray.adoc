@@ -15,24 +15,28 @@ La `show storageArray` el comando muestra la información de configuración de l
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 Los parámetros muestran listas de valores de los componentes y las funciones de la cabina de almacenamiento. Se puede introducir el comando con un solo parámetro o con varios parámetros. Si se introduce el comando sin especificar ningún parámetro, se muestra todo el perfil de la cabina de almacenamiento (que es la misma información que se muestra al introducir el `*profile*` parámetro).
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -47,6 +51,7 @@ cacheMirrorDataAssuranceCheckEnable | hostConnectivityReporting]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -235,6 +240,7 @@ El parámetro para ver el propietario actual de la controladora de cada volumen 
 |===
 
 
+[[notes]]
 == Notas
 
 La `profile` el parámetro muestra información detallada acerca de la cabina de almacenamiento. La información se presenta en varias pantallas de un monitor. Es posible que se deba aumentar el tamaño del búfer de pantalla para ver toda la información. Como esta información es tan detallada, se recomienda guardar el resultado de este parámetro en un archivo. Para guardar el resultado en un archivo, ejecute el `show storageArray` comando que se parece a este ejemplo.
@@ -376,6 +382,7 @@ volume name: JCG_Remote_MirrorMenuTests
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.00 añade el `defaultHostType` parámetro.

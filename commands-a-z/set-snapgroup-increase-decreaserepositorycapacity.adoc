@@ -15,18 +15,21 @@ La `set snapGroup increase/decreaseRepositoryCapacity` comando aumenta o reduce 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, 2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax-for-increasing-capacity]]
 == Sintaxis para aumentar la capacidad
 
 [source, cli, subs="+macros"]
@@ -38,6 +41,7 @@ pass:quotes[[capacity=_capacityValue_]])))
 ----
 
 
+[[syntax-for-decreasing-capacity]]
 == Sintaxis para reducir la capacidad
 
 [listing, subs="+macros"]
@@ -48,6 +52,7 @@ count=pass:quotes[_numberOfVolumes_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -102,6 +107,7 @@ El número de volúmenes de repositorios que se desea quitar del grupo Snapshot.
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
@@ -120,6 +126,7 @@ La capacidad mínima es una imposición del firmware de la controladora y del so
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

@@ -15,18 +15,21 @@ La `resume snapImage rollback` el comando reanuda una operación de reversión q
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Las operaciones de reversión pueden estar en pausa debido a errores de procesamiento, que generan la condición necesita atención en la cabina de almacenamiento.
@@ -40,6 +43,7 @@ No se puede usar este comando para las imágenes Snapshot incluidas en una copia
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -48,6 +52,7 @@ resume snapImage pass:quotes[[_snapImageName_]] rollback
 ----
 
 
+[[parameter]]
 == Parámetro
 
 |===
@@ -75,6 +80,7 @@ El nombre de la imagen Snapshot debe escribirse entre comillas dobles (" ") dent
 |===
 
 
+[[notes]]
 == Notas
 
 El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
@@ -91,6 +97,7 @@ resume snapImage ["snapgroup1:12345"] rollback;
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

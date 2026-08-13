@@ -15,18 +15,21 @@ La `set storageArray pqValidateOnReconstruct` El comando configura el estado de 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, 2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Esta función se aplica a pools de discos y grupos de volúmenes RAID 6 con doble paridad. En este caso, se mantiene la redundancia en el grupo de volúmenes o el pool de discos cuando se produce un error en una unidad, de modo que sea posible verificar la coherencia de paridad y datos durante la reconstrucción. Si se detecta una incoherencia durante la reconstrucción y el volumen tiene la función Garantía de datos habilitada, se puede identificar el origen de la incoherencia para que los datos puedan reconstruirse mediante las unidades restantes. Si se habilita esta función, y el volumen no tiene la función Garantía de datos habilitada, o si no se puede aislar la incoherencia en una sola unidad, el bloque en reconstrucción se Marca como ilegible.
@@ -35,6 +38,7 @@ La validación puede aumentar los tiempos de reconstrucción de las unidades SSD
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -43,6 +47,7 @@ set storageArray pqValidateOnReconstruct (enable | disable) driveMediaType=(hdd 
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -77,6 +82,7 @@ El tipo de medio de unidad donde se debe configurar la validación P/Q en la fun
 |===
 
 
+[[example-with-drive-media-type-specified-as-hard-disk-drives]]
 == Ejemplo con tipo de medio de unidad especificado como unidades de disco duro
 
 [listing]
@@ -88,6 +94,7 @@ SMcli completed successfully.
 ----
 
 
+[[example-with-drive-media-type-specified-as-solid-state-drives]]
 == Ejemplo con tipo de medio de unidad especificado como unidades de estado sólido
 
 [listing]
@@ -99,6 +106,7 @@ SMcli completed successfully.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.42

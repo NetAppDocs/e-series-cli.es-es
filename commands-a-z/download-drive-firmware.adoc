@@ -15,18 +15,21 @@ La `download drive firmware` el comando descarga una imagen de firmware en una u
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 [CAUTION]
@@ -43,6 +46,7 @@ Este comando permite descargar una imagen de firmware en un solo modelo de unida
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -52,6 +56,7 @@ download (drive [trayID,[drawerID,]slotID] | drives [trayID1,[drawerID1,]slotID1
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -96,6 +101,7 @@ Indica que se debe descargar el firmware de la controladora.
 |===
 
 
+[[notes]]
 == Notas
 
 Antes de intentar descargar el firmware de unidad, se deben tomar las siguientes precauciones:
@@ -119,6 +125,7 @@ La `drive` el parámetro es compatible con soportes de unidades de alta y baja c
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.60 añade el `drawerID` entrada del usuario.

@@ -15,23 +15,26 @@ La `create asyncMirrorGroup` este comando crea un nuevo grupo de reflejos asínc
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
 
 [NOTE]
 ====
-Este comando no es compatible en las plataformas E4000, E2800, E5700, EF600, EF300, EF50 y EF80.
+Este comando no es compatible con las plataformas E4000, E2800, E5700, EF600 y EF300.
 
 ====
 
 
+[[roles]]
 == Funciones
 
 N.A.
 
 
 
+[[context]]
 == Contexto
 
 Un grupo de reflejos asíncronos es un contenedor donde se pueden alojar varias parejas reflejadas a fin de administrarlas como una misma entidad. Es posible crear un grupo de reflejos asíncronos con el objetivo de definir los ajustes de sincronización para todas las parejas reflejadas dentro del grupo. Cada pareja reflejada de un grupo de reflejos asíncronos comparte los mismos ajustes de sincronización, roles primarios y secundarios, y modo de escritura.
@@ -42,6 +45,7 @@ Asegúrese de ejecutar el `Create Asynchronous Mirror Group` comando en la cabin
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -58,6 +62,7 @@ interfaceType=(FC | iSCSI)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -171,6 +176,7 @@ La configuración de resincronización automática entre los volúmenes primario
 |===
 
 
+[[notes]]
 == Notas
 
 * La función de mirroring asíncrono debe estar habilitada y activada en las cabinas de almacenamiento locales y remotas que se usarán para las actividades de mirroring.
@@ -184,6 +190,7 @@ La configuración de resincronización automática entre los volúmenes primario
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

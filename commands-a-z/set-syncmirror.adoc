@@ -15,18 +15,21 @@ La `set syncMirror` el comando define las propiedades de una pareja reflejada re
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una cabina de almacenamiento E2800 o E5700, se deben poseer los roles Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ En las versiones anteriores de este comando, el identificador de función era `r
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -51,6 +55,7 @@ localVolumes pass:quotes[[_volumeName1 ... volumeNameN_]])
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -135,6 +140,7 @@ Utilice la `force` parámetro sólo cuando se utiliza `role` parámetro.
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
@@ -145,6 +151,7 @@ La `writeOrder` el parámetro se aplica únicamente a modos de escritura asíncr
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

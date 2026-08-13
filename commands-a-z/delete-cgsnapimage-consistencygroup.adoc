@@ -15,18 +15,21 @@ La `delete cgSnapImage consistencyGroup` el comando elimina las imágenes snapsh
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -38,6 +41,7 @@ pass:quotes[[deleteCount=_numberOfSnapImages_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -77,6 +81,7 @@ Determina si se conserva o se elimina el volumen Snapshot del grupo de coherenci
 |===
 
 
+[[notes]]
 == Notas
 
 Si no es posible eliminar las imágenes Snapshot de todos los volúmenes miembro relevantes del grupo de coherencia, se produce un error en la operación y no se elimina ninguna de las imágenes Snapshot.
@@ -85,6 +90,7 @@ Cuando se elimina una imagen Snapshot de grupo de coherencia asociada con un vol
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

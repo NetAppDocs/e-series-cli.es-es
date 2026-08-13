@@ -15,6 +15,7 @@ La siguiente lista de comandos de replicación están disponibles para el sistem
 
 
 
+[[consistency-group-commands]]
 == Comandos de grupo de coherencia
 
 link:../commands-a-z/set-consistencygroup-addcgmembervolume.html["Añada miembro a un grupo de coherencia"]
@@ -55,12 +56,14 @@ link:../commands-a-z/stop-consistencygroup-pendingsnapimagecreation.html["Deteng
 
 
 
+[[repository-volume-analysis-commands]]
 == Comandos de análisis de volúmenes de repositorios
 
 link:../commands-a-z/check-repositoryconsistency.html["Comprobar la coherencia de un repositorio"]
 
 
 
+[[snapshot-group-commands]]
 == Comandos de grupo Snapshot
 
 link:../commands-a-z/create-snapgroup.html["Crear grupo Snapshot"]
@@ -85,6 +88,7 @@ link:../commands-a-z/stop-pendingsnapimagecreation.html["Detenga las imágenes S
 
 
 
+[[snapshot-image-commands]]
 == Comandos de imagen Snapshot
 
 link:../commands-a-z/create-snapimage.html["Crear una imagen Snapshot"]
@@ -101,6 +105,7 @@ link:../commands-a-z/stop-snapimage-rollback.html["Detener reversión de imagen 
 
 
 
+[[snapshot-volume-commands]]
 == Comandos de volumen Snapshot
 
 link:../commands-a-z/create-read-only-snapshot-volume.html["Crear volumen Snapshot de solo lectura"]
@@ -129,6 +134,7 @@ link:../commands-a-z/stop-snapvolume.html["Detener volumen Snapshot"]
 
 
 
+[[volume-copy-commands]]
 == Comandos de copia de volumen
 
 link:../commands-a-z/create-volumecopy.html["Crear la copia de volumen"]

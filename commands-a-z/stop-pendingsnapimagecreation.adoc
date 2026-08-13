@@ -15,24 +15,28 @@ La `stop pendingSnapImageCreation` el comando cancela todas las imágenes snapsh
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Si el grupo Snapshot no tiene imágenes Snapshot pendientes, el firmware muestra un mensaje de error y no ejecuta el comando. Este comando se puede ejecutar en un grupo Snapshot o un grupo de coherencia Snapshot.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +47,7 @@ pendingSnapImageCreation
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -65,6 +70,7 @@ El nombre del grupo de coherencia Snapshot para el que se desea detener las imá
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

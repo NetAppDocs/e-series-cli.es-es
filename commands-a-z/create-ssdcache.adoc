@@ -15,24 +15,28 @@ La `create ssdCache` El comando crea una caché de lectura para una cabina de al
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Usar SSD de alto rendimiento para la lectura de datos de caché mejora el rendimiento de I/o de las aplicaciones y los tiempos de respuesta, además de proporcionar una mejora sostenida del rendimiento con diferentes cargas de trabajo, especialmente aquellas con IOP elevado. La caché SSD maximiza el uso de los costosos SSD rápidos. La caché SSD funciona junto con la caché primaria de DRAM de la controladora. Con la caché de la controladora, los datos se almacenan en DRAM después de la lectura en el host. Con la caché SSD, los datos se copian de los volúmenes base especificados por el usuario y luego se almacenan en la caché SSD.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ drives=pass:quotes[_(trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slotID1 .
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -88,6 +93,7 @@ Este parámetro opcional especifica el nivel de seguridad al crear una caché SS
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para el nombre. Los nombres pueden tener hasta 30 caracteres.
@@ -100,6 +106,7 @@ Si todos los discos SSD de la caché SSD son compatibles con la función Data As
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

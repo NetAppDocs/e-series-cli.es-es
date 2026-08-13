@@ -15,18 +15,21 @@ La `start volumeGroup export` El comando mueve un grupo de volúmenes al estado 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Entonces, se podrán quitar las unidades que componen el grupo de volúmenes y se podrá volver a instalarlas en una cabina de almacenamiento diferente.
@@ -43,6 +46,7 @@ Dentro del grupo de volúmenes, no es posible transferir volúmenes asociados co
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -51,6 +55,7 @@ pass:quotes[start volumeGroup [_volumeGroupName_]] export
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -66,6 +71,7 @@ El nombre del grupo de volúmenes que se desea exportar. El nombre del grupo de 
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando este comando se ejecuta correctamente, puede ejecutar el `start volumeGroup import` El comando para finalizar de mover el grupo de volúmenes al estado Complete, que hace que el grupo de volúmenes esté disponible para la nueva cabina de almacenamiento.
@@ -76,6 +82,7 @@ Una vez que el grupo de volúmenes se encuentra en estado exportado o forzado, e
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

@@ -15,18 +15,21 @@ La `create snapGroup` el comando crea un nuevo grupo snapshot y el volumen de re
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Un grupo Snapshot contiene una secuencia de imágenes Snapshot de un volumen base asociado. Un grupo Snapshot tiene un volumen de repositorios que se usa para guardar los datos de todas las imágenes Snapshot que forman parte del grupo Snapshot.
@@ -38,6 +41,7 @@ Antes de crear un grupo Snapshot, asegúrese de que haya disponible un grupo de 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -55,6 +59,7 @@ repositoryVolume=(pass:quotes[_diskPoolName_] [capacity=capacityValue]))]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -143,6 +148,7 @@ Este parámetro permite activar o desactivar la capacidad para programar una ope
 |===
 
 
+[[notes]]
 == Notas
 
 Cada nombre de grupo Snapshot debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
@@ -1029,6 +1035,7 @@ Para eliminar una programación, utilice `delete volume` con el `schedule` pará
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

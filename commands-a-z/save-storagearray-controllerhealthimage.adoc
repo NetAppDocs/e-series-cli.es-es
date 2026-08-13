@@ -15,18 +15,21 @@ La `save storageArray controllerHealthImage` el comando guarda una imagen de est
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -38,6 +41,7 @@ Si la cabina de almacenamiento no es compatible con la función de imagen de est
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ save storageArray controllerHealthImage file=pass:quotes["_filename_"]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -65,6 +70,7 @@ file="C:\Array Backups\DBMbackup_03302010.core"
 |===
 
 
+[[notes]]
 == Notas
 
 Un archivo de imagen de estado de controladora puede tener entre 1 y 2 gigabytes, y guardarlo puede llevar varios minutos. Además de guardar la imagen de estado de controladora, este comando genera un archivo descriptor XML basado en los metadatos de la imagen de estado de controladora. Este archivo descriptor se guarda en formato de archivo ZIP en la misma ruta que la imagen de estado de controladora. En el siguiente ejemplo, se muestra el formato XML del archivo descriptor.
@@ -102,6 +108,7 @@ Cuando se recupera una imagen de estado de controladora de la caché de la contr
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

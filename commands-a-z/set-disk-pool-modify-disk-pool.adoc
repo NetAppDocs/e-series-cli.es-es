@@ -15,24 +15,28 @@ La `set diskPool` El comando añade capacidad a un pool de discos (ampliación d
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Estas dos operaciones son mutuamente excluyentes.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ addCapacity=pass:quotes[(_diskPoolCapacity_))]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -85,6 +90,7 @@ La controladora a la que pertenece el pool de discos. Los identificadores válid
 |===
 
 
+[[notes]]
 == Notas
 
 Los volúmenes que ya están en el pool de discos permanecen en línea y disponibles para operaciones de I/o mientras se añaden unidades nuevas. El pool de discos debe estar en estado Complete para que pueda añadirse capacidad. Si el pool de discos no está en estado completar, ejecute el `set diskPool complete` debe command antes de añadir unidades nuevas.
@@ -95,6 +101,7 @@ También puede usar este comando para modificar la propiedad de un pool de disco
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

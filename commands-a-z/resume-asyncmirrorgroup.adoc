@@ -15,24 +15,28 @@ La `resume asyncMirrorGroup` el comando reanuda la transferencia de datos entre 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Los datos que se escriben en los volúmenes primarios mientras el grupo de reflejos asíncronos estaba suspendido se escriben en los volúmenes secundarios de inmediato. La sincronización periódica se reanuda si se estableció un intervalo de sincronización automática.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -42,6 +46,7 @@ resume asyncMirrorGroup pass:quotes[[_"asyncMirrorGroupName"_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -63,6 +68,7 @@ El parámetro para eliminar el punto de recuperación si los datos de sincroniza
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

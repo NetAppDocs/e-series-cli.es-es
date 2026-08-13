@@ -15,18 +15,21 @@ La `remove asyncMirrorGroup` el comando elimina un volumen de pareja reflejada h
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Se crea un volumen de pareja reflejada huérfano cuando se elimina un volumen miembro de un grupo de reflejos asíncronos de un lado del grupo de reflejos asíncronos (ya sea el lado primario o el lado secundario), pero no del otro lado.
@@ -37,6 +40,7 @@ Este comando se debe utilizar cuando se quita correctamente la relación de refl
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ incompleteMirror volume=pass:quotes[_"volumeName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -67,6 +72,7 @@ Nombre del volumen huérfano que se desea quitar del grupo de reflejos asíncron
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

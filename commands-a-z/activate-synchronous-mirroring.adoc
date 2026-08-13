@@ -15,18 +15,21 @@ La `activate storageArray feature` El comando activa la función Synchronous Mir
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, incluidas las cabinas E4000, E2700, E5600, E2800 y E5700, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una cabina de almacenamiento E4000, E2800 o E5700, debe contar con el rol de administrador de almacenamiento.
 
 
 
+[[context]]
 == Contexto
 
 Cuando se utiliza este comando, se puede definir el volumen de repositorios de reflejos mediante una de tres maneras:
@@ -45,6 +48,7 @@ En las versiones anteriores de este comando, el identificador de función era `r
 ====
 
 
+[[syntax-user-defined-drives]]
 == Sintaxis (unidades definidas por el usuario)
 
 [source, cli, subs="+macros"]
@@ -71,6 +75,7 @@ repositoryDrives=pass:quotes[_(trayID1,_]pass:quotes[[_drawerID1_,]]pass:quotes[
 ----
 
 
+[[syntax-user-defined-volume-group]]
 == Sintaxis (grupo de volúmenes definido por el usuario)
 
 [source, cli, subs="+macros"]
@@ -81,6 +86,7 @@ repositoryVolumeGroup=pass:quotes[_volumeGroupName_]
 ----
 
 
+[[syntax-user-defined-number-of-drives]]
 == Sintaxis (cantidad de unidades definida por el usuario)
 
 [source, cli, subs="+macros"]
@@ -105,6 +111,7 @@ repositoryDriveCount=pass:quotes[_numberOfDrives_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -195,6 +202,7 @@ El ajuste para aplicar la protección contra pérdida de cajón cuando se crea e
 |===
 
 
+[[notes]]
 == Notas
 
 La `repositoryDrives` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
@@ -211,6 +219,7 @@ La `drawerLossProtect` el parámetro determina si se puede acceder a los datos d
 
 
 
+[[data-assurance-management]]
 == Gestión de garantía de datos
 
 La función Data Assurance (DA) mejora la integridad de los datos en todo el sistema de almacenamiento. DA permite a la cabina de almacenamiento comprobar si se producen errores cuando se transfieren datos entre hosts y unidades. Si esta función está habilitada, la cabina de almacenamiento añade códigos de comprobación de errores (también conocidos como comprobaciones de redundancia cíclicas o CRC) a cada bloque de datos del volumen. Una vez movido un bloque de datos, la cabina de almacenamiento utiliza estos códigos de CRC para determinar si se produjeron errores durante la transmisión. Los datos posiblemente dañados no se escriben en el disco ni se vuelven a transferir al host.
@@ -226,6 +235,7 @@ Si la `dataAssurance` el parámetro se establece en `enabled`, sólo se consider
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad para el nivel de RAID 6.

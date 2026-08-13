@@ -15,18 +15,21 @@ La `show diskPool` el comando muestra información acerca de un pool de discos.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando muestra la siguiente información acerca de un pool de discos:
@@ -52,6 +55,7 @@ Este comando muestra la siguiente información acerca de un pool de discos:
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -60,6 +64,7 @@ pass:quotes[show diskPool [_diskPoolName_]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -75,12 +80,14 @@ El nombre del pool de discos del que se desea recuperar información. El nombre 
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando se usa para ver el contenido del pool de discos del perfil de la cabina de almacenamiento.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

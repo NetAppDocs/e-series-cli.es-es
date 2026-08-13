@@ -15,18 +15,21 @@ La `show volume summary` el comando muestra información acerca de un volumen.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 Este comando devuelve la información siguiente sobre los volúmenes en una cabina de almacenamiento:
@@ -62,6 +65,7 @@ Este comando devuelve la información siguiente sobre los volúmenes en una cabi
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -71,6 +75,7 @@ volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]]) summary
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]

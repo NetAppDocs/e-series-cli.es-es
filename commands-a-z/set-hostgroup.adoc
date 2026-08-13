@@ -15,18 +15,21 @@ La `set hostGroup` el comando cambia el nombre de un grupo de hosts.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ userLabel=pass:quotes["_newHostGroupName_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -58,12 +62,14 @@ El nuevo nombre del grupo de hosts. El nuevo nombre del grupo de hosts debe escr
 |===
 
 
+[[notes]]
 == Notas
 
 En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

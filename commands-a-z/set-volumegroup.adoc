@@ -15,18 +15,21 @@ La `set volumeGroup` el comando define las propiedades de un grupo de volúmenes
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Se debe realizar solo una operación (añadir unidades, cambiar el nivel de RAID
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -47,6 +51,7 @@ set volumeGroup pass:quotes[[_volumeGroupName_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -87,6 +92,7 @@ La controladora a la que pertenece el grupo de volúmenes. Los identificadores v
 |===
 
 
+[[notes]]
 == Notas
 
 Se pueden producir errores de I/o del host en grupos de volúmenes de más de 32 volúmenes. Es posible que esta operación también tenga como resultado reinicios internos de la controladora debido a que el tiempo de espera finaliza antes de que se configure la definición del grupo de volúmenes. Si tiene este problema, desactive las operaciones de I/o del host y vuelva a intentar ejecutar el comando.
@@ -102,6 +108,7 @@ La `addDrives` el parámetro es compatible con soportes de unidades de alta y ba
 
 
 
+[[troubleshooting]]
 == Resolución de problemas
 
 Si se intentan expandir grupos de volúmenes de gran tamaño, se pueden producir errores con el siguiente mensaje:
@@ -128,6 +135,7 @@ Si se encuentra dicha situación, las siguientes son soluciones alternativas pos
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad de RAID 6.

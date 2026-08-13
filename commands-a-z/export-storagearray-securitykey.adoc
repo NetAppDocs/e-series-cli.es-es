@@ -15,18 +15,21 @@ La `export storageArray securityKey` el comando guarda una clave de seguridad de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Si la gestión de claves externas está activada, entonces este comando se aplica solo a las matrices E4000, E2800, E5700, EF600, EF300, EF50 y EF80. Si la gestión de claves internas está activada, entonces el comando se aplica a cualquier matriz de almacenamiento individual, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Cuando se exporta un archivo de claves de una cabina de almacenamiento, esa clave puede importarse a otra cabina de almacenamiento. De esta forma, es posible mover unidades compatibles con la función de seguridad de una cabina de almacenamiento a otra.
@@ -38,6 +41,7 @@ Este comando se aplica a la gestión de claves interna y externa.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -48,6 +52,7 @@ pass:quotes[file="_fileName_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -79,6 +84,7 @@ El nombre de archivo debe tener la extensión de `.slk`.
 |===
 
 
+[[notes]]
 == Notas
 
 La cabina de almacenamiento a la cual se desplazarán las unidades debe incluir unidades con una capacidad igual o mayor que las unidades que se importan.
@@ -102,6 +108,7 @@ Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de e
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.40

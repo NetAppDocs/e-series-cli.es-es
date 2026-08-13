@@ -15,18 +15,21 @@ Este comando habilita o deshabilita la función AutoSupport (ASUP) para la cabin
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Después de habilitar esta función, es posible habilitar la función AutoSupport OnDemand (si se desea) y, luego, la función AutoSupport Remote Diagnostics (si se desea).
@@ -40,6 +43,7 @@ Es necesario habilitar estas tres funciones en el siguiente orden:
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -48,6 +52,7 @@ set storageArray autoSupport (enable | disable)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -63,6 +68,7 @@ Permite habilitar o deshabilitar AutoSupport. Si las funciones OnDemand y Remote
 |===
 
 
+[[examples]]
 === Ejemplos
 
 [listing]
@@ -74,6 +80,7 @@ Permite habilitar o deshabilitar AutoSupport. Si las funciones OnDemand y Remote
 ----
 
 
+[[verification]]
 == Verificación
 
 Utilice la `show storageArray autoSupport` comando para ver si ha habilitado la función. La línea inicial del resultado muestra el estado de habilitación:
@@ -84,6 +91,7 @@ The AutoSupport feature is enabled on this storage array.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.86 añadió el comando para todas las cabinas de almacenamiento hasta los modelos E2700 y E5600

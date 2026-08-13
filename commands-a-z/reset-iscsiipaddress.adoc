@@ -15,6 +15,7 @@ La `reset iscsiIpAddress` El comando restablece la dirección IP de la cabina de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
@@ -26,12 +27,14 @@ Este comando no es compatible en las plataformas E4000, E2800, E5700, EF600, EF3
 ====
 
 
+[[roles]]
 == Funciones
 
 N.A.
 
 
 
+[[context]]
 == Contexto
 
 Este comando se puede usar para notificar a la cabina de almacenamiento local que la dirección IP de iSCSI de la cabina de almacenamiento remota se ha modificado y se debe actualizar.
@@ -44,6 +47,7 @@ Si la cabina de almacenamiento que tiene la dirección IP modificada no puede en
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -53,6 +57,7 @@ iscsiIpAddress
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -74,6 +79,7 @@ El identificador a nivel mundial (WWID) de la cabina de almacenamiento para la c
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

@@ -15,6 +15,7 @@ La siguiente lista de comandos de mirroring están disponibles para el sistema d
 
 
 
+[[asynchronous-mirroring-commands]]
 == Comandos de mirroring asíncrono
 
 link:../commands-a-z/activate-asynchronous-mirroring.html["Active el mirroring asíncrono"]
@@ -61,6 +62,7 @@ link:../commands-a-z/diagnose-asyncmirrorgroup.html["Probar conectividad de grup
 
 
 
+[[synchronous-mirroring-commands]]
 == Comandos de mirroring síncrono
 
 link:../commands-a-z/activate-synchronous-mirroring.html["Activar mirroring síncrono"]

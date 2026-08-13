@@ -15,18 +15,21 @@ La `set storageArray securityKey` Comando configura la clave de seguridad que se
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Cuando una unidad compatible con la función de seguridad en la cabina de almacenamiento se asigna a un grupo de volúmenes o un pool de discos protegido, esa unidad tiene la función de seguridad habilitada a través de la clave de seguridad. Para poder configurar la clave de seguridad, debe usar el `create storageArray securityKey` comando para crear la clave de seguridad.
@@ -38,6 +41,7 @@ Este comando se aplica solo a la gestión de claves internas.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -46,12 +50,14 @@ set storageArray securityKey
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Las unidades compatibles con la función de seguridad tienen hardware para acelerar el procesamiento criptográfico y cada una tiene una clave de unidad única. Una unidad compatible con la función de seguridad se comporta como cualquier otra unidad hasta que se añade a un grupo de volúmenes protegido, momento en el cual se convierte en una unidad con la función de seguridad habilitada.
@@ -60,6 +66,7 @@ Siempre que se enciende una unidad con la función de seguridad habilitada. Se r
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.50

@@ -15,18 +15,21 @@ La `download tray firmware file` El comando descarga el firmware de módulo de s
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 [IMPORTANT]
@@ -36,6 +39,7 @@ En los sistemas dúplex administrados por System Manager (por ejemplo, E2800), s
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ pass:quotes[firmware file="_filename_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -83,12 +88,14 @@ Los nombres de archivo válidos tienen un `.esm` extensión.
 |===
 
 
+[[notes]]
 == Notas
 
 La `tray` el parámetro descarga el nuevo firmware en un soporte de unidades específico Si es necesario descargar el nuevo firmware en varios soportes de unidades, pero no en todos, se debe introducir este comando para cada soporte de unidades
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

@@ -15,24 +15,28 @@ La `start IOCLog` El comando produce un volcado del registro IOC de las transmis
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Las controladora se identifican como "a " o "b". Cada controladora puede tener hasta cuatro canales host; y cada canal tiene un identificador único que es un número del 1 al 8.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -42,6 +46,7 @@ start IOCLog [(a1 | a2 | a3 | a4 | a5 | a6 | a7 | a8 | b1 | b2 | b3 | b4 | b5 | 
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -68,6 +73,7 @@ Este parámetro provoca que el volcado de registro IOC nuevo sobrescriba el exis
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando genera un registro de depuración del IOC de la controladora seleccionada y almacena los datos en formato comprimido dentro de un búfer de memoria persistente en la controladora. Puede recuperar los datos del registro de depuración mediante el `save IOCLog` comando. La controladora devuelve un error si se dan estas condiciones:
@@ -79,6 +85,7 @@ Este comando genera un registro de depuración del IOC de la controladora selecc
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

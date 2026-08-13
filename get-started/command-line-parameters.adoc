@@ -15,6 +15,7 @@ El sistema operativo SANtricity versión 11.40 introdujo, en las controladoras E
 
 
 
+[[11-53-and-older-command-line-parameters]]
 == 11.53 y parámetros de línea de comandos más antiguos
 
 El protocolo Symbol es el único admitido por las controladoras E2700 y E5600. A fin de conservar los scripts existentes y minimizar el tiempo de transición, la gramática y las opciones de la CLI se conservan en la mayor medida posible. No obstante, existen algunas diferencias en las funcionalidades de las controladoras E2800 y E5700 con respecto a la seguridad, la autenticación, AutoSupport y la mensajería de alertas por las cuales cierta gramática de la CLI se torna obsoleta para dichas controladoras. Sin embargo, en algunos casos, la gramática solo es obsoleta en E2800 o E5700 cuando se utiliza el protocolo https nuevo.
@@ -68,6 +69,7 @@ Este argumento opcional permite a. `*https*` para que el cliente funcione en mod
 |===
 
 
+[[command-line-parameters-that-only-apply-to-e2700-or-e5600-controllers]]
 == Parámetros de línea de comandos que solo se aplican a las controladoras E2700 o E5600
 
 Dado que las controladoras E2700 y E5600 no cuentan con funcionalidades de gestión de alerta integradas, estos parámetros de línea de comandos son aplicables. No lo son en las controladoras E2800 o E5700.
@@ -130,6 +132,7 @@ Esta opción de línea de comandos es obsoleta para las cabinas de almacenamient
 |===
 
 
+[[command-line-parameters-that-apply-to-all-controllers-running-with-a-symbol-client-type]]
 == Parámetros de línea de comandos que se aplican a todas las controladoras que se ejecutan con el tipo de cliente symbol
 
 [cols="2*"]
@@ -157,6 +160,7 @@ La `*-R*` solo es obligatorio si la función de doble contraseña está habilita
 |===
 
 
+[[command-line-parameters-applicable-to-all-controllers-and-all-client-types]]
 == Parámetros de línea de comandos aplicables a todas las controladoras y todos los tipos de cliente
 
 [cols="2*"]

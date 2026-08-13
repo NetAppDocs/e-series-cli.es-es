@@ -15,12 +15,14 @@ La `SMcli alertTest` El comando envía un alerta de prueba al registro de evento
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica solo a las cabinas de almacenamiento E2700 y E5600.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -30,6 +32,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -38,12 +41,14 @@ SMcli -alertTest
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

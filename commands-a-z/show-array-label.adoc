@@ -15,12 +15,14 @@ La `Show array label` el comando muestra información acerca de si se definió u
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -30,6 +32,7 @@ show storageArrayLabel all
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -45,6 +48,7 @@ Permite especificar una etiqueta definida por el usuario para la cabina de almac
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.60

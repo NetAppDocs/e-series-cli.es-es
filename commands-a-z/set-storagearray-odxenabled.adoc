@@ -15,24 +15,28 @@ La `set storageArray odxEnabled` El comando activa o desactiva la transferencia 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 La cabina de almacenamiento viene con la función ODX activada. Este comando permite desactivar la función ODX si no se la desea ejecutar o si provoca problemas con la cabina de almacenamiento. La única cabina de almacenamiento afectada es aquella donde se ejecuta el comando.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,6 +45,7 @@ set storageArray odxEnabled=(TRUE | FALSE)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,12 +61,14 @@ El ajuste para activar o desactivar ODX. Para activar la función ODX, se debe e
 |===
 
 
+[[notes]]
 == Notas
 
 ODX proporciona una forma de transferir datos sin utilizar operaciones de lectura en búfer y escritura en búfer, y no requiere la participación directa del host en la operación de transferencia de datos. Cuando ODX no está habilitado, los datos se leen desde el almacenamiento de origen al host y luego se escriben en el almacenamiento de destino desde el host. Con ODX habilitado, las operaciones de transferencia de datos son gestionadas directamente por la infraestructura de almacenamiento. Los datos se mueven directamente desde el almacenamiento de origen al almacenamiento de destino dentro de la misma matriz, sin pasar por el host.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

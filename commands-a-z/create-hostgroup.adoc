@@ -15,18 +15,21 @@ La `create hostGroup` el comando crea un nuevo grupo de hosts.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ create hostGroup userLabel=pass:quotes[_"hostGroupName"_]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 |===
@@ -49,6 +53,7 @@ El nombre que se desea asignar al grupo de hosts que se va a crear. El nombre de
 |===
 
 
+[[notes]]
 == Notas
 
 Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
@@ -57,6 +62,7 @@ En los nombres, se puede usar cualquier combinación de caracteres alfanumérico
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

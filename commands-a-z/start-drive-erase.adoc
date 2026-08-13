@@ -15,18 +15,21 @@ La `start drive erase` el comando borra todos los datos de una o varias unidades
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una cabina E4000, E2800, E5700, EF600 o EF300 individual. No funciona en cabinas de almacenamiento E2700 y E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Ejecute este comando solo si desea quitar de forma permanente todos los datos de una unidad. Si la unidad tiene la función de seguridad habilitada, el `start drive erase` la opción de comando realiza un borrado criptográfico y restablece los atributos de seguridad de la unidad de nuevo a compatible con la función de seguridad.
@@ -38,6 +41,7 @@ La operación de borrado no se puede deshacer. Asegúrese de seleccionar la unid
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ start (drive [trayID,[drawerID,]slotID] | drives[trayID1,[drawerID1,]slotID1 ...
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -70,6 +75,7 @@ La lista de unidades no puede contener todas las unidades de la cabina de almace
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11.70.1

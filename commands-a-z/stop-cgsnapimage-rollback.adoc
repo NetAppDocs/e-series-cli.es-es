@@ -15,18 +15,21 @@ La `stop cgSnapImage rollback` el comando detiene una operación de reversión a
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ La cancelación de una operación de reversión Snapshot de un grupo de coherenc
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ memberVolumeSet pass:quotes[("_memberVolumeName1_" ... "_memberVolumeNamen_")]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -84,6 +89,7 @@ Cuando la `memberVolumeSet` no se utiliza el parámetro mientras el proceso de r
 |===
 
 
+[[notes]]
 == Notas
 
 El nombre de una imagen Snapshot consta de dos partes separadas por dos puntos (:):
@@ -106,6 +112,7 @@ stop cgSnapImage ["CG2:12345"] rollback memberVolumeset=("memVol1 memVol2 memVol
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

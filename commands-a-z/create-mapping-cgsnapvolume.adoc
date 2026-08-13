@@ -15,18 +15,21 @@ La `create mapping cgSnapVolume` el comando crea una asignación lógica de un v
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ create mapping cgSnapVolume=pass:quotes[_"snapVolumeName"_
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -64,6 +68,7 @@ El nombre del grupo de hosts para el cual se creará la asignación lógica. El 
 |===
 
 
+[[notes]]
 == Notas
 
 Un host es un equipo conectado a la cabina de almacenamiento y que tiene acceso a los volúmenes de esa cabina a través de puertos de host. Es posible definir asignaciones específicas para un host individual. También es posible asignar el host a un grupo de hosts que comparte el acceso a un volumen o a varios.
@@ -72,6 +77,7 @@ Un grupo de hosts es un elemento de topología opcional que se puede definir par
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

@@ -15,12 +15,14 @@ La `SMcli -autoSupportConfig` El comando configura el método de entrega para en
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +38,7 @@ Es posible crear dos tipos principales de métodos de entrega para el envío de 
 
 
 
+[[syntax-for-smtp-delivery-method]]
 == Sintaxis para el método de entrega de SMTP
 
 [source, cli]
@@ -45,6 +48,7 @@ mailRelayServer=<mailRelayServerName> senderMail=<senderEmailAddress>
 ----
 
 
+[[parameters-for-the-smtp-delivery-method]]
 == Parámetros para el método de entrega de SMTP
 
 [cols="2*"]
@@ -74,6 +78,7 @@ Permite especificar la dirección de correo electrónico remitente para los mens
 |===
 
 
+[[syntax-for-httphttps-delivery-methods]]
 == Sintaxis para los métodos de entrega de HTTP/HTTPS
 
 [listing]
@@ -84,6 +89,7 @@ hostAddress:<address>portNumber=<portNumber> [userName=<userName>password=<passw
 ----
 
 
+[[parameters-for-the-httphttps-delivery-methods]]
 == Parámetros para los métodos de entrega de HTTP/HTTPS
 
 En la tabla siguiente, se enumeran los parámetros para los métodos de entrega de HTTP/HTTPS.
@@ -150,12 +156,14 @@ La contraseña de autenticación. Este parámetro es obligatorio.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25
 
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -172,6 +180,7 @@ userName=user password=0987654321
 ----
 
 
+[[verification]]
 == Verificación
 
 Envíe un mensaje de prueba mediante el `SMcli -autoSupportConfig test` comando para verificar que sus métodos de entrega están configurados correctamente.

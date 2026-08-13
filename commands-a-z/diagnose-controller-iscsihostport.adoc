@@ -15,24 +15,28 @@ La `diagnose controller iscsiHostPort` El comando ejecuta pruebas de diagnóstic
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Es posible ejecutar diagnósticos de un puerto seleccionado o de todos los puertos. Los puertos deben admitir la función de diagnóstico de cables. Si los puertos no admiten este tipo de diagnóstico, se devuelve un error.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -43,6 +47,7 @@ testID=cableDiagnostics
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -76,6 +81,7 @@ El identificador de la prueba de diagnóstico que se desea ejecutar. Para esta p
 |===
 
 
+[[identifying-an-iscsi-host-port-label]]
 == Identificar una etiqueta de puerto de host iSCSI
 
 Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
@@ -124,6 +130,7 @@ iscsiHostPort[3]
 ====
 
 
+[[notes]]
 == Notas
 
 Cuando se ejecuta la prueba de diagnóstico de cables, el firmware devuelve la siguiente información:
@@ -156,6 +163,7 @@ Cuando se ejecuta la prueba de diagnóstico de cables, el firmware devuelve la s
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.77

@@ -15,6 +15,7 @@ Los estados de cierre se muestran en los comandos ejecutados. En la siguiente ta
 
 
 
+[[exit-status-definitions]]
 == Cierre las definiciones de estado
 
 [cols="3*"]

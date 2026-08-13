@@ -15,12 +15,14 @@ La `set controller iscsiHostPort` Comando cambia las propiedades de red de un pu
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
@@ -32,6 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:set-controller-hostpor
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -125,6 +128,7 @@ iscsiHostPort [portLabel]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -427,6 +431,7 @@ El puerto de escucha es el número de puerto TCP que la controladora utiliza par
 |===
 
 
+[[identifying-an-iscsi-host-port-label]]
 == Identificar una etiqueta de puerto de host iSCSI
 
 Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
@@ -475,6 +480,7 @@ iscsiHostPort[3]
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 En la versión 7.15, se añaden nuevas opciones de puerto de host iSCSI.

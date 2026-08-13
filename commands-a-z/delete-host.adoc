@@ -15,18 +15,21 @@ La `delete host` el comando elimina uno o varios hosts.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ delete host pass:quotes[[_hostName_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -49,12 +53,14 @@ El nombre del host que se desea eliminar. El nombre del host debe escribirse ent
 |===
 
 
+[[notes]]
 == Notas
 
 Un host es un equipo que se conecta a la cabina de almacenamiento y tiene acceso a los volúmenes de la cabina de almacenamiento a través de puertos de host en el host.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

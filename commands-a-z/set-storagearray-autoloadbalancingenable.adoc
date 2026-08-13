@@ -15,18 +15,21 @@ La `set storageArray autoLoadBalancingEnable` El comando habilita o deshabilita 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,6 +38,7 @@ set storageArray autoLoadBalancingEnable=(TRUE | FALSE)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -57,6 +61,7 @@ Activa o desactiva la función Automatic Load Balancing en la controladora. Esta
 |===
 
 
+[[what-is-automatic-load-balancing]]
 == ¿Qué es el equilibrio de carga automático?
 
 La función Automatic Load Balancing ofrece una gestión de recursos de I/o mejorada, ya que reacciona dinámicamente a los cambios de carga con el tiempo y ajusta automáticamente la propiedad de la controladora de volumen para corregir cualquier problema de desequilibrio de carga cuando las cargas de trabajo son distintas de una controladora a otra.
@@ -71,6 +76,7 @@ Cuando la función Automatic Load Balancing está habilitada, ejecuta las siguie
 
 
 
+[[enabling-and-disabling-automatic-load-balancing]]
 == Habilitar y deshabilitar Automatic Load Balancing
 
 La función Automatic Load Balancing está habilitada de forma predeterminada en todas las cabinas de almacenamiento que se suministran con el sistema operativo SANtricity (software de la controladora) 8.30 o una versión posterior. Linux, Windows y los controladores multivía de VMware pueden usar la función Automatic Load Balancing. Si actualiza la controladora del sistema operativo SANtricity (software de la controladora) 8.25 o anterior a la versión 8.30 o posterior, la función Automatic Load Balancing queda deshabilitada de manera predeterminada en la cabina de almacenamiento.
@@ -85,6 +91,7 @@ En el Administrador del sistema de SANtricity, seleccione *Configuración* > *si
 
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -100,6 +107,7 @@ Si la condición "la unidad perdió la ruta primaria" está activa, provocará q
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.30

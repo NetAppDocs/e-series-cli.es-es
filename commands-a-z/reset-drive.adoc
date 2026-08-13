@@ -15,18 +15,21 @@ La `reset drive` la alimentación de comandos enciende una unidad en un grupo de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Al apagar y encender una unidad, se pueden borrar algunos errores que ocasionan conductas incoherentes o que no son óptimas. Esto evita el reemplazo de una unidad cuando está experimentando solo un error puntual, no grave, y la unidad puede seguir estando operativa. Al restablecer una unidad de esta manera, se reducen las interrupciones y se evita su reemplazo.
@@ -40,6 +43,7 @@ Este comando no se puede utilizar para las unidades SSD fabricadas por Pliant. U
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -48,6 +52,7 @@ reset drive([trayID,[drawerID,]slotID] | <"wwID">)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -73,6 +78,7 @@ Identificador a nivel mundial (WWID) de la unidad que se desea reemplazar. El no
 |===
 
 
+[[notes]]
 == Notas
 
 La `drive` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0` , Y especifique el ID de la ranura en la que reside una unidad.
@@ -83,6 +89,7 @@ No se pueden restablecer las unidades con errores mediante un ciclo de encendido
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

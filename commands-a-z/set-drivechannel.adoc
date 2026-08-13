@@ -15,18 +15,21 @@ La `set driveChannel` el comando define el rendimiento del canal de la unidad.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -36,6 +39,7 @@ status=(optimal | degraded)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -58,12 +62,14 @@ La condición del canal de la unidad. Puede configurarse el estado del canal de 
 |===
 
 
+[[notes]]
 == Notas
 
 Utilice la `optimal` Opción para mover un canal de unidad degradado nuevamente al estado Optimal. Utilice la `degraded` opción cuando el canal de la unidad está experimentando problemas y la cabina de almacenamiento requiere más tiempo para las transferencias de datos.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

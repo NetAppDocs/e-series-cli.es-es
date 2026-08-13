@@ -15,12 +15,14 @@ La `set event alert` los comandos gestionan la notificación de eventos de alert
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica solo a las cabinas de almacenamiento E2700 y E5600.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -30,6 +32,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 ====
 
 
+[[context]]
 == Contexto
 
 Cuando se define la cabina de almacenamiento, es posible configurar las alertas y definir de qué manera se manejan los eventos de alerta. Si la cabina de almacenamiento se configuró para enviar alertas, se envía una notificación a un destinatario designado al producirse un evento que genera alertas. Esta notificación puede ser de uno o todos los siguientes tipos:
@@ -53,6 +56,7 @@ Los eventos que no generan alertas no pueden convertirse en eventos que generan 
 ====
 
 
+[[syntax-to-block-an-event-alert]]
 == Sintaxis para bloquear un evento de alerta
 
 [source, cli, subs="+macros"]
@@ -61,6 +65,7 @@ set blockEventAlert pass:quotes[_eventType_]
 ----
 
 
+[[syntax-to-unblock-an-event-alert]]
 == Sintaxis para desbloquear un evento de alerta
 
 [source, cli, subs="+macros"]
@@ -69,6 +74,7 @@ set unBlockEventAlert pass:quotes[_eventType_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -86,6 +92,7 @@ Aparecerá un error si introduce un evento no válido.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.10

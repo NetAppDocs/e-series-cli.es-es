@@ -15,18 +15,21 @@ La `start storageArray controllerHealthImage controller` comando genera una imag
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -43,6 +46,7 @@ Si la cabina de almacenamiento no es compatible con la función de imagen de est
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -51,6 +55,7 @@ start storageArray controllerHealthImage controller [(a|b)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -66,12 +71,14 @@ Este parámetro especifica la controladora de la cual se generará la imagen de 
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando obliga a la controladora seleccionada a volcar los datos principales en la caché. Utilice la `save storageArray controllerHealthImage` comando para guardar una copia de los datos de la caché en un archivo de host.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

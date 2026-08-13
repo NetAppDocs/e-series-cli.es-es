@@ -15,24 +15,28 @@ La `reset storageArray SOCBaseline` El comando restablece la base para todos los
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando restablece la base mediante el restablecimiento de todos los números de SOC en 0. Este comando solo es válido para dispositivos de tipo Fibre Channel en una topología de bucle arbitrado.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,12 +45,14 @@ reset storageArray SOCBaseline
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.16

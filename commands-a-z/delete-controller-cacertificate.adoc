@@ -15,18 +15,21 @@ La `delete controller caCertificate` Comando quita el certificado de CA raíz/in
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,6 +38,7 @@ delete controller [(a|b)] caCertificate aliases=("alias1" ... "aliasN")
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -56,6 +60,7 @@ Permite especificar uno o varios certificados de CA para quitarlos mediante nomb
 |===
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -67,6 +72,7 @@ SMcli completed successfully.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40

@@ -15,18 +15,21 @@ La `set controller` el comando define los atributos de las controladoras.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -44,6 +47,7 @@ set controller [(a|b)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -124,6 +128,7 @@ La configuración para determinar si la luz indicadora de permiso de acción de 
 |===
 
 
+[[identifying-an-iscsi-host-port-label]]
 == Identificar una etiqueta de puerto de host iSCSI
 
 Se debe especificar una etiqueta para el puerto de host. Siga estos pasos para especificar la etiqueta de puerto de host:
@@ -172,6 +177,7 @@ iscsiHostPort[3]
 ====
 
 
+[[options-for-the-ethernetport-parameter]]
 == Opciones para el parámetro ethernetPort
 
 [listing]
@@ -212,6 +218,7 @@ portSpeed=[(autoNegotiate | 10 | 100 | 1000)]
 ----
 
 
+[[options-for-the-iscsihostport-parameter]]
 == Opciones para el parámetro iSCSIHostPort
 
 [listing]
@@ -300,6 +307,7 @@ portSpeed=[( 10 | 25)]
 ----
 
 
+[[notes]]
 == Notas
 
 [NOTE]
@@ -340,6 +348,7 @@ Los siguientes valores son los valores predeterminados para `iscsiHostOptions`:
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.15 elimina la `bootp` Parámetro, y añade las nuevas opciones de puerto Ethernet y las nuevas opciones de puerto de host iSCSI.

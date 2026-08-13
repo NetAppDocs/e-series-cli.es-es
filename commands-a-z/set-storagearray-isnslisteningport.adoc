@@ -15,18 +15,21 @@ La `set storageArray isnsListeningPort` El comando configura el puerto de escuch
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ set storageArray isnsListeningPort=pass:quotes[_listeningPortIPAddress_]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -58,6 +62,7 @@ Cuando un cliente solicita una sesión de red con un servidor, el dispositivo de
 |===
 
 
+[[notes]]
 == Notas
 
 Un puerto de escucha reside en el servidor de bases de datos y es responsable de estas actividades:
@@ -70,6 +75,7 @@ Cuando un cliente solicita una sesión de red con un servidor, un dispositivo de
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

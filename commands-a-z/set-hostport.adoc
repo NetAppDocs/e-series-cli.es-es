@@ -15,18 +15,21 @@ La `set hostPort` comando cambia las propiedades de un puerto de host.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Este comando no funciona en un entorno iSCSI, donde los puertos de host se consi
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ set hostPort pass:quotes[[_portLabel_]] userLabel=pass:quotes[_newPortLabel_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -74,12 +79,14 @@ El nombre del host para el cual se define un puerto de host de HBA o HCA. El nom
 |===
 
 
+[[notes]]
 == Notas
 
 En la etiqueta de usuario, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Las etiquetas de usuario pueden tener hasta 30 caracteres.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

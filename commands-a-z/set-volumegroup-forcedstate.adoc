@@ -15,24 +15,28 @@ La `set volumeGroup forcedState` El comando mueve un grupo de volúmenes al esta
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Utilice este comando si la `start volumeGroup import` El comando no mueve el grupo de volúmenes a un estado importado o si la operación de importación no funciona debido a errores de hardware. En un estado forzado, se puede importar el grupo de volúmenes, y luego se pueden identificar los errores de hardware.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ set volumeGroup pass:quotes[[_volumeGroupName_]] forcedState
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,6 +61,7 @@ El nombre del grupo de volúmenes que se desea poner en el estado forzado. El no
 |===
 
 
+[[notes]]
 == Notas
 
 Es posible mover las unidades que comprenden un grupo de volúmenes de una cabina de almacenamiento a otra. La CLI proporciona tres comandos para mover las unidades. Los comandos son `start volumeGroup export`, `start volumeGroup import`, y. `set volumeGroup forcedState`.
@@ -64,6 +70,7 @@ En el estado forzado, se puede realizar una operación de importación en el gru
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

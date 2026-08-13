@@ -15,18 +15,21 @@ La `start volume initialize` el comando inicia el formateo de un volumen en una 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ El formateo de un volumen inicia una operación prolongada que no se puede deten
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ pass:quotes[start volume [_volumeName_]] initialize
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -59,6 +64,7 @@ El nombre de un volumen que se desea formatear. El nombre del volumen debe escri
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

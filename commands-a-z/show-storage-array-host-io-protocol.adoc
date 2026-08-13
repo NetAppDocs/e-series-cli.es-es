@@ -15,18 +15,21 @@ El `show storageArray hostIoProtocolInformation` comando muestra información so
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,12 +38,14 @@ show storageArray hostIoProtocolInfo;
 ----
 
 
+[[parameter]]
 == Parámetro
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 12,00

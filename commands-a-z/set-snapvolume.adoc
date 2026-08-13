@@ -15,18 +15,21 @@ La `set snapVolume` el comando cambia el nombre de un volumen snapshot existente
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ set snapVolume pass:quotes[["_snapVolumeName_"]] userLabel=pass:quotes["_snapIma
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -57,12 +61,14 @@ Nombre nuevo que se le desea otorgar al volumen Snapshot. El nombre nuevo del vo
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

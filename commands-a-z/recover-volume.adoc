@@ -15,18 +15,21 @@ La `recover volume` El comando crea un volumen RAID con las propiedades determin
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Los valores de los parámetros se derivan del archivo de datos del perfil de recuperación (`recovery-profile.csv`) para la cabina de almacenamiento. Se puede crear el volumen de recuperación en un grupo de volúmenes existente o crear un grupo de volúmenes nuevo mediante este comando.
@@ -43,6 +46,7 @@ No se puede usar este comando para volúmenes de pools de discos dinámicos (DDP
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -66,6 +70,7 @@ SSID=_subsystemVolumeID_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -186,6 +191,7 @@ Esta configuración es el tamaño de bloque del volumen en bytes.
 |===
 
 
+[[notes]]
 == Notas
 
 El software de administración del almacenamiento recoge perfiles de recuperación de las cabinas de almacenamiento supervisadas y los guarda en una estación de administración del almacenamiento.
@@ -200,12 +206,14 @@ La `owner` el parámetro define qué controladora es propietaria del volumen. La
 
 
 
+[[preallocating-storage-capacity]]
 == Asignar previamente la capacidad de almacenamiento
 
 La `dssPreAllocate` el parámetro permite asignar capacidad en un volumen para almacenar la información que se utiliza para reconstruir un volumen. Al ajustar la `dssPreallocate` parámetro a. `TRUE`, la lógica de asignación de espacio de almacenamiento del firmware de la controladora asigna previamente el espacio de un volumen para futuros cambios de tamaño de segmento. El espacio asignado previamente es el tamaño máximo permitido para los segmentos. La `dssPreAllocate` el parámetro es necesario para recuperar correctamente las configuraciones de volúmenes que no se pueden recuperar de la base de datos de la controladora. Para desactivar la capacidad de preasignación, defina `dssPreAllocate` para `FALSE`.
 
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -218,12 +226,14 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde el disco. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. La configuración de la cabina de almacenamiento que se utiliza determina la cantidad de bloques de datos adicionales que la controladora lee en caché. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.43

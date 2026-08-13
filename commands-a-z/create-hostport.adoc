@@ -15,24 +15,28 @@ La `create hostPort` El comando crea una nueva identificación de puerto de host
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La identificación del puerto de host es un valor de software que representa el puerto de host físico del HBA o HCA que se conecta con la controladora. Sin la identificación de puerto de host correcta, la controladora no puede recibir instrucciones ni datos del puerto de host.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ userLabel="_portLabel"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -90,6 +95,7 @@ Si no especifica el tipo de interfaz, `FC` se usa como interfaz predeterminada p
 |===
 
 
+[[notes]]
 == Notas
 
 Un puerto de host de HBA o HCA es una conexión física de un adaptador de bus de host o un adaptador de canal de host que reside en un equipo host. Un puerto de host de HBA o de HCA brinda acceso de host a los volúmenes de una cabina de almacenamiento. Si el HBA o el HCA tienen solamente una conexión física (un puerto de host), los términos puerto de host y adaptador de bus de host o adaptador de canal de host son sinónimos.
@@ -98,6 +104,7 @@ En los nombres, se puede usar cualquier combinación de caracteres alfanumérico
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

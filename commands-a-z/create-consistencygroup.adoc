@@ -15,18 +15,21 @@ La `create consistencyGroup` el comando crea un nuevo grupo de coherencia vacío
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +44,7 @@ create consistencyGroup userLabel=pass:quotes[_"consistencyGroupName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -90,6 +94,7 @@ Determina si se deben asignar recursos del sistema a la operación de reversión
 |===
 
 
+[[notes]]
 == Notas
 
 Un grupo de coherencia es una entidad lógica que permite gestionar en lotes todas las imágenes Snapshot que se añaden a la recogida. El grupo de coherencia es una recogida de grupos Snapshot que tienen requisitos de coherencia mutuos o dependencias para sus imágenes Snapshot. Cualquier imagen Snapshot que se cree y se use para esta recogida debe gestionarse según las dependencias de coherencia.
@@ -104,12 +109,14 @@ De acuerdo con este comportamiento, todos los miembros de un grupo de coherencia
 
 
 
+[[auto-delete]]
 == Eliminación automática
 
 Es posible configurar cada grupo Snapshot para eliminar automáticamente las imágenes Snapshot a fin de que la cantidad total de imágenes del grupo sea igual o menor que la cantidad máxima de imágenes. Cuando se alcanza el límite máximo de imágenes Snapshot en el grupo Snapshot, el `autoDeleteLimit` el parámetro elimina automáticamente las imágenes snapshot cada vez que se crea una nueva imagen snapshot en el grupo snapshot. La `autoDeleteLimit` el parámetro elimina las imágenes snapshot más antiguas del grupo snapshot hasta que se cumple la cantidad máxima de imágenes definidas con el parámetro. Esto tiene el efecto de liberar capacidad del repositorio y poder utilizarla para satisfacer los requisitos continuos de copia en escritura de las imágenes Snapshot restantes.
 
 
 
+[[scheduling-snapshot-images-in-a-consistency-group]]
 == Programar imágenes Snapshot en un grupo de coherencia
 
 La `enableSchedule` y la `schedule` los parámetros permiten programar snapshot. Con estos parámetros, puede programar Snapshot diariamente, semanalmente o mensualmente (por día o por fecha). La `enableSchedule` el parámetro activa o desactiva la capacidad para programar snapshot. Cuando se habilita la programación, se debe usar el `schedule` parámetro para definir cuándo deben producirse las snapshot.
@@ -972,6 +979,7 @@ Al ejecutar una reversión en un grupo de coherencia, la operación predetermina
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

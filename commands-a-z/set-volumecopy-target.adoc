@@ -15,18 +15,21 @@ La `set volumeCopy target` el comando define las propiedades de una pareja de co
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -38,6 +41,7 @@ Este comando es válido para las parejas de copias de volumen Snapshot.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -49,6 +53,7 @@ source pass:quotes[[_sourceName_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -95,12 +100,14 @@ Este parámetro quedó obsoleto.
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.40

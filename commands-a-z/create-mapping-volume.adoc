@@ -15,18 +15,21 @@ La `create mapping volume` el comando crea una asignación lógica de un volumen
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -38,6 +41,7 @@ mapWaitPeriod=mapWaitPeriodValue
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -85,6 +89,7 @@ Bloquea la asignación hasta que es capaz de completar el comando o se agota el 
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

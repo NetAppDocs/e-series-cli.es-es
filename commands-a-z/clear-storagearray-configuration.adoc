@@ -15,18 +15,21 @@ La `clear storageArray configuration` comando borra la configuración de una cab
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Use este comando para realizar una de las siguientes operaciones:
@@ -43,6 +46,7 @@ Use este comando para realizar una de las siguientes operaciones:
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -55,6 +59,7 @@ clear storageArray configuration factoryReset
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -102,6 +107,7 @@ Este ajuste se comporta como el `factoryReset` parámetro, pero también borra t
 |===
 
 
+[[notes]]
 == Notas
 
 Con este comando, es posible borrar la configuración de la cabina de almacenamiento de distintas maneras. Cuando se borra la cabina de almacenamiento del grupo de volúmenes, se inicia automáticamente el modo de recuperación. En el modo de recuperación, se incorporan los backups (siempre que existan en la plataforma) incorporados (en la caché). Cuando la cabina de almacenamiento está en modo de recuperación, otra opción es restaurar la cabina desde un archivo de backup basado en un host o desde uno de los backups incorporados (en la caché).
@@ -126,6 +132,7 @@ La `A` Es un terminal único de SMcli y debe escribirse en mayúsculas.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 en la versión 7.10, se añaden estos parámetros:

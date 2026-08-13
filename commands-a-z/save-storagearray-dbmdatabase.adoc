@@ -15,18 +15,21 @@ La `save storageArray dbmDatabase` El comando realiza un backup de los datos de 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -39,6 +42,7 @@ save storageArray dbmDatabase
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -91,12 +95,14 @@ Este parámetro se establece en `all` de forma predeterminada, se recuperan todo
 |===
 
 
+[[notes]]
 == Notas
 
 Si es necesario, los datos que se guardan en el host con este comando pueden restaurarse en la controladora. Sin embargo, se requiere un validador para restaurar los datos desde el archivo en el host.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.75

@@ -15,18 +15,21 @@ La `check asyncMirrorGroup repositoryConsistency` el comando genera un informe b
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -37,6 +40,7 @@ file=pass:quotes[_"filePath"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -74,12 +78,14 @@ La ruta y el nombre del archivo donde se guardará el informe que se origina com
 |===
 
 
+[[notes]]
 == Notas
 
 El soporte técnico utiliza el informe generado por este comando para analizar problemas.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

@@ -15,24 +15,28 @@ La `set consistencyGroup addCGMemberVolume` el comando añade un nuevo volumen b
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Es posible especificar un volumen de repositorios existente para el miembro nuevo del grupo de coherencia o crear un volumen de repositorios nuevo. Cuando se crea un volumen de repositorios nuevo, se deben identificar el grupo de volúmenes existentes o el pool de discos existentes en el que se desea crearlo.
 
 
 
+[[syntax-for-use-with-an-existing-repository-volume]]
 == Sintaxis para utilizar con un volumen de repositorios existente
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ repositoryVolume=pass:quotes["_volumeGroupName_"]
 ----
 
 
+[[syntax-for-use-when-creating-a-new-repository-volume-in-a-volume-group]]
 == Sintaxis para utilizar en la creación de un volumen de repositorios nuevo en un grupo de volúmenes
 
 [source, cli, subs="+macros"]
@@ -55,6 +60,7 @@ repositoryVolume=pass:quotes[("_volumeGroupName_"] capacity=pass:quotes[_capacit
 ----
 
 
+[[syntax-for-use-when-creating-a-new-repository-volume-in-a-disk-pool]]
 == Sintaxis para utilizar en la creación de un volumen de repositorios nuevo en un pool de discos
 
 [source, cli, subs="+macros"]
@@ -66,6 +72,7 @@ repositoryVolume=pass:quotes[("_diskPoolName_"] capacity=pass:quotes[_capacityVa
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -110,6 +117,7 @@ El tamaño de un volumen de repositorios nuevo en un grupo de volúmenes o un po
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
@@ -155,6 +163,7 @@ Cuando se crea un volumen de repositorios nuevo en un grupo de volúmenes o un p
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

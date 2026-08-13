@@ -15,24 +15,28 @@ La `set drive serviceAllowedIndicator` El comando enciende o apaga la luz indica
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -42,6 +46,7 @@ serviceAllowedIndicator=(on | off)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -68,12 +73,14 @@ La opción para encender o apagar la luz indicadora de permiso de acción de ser
 |===
 
 
+[[notes]]
 == Notas
 
 La `drive` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.16

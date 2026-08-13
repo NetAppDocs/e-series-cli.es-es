@@ -15,18 +15,21 @@ La `set storageArray directoryServer` el comando actualiza la configuración del
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +47,7 @@ set storageArray directoryServer ["domainId"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -144,6 +148,7 @@ Permite omitir la prueba de configuración antes de guardar la configuración. E
 |===
 
 
+[[examples]]
 == Ejemplos
 
 [listing]

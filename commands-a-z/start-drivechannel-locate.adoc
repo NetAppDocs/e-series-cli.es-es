@@ -15,24 +15,28 @@ La `start driveChannel locate` el comando identifica los soportes de unidades co
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Utilice la `stop driveChannel locate` comando para apagar las luces indicadoras del soporte de unidades
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,6 +45,7 @@ start driveChannel [(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)] locate
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,6 +61,7 @@ El número identificador del canal de la unidad que se desea localizar. Los sigu
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

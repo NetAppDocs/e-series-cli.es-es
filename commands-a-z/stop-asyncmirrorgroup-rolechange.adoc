@@ -15,18 +15,21 @@ La `stop asyncMirrorGroup rolechange` comando cancela una operación de reversi�
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ pass:quotes[stop asyncMirrorGroup [_asyncMirrorGroupName_]] rolechange
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -50,6 +54,7 @@ Nombre del grupo de reflejos asíncronos para el que se desea cancelar la operac
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

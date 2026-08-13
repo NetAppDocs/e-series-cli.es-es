@@ -15,18 +15,21 @@ La `clear volume unreadableSectors` el comando borra la información de sectores
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ volumes pass:quotes[[_"volumeName1" ... "volumeNameN"_]]) unreadableSectors
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -69,6 +73,7 @@ Los nombres de varios volúmenes para los cuales se borra información de sector
 |===
 
 
+[[notes]]
 == Notas
 
 En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.

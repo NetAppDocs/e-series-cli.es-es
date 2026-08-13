@@ -15,24 +15,28 @@ La `delete asyncMirrorGroup` este comando elimina uno o varios grupos de reflejo
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 El grupo de reflejos asíncronos debe estar vacío para poder eliminarlo correctamente. Antes de usar este comando, es necesario quitar todas las parejas reflejadas asíncronas del grupo de reflejos asíncronos.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -42,6 +46,7 @@ asyncMirrorGroups pass:quotes[[_"asyncMirrorGroupName_1" ... "asyncMirrorGroupNa
 ----
 
 
+[[parameter]]
 == Parámetro
 
 |===
@@ -75,6 +80,7 @@ Los nombres de varios grupos de reflejos asíncronos que se desean eliminar. Par
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

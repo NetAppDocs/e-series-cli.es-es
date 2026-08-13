@@ -27,6 +27,7 @@ El nivel de firmware mínimo de una controladora indica la compatibilidad con el
 ====
 
 
+[[examples-of-firmware-compatibility-levels]]
 == Ejemplos de niveles de compatibilidad de firmware
 
 La `create hostGroup` el comando tiene la siguiente sección.

@@ -15,24 +15,28 @@ La `set storageArray isnsServerRefresh` El comando actualiza la información de 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando es válido solo para IPv4.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -41,12 +45,14 @@ set storageArray isnsServerRefresh
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Si el servidor DHCP no está funcionando al tope de su capacidad, o si no responde, la operación de actualización puede tardar entre dos y tres minutos en completarse.
@@ -55,6 +61,7 @@ La `set storageArray isnsServerRefresh` El comando devuelve un error si no se es
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

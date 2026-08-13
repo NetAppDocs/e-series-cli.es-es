@@ -15,6 +15,7 @@ SANtricity OS 11,60 y las versiones más recientes incluyen la capacidad de desc
 
 
 
+[[11-60-and-newer-downloadable-smcli-command-line-parameters]]
 == 11.60 y nuevos parámetros de línea de comandos de SMcli descargables
 
 La versión descargable de SMcli está disponible en las controladoras E4000, EF600, EF300, E5700, EF570, E2800, EF280, EF300C y EF600C. Para descargar SMcli dentro del Administrador del sistema SANtricity, seleccione *Configuración* *Sistema* y *Complementos* *Interfaz de línea de comandos* .
@@ -26,6 +27,7 @@ Como en las versiones anteriores de SMcli, la SMcli descargable a través de Sys
 
 
 
+[[multifactor-authentication]]
 === Autenticación multifactor
 
 Si SAML (lenguaje de marcado de aserción de seguridad) está habilitado, solo se pueden usar tokens de acceso con la CLI. Si SAML no está habilitado, se pueden utilizar el nombre de usuario/contraseña o los tokens de acceso. Los tokens de acceso pueden generarse mediante el Administrador del sistema SANtricity.
@@ -83,6 +85,7 @@ Este argumento requiere uno de estos dos argumentos:
 |===
 
 
+[[general-https-mode-command-line-parameters]]
 === Parámetros generales de la línea de comandos del modo https
 
 La SMcli descargable solo admite el modo https. Los siguientes son parámetros de la línea de comandos más utilizados para el modo https.
@@ -177,6 +180,7 @@ Muestra la información de uso de los comandos de la CLI.
 |===
 
 
+[[managing-stored-arrays]]
 === Gestión de las cabinas almacenadas
 
 Los siguientes parámetros de línea de comandos permiten gestionar cabinas almacenadas a través de la etiqueta almacenada localmente.
@@ -184,6 +188,7 @@ Los siguientes parámetros de línea de comandos permiten gestionar cabinas alma
 
 NOTE: Es posible que la etiqueta almacenada localmente no coincida con el nombre real de la cabina de almacenamiento que se muestra en SANtricity System Manager.
 
+[[managearrays]]
 [cols="2*"]
 |===
 | Parámetro | Definición 
@@ -228,6 +233,7 @@ Elimina la etiqueta almacenada localmente denominada `<LABEL>`
 NOTE: SMcli no entra en contacto con la cabina de almacenamiento cuando se añade una etiqueta almacenada localmente.
 
 |===
+[[storedcertificates]]
 [cols="2*"]
 |===
 | Parámetro | Definición 
@@ -282,6 +288,7 @@ Elimina un certificado de confianza almacenado localmente con el alias `<ALIAS>`
 |===
 
 
+[[identify-devices]]
 === Identifique los dispositivos
 
 El siguiente parámetro de línea de comandos le permite mostrar información de todos los dispositivos aplicables visibles para el host.
@@ -289,6 +296,7 @@ El siguiente parámetro de línea de comandos le permite mostrar información de
 
 NOTE: A partir de la versión SANtricity 11,81, SMcli `identifyDevices` El parámetro reemplaza la funcionalidad previamente disponible a través de la herramienta SMdevices.
 
+[[identifyDevices]]
 [cols="2*"]
 |===
 | Parámetro | Definición 

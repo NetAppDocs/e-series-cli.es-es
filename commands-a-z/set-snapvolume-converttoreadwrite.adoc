@@ -15,24 +15,28 @@ La `set snapVolume convertToReadWrite` el comando cambia un volumen snapshot que
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 También es posible usar este comando para identificar un nuevo volumen de repositorios para el volumen de lectura/escritura, o bien configurar un nivel de advertencia de límite completo para el volumen de repositorios.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ repositoryVolume=pass:quotes[(_diskPoolName_)] [capacity=pass:quotes[_capacityVa
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -99,6 +104,7 @@ El porcentaje de capacidad del volumen de repositorios en el cual se recibe una 
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
@@ -117,6 +123,7 @@ La capacidad mínima es una imposición del firmware de la controladora y del so
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

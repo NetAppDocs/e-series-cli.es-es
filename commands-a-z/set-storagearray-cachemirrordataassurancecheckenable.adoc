@@ -15,18 +15,21 @@ La `set storageArray cacheMirrorDataAssuranceCheckEnable` permite habilitar o de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 o EF80 matriz de almacenamiento individual. No funciona en E2700 o E5600 matrices de almacenamiento.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -35,12 +38,14 @@ set storageArray cacheMirrorDataAssuranceCheckEnable=(TRUE | FALSE)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.41 Nuevo parámetro de comando.

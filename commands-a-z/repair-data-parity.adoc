@@ -15,24 +15,28 @@ La `Repair Data Parity` command repara los errores de paridad de datos.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Antes de utilizar este comando, consulte al soporte de NetApp para obtener orientación sobre el firmware, las unidades y la franja RAID afectados.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -48,6 +52,7 @@ repair volume[volumeName] parity
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -112,6 +117,7 @@ El tiempo, en minutos, por el que se desea ejecutar la operación.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.63

@@ -15,18 +15,21 @@ La `download storageArray driveFirmware file` el comando descarga las imágenes 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ pass:quotes[[file="_filename2_"... file="_filenameN_"]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -55,6 +59,7 @@ Los nombres de archivo válidos tienen un `.dlp` extensión.
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se ejecuta este comando, es posible descargar más de un archivo de imagen de firmware en las unidades de una cabina de almacenamiento. La cantidad de archivos de imagen de firmware que se puede descargar depende de la cabina de almacenamiento. El software de administración del almacenamiento devuelve un error si se intentan descargar más archivos de imagen de firmware que los admitidos por la cabina de almacenamiento.
@@ -70,6 +75,7 @@ La `download storageArray driveFirmware` El comando bloquea toda la actividad de
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

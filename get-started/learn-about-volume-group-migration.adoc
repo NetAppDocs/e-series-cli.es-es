@@ -25,12 +25,14 @@ Si el grupo de volúmenes consta de unidades compatibles con NVMe o FIPS, la cla
 ====
 
 
+[[export-volume-group]]
 == Exportar un grupo de volúmenes
 
 La operación de exportación de un grupo de volúmenes prepara las unidades en el grupo de volúmenes para su retirada. Es posible quitar las unidades para almacenarlas sin conexión o importar el grupo de volúmenes a una cabina de almacenamiento diferente. Una vez completada la operación de exportación de un grupo de volúmenes, todas las unidades quedan sin conexión. Los volúmenes asociados y los nodos de capacidad libre ya no se muestran en el software de administración del almacenamiento.
 
 
 
+[[non-exportable-components]]
 == Componentes que no se pueden exportar
 
 Es necesario quitar todos los componentes que no se pueden exportar antes de completar el procedimiento de exportación de un grupo de volúmenes. Se deben quitar los siguientes componentes:
@@ -44,6 +46,7 @@ Es necesario quitar todos los componentes que no se pueden exportar antes de com
 
 
 
+[[basic-export-steps-for-a-volume-group]]
 == Pasos básicos para la exportación de un grupo de volúmenes
 
 Para exportar un grupo de volúmenes, es necesario realizar estos pasos en la cabina de almacenamiento _source_.
@@ -70,12 +73,14 @@ Para exportar un grupo de volúmenes, es necesario realizar estos pasos en la ca
 
 
 
+[[import-volume-group]]
 == Importar un grupo de volúmenes
 
 La operación de importación de un grupo de volúmenes añade el grupo de volúmenes importado a la cabina de almacenamiento objetivo. Una vez completada la operación de importación de un grupo de volúmenes, todas las unidades quedan en estado óptimo. Todos los volúmenes asociados o los nodos de capacidad libre ahora aparecen en el software de administración del almacenamiento que se instala en la cabina de almacenamiento objetivo.
 
 
 
+[[basic-import-steps-for-a-volume-group]]
 == Pasos básicos para la importación de un grupo de volúmenes
 
 [NOTE]
@@ -93,6 +98,7 @@ Para importar un grupo de volúmenes, es necesario realizar estos pasos en la ca
 
 
 
+[[non-importable-components]]
 == Componentes que no se pueden importar
 
 Algunos componentes no se pueden importar durante el procedimiento de importación de un grupo de volúmenes. Estos componentes se quitan durante el procedimiento:

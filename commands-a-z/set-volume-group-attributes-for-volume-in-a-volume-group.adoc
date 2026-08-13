@@ -15,18 +15,21 @@ La `set volume` el comando define las propiedades de los volúmenes de un grupo 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Es posible usar la mayoría de los parámetros para definir propiedades de uno o varios volúmenes. También es posible usar algunos parámetros para definir propiedades de un solo volumen. Las definiciones de sintaxis se separan para mostrar los parámetros que se aplican a varios volúmenes y que solo se aplican a un volumen.
@@ -38,6 +41,7 @@ En configuraciones donde los grupos de volúmenes comprenden más de 32 volúmen
 ====
 
 
+[[syntax-applicable-to-one-or-more-volumes]]
 == Sintaxis aplicable a uno o varios volúmenes
 
 [source, cli, subs="+macros"]
@@ -135,6 +139,7 @@ reservedFutureOption1=(TRUE | FALSE)
 ----
 
 
+[[syntax-applicable-to-only-one-volume]]
 == Sintaxis aplicable únicamente a un volumen
 
 [source, cli, subs="+macros"]
@@ -170,6 +175,7 @@ preReadRedundancyCheck=(TRUE | FALSE)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -375,6 +381,7 @@ La configuración para verificar la coherencia de los datos de redundancia RAID 
 |===
 
 
+[[notes]]
 == Notas
 
 Se pueden producir errores de I/o del host en grupos de volúmenes de más de 32 volúmenes. Esta operación también puede generar reinicios internos de la controladora por agotarse el tiempo de espera antes de que se complete la operación. Si tiene este problema, desactive la actividad de I/o del host y vuelva a intentar la operación.
@@ -391,12 +398,14 @@ Es posible aplicar estos parámetros únicamente en un volumen a la vez:
 
 
 
+[[add-capacity-add-drives-and-segment-size]]
 == Añadir capacidad, unidades y tamaño de segmentos
 
 Ajuste de `addCapacity` parámetro, el `addDrives` o el `segmentSize` parámetro inicia una operación de ejecución prolongada que no se puede detener. Estas operaciones de ejecución prolongada se realizan en segundo plano y no impiden la ejecución de otros comandos. Para mostrar el progreso de las operaciones de ejecución prolongada, use la `show volume actionProgress` comando.
 
 
 
+[[cache-flush-modifier]]
 == Modificador de vaciado de caché
 
 En esta tabla, se enumeran los valores válidos para el modificador de vaciado de caché.
@@ -524,24 +533,28 @@ No configure el valor de `cacheFlushModifier` parámetro superior a 10 segundos.
 ====
 
 
+[[cache-without-battery-enabled]]
 == Caché sin batería habilitada
 
 El almacenamiento en caché de escritura sin baterías permite que el almacenamiento en caché continúe aunque las baterías de la controladora estén completamente descargadas, no estén totalmente cargadas o no existan. Si establece este parámetro en `TRUE` Sin un sistema de alimentación ininterrumpida (UPS) u otra fuente de alimentación de respaldo, se pueden perder datos si se interrumpe la alimentación hacia la cabina de almacenamiento. Este parámetro no tiene efecto si el almacenamiento en caché de escritura está deshabilitado.
 
 
 
+[[modification-priority]]
 == Prioridad de modificación
 
 La prioridad de modificación define la cantidad de recursos del sistema que se usan cuando se modifican propiedades del volumen. Si se selecciona el nivel de prioridad más alto, la modificación del volumen usa la mayoría de los recursos del sistema, lo que reduce el rendimiento para las transferencias de datos del host.
 
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La `cacheReadPrefetch` parámetro permite que la controladora copie bloques de datos adicionales en la caché mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. La configuración de la cabina de almacenamiento que se utiliza determina la cantidad de bloques de datos adicionales que la controladora lee en caché. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`.
 
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -554,6 +567,7 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.00 añade el `addCapacity` parámetro.

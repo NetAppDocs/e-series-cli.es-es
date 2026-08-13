@@ -15,18 +15,21 @@ La `save driveChannel faultDiagnostics file` el comando guarda los datos de diag
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -38,6 +41,7 @@ Es posible guardar los datos de diagnóstico como un archivo de texto estándar 
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ save driveChannel faultDiagnostics file=pass:quotes["_filename_"]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -65,12 +70,14 @@ Este comando no anexa automáticamente ninguna extensión de archivo al archivo 
 |===
 
 
+[[notes]]
 == Notas
 
 No se anexa automáticamente una extensión de archivo al archivo guardado. Es necesario especificar la extensión de archivo con formato correspondiente para el archivo. Si se especifica una extensión de archivo de `.txt`, la salida tendrá un formato de archivo de texto. Si se especifica una extensión de archivo de `.xml` , La salida tendrá un formato de archivo XML.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.15 introduce esta nueva funcionalidad para los soportes de controladoras heredados.

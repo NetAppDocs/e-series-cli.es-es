@@ -15,18 +15,21 @@ La `save storageArray arvmStats asyncMirrorGroup` el comando guarda las estadís
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Las estadísticas recogidas solo quedan disponibles para volúmenes miembro de grupos de reflejos asíncronos con un rol primario en la cabina de almacenamiento local.
@@ -37,6 +40,7 @@ La muestra recoge datos hasta que se completa el proceso de sincronización o ha
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -50,6 +54,7 @@ arvmStats file=pass:quotes["_filename_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -107,6 +112,7 @@ Este parámetro es opcional. El valor predeterminado para el límite de registro
 |===
 
 
+[[notes]]
 == Notas
 
 Se capturan estadísticas para los volúmenes reflejados con el rol primario. Las estadísticas recogidas incluyen los siguientes datos:
@@ -130,6 +136,7 @@ Las estadísticas de sincronización se incluyen en el bundle de soporte.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

@@ -15,29 +15,33 @@ La `add volume asyncMirrorGroup` el comando añade un volumen primario a un grup
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
 
 [NOTE]
 ====
-Este comando no es compatible en las plataformas E4000, E2800, E5700, EF600, EF300, EF50 y EF80.
+Este comando no es compatible con las plataformas E4000, E2800, E5700, EF600 y EF300.
 
 ====
 
 
+[[roles]]
 == Funciones
 
 N.A.
 
 
 
+[[context]]
 == Contexto
 
 Este comando solo es válido en la cabina de almacenamiento local que contiene el grupo de reflejos asíncronos en el que se desea añadir el volumen primario. Un grupo de reflejos asíncronos tiene un volumen de repositorios que se utiliza para guardar los datos de todas las imágenes de un momento específico que forman parte del grupo de reflejos asíncronos. Cada volumen primario del grupo de reflejos asíncronos cuenta con un volumen de reflejos correspondiente en una cabina de almacenamiento remota.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -50,6 +54,7 @@ repositoryVolume=pass:quotes[(_diskPoolName_] pass:quotes[[capacity=_capacityVal
 ----
 
 
+[[parameter]]
 == Parámetro
 
 |===
@@ -110,6 +115,7 @@ El software de administración del almacenamiento crea el volumen de repositorio
 |===
 
 
+[[notes]]
 == Notas
 
 * La función de mirroring asíncrono debe estar habilitada y activada en las cabinas de almacenamiento locales y remotas que se usarán para las actividades de mirroring.
@@ -119,6 +125,7 @@ El software de administración del almacenamiento crea el volumen de repositorio
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

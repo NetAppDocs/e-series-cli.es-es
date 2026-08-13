@@ -15,18 +15,21 @@ La `show storageArray odxsetting` El comando muestra la configuración actual de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 La configuración de este comando puede ser alguna de las siguientes opciones:
@@ -39,6 +42,7 @@ La configuración de este comando puede ser alguna de las siguientes opciones:
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -47,12 +51,14 @@ show storageArray odxsetting
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Este comando muestra información de ODX y VAAI que se asemeja al siguiente ejemplo.
@@ -65,6 +71,7 @@ vaaiEnabled True | False | Inconsistent | Unknown
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

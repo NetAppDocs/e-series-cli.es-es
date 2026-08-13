@@ -15,18 +15,21 @@ La `recover sasPort miswire` el comando indica a la controladora que se ha tomad
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Luego, la controladora puede volver a habilitar los puertos SAS que se deshabilitaron al detectar una conexión incorrecta. Este comando se debe ejecutar después de corregir las condiciones de conexión incorrecta en el puerto SAS.
@@ -41,6 +44,7 @@ Las condiciones de conexión incorrecta en el puerto SAS pueden ser las siguient
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -49,12 +53,14 @@ recover sasPort miswire
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Cuando se detecta una condición de conexión incorrecta, el firmware de la controladora informa de lo siguiente:
@@ -82,6 +88,7 @@ En el caso de condiciones de conexión incorrecta donde la controladora deshabil
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.10

@@ -15,18 +15,21 @@ La `create volume` el comando crea un grupo de volúmenes en las unidades de la 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Si tiene unidades con distintas capacidades, no puede crear volúmenes automáti
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -63,6 +67,7 @@ driveMediaType=(HDD | SSD | unknown | allMedia)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -227,6 +232,7 @@ Este parámetro configura el tamaño de bloque del volumen que se está creando.
 |===
 
 
+[[notes]]
 == Notas
 
 En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
@@ -239,6 +245,7 @@ Si no se especifica una capacidad con el `capacity` se usa toda la capacidad de 
 
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -249,6 +256,7 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[usage-hint]]
 == Consejo de uso
 
 [NOTE]
@@ -288,12 +296,14 @@ Activado
 |===
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
 
 
 
+[[security-type]]
 == Tipo de seguridad
 
 Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
@@ -310,12 +320,14 @@ Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una
 
 
 
+[[secure-drives]]
 == Unidades seguras
 
 Las unidades compatibles con la función de seguridad pueden ser unidades de cifrado de disco completo (FDE) o de estándar de procesamiento de información federal (FIPS). Utilice la `secureDrives` parámetro para especificar el tipo de unidades seguras que se usarán. Los valores que puede utilizar son `fips` y.. `fde`.
 
 
 
+[[tray-loss-protection-and-drawer-loss-protection]]
 == Protección contra pérdida de soporte y protección contra pérdida de cajón
 
 En las siguientes tablas, se presentan criterios adicionales para habilitar la protección contra pérdida de soporte o de cajón:
@@ -418,6 +430,7 @@ No aplicable
 |===
 
 
+[[example-command]]
 == Comando de ejemplo
 
 [listing]
@@ -430,6 +443,7 @@ driveMediaType=HDD securityType=capable secureDrives=fips
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad para el nivel de RAID 6 y el `dssPreAllocate` parámetro.

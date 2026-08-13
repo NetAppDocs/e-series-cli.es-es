@@ -15,18 +15,21 @@ La `stop driveChannel faultDiagnostics` el comando detiene el diagnóstico de ai
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Con la versión de firmware 8.10, el `stop driveChannel faultDiagnostics` el com
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -44,12 +48,14 @@ stop driveChannel faultDiagnostics
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[notes]]
 == Notas
 
 Utilice la `start driveChannel faultDiagnostics` y la `save driveChannel faultDiagnostics` con el `stop driveChannel faultDiagnostics` comando. Estos comandos se necesitan para iniciar la prueba de diagnóstico y guardar los resultados de la prueba de diagnóstico en un archivo.
@@ -58,6 +64,7 @@ También puede detener la `start driveChannel faultDiagnostics` para ello, pulse
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.15

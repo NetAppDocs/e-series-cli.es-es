@@ -15,24 +15,28 @@ La `show storageArray autoConfiguration` el comando muestra la configuración au
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 Para determinar si la cabina de almacenamiento puede admitir propiedades específicas, se debe introducir el parámetro de las propiedades al ejecutar este comando. No es necesario introducir ningún parámetro para que este comando muestre información de la configuración.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -52,6 +56,7 @@ secureDrives=(fips | fde)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -169,12 +174,14 @@ Use este parámetro junto con el `securityType` parámetro. Si especifica `none`
 |===
 
 
+[[notes]]
 == Notas
 
 Si no se especifica ninguna propiedad, este comando muestra los candidatos de nivel de RAID 5 para cada tipo de unidad. Cuando estos candidatos no están disponibles, el comando muestra los candidatos de RAID 6 de nivel 5, nivel 3, nivel 1 o nivel 0. Si se especifican las propiedades de configuración automática, las controladoras validan que el firmware admita las propiedades.
 
 
 
+[[drives-and-volume-groups]]
 == Unidades y grupos de volúmenes
 
 Un grupo de volúmenes es un conjunto de unidades agrupadas lógicamente por las controladoras de la cabina de almacenamiento. La cantidad de unidades de un grupo de volúmenes se limita según el nivel de RAID y el firmware de la controladora. Al crear un grupo de volúmenes, se deben seguir estas directrices:
@@ -300,6 +307,7 @@ No aplicable
 |===
 
 
+[[hot-spares]]
 == Piezas de repuesto
 
 Con los grupos de volúmenes, una estrategia útil para proteger los datos es asignar las unidades disponibles en la cabina de almacenamiento como unidades de repuesto. Una pieza de repuesto es una unidad que no contiene datos y permanece en espera en la cabina de almacenamiento en caso de que se produzca un error en alguna unidad de un grupo de volúmenes RAID 1, RAID 3, RAID 5 o RAID 6. La pieza de repuesto añade otro nivel de redundancia a la cabina de almacenamiento.
@@ -326,6 +334,7 @@ Si no existe una pieza de repuesto, es igualmente posible reemplazar una unidad 
 
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -336,12 +345,14 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
 
 
 
+[[security-type]]
 == Tipo de seguridad
 
 Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
@@ -358,12 +369,14 @@ Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una
 
 
 
+[[secure-drives]]
 == Unidades seguras
 
 Las unidades compatibles con la función de seguridad pueden ser unidades de cifrado de disco completo (FDE) o de estándar de procesamiento de información federal (FIPS). Utilice la `secureDrives` parámetro para especificar el tipo de unidades seguras que se usarán. Los valores que puede utilizar son `fips` y.. `fde`.
 
 
 
+[[example-command]]
 == Comando de ejemplo
 
 [listing]
@@ -372,6 +385,7 @@ show storageArray autoConfiguration securityType=capable secureDrives=fips;
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad de nivel de RAID 6 y quita los límites de las piezas de repuesto.

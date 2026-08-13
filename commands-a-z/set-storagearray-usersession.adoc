@@ -15,18 +15,21 @@ La `set storageArray userSession` El comando permite configurar un tiempo de esp
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Use este comando para realizar una de las siguientes operaciones:
@@ -37,12 +40,14 @@ Use este comando para realizar una de las siguientes operaciones:
 
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -51,6 +56,7 @@ set storageArray userSession sessionTimeout=n
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.41

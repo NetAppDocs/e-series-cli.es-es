@@ -15,18 +15,21 @@ La `set controller DNSServers` El comando actualiza la configuración del sistem
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Antes de comenzar, asegúrese de que:
@@ -47,6 +50,7 @@ Si ya configuró los puertos de gestión de la cabina con DHCP (protocolo de con
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -55,6 +59,7 @@ set controller[a] DNSServers=(auto|(Address1 [Address2]))
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -84,6 +89,7 @@ DirecciónIPv4|DirecciónIPv6
 |===
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -96,6 +102,7 @@ set controller[b] DNSServers=(2001:0db8:85a3:0000:0000:8a2e:0370:7334 192.168.1.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25

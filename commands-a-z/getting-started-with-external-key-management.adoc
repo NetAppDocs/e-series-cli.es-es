@@ -28,6 +28,7 @@ A continuación, se muestra el flujo de trabajo básico de implementación de cl
 
 
 
+[[workflow-steps]]
 == Pasos del flujo de trabajo
 
 Tanto la gestión de certificados como la gestión de claves externas son funciones de seguridad nuevas que se incorporaron en la versión SANtricity11.40. Los pasos básicos iniciales son los siguientes:

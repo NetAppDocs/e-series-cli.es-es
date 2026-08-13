@@ -15,18 +15,21 @@ La `delete snapImage` el comando elimina una o varias imágenes snapshot de un g
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +44,7 @@ snapGroups=("_snapGroupName1"
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -110,6 +114,7 @@ La `snapImageID` el parámetro solo acepta el `OLDEST` opción. Este parámetro 
 |===
 
 
+[[notes]]
 == Notas
 
 Es posible eliminar la imagen Snapshot más antigua de un volumen de repositorios de grupo Snapshot. Se quita del sistema la definición de la imagen Snapshot que se elimina. El espacio ocupado por la imagen Snapshot que se elimina del volumen de repositorios de grupo Snapshot se libera y se puede volver a utilizar dentro del grupo Snapshot.
@@ -122,6 +127,7 @@ Este comando no se ejecuta cuando la controladora está en modo de bloqueo.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

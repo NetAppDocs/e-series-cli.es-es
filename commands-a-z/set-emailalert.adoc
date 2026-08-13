@@ -15,12 +15,14 @@ La `set emailAlert` comando configura el correo electrónico para enviar un corr
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a las matrices de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 y EF80. Sin embargo, puedes usar el comando como un comando SMcli, no como un comando de script, para las matrices E2700 o E5600. En este caso, el comando se aplica a todas las matrices del dominio de gestión.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -38,6 +40,7 @@ set emailAlert
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -119,6 +122,7 @@ Permite añadir una o varias direcciones de correo electrónico como destinatari
 |===
 
 
+[[examples]]
 == Ejemplos
 
 [listing, subs="+macros"]
@@ -140,6 +144,7 @@ SMcli completed successfully.
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40

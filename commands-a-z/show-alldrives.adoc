@@ -15,18 +15,21 @@ La `show allDrives` el comando muestra información acerca de las unidades de la
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando muestra la siguiente información de cada unidad de la cabina de almacenamiento:
@@ -69,6 +72,7 @@ La información de la fecha de fabricación no está disponible para las unidade
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -81,6 +85,7 @@ summary
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -142,6 +147,7 @@ La opción que permite conocer el estado, la capacidad, la tasa de transferencia
 |===
 
 
+[[notes]]
 == Notas
 
 Si desea conocer información acerca del tipo y de la ubicación de todas las unidades de la cabina de almacenamiento, utilice `allDrives` parámetro.
@@ -154,6 +160,7 @@ La `drive` el parámetro es compatible con soportes de unidades de alta y baja c
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.43

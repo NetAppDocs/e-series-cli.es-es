@@ -15,18 +15,21 @@ La `set initiator` comando actualiza el objeto iniciador.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -41,6 +44,7 @@ Este comando se aplica únicamente a iSCSI, Iser, NVMe over roce, NVMe over Infi
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -50,6 +54,7 @@ set initiator (["initiatorName"] | <"initiatorQualifiedName">) ([userLabel="newI
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -86,6 +91,7 @@ Permite introducir una clave de seguridad nueva que se desea usar para autentica
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.41

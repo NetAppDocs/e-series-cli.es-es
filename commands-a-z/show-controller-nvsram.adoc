@@ -15,24 +15,28 @@ La `show controller NVSRAM` Comando muestra información acerca de los valores d
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando muestra una lista de los valores de NVSRAM en bytes sobre un tipo de host específico. Si no se introducen los parámetros opcionales, este comando muestra una lista con todos los valores de NVSRAM en bytes.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -42,6 +46,7 @@ NVSRAM pass:quotes[[hostType=_hostTypeIndexLabel_ | host="_hostName_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -78,6 +83,7 @@ El nombre del host conectado a las controladoras. El nombre de host debe escribi
 |===
 
 
+[[notes]]
 == Notas
 
 Utilice la `show controller NVSRAM` Comando para ver alguna parte o toda la NVSRAM antes de usar el `set controller` Comando para cambiar los valores de NVSRAM. Antes de realizar cualquier cambio en la NVSRAM, comuníquese con el soporte técnico para saber qué regiones de la NVSRAM puede modificar.

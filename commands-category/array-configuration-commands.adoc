@@ -15,6 +15,7 @@ La siguiente lista de comandos de configuración de la cabina se encuentran disp
 
 
 
+[[cache-mirror-data-assurance-commands]]
 == Comandos de garantía de datos del reflejo de caché
 
 link:../commands-a-z/set-storagearray-cachemirrordataassurancecheckenable.html["Configurar cabina de almacenamiento para habilitar o deshabilitar los datos de reflejo de la caché"]
@@ -23,6 +24,7 @@ link:../commands-a-z/show-storagearray-cachemirrordataassurancecheckenable.html[
 
 
 
+[[controller-commands]]
 == Comandos de controladora
 
 link:../commands-a-z/clear-alldrivechannels-stats.html["Borrar estadísticas de canal de unidad"]
@@ -73,6 +75,7 @@ link:../commands-a-z/stop-drivechannel-locate.html["Detenga la búsqueda de cana
 
 
 
+[[controller-health-image-commands]]
 == Comandos de imagen de estado de la controladora
 
 link:../commands-a-z/save-storagearray-controllerhealthimage.html["Guarde la imagen de estado de controladora de la cabina de almacenamiento"]
@@ -85,6 +88,7 @@ link:../commands-a-z/start-storagearray-controllerhealthimage-controller.html["I
 
 
 
+[[controller-host-port-configuration-commands]]
 == Comandos de configuración del puerto de host de la controladora
 
 link:../commands-a-z/create-hostport.html["Crear puerto de host"]
@@ -117,6 +121,7 @@ link:../commands-a-z/show-storagearray-unconfiguredinitiators.html["Muestra inic
 
 
 
+[[drive-commands]]
 == Comandos de unidad
 
 link:../commands-a-z/download-drive-firmware.html["Descargue el firmware de la unidad"]
@@ -165,6 +170,7 @@ link:../commands-a-z/stop-drive-locate.html["Detener búsqueda de unidad"]
 
 
 
+[[feature-management-commands]]
 == Comandos de gestión de funciones
 
 link:../commands-a-z/disable-storagearray.html["Deshabilite la función de cabina de almacenamiento"]
@@ -177,6 +183,7 @@ link:../commands-a-z/show-storagearray.html["Mostrar cabina de almacenamiento"]
 
 
 
+[[input-output-controller-ioc-dump-commands]]
 == Comandos de volcado de una controladora de entrada/salida (IOC)
 
 link:../commands-a-z/save-ioclog.html["Guarde el volcado de una controladora de entrada/salida (IOC)"]
@@ -185,6 +192,7 @@ link:../commands-a-z/start-ioclog.html["Inicie el volcado de controladora de ent
 
 
 
+[[misbehaving-drive-mbd-commands]]
 == Comandos de unidades con comportamiento erróneo (MBD)
 
 link:../commands-a-z/replace-drive-replacementdrive.html["Sustituya la unidad"]
@@ -197,6 +205,7 @@ link:../commands-a-z/stop-drive-replace.html["Detener reemplazo de unidad"]
 
 
 
+[[offloaded-data-transfer-odx-commands]]
 == Comandos de transferencia de datos descargados (ODX)
 
 link:../commands-a-z/set-storagearray-odxenabled.html["Habilite o deshabilite ODX"]
@@ -207,18 +216,21 @@ link:../commands-a-z/show-storagearray-odxsetting.html["Mostrar configuración O
 
 
 
+[[repository-volume-analysis-commands]]
 == Comandos de análisis de volúmenes de repositorios
 
 link:../commands-a-z/check-repositoryconsistency.html["Comprobar la coherencia de un repositorio"]
 
 
 
+[[session-commands]]
 == Comandos de sesión
 
 link:../commands-a-z/set-session-erroraction.html["Configurar la sesión"]
 
 
 
+[[storage-array-commands]]
 == Comandos de la cabina de almacenamiento
 
 link:../commands-a-z/activate-storagearray-firmware.html["Activar el firmware de cabina de almacenamiento"]
@@ -383,6 +395,7 @@ link:../commands-a-z/validate-storagearray-securitykey.html["Validar clave de se
 
 
 
+[[tray-commands]]
 == Comandos de soporte
 
 link:../commands-a-z/download-tray-firmware-file.html["Descargar el firmware de la tarjeta medioambiental"]
@@ -405,6 +418,7 @@ link:../commands-a-z/stop-tray-locate.html["Detenga la búsqueda de soporte"]
 
 
 
+[[uncategorized-commands]]
 == Comandos sin categorizar
 
 link:../commands-a-z/recover-sasport-miswire.html["Recupere una conexión incorrecta de puerto SAS"]

@@ -15,24 +15,28 @@ La `set host` el comando asigna un host a un grupo de hosts o lo mueve a otro gr
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 También es posible crear un nuevo grupo de hosts y asignarle el host usando este comando. Las acciones que realiza este comando dependen de que el host tenga asignaciones individuales o no.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -44,6 +48,7 @@ hostType=pass:quotes[(_hostTypeIndexLabel_ | _hostTypeIndexNumber_)]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -111,6 +116,7 @@ El host se elimina del grupo de hosts presente y se coloca en el grupo predeterm
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
@@ -119,6 +125,7 @@ Para los nombres, es posible usar cualquier combinación de caracteres alfanumé
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

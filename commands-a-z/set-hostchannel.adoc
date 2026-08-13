@@ -15,18 +15,21 @@ La `set hostChannel` El comando define el identificador de bucle para el canal d
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ preferredID=pass:quotes[_portID_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -60,6 +64,7 @@ El identificador de puerto para el canal del host especificado. Los valores de i
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.10

@@ -15,12 +15,14 @@ La `SMcli -autoSupportLog` Permite ver un archivo de registro de AutoSupport. Es
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E4000, E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 Este comando permite ver dos tipos de registros:
@@ -36,6 +38,7 @@ Este es un comando de SMcli, no de script. Se debe ejecutar desde una línea de 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +48,7 @@ pass:quotes[inputArchive=_n_] pass:quotes[outputLog=_filename_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 En la siguiente tabla, se enumeran los parámetros del comando.
@@ -100,12 +104,14 @@ Este parámetro es obligatorio.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25
 
 
 
+[[example]]
 == Ejemplo
 
 [listing]
@@ -114,6 +120,7 @@ SMcli -autosupportLog -n StorageArrayName inputArchive=0 outputLog=ASUPTransmiss
 ----
 
 
+[[verification]]
 == Verificación
 
 Es posible ver el registro de AutoSupport solicitado, que se encuentra en el directorio de cliente donde se instaló el software de administración del almacenamiento.

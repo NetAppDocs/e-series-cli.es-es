@@ -15,24 +15,28 @@ La `set session errorAction` el comando define la forma en que se desea que se e
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin, Support Admin, Security Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 A los fines de este comando, una sesión es lo que dura la ejecución de los comandos. Este comando no define de manera permanente los parámetros de la cabina de almacenamiento.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -52,6 +56,7 @@ performanceMonitorIterations=iterationValue
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -103,6 +108,7 @@ Cuando el tipo de cliente está configurado como `https`, este parámetro es obs
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando se usa este comando, pueden especificarse uno o varios de los parámetros opcionales.
@@ -113,6 +119,7 @@ El intervalo de sondeo y el número de iteraciones que se especifican siguen vig
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

@@ -15,18 +15,21 @@ La `show ssdCache` El comando muestra datos sobre el uso de la caché SSD.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -37,6 +40,7 @@ pass:quotes[[file="_filename_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -79,6 +83,7 @@ Puede utilizar cualquier nombre de archivo, pero debe utilizar `.csv` extensión
 |===
 
 
+[[notes]]
 == Notas
 
 Aparecen en la pantalla las siguientes estadísticas:
@@ -161,6 +166,7 @@ Los bytes disponibles, los asignados y los de datos de usuario se usan para comp
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

@@ -15,18 +15,21 @@ La `stop check volume parity job` el comando detiene un trabajo de comprobación
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener el rol de Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ stop check volume parity job jobId=<job_id>;
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -49,6 +53,7 @@ El ID de trabajo correspondiente al trabajo de comprobación de paridad del volu
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11,80

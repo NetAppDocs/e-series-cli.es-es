@@ -15,18 +15,21 @@ La `start volumeGroup import` El comando mueve un grupo de volúmenes al estado 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 El grupo de volúmenes debe tener el estado exportado o forzado para poder ejecutar este comando. Una vez que se complete correctamente la ejecución del comando, el grupo de volúmenes estará operativo.
@@ -38,6 +41,7 @@ Dentro del grupo de volúmenes, no es posible transferir volúmenes asociados co
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ pass:quotes[start volumeGroup [_volumeGroupName_]] import
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -61,6 +66,7 @@ El nombre del grupo de volúmenes que se desea importar. El nombre del grupo de 
 |===
 
 
+[[notes]]
 == Notas
 
 Como parte de la operación de importación, se quitan los volúmenes de niveles más altos específicamente relacionados con funciones (mirroring síncrono, copia de volumen, asignación y reservas persistentes).
@@ -69,6 +75,7 @@ Debe ejecutar el `show volumeGroup importDependencies` antes de ejecutar el `sta
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

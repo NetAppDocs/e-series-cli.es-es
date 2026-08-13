@@ -15,18 +15,21 @@ La `start secureErase drive` El comando borra todos los datos de una o varias un
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Ejecute este comando solo cuando las unidades FDE ya no formen parte del pool de discos o grupo de volúmenes seguro, o cuando no conozca la clave de seguridad.
@@ -38,6 +41,7 @@ Para borrar una unidad FIPS cuando está bloqueada y la clave de seguridad para 
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ Para borrar una unidad FIPS cuando está bloqueada y la clave de seguridad para 
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -70,12 +75,14 @@ La lista de unidades no puede contener todas las unidades de la cabina de almace
 |===
 
 
+[[notes]]
 == Notas
 
 El firmware de la controladora crea un bloqueo que restringe el acceso a las unidades FDE. Las unidades FDE tienen un estado denominado Security Capable. Cuando se crea una clave de seguridad, el estado se configura en Security Enabled, lo cual restringe el acceso a todas las unidades FDE existentes en la cabina de almacenamiento.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.40

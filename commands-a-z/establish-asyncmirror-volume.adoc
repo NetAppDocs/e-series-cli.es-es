@@ -15,18 +15,21 @@ La `establish asyncMirror volume` el comando completa una pareja reflejada asín
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Para poder ejecutar este comando, debe existir el grupo de reflejos asíncronos y el volumen primario debe existir en el grupo de reflejos asíncronos. Una vez que este comando se completa correctamente, el mirroring asíncrono se inicia entre el volumen primario y el secundario.
@@ -35,6 +38,7 @@ Los dos volúmenes que conforman una pareja reflejada asíncrona funcionan como 
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ pass:quotes[primaryVolume="_primaryVolumeName_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -74,6 +79,7 @@ El nombre de un volumen existente en la cabina de almacenamiento local que se us
 |===
 
 
+[[notes]]
 == Notas
 
 Una pareja reflejada asíncrona consta de dos volúmenes, un volumen primario y uno secundario, que contienen copias idénticas de los mismos datos. La pareja reflejada es parte de un grupo de reflejos asíncronos, que permite que la pareja reflejada se sincronice al mismo tiempo que otras parejas reflejadas del grupo de reflejos asíncronos.
@@ -84,6 +90,7 @@ Cuando se seleccionan los volúmenes primario y secundario, el volumen secundari
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

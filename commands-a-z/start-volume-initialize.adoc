@@ -15,18 +15,21 @@ La `start volume initialize` el comando inicializa o reinicializa un volumen fin
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La acción depende de los parámetros que se utilicen:
@@ -42,6 +45,7 @@ La inicialización de un volumen fino inicia una operación de ejecución prolon
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -53,6 +57,7 @@ pass:quotes[[diskPool=_diskPoolName_ capacity=_capacityValue_]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -111,6 +116,7 @@ Si este parámetro se establece en `TRUE`, se conserva el repositorio antiguo. D
 |===
 
 
+[[notes]]
 == Notas
 
 Si no se especifica un volumen con el `volume` parámetro, este comando restablece los metadatos en el repositorio y, en efecto, hace que el volumen fino aparezca vacío al host. Si se especifica un volumen con el `*volume*` parámetro, ese volumen se reemplaza por un volumen recién creado o por un volumen existente si se especifica uno con el `existingRepositoryLabel` parámetro. Si especifica un volumen existente con el `existingRepositoryLabel` el parámetro que se encuentra en un pool de discos diferente, la propiedad del volumen fino cambiará al pool de discos nuevo.
@@ -168,6 +174,7 @@ Para cambiar un volumen fino por un volumen estándar, se debe utilizar la opera
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

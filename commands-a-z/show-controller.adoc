@@ -15,18 +15,21 @@ La `show controller` comando muestra información acerca de una controladora.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando muestra la siguiente información de cada controladora de una cabina de almacenamiento:
@@ -49,6 +52,7 @@ Este comando muestra la siguiente información de cada controladora de una cabin
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -58,6 +62,7 @@ show (allControllers | controller [(a|b)])
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -87,6 +92,7 @@ La configuración para ver una lista concisa de información acerca de ambas con
 |===
 
 
+[[notes]]
 == Notas
 
 La siguiente lista es un ejemplo de la información que devuelve el `show controller` comando. Este ejemplo solo muestra cómo se presenta la información y no se debe considerar que representa la práctica recomendada para una configuración de la cabina de almacenamiento.
@@ -186,6 +192,7 @@ La `show storageArray` el comando también muestra información detallada acerca
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.43 añade el `summary` parámetro.

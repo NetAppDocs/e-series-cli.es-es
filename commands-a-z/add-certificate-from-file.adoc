@@ -15,12 +15,14 @@ La `Add certificate from file` El comando permite tomar un certificado del archi
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a las matrices de almacenamiento EF600, EF300, EF50 y EF80.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -29,6 +31,7 @@ pass:quotes[trust localCertificate file _filename_ alias user _specified alias_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -50,6 +53,7 @@ Permite especificar un certificado mediante el alias definido por el usuario.
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.60

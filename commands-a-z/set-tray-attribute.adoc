@@ -15,6 +15,7 @@ La `set tray` el comando establece atributos definidos por el usuario para un so
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -23,6 +24,7 @@ set tray pass:quotes[[_trayID_]] (chassisName | assetTag)=pass:quotes["_userID_"
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -52,6 +54,7 @@ El nombre o número de etiqueta de activo para otorgar al compartimento nuevo. L
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 6.16

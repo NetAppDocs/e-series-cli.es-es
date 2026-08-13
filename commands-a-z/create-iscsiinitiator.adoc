@@ -15,12 +15,14 @@ La `create iscsiInitiator` Comando crea un nuevo objeto iniciador de iSCSI.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
@@ -32,6 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:create-initiator.adoc[
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +46,7 @@ host="_hostName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -78,6 +82,7 @@ La clave de seguridad que se desea usar para autenticar una conexión entre igua
 |===
 
 
+[[notes]]
 == Notas
 
 El protocolo de autenticación por desafío mutuo (CHAP) es un protocolo que autentica los iguales de una conexión. EL FUNCIONAMIENTO DE CHAP se basa en que los iguales compartan un _secret_. Un secreto es una clave de seguridad similar a una contraseña.
@@ -86,6 +91,7 @@ Utilice la `chapSecret` parámetro para configurar claves de seguridad para los 
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

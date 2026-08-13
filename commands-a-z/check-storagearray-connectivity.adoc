@@ -15,6 +15,7 @@ La `check storageArray connectivity` el comando verifica que la cabina de almace
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier cabina de almacenamiento individual, con algunas restricciones. Si ejecuta el comando en la cabina E2700 o E5600, no hay restricciones.
@@ -26,12 +27,14 @@ Este comando no es compatible en las plataformas E4000, E2800, E5700, EF600, EF3
 ====
 
 
+[[roles]]
 == Funciones
 
 N.A.
 
 
 
+[[context]]
 == Contexto
 
 Antes de crear un grupo de reflejos asíncronos, debe comprobar si la cabina de almacenamiento local y la cabina de almacenamiento remota pueden comunicarse entre sí. Cuando se ejecuta este comando, el sistema consulta la cabina de almacenamiento remota en todos los puertos de host elegibles para determinar qué puertos están conectados a la cabina de almacenamiento remota. El resultado de la prueba es una lista de todos los puertos en la cabina de almacenamiento local, junto con una lista de las direcciones de los puertos en la cabina de almacenamiento remota a los que se puede acceder a través de ese puerto.
@@ -43,6 +46,7 @@ La conectividad se prueba a través de todos los canales posibles y, si se trata
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -53,6 +57,7 @@ remoteStorageArrayWwid=<pass:quotes[_wwID_]>)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -74,6 +79,7 @@ El identificador a nivel mundial (WWID) de la cabina de almacenamiento en la cua
 |===
 
 
+[[notes]]
 == Notas
 
 Para poder establecer un reflejo entre dos cabinas de almacenamiento, primero es necesario conectar las cabinas a través de una conexión Fibre Channel o iSCSI.
@@ -84,6 +90,7 @@ Si la cabina de almacenamiento local es compatible con iSCSI, se comprueba la co
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

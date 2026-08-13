@@ -15,18 +15,21 @@ La `set storageArray resourceProvisionedVolumes` El comando deshabilita la funci
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 El aprovisionamiento de recursos es una función disponible que permite inicializar de forma rápida los grandes volúmenes.
@@ -37,6 +40,7 @@ Los volúmenes aprovisionados de recursos solo se admiten en pools y grupos de v
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -45,6 +49,7 @@ set storageArray resourceProvisionedVolumes=(enable|disable)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -65,6 +70,7 @@ Cuando se modifica este valor, solo se aplica a los grupos de volúmenes y pools
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.63

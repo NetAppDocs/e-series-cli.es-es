@@ -15,24 +15,28 @@ La `save storageArray dbmValidatorInfo` Comando guarda la información de valida
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 El soporte técnico puede usar este archivo XML para generar una cadena de validador (un código de seguridad). La cadena de validador se debe incluir en la `load storageArray dbmDatabase` comando al restaurar una cabina de almacenamiento a una configuración preexistente.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -41,6 +45,7 @@ save storageArray dbmValidatorInfo file=pass:quotes["_filename_"] dbmDatabase=pa
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -67,6 +72,7 @@ La ruta y el nombre del archivo de la base de datos DBM desde la cual se desea g
 |===
 
 
+[[notes]]
 == Notas
 
 Si desea generar el archivo de información XML para obtener una cadena de validador, debe ejecutar este comando mientras está conectado a la controladora donde intenta restaurar la base de datos. En el siguiente ejemplo, se muestra el formato del archivo XML:
@@ -90,6 +96,7 @@ Si desea generar el archivo de información XML para obtener una cadena de valid
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.75

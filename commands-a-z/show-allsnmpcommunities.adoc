@@ -15,18 +15,21 @@ La `show allSnmpCommunities` El comando muestra información acerca de las comun
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin o Storage Monitor.
 
 
 
+[[context]]
 == Contexto
 
 La información obtenida incluye lo siguiente:
@@ -38,6 +41,7 @@ La información obtenida incluye lo siguiente:
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -49,6 +53,7 @@ snmpCommunities pass:quotes[[_snmpCommunityName1_ ... _snmpCommunityNameN_]])
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -90,6 +95,7 @@ Este parámetro muestra una lista de la cantidad total de comunidades SNMP y la 
 |===
 
 
+[[notes]]
 == Notas
 
 SNMP admite una o más _comunidades_ a las cuales pertenecen los administradores y los dispositivos gestionados. Las solicitudes del SNMP incluyen una cadena de comunidad _en los paquetes de datos que se transmiten por la red que funciona como una contraseña en bruto. Los agentes del SNMP pueden rechazar las solicitudes GET o SET que tengan una cadena de comunidad desconocida. Una cadena de comunidad también se puede incluir en las notificaciones TRAP que se envían de un agente al administrador.
@@ -116,6 +122,7 @@ DETAILS
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.30

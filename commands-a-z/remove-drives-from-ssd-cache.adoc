@@ -15,18 +15,21 @@ La `set ssdCache` El comando reduce la capacidad de la caché SSD al eliminar lo
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ removeDrives=pass:quotes[(_trayID1_,]pass:quotes[[_drawerID1_,]]pass:quotes[_slo
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -61,12 +65,14 @@ Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corch
 |===
 
 
+[[notes]]
 == Notas
 
 No se puede utilizar este comando para quitar todos los SSD de la caché SSD; se debe conservar al menos un disco SSD en la caché SSD. Si desea quitar por completo la caché SSD, use `delete ssdCache` en su lugar del comando.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

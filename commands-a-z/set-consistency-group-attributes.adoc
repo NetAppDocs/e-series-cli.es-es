@@ -15,18 +15,21 @@ La `set consistencyGroup` el comando define las propiedades de un grupo de coher
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -40,6 +43,7 @@ set consistencyGroup pass:quotes[["_consistencyGroupName_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -90,6 +94,7 @@ La prioridad para las operaciones de reversión en un grupo de coherencia mientr
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
@@ -100,12 +105,14 @@ La prioridad de reversión define la cantidad de recursos del sistema que se deb
 
 
 
+[[auto-delete]]
 == Eliminación automática
 
 Es posible configurar cada grupo Snapshot para eliminar automáticamente sus imágenes Snapshot con el fin de mantener el número total de imágenes Snapshot en el grupo Snapshot en o debajo de un número máximo de imágenes. Cuando se alcanza el límite máximo de imágenes Snapshot en el grupo Snapshot, el `autoDeleteLimit` el parámetro elimina automáticamente las imágenes snapshot cada vez que se crea una nueva imagen snapshot en el grupo snapshot. La `autoDeleteLimit` el parámetro elimina las imágenes snapshot más antiguas del grupo snapshot hasta que se cumple la cantidad máxima de imágenes definidas con el parámetro. Eliminar imágenes Snapshot de esta manera libera capacidad en el repositorio que se puede utilizar para satisfacer los requisitos continuos de copia en escritura de las imágenes Snapshot restantes.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

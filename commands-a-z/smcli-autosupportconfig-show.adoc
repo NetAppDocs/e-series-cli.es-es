@@ -15,12 +15,14 @@ La `SMcli -autoSupportConfig show` Comando muestra la configuración de recogida
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el dominio de administración de manera simultánea. No se aplica a las cabinas de almacenamiento E2800 o E5700.
 
 
 
+[[context]]
 == Contexto
 
 El resultado de este comando muestra la siguiente información sobre la configuración:
@@ -43,6 +45,7 @@ El resultado de este comando muestra la siguiente información sobre la configur
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -57,6 +60,7 @@ Este comando se aplica a todas las cabinas de almacenamiento E2700 y E5600 en el
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -65,18 +69,21 @@ SMcli -autoSupportConfig show
 ----
 
 
+[[parameters]]
 == Parámetros
 
 Ninguno.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.25
 
 
 
+[[example-output-for-the-activation-statuses]]
 == Ejemplo de resultado de los Estados de activación
 
 [listing]
@@ -87,6 +94,7 @@ The AutoSupport Remote Diagnostics feature is de-activated on this storage manag
 ----
 
 
+[[example-output-for-the-smtp-delivery-method]]
 == Ejemplo de resultado del método de entrega SMTP
 
 [listing]
@@ -98,6 +106,7 @@ Sender email address:  user@netapp.com
 ----
 
 
+[[example-output-for-the-http-or-https-delivery-method-with-a-direct-connection]]
 == Ejemplo de resultado del método de entrega HTTP o HTTPS con conexión directa
 
 [listing]
@@ -108,6 +117,7 @@ Connection:  Direct
 ----
 
 
+[[example-output-for-the-http-delivery-method-with-a-proxy-connection]]
 == Ejemplo de resultado del método de entrega HTTP con conexión por proxy
 
 [listing]
@@ -121,6 +131,7 @@ Password: **********
 ----
 
 
+[[example-output-for-the-http-delivery-method-with-an-automatic-proxy-configuration-script-pac]]
 == Ejemplo de resultado del método de entrega HTTP con un script de configuración automática de proxy (PAC)
 
 [listing]
@@ -130,6 +141,7 @@ Script location: http://esgweb.eng.netapp.com/~user/proxy.pac
 ----
 
 
+[[example-output-for-array-table-all-delivery-methods]]
 == Ejemplo de resultado de la tabla de cabina (todos los métodos de entrega)
 
 [listing]

@@ -15,18 +15,21 @@ La `load storageArray dbmDatabase` Comando restaura una imagen de base de datos 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando restaura una base de datos DBM de la cabina de almacenamiento a la configuración exacta que se utilizó cuando se capturó la imagen de base de datos mediante la `save storageArray dbmDatabase` comando. Los datos en un archivo incluyen datos para la configuración de RAID, grupos de volúmenes y pools de discos.
@@ -35,6 +38,7 @@ Antes de usar este comando con la `file` opción, primero se debe solicitar una 
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ pass:quotes[((file="_filename_" validator="_validatorValue_") | sourceLocation=o
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -99,12 +104,14 @@ Este parámetro se establece en `all` de forma predeterminada, se recuperan todo
 |===
 
 
+[[notes]]
 == Notas
 
 Según el tamaño de la imagen de base de datos, la restauración de la base de datos puede demorar hasta 30 minutos. El software del host no mostrará las controladoras en estado óptimo hasta que se completen todas las acciones para cargar la imagen de base de datos a las controladoras.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.75

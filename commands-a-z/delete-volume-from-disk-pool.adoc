@@ -15,18 +15,21 @@ La `delete volume` el comando elimina los volúmenes normales o finos de un pool
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando también puede usarse para eliminar las programaciones relacionadas con el volumen. Al eliminar una programación, no se elimina el volumen.
@@ -38,6 +41,7 @@ Este comando también puede usarse para eliminar las programaciones relacionadas
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -51,6 +55,7 @@ pass:quotes[volumes ["_volumeName1_" ... "_volumeNameN_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -105,12 +110,14 @@ Al eliminar un volumen fino, también se elimina el volumen de repositorios asoc
 |===
 
 
+[[notes]]
 == Notas
 
 Cuando utilice la `allVolumes` parámetro, este comando elimina volúmenes hasta que se quitan todos los volúmenes o hasta que se encuentra un error. Si se encuentra un error, el comando no intenta eliminar los volúmenes restantes. Es posible eliminar volúmenes de diferentes grupos. Todos los grupos de volúmenes que quedan vacíos se eliminan al configurar el `removeVolumeGroup` parámetro a. `TRUE`.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

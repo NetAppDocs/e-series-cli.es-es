@@ -15,18 +15,21 @@ La `set diskPool` el comando reduce la capacidad del pool de discos mediante la 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando utiliza la función de reducción dinámica de capacidad (DCR), la que permite quitar unidades selectas de un pool de discos y volver a utilizar las unidades que se quitaron según sea necesario.
@@ -35,6 +38,7 @@ La cantidad máxima de unidades que se pueden quitar de un pool de discos en una
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ removeDrives=pass:quotes[(_trayID1_],pass:quotes[[_drawerID1_,]]pass:quotes[_slo
 ----
 
 
+[[parameter]]
 == Parámetro
 
 |===
@@ -70,6 +75,7 @@ Los valores de ID de soporte, de cajón y de ranura deben escribirse entre corch
 |===
 
 
+[[notes]]
 == Notas
 
 Cada nombre de pool de discos debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
@@ -86,6 +92,7 @@ La operación de DCR puede hacer que la capacidad configurada supere uno de los 
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.10

@@ -15,18 +15,21 @@ La `start storageArray configDbDiagnostic` comando ejecuta una comprobación de 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -38,6 +41,7 @@ controller[(a|b)]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -88,6 +92,7 @@ La controladora que contiene la base de datos en la que se desea ejecutar las pr
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando ejecuta una comprobación de coherencia con una base de datos de configuración. Se comprueban todos los registros de la base de datos. Los datos de error se escriben automáticamente en un archivo de la carpeta de datos del disco. No es necesario especificar un archivo de salida.
@@ -124,6 +129,7 @@ Además, es posible iniciar la prueba de diagnóstico de configuración de la ba
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.75

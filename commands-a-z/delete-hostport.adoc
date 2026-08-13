@@ -15,18 +15,21 @@ La `delete hostPort` el comando elimina una identificación de puerto de host.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 La identificación es un valor de software que representa el puerto de host físico que se conecta con la controladora. Si se elimina la identificación, la controladora deja de reconocer las instrucciones y los datos provenientes del puerto de host.
@@ -38,6 +41,7 @@ Este comando no funciona en un entorno iSCSI, donde los puertos de host se consi
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli]
@@ -46,6 +50,7 @@ delete hostPort [hostPortName]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -61,12 +66,14 @@ El nombre del puerto de host que se desea eliminar. El nombre del puerto de host
 |===
 
 
+[[notes]]
 == Notas
 
 Un puerto de host es una conexión física de un adaptador de host que reside en un equipo host. Un puerto de host brinda acceso de host a los volúmenes de una cabina de almacenamiento.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.20

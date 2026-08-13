@@ -15,18 +15,21 @@ La `show volume reservations` el comando muestra información acerca de los vol�
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin o Storage Monitor.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ volumes pass:quotes[[_volumeName1_ ... _volumeNameN_]]) reservations
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -76,6 +80,7 @@ Si los nombres de los volúmenes tienen caracteres especiales o números, se deb
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 5.40

@@ -15,18 +15,21 @@ La `delete snapVolume` el comando elimina un volumen snapshot y, opcionalmente, 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ No se puede usar este comando para las imágenes Snapshot incluidas en una copia
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -45,6 +49,7 @@ pass:quotes[delete snapVolume ["_snapVolumeName_"]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -67,6 +72,7 @@ El parámetro para guardar o eliminar los miembros del repositorio. Para guardar
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

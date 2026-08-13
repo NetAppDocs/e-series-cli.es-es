@@ -15,18 +15,21 @@ La `save check volume parity job parity errors` el comando guarda los errores de
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas las matrices EF600, EF300, EF50 y EF80; siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento EF600, EF300, EF50 y EF80, debes tener el rol de Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ save check volume parity job parityErrors jobId=<job_id> parityErrorFile=<parity
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -56,6 +60,7 @@ Archivo especificado por el usuario para indicar dónde se deben guardar los err
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 11,80

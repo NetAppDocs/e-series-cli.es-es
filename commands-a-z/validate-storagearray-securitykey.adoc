@@ -15,18 +15,21 @@ La `validate storageArray securityKey` el comando valida la clave de seguridad d
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Si la gestión de claves externas está habilitada, este comando solo se aplica a las cabinas E4000, E2800 y E5700. Si la gestión de claves internas está habilitada, este comando se aplica a cualquier cabina de almacenamiento individual, siempre que se hayan instalado todos los paquetes de SMcli.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 En la validación de claves de seguridad, se emplea la frase de contraseña utilizada para generar el archivo para descifrar la clave y relacionarla con el valor que se mantiene en la memoria de la controladora (claves internas) o en el servidor externo (claves externas).
@@ -38,6 +41,7 @@ Este comando se aplica a la gestión de claves interna y externa.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -47,6 +51,7 @@ pass:quotes[validate storageArray securityKey file="_fileName_" passPhrase="_pas
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -78,6 +83,7 @@ Una cadena de caracteres que cifra la clave de seguridad para poder almacenarla 
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.70

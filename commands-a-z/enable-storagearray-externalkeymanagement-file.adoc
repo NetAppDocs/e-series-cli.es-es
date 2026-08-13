@@ -15,18 +15,21 @@ La `enable storageArray externalKeyManagement file` El comando habilita la gesti
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Security Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ Este comando se aplica solo a la gestión de claves externas.
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -47,6 +51,7 @@ pass:quotes[saveFile=_(TRUE | FALSE)_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -85,6 +90,7 @@ Verifica y guarda la clave de seguridad en un archivo. Establezca en `FALSE` no 
 |===
 
 
+[[notes]]
 == Notas
 
 La frase de contraseña debe cumplir los siguientes criterios:
@@ -103,6 +109,7 @@ Si la frase de contraseña no cumple estos criterios, se muestra un mensaje de e
 ====
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40

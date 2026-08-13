@@ -15,18 +15,21 @@ La `show asyncMirrorGroup synchronizationProgress` el comando muestra el progres
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
-Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
+Este comando se aplica a cualquier matriz de almacenamiento, incluidas las matrices E4000, E2700, E5600, E2800, E5700, EF600 y EF300, siempre que estén instalados todos los paquetes SMcli.
 
 
 
+[[roles]]
 == Funciones
 
-Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
+Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando obtiene el progreso de la sincronización de datos de todas las parejas reflejadas dentro del grupo de reflejos asíncronos. Este comando muestra el progreso como un porcentaje de la sincronización de datos que se completó.
@@ -38,6 +41,7 @@ Hay dos tipos de sincronización: Sincronización inicial y sincronización peri
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -48,6 +52,7 @@ show asyncMirrorGroup pass:quotes[[_asyncMirrorGroupName_]]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -77,6 +82,7 @@ Este parámetro muestra una lista concisa de información sobre la sincronizaci�
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.84

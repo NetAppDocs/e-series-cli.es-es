@@ -15,18 +15,21 @@ La `save IOCLog` El comando guarda los volcados de IOC de las controladoras de u
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ save IOCLog [file=pass:quotes["_filename_"]]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -56,6 +60,7 @@ Este comando guarda los datos en un archivo comprimido y añade la extensión de
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando recupera los datos de registro de volcado de IOC y los metadatos de volcado de IOC de ambas controladoras. Con un formato de archivo 7zip, los datos recuperados se archivan y se comprimen en un solo archivo de nombre a elección. El archivo 7zip contiene lo siguiente:
@@ -74,6 +79,7 @@ Los registros comprimidos no están en un formato legible para seres humanos. Es
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20

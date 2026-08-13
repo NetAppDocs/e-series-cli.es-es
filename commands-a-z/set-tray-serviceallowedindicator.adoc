@@ -15,18 +15,21 @@ La `set tray serviceAllowedIndicator` El comando enciende o apaga la luz indicad
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[context]]
 == Contexto
 
 Si la cabina de almacenamiento no es compatible con la función de la luz indicadora de permiso de acción de servicio, este comando devuelve un error. Si la cabina de almacenamiento admite el comando, pero no puede apagar o encender la luz indicadora, este comando devuelve un error.
@@ -35,6 +38,7 @@ Para encender o apagar la luz indicadora de permiso de acción de servicio en el
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -50,6 +54,7 @@ serviceAllowedIndicator=(on | off)
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -114,12 +119,14 @@ La opción para encender o apagar la luz indicadora de permiso de acción de ser
 |===
 
 
+[[notes]]
 == Notas
 
 Este comando se definió originalmente para ser usado con el soporte de controladoras CE6998 Este comando no es compatible con soportes de controladoras despachados antes de la introducción del soporte de controladoras CE6998
 
 
 
+[[example]]
 == Ejemplo
 
 Este comando enciende la luz indicadora de permiso de acción de servicio para el ESM izquierdo del soporte 5 con la dirección IP 155.155.155.155.
@@ -131,6 +138,7 @@ ESM [left] serviceAllowedIndicator=on;"
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 en la versión 6.14, se añaden estos parámetros:

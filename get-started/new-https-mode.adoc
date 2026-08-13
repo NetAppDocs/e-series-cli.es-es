@@ -35,6 +35,7 @@ En este tema, se proporcionan varios ejemplos para ilustrar los nuevos parámetr
 
 
 
+[[operations-requiring-a-password-https-client-mode-trusted-certificate-is-installed-on-the-array]]
 == Operaciones en las que se requiere una contraseña, `https` modo cliente, el certificado de confianza se instala en la cabina
 
 En el siguiente ejemplo, se proporcionan el nombre de usuario y la contraseña, y se instala un certificado de confianza en la cabina.
@@ -53,6 +54,7 @@ SMcli completed successfully.
 ----
 
 
+[[operations-requiring-a-password-https-client-mode-no-trusted-certificate-is-installed-on-the-array]]
 == Operaciones en las que se requiere una contraseña, `https` modo cliente, no se instala ningún certificado de confianza en la cabina
 
 En el siguiente ejemplo, se proporcionan las opciones de nombre de usuario y contraseña, pero no se instala ningún certificado de confianza en la cabina ni en la `-k` no se ha utilizado la opción. El ejemplo muestra el resultado que se devuelve.
@@ -68,6 +70,7 @@ SMcli failed.
 ----
 
 
+[[operations-requiring-a-password-https-client-mode-no-trusted-certificate-installed-but-using-k-for-self-signed-certificate]]
 == Operaciones en las que se requiere una contraseña, `https` modo de cliente, no se instaló ningún certificado de confianza, pero se utiliza -k para el certificado autofirmado
 
 En el siguiente ejemplo, como en el anterior, se proporcionan las opciones de nombre de usuario y contraseña, pero no se instala ningún certificado de confianza en la cabina. Sin embargo, en este caso la `-k` se utilizó la opción para utilizar un certificado autofirmado.
@@ -100,6 +103,7 @@ SMcli completed successfully.
 ----
 
 
+[[read-only-operations-symbol-client-mode]]
 == Operaciones de solo lectura, `symbol` modo cliente
 
 En este ejemplo de `*symbol*` modo cliente, no se proporciona ni nombre de usuario ni contraseña. Esto completa con éxito únicamente las operaciones de solo lectura.
@@ -127,6 +131,7 @@ SMcli completed successfully.
 ----
 
 
+[[read-only-operations-http-client-mode]]
 == Operaciones de solo lectura, modo cliente http
 
 En el siguiente ejemplo, también se utiliza una operación de solo lectura pero en `*https*` modo cliente, se requieren nombre de usuario y contraseña, y se proporcionan junto con `-k` para aceptar un certificado autofirmado. La `*https*` el modo cliente requiere una contraseña incluso para las operaciones de solo lectura.

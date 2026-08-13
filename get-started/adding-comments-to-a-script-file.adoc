@@ -15,6 +15,7 @@ El motor de scripts busca ciertos caracteres o un comando para mostrar comentari
 
 
 
+[[methods-for-adding-comments-to-a-script-file]]
 == Métodos para añadir comentarios a un archivo de script
 
 * Añada texto después de dos barras diagonales (`//` ) como comentario hasta alcanzar un carácter de fin de línea. Si el motor de scripts no encuentra un carácter de fin de línea en el script después de procesar un comentario, se muestra un mensaje de error y se completa la operación de script. Este error suele ocurrir cuando se coloca un comentario al final de una secuencia de comandos y no se ha presionado la tecla *Intro*.

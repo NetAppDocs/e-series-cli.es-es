@@ -15,18 +15,21 @@ La `create volume` el comando crea un nuevo grupo de volúmenes y volumen, y per
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -51,6 +54,7 @@ userLabel=pass:quotes[_"volumeName"_]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -189,6 +193,7 @@ Este parámetro configura el tamaño de bloque del volumen que se está creando.
 |===
 
 
+[[notes]]
 == Notas
 
 La `drives` el parámetro es compatible con soportes de unidades de alta y baja capacidad. Un soporte de unidades de gran capacidad tiene cajones que contienen las unidades. Los cajones se deslizan hacia afuera para permitir el acceso a las unidades. Un soporte de unidades de baja capacidad no tiene cajones. Para un soporte de unidades de gran capacidad, se deben especificar el identificador (ID) de soporte de unidades, el ID de cajón y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, solo se deben especificar el ID de soporte de unidades y el ID de ranura donde reside la unidad. Para un soporte de unidades de baja capacidad, un método alternativo para identificar la ubicación de una unidad es especificar el ID de soporte de unidades, establecer el ID de cajón en `0`, Y especifique el ID de la ranura en la que reside una unidad.
@@ -208,6 +213,7 @@ Si no se especifica una capacidad con el `capacity` se usa toda la capacidad de 
 
 
 
+[[tray-loss-protection-and-drawer-loss-protection]]
 == Protección contra pérdida de soporte y protección contra pérdida de cajón
 
 Para que la protección contra pérdida de soporte funcione, la configuración debe cumplir las siguientes directrices:
@@ -312,6 +318,7 @@ No aplicable
 |===
 
 
+[[segment-size]]
 == Tamaño de los segmentos
 
 El tamaño de un segmento determina cuántos bloques de datos escribe la controladora en una sola unidad de un volumen antes de pasar a la siguiente unidad. Cada bloque de datos almacena 512 bytes de datos. Un bloque de datos es la unidad mínima de almacenamiento. El tamaño de un segmento determina cuántos bloques de datos contiene. Por ejemplo, un segmento de 8 KB contiene 16 bloques de datos. Un segmento de 64 KB contiene 128 bloques de datos.
@@ -322,6 +329,7 @@ Para lograr un rendimiento óptimo en un entorno de almacenamiento con base de d
 
 
 
+[[usage-hint]]
 == Consejo de uso
 
 [NOTE]
@@ -361,6 +369,7 @@ Activado
 |===
 
 
+[[cache-read-prefetch]]
 == Captura previa de lectura de caché
 
 La captura previa de lectura de caché permite que la controladora copie en caché bloques de datos adicionales mientras lee y copia en caché bloques de datos solicitados por el host desde la unidad. Esta acción aumenta las posibilidades de satisfacer una solicitud de datos futura desde la caché. La captura previa de lectura de caché es importante para las aplicaciones multimedia en las que se usa la transferencia de datos secuencial. Valores válidos para `cacheReadPrefetch` los parámetros son `TRUE` o. `FALSE`. El valor predeterminado es `TRUE`.
@@ -369,6 +378,7 @@ No es necesario introducir un valor para `cacheReadPrefetch` o el `segmentSize` 
 
 
 
+[[security-type]]
 == Tipo de seguridad
 
 Utilice la `securityType` parámetro para especificar la configuración de seguridad de la cabina de almacenamiento.
@@ -385,6 +395,7 @@ Antes de poder ajustar la `securityType` parámetro a. `enabled`, debe crear una
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10 añade la funcionalidad para el nivel de RAID 6 y el `dssPreAllocate` parámetro.

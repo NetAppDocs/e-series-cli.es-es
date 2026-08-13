@@ -15,18 +15,21 @@ La `set volume logicalUnitNumber` El comando define el mapa de número de unidad
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 Este comando es aplicable a los volúmenes de un grupo de volúmenes o pool de discos.
@@ -38,6 +41,7 @@ No se puede usar este comando para un volumen Snapshot que se usa en una copia d
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -49,6 +53,7 @@ hostGroup=pass:quotes[("_hostGroupName_"] | defaultGroup)
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -104,6 +109,7 @@ Nombre del grupo de hosts al que se asigna el volumen. El nombre del grupo de ho
 |===
 
 
+[[notes]]
 == Notas
 
 Un grupo de hosts es un elemento de topología opcional que se puede definir para designar un conjunto de hosts que compartirán el acceso a los mismos volúmenes. El grupo de hosts es una entidad lógica. Es conveniente definir un grupo de hosts únicamente si se cuenta con al menos dos hosts que comparten acceso a los mismos volúmenes.
@@ -114,6 +120,7 @@ El volumen de acceso es el volumen de un entorno SAN que se usa para la comunica
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83 añade volumen snapshot para pools de discos.

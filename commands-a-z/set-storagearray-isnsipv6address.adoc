@@ -15,18 +15,21 @@ La `set storageArray isnsIPv6Address` El comando configura la dirección IPv6 pa
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -35,6 +38,7 @@ set storageArray isnsIPv6Address=pass:quotes[_ipAddress_]
 ----
 
 
+[[parameter]]
 == Parámetro
 
 [cols="2*"]
@@ -50,12 +54,14 @@ La dirección IPv6 que desea usar para el servidor iSNS.
 |===
 
 
+[[notes]]
 == Notas
 
 El protocolo iSNS facilita la detección, la gestión y la configuración automatizadas de dispositivos iSCSI y dispositivos Fibre Channel en una red TCP/IP. ISNS ofrece servicios de detección y gestión de almacenamiento inteligente comparables a los que se encuentran en las redes Fibre Channel, para permitir que una red IP genérica funcione de manera similar a una red de área de almacenamiento. ISNS también facilita una integración fluida de redes IP y redes Fibre Channel gracias a su capacidad para emular servicios de estructura Fibre Channel y gestionar dispositivos iSCSI y Fibre Channel. ISNS agrega valor a cualquier red de almacenamiento que posea dispositivos iSCSI, dispositivos Fibre Channel o cualquier combinación de ambos.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.10

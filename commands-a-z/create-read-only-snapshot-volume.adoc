@@ -15,18 +15,21 @@ La `create snapVolume` el comando crea un volumen snapshot de solo lectura para 
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 [NOTE]
@@ -36,6 +39,7 @@ No es posible usar este comando para una imagen Snapshot que se utilice en una c
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -46,6 +50,7 @@ readOnly
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -92,6 +97,7 @@ Con la `readOnly` parámetro, no se crean volúmenes snapshot.
 |===
 
 
+[[notes]]
 == Notas
 
 Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
@@ -110,6 +116,7 @@ create snapVolume userLabel="engData1" snapImageID="snapGroup1:newest" readOnly;
 ----
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

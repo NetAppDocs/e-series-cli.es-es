@@ -15,24 +15,28 @@ La `set consistencyGroup` el comando quita un volumen miembro de un grupo de coh
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas la E4000, E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
 
 
 
+[[context]]
 == Contexto
 
 De manera opcional, se pueden eliminar miembros de volúmenes de repositorios del grupo de coherencia.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +47,7 @@ removeCGMemberVolume=pass:quotes["_memberVolumeName_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 |===
@@ -71,6 +76,7 @@ Determina si se quitarán todos los miembros de repositorio del grupo de coheren
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 7.83

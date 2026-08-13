@@ -15,18 +15,21 @@ La `set storageArray autoSupport deliveryMethod` El comando configura el método
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a una E4000, E2800, E5700, EF600, EF300, EF50 y EF80 de almacenamiento individual. No funciona en matrices de almacenamiento E2700 o E5600.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol de Storage Admin o Support Admin.
 
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -36,6 +39,7 @@ set storageArray autoSupport deliveryMethod=email mailRelayServer="mail.example.
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -109,12 +113,14 @@ Permite al usuario especificar la contraseña del servidor del proxy, si está c
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40
 
 
 
+[[examples]]
 == Ejemplos
 
 [listing]
@@ -132,12 +138,14 @@ SMcli completed successfully.
 ----
 
 
+[[verification]]
 == Verificación
 
 Envíe un mensaje de prueba mediante el `start storageArray autoSupport deliveryTest` comando para verificar que sus métodos de entrega están configurados correctamente.
 
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.40

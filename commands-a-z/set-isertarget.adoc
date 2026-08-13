@@ -15,12 +15,14 @@ La `set iserTarget` El comando define las propiedades de un destino Iser.
 
 
 
+[[supported-arrays]]
 == Cabinas compatibles
 
 Este comando se aplica a cualquier matriz de almacenamiento individual, incluidas E2700, E5600, E2800, E5700, EF600, EF300, EF50 y EF80, siempre que todos los paquetes SMcli estén instalados.
 
 
 
+[[roles]]
 == Funciones
 
 Para ejecutar este comando en una matriz de almacenamiento E2800, E5700, EF600, EF300, EF50 o EF80, debes tener el rol Storage Admin.
@@ -32,6 +34,7 @@ Este comando quedó obsoleto y fue sustituido por el xref:set-target.adoc[Config
 ====
 
 
+[[syntax]]
 == Sintaxis
 
 [source, cli, subs="+macros"]
@@ -43,6 +46,7 @@ targetAlias=pass:quotes["_userLabel_"]
 ----
 
 
+[[parameters]]
 == Parámetros
 
 [cols="2*"]
@@ -79,6 +83,7 @@ El nuevo nombre que se desea usar para el destino. El nombre debe escribirse ent
 |===
 
 
+[[notes]]
 == Notas
 
 El protocolo de autenticación por desafío mutuo (CHAP) es un protocolo que autentica los iguales de una conexión. EL FUNCIONAMIENTO DE CHAP se basa en que los iguales compartan un _secret_. Un secreto es una clave de seguridad similar a una contraseña.
@@ -304,6 +309,7 @@ z
 |===
 
 
+[[minimum-firmware-level]]
 == Nivel de firmware mínimo
 
 8.20
