@@ -8095,4 +8095,8 @@
   <block id="fa3f8ed858d04e74dad152ab5070b1ec" category="paragraph">Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin.</block>
   <block id="0a5727fb9e4cceadd91fbb0916297759" category="paragraph">Este comando no es compatible con las plataformas E4000, E2800, E5700, EF600 y EF300.</block>
   <block id="d28f85e4921c2290b1849d9ca24381a1" category="paragraph">Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, EF600 o EF300, debes tener el rol de Storage Admin o Support Admin.</block>
+  <block id="eae2e5eb79bc312f455a69dcdb128d40" category="paragraph">Este comando se aplica a una matriz de almacenamiento EF50 o EF80 individual, siempre que estén instalados todos los paquetes SMcli.</block>
+  <block id="c540831e3a9e23851bfed87fe9daa839" category="paragraph">Para ejecutar este comando en una matriz de almacenamiento EF50 o EF80, debes tener el rol de Support Admin.</block>
+  <block id="3aaeeffd59a60bb91c9bd0ba462a25c0" category="paragraph">Este comando es válido para una matriz de almacenamiento E4000, EF50 o EF80, siempre que estén instalados todos los paquetes SMcli.</block>
+  <block id="2c7b4ae92e40349e885951530fef1b89" category="paragraph">Para ejecutar este comando en una matriz de almacenamiento E4000, EF50 o EF80, debes tener el rol de Support Admin.</block>
 </blocks>
