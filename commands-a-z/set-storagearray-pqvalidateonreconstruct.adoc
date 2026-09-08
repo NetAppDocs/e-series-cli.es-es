@@ -2,7 +2,7 @@
 permalink: commands-a-z/set-storagearray-pqvalidateonreconstruct.html 
 sidebar: sidebar 
 keywords: set, storage, array, pq validation, reconstruct 
-summary: El comando set storageArray pqValidateOnReconstruct configura el estado de validación P/Q de la cabina de almacenamiento en reconstrucción. Cuando se habilita esta funcionalidad, los datos se reconstruyen mediante datos+P y datos+Q, y los resultados comprobaron la consistencia antes de determinar cómo proceder. 
+summary: El comando storageArray pqValidateOnReconstruct establece el estado de validación P/Q de la matriz de almacenamiento durante la reconstrucción. Cuando esta función está activada, los datos se reconstruyen utilizando tanto los datos P como los datos Q, y se comprueba la coherencia de los resultados antes de determinar cómo proceder. 
 ---
 = Establecer la validación de PQ de la matriz de almacenamiento al reconstruir - SANtricity CLI
 :allow-uri-read: 

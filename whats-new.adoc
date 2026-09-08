@@ -25,6 +25,74 @@ Si actualmente utiliza SANtricity 11.52 o una versión anterior, no podrá actua
 ====
 
 
+[[santricity-12-10]]
+== SANtricity 12.10
+
+La siguiente tabla muestra los cambios en la CLI y los comandos de script para la versión 12.10.
+
+[cols="2*"]
+|===
+| Comando | Descripción del cambio 
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/set-storagearray-host-io-protocol.html["Configura el protocolo de E/S del host de la matriz de almacenamiento"]
+ a| 
+Se añadió la opción  `nvmeTcp` al comando.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/create-raid-volume-automatic-drive-select.html["Crear volumen RAID (selección automática de unidad)"]
+ a| 
+Se ha aumentado el límite de caracteres del parámetro  `userLabel` de 30 a 60 caracteres.
+
+
+NOTE: No se admite la actualización a versiones anteriores de SANtricity 12.10 si el parámetro  `userLabel` supera los 30 caracteres.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/create-raid-volume-free-extent-based-select.html["Crear volumen RAID (selección según extensiones libres)"]
+ a| 
+Se ha aumentado el límite de caracteres del parámetro  `userLabel` de 30 a 60 caracteres.
+
+
+NOTE: No se admite la actualización a versiones anteriores de SANtricity 12.10 si el parámetro  `userLabel` supera los 30 caracteres.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/create-raid-volume-manual-drive-select.html["Crear volumen RAID (selección manual de unidad)"]
+ a| 
+Se ha aumentado el límite de caracteres del parámetro  `userLabel` de 30 a 60 caracteres.
+
+
+NOTE: No se admite la actualización a versiones anteriores de SANtricity 12.10 si el parámetro  `userLabel` supera los 30 caracteres.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/create-volume-diskpool.html["Crear volumen en pool de discos"]
+ a| 
+Se ha aumentado el límite de caracteres del parámetro  `userLabel` de 30 a 60 caracteres.
+
+
+NOTE: No se admite la actualización a versiones anteriores de SANtricity 12.10 si el parámetro  `userLabel` supera los 30 caracteres.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/e-series-cli/commands-a-z/recover-volume.html["Recuperar volumen RAID"]
+ a| 
+Se ha aumentado el límite de caracteres del parámetro  `userLabel` de 30 a 60 caracteres.
+
+
+NOTE: No se admite la actualización a versiones anteriores de SANtricity 12.10 si el parámetro  `userLabel` supera los 30 caracteres.
+
+|===
+
+
 [[santricity-12-00]]
 == SANtricity 12.00
 

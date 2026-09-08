@@ -35,17 +35,17 @@ Para ejecutar este comando en una matriz de almacenamiento E4000, E2800, E5700, 
 Este comando devuelve la información siguiente sobre cada volumen en la cabina de almacenamiento:
 
 * Cabinas de almacenamiento
-* Total de IO/s
+* Total de operaciones de E/S
 * % De lectura
 * % De aciertos en caché de lectura primaria
 * % De aciertos en caché de escritura primaria
 * % De aciertos en caché SSD
 * MB/s actuales
 * MB/s máximos
-* IO/s actuales
-* IO/s máximos
-* IO/s mínimos
-* Promedio de IO/s
+* E/S actuales por segundo
+* Máximo de IOs por segundo
+* Mínimo de IOs/seg
+* Promedio de IOs/seg
 * MB/s mínimos
 * Promedio de MB/s
 * Latencia de IO actual

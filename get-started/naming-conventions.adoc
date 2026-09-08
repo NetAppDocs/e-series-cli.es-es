@@ -13,7 +13,7 @@ summary: Deben respetarse las reglas específicas en los nombres usados en los c
 [role="lead"]
 Deben respetarse las reglas específicas en los nombres usados en los comandos de la CLI.
 
-* Los nombres pueden tener hasta 30 caracteres.
+* Los nombres de volúmenes estándar y thin pueden tener un máximo de 60 caracteres. Todos los demás nombres de componentes pueden tener un máximo de 30 caracteres.
 * Se puede utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres de los siguientes componentes:
 +
 ** Cabinas de almacenamiento

@@ -75,6 +75,9 @@ Este parámetro es obligatorio.
 
 ====
 
+NOTE: El límite de caracteres para los nombres de volúmenes estándar y delgados es de 60 caracteres. El nombre del volumen puede contener cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#).
+
+
 
  a| 
 `freeCapacityArea`
@@ -168,7 +171,7 @@ Este parámetro configura el tamaño de bloque del volumen que se está creando.
 [[notes]]
 == Notas
 
-En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+Puedes utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres; el resto de nombres de componentes pueden tener un máximo de 30 caracteres.
 
 La `owner` el parámetro define qué controladora es propietaria del volumen. La propiedad de controladora preferida de un volumen es la controladora a la que actualmente pertenece el grupo de volúmenes.
 

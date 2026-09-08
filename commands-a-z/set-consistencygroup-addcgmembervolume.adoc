@@ -120,7 +120,7 @@ El tamaño de un volumen de repositorios nuevo en un grupo de volúmenes o un po
 [[notes]]
 == Notas
 
-Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+Para los nombres, puedes utilizar cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#). Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres; el resto de nombres de componentes pueden tener un máximo de 30 caracteres.
 
 Un grupo de coherencia es una recogida de volúmenes base que son los volúmenes de origen de las Snapshot. Los volúmenes base se recogen en un grupo de coherencia para poder realizar las mismas operaciones Snapshot en cada uno de los volúmenes base. En el contexto de este comando, el término _member_ significa un volumen base para operaciones Snapshot. Es posible manipular las imágenes Snapshot asociadas con los miembros de un grupo de coherencia a través de operaciones de tipo "por lote" y mantener la coherencia entre las imágenes Snapshot.
 

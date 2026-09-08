@@ -76,4 +76,4 @@ Los nombres de varios volúmenes para los cuales se borra información de sector
 [[notes]]
 == Notas
 
-En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+Puedes utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres.

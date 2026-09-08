@@ -67,6 +67,11 @@ El ajuste para especificar si las capacidades de aprovisionamiento de recursos e
 Cuando se modifica este valor, solo se aplica a los grupos de volúmenes y pools que se crean en el futuro. No cambia el valor de ningún pool o grupo de volúmenes existente.
 
 ====
+[NOTE]
+====
+No puedes configurar la duplicación en un volumen mientras DULBE está activado. Para usar la duplicación, configura  `resourceProvisionedVolumes` en  `disable`.
+
+====
 |===
 
 

@@ -98,6 +98,9 @@ Nombre del pool de discos en el que se creará el nuevo volumen. El nombre del p
 El nombre que se desea otorgar al nuevo volumen. El nombre del volumen debe escribirse entre comillas dobles (" ").
 
 
+NOTE: El límite de caracteres para los nombres de volúmenes estándar y delgados es de 60 caracteres. El nombre del volumen puede contener cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#).
+
+
 
  a| 
 `capacity`
@@ -220,7 +223,7 @@ Este parámetro configura el tamaño de bloque del volumen que se está creando.
 [[notes]]
 == Notas
 
-Cada nombre de volumen debe ser exclusivo. Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para la etiqueta de usuario. Las etiquetas de usuario pueden tener hasta 30 caracteres.
+El nombre de cada volumen debe ser único. Para la etiqueta de usuario, puedes usar cualquier combinación de caracteres alfanuméricos, guion bajo (_), guion (-) y almohadilla (#). Los nombres de los volúmenes estándar y thin pueden tener un máximo de 60 caracteres.
 
 Para los volúmenes finos, el `capacity` el parámetro especifica la capacidad virtual del volumen y la `repositoryCapacity` parámetro especifica la capacidad del volumen creado como volumen de repositorios. Utilice la `existingRepositoryLabel` parámetro para especificar un volumen de repositorios existente sin usar en lugar de crear un volumen nuevo.
 

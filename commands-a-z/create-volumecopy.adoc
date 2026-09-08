@@ -142,6 +142,6 @@ Debe utilizar el `copyType` con el `repositoryGroupPreference` parámetro.
 [[notes]]
 == Notas
 
-Se puede utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres pueden tener hasta 30 caracteres.
+Puedes utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres.
 
 La prioridad de copia define la cantidad de recursos del sistema que se usarán para copiar los datos entre el volumen de origen y el volumen objetivo de una pareja de copias de volumen. Si se selecciona el nivel de prioridad más alto, la copia de volumen utiliza la mayor cantidad de recursos del sistema para llevar a cabo la copia de volumen, lo cual disminuye el rendimiento para las transferencias de datos del host.

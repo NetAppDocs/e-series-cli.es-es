@@ -34,7 +34,7 @@ Para ejecutar este comando en una matriz de almacenamiento EF50 o EF80, debes te
 
 [source, cli, subs="+macros"]
 ----
-set storageArray hostIoProtocol={"FC" | "ISCSI" | "ISER" | "nvmeIb" | "nvmeFc" | "nvmeRoce" | "SAS" | "SRP"}
+set storageArray hostIoProtocol={"FC" | "ISCSI" | "ISER" | "nvmeIb" | "nvmeFc" | "nvmeRoce" | "nvmeTcp" | "SAS" | "SRP"}
 ----
 
 
@@ -49,7 +49,7 @@ set storageArray hostIoProtocol={"FC" | "ISCSI" | "ISER" | "nvmeIb" | "nvmeFc" |
  a| 
 `set storageArray hostIoProtocol`
  a| 
-Te permite especificar qué protocolo de E/S de host usar para tu matriz de almacenamiento. Las opciones válidas son: FC, ISCSI, ISER, nvmeIb, nvmeFc, nvmeRoce, SAS o SRP.
+Te permite especificar qué protocolo de E/S de host quieres usar para tu array de almacenamiento. Las opciones válidas son: FC, ISCSI, ISER, nvmeIb, nvmeFc, nvmeRoce, nvmeTcp, SAS o SRP.
 
 |===
 

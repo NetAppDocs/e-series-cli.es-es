@@ -2,7 +2,7 @@
 permalink: commands-a-z/show-blockedeventalertlist.html 
 sidebar: sidebar 
 keywords: show, blocked, events 
-summary: El comando show blockedEventAlertList devuelve una lista de eventos actualmente bloqueados por el comando set blockEventAlert. Los eventos de la lista son aquellos que no enviarán ninguna notificación que se haya configurado mediante el uso de terminales y parámetros de alerta; es decir, las notificaciones por correo electrónico, syslog y capturas. 
+summary: El comando show blockedEventAlertList devuelve una lista de eventos que actualmente están bloqueados por el comando set blockEventAlert. Los eventos de esta lista son los eventos que no enviarán ninguna notificación que hayas configurado usando los terminales y parámetros de alerta, es decir, las notificaciones por correo electrónico, syslog y trap. 
 ---
 = Mostrar eventos bloqueados - SANtricity CLI
 :allow-uri-read: 

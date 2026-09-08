@@ -119,6 +119,9 @@ userLabel="engdata"
 volumeWWN=60080E500017B4320000000049887D77
 ----
 
+NOTE: El límite de caracteres para los nombres de volúmenes estándar y delgados es de 60 caracteres. El nombre del volumen puede contener cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#).
+
+
 
  a| 
 `capacity`
@@ -200,7 +203,7 @@ La `drive` el parámetro es compatible con soportes de unidades de alta y baja c
 
 Si se intenta recuperar un volumen mediante el `drive` o el `drives` parámetro y las unidades quedan en estado sin asignar, la controladora crea automáticamente un grupo de volúmenes nuevo. Utilice la `newVolumeGroup` parámetro que permite especificar un nombre para el nuevo grupo de volúmenes.
 
-Puede utilizar cualquier combinación de caracteres alfanuméricos, subrayado (_), guión (-) y almohadilla (#) para los nombres. Los nombres pueden tener hasta 30 caracteres.
+Para los nombres, puedes utilizar cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#). Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres; el resto de nombres de componentes pueden tener un máximo de 30 caracteres.
 
 La `owner` el parámetro define qué controladora es propietaria del volumen. La propiedad de controladora preferida de un volumen es la controladora a la que actualmente pertenece el grupo de volúmenes.
 

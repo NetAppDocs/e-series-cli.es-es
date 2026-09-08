@@ -111,6 +111,9 @@ Este parámetro es obligatorio.
 
 ====
 
+NOTE: El límite de caracteres para los nombres de volúmenes estándar y delgados es de 60 caracteres. El nombre del volumen puede contener cualquier combinación de caracteres alfanuméricos, guión bajo (_), guión (-) y almohadilla (#).
+
+
 
  a| 
 `driveMediaType`
@@ -235,7 +238,7 @@ Este parámetro configura el tamaño de bloque del volumen que se está creando.
 [[notes]]
 == Notas
 
-En los nombres, se puede usar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos. Los nombres pueden tener hasta 30 caracteres.
+Puedes utilizar cualquier combinación de caracteres alfanuméricos, guiones y guiones bajos para los nombres. Los nombres de los volúmenes estándar y delgados pueden tener un máximo de 60 caracteres; el resto de nombres de componentes pueden tener un máximo de 30 caracteres.
 
 La `driveCount` parámetro permite seleccionar la cantidad de unidades que se desea usar en el grupo de volúmenes. No es necesario especificar las unidades por ID de soporte e ID de ranura. Las controladoras eligen las unidades específicas que se usan en el grupo de volúmenes.
 
